@@ -1,0 +1,165 @@
+.site-header {
+  padding: 16px 0 18px;
+  background: var(--color-page);
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 34px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.logo__mark {
+  width: 60px;
+  height: 74px;
+  object-fit: contain;
+}
+
+.logo__text {
+  width: 146px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  min-height: 74px;
+  font-size: 1.125rem;
+  white-space: nowrap;
+}
+
+.main-nav a,
+.footer-nav a,
+.mobile-menu__panel a {
+  color: var(--color-text);
+}
+
+.main-nav a:hover,
+.footer-nav a:hover,
+.mobile-menu__panel a:hover {
+  color: var(--color-primary);
+}
+
+.header-side {
+  display: grid;
+  gap: 9px;
+  justify-items: end;
+  padding-top: 2px;
+}
+
+.header-phones {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.header-phone {
+  color: var(--color-soft);
+  font-size: 0.75rem;
+  line-height: 1.1;
+}
+
+.user-settings {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--color-text);
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.settings-button {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  line-height: 1;
+}
+
+.settings-button:hover {
+  color: var(--color-primary);
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.site-footer {
+  margin-top: 48px;
+  padding: 28px 0 42px;
+  background: var(--color-footer);
+  color: var(--color-muted);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(190px, 1fr)
+    minmax(150px, 0.85fr)
+    minmax(260px, 1.45fr)
+    minmax(130px, 0.75fr)
+    minmax(128px, max-content);
+  gap: clamp(18px, 2.2vw, 32px);
+  align-items: start;
+}
+
+.footer-grid > * {
+  min-width: 0;
+}
+
+.footer-logo {
+  align-self: start;
+}
+
+.footer-block {
+  display: grid;
+  gap: 8px;
+  font-size: 1.125rem;
+}
+
+.footer-block h2 {
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.footer-block--wide {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.footer-block--wide p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.footer-nav,
+.footer-phones {
+  display: grid;
+  gap: 9px;
+  font-size: 0.95rem;
+  min-width: 0;
+}
+
+.footer-phones {
+  justify-self: end;
+  justify-items: start;
+}
+
+.footer-phones a {
+  white-space: nowrap;
+}

@@ -1,0 +1,2476 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "middleName": "Иванович",
+      "email": "ivan@mail.ru",
+      "phone": "+375291234567",
+      "birthDate": "2003-04-15",
+      "login": "ivan_ivanov",
+      "password": "Ivan1234!",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "firstName": "Анна",
+      "lastName": "Петрова",
+      "middleName": "Сергеевна",
+      "email": "anna@mail.ru",
+      "phone": "+375291112233",
+      "birthDate": "2001-09-21",
+      "login": "anna_petrova",
+      "password": "Anna1234!",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "firstName": "Максим",
+      "lastName": "Смирнов",
+      "middleName": "Олегович",
+      "email": "maxim@mail.ru",
+      "phone": "+73519001122",
+      "birthDate": "1998-02-10",
+      "login": "max_smirnov",
+      "password": "Maxim1234!",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "firstName": "Екатерина",
+      "lastName": "Волкова",
+      "middleName": "Андреевна",
+      "email": "katya@mail.ru",
+      "phone": "+73519003344",
+      "birthDate": "2004-07-18",
+      "login": "katya_volkova",
+      "password": "Katya1234!",
+      "role": "user"
+    },
+    {
+      "id": 5,
+      "firstName": "Дмитрий",
+      "lastName": "Кузнецов",
+      "middleName": "Павлович",
+      "email": "dmitry@mail.ru",
+      "phone": "+79227001122",
+      "birthDate": "1995-11-03",
+      "login": "dima_kuz",
+      "password": "Dmitry1234!",
+      "role": "user"
+    },
+    {
+      "id": 6,
+      "firstName": "Мария",
+      "lastName": "Соколова",
+      "middleName": "Игоревна",
+      "email": "maria@mail.ru",
+      "phone": "+79227003344",
+      "birthDate": "2002-05-30",
+      "login": "maria_sokolova",
+      "password": "Maria1234!",
+      "role": "user"
+    },
+    {
+      "id": 7,
+      "firstName": "Алексей",
+      "lastName": "Орлов",
+      "middleName": "Викторович",
+      "email": "alex@mail.ru",
+      "phone": "+73513557788",
+      "birthDate": "1999-01-12",
+      "login": "alex_orlov",
+      "password": "Alex1234!",
+      "role": "user"
+    },
+    {
+      "id": 8,
+      "firstName": "Ольга",
+      "lastName": "Морозова",
+      "middleName": "Николаевна",
+      "email": "olga@mail.ru",
+      "phone": "+73513559900",
+      "birthDate": "1997-10-25",
+      "login": "olga_morozova",
+      "password": "Olga1234!",
+      "role": "user"
+    },
+    {
+      "id": 9,
+      "firstName": "Никита",
+      "lastName": "Федоров",
+      "middleName": "Артемович",
+      "email": "nikita@mail.ru",
+      "phone": "+79229998877",
+      "birthDate": "2000-12-08",
+      "login": "nikita_fedorov",
+      "password": "Nikita1234!",
+      "role": "user"
+    },
+    {
+      "id": 10,
+      "firstName": "Администратор",
+      "lastName": "Евразия",
+      "middleName": "Сайтович",
+      "email": "admin@eurasia.ru",
+      "phone": "+73513790979",
+      "birthDate": "1990-06-01",
+      "login": "admin_eurasia",
+      "password": "Admin1234!",
+      "role": "admin"
+    }
+  ],
+  "hotels": [
+    {
+      "id": 1,
+      "title": "Корпус \"Город\"",
+      "description": "Корпус для гостей, которые предпочитают размещение в городе рядом с инфраструктурой.",
+      "distance": "10 минут на автобусе или автомобиле",
+      "address": "г. Куса, центральная часть города",
+      "features": [
+        "Wi-Fi",
+        "парковка",
+        "общая кухня",
+        "трансфер до комплекса"
+      ],
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "title": "Корпус \"Горный\"",
+      "description": "Корпус рядом с основными склонами и прокатом для гостей, которые хотят жить ближе к трассам.",
+      "distance": "5 минут пешком до подъемника",
+      "address": "территория ЦАО Евразия, горная зона",
+      "features": [
+        "Wi-Fi",
+        "парковка",
+        "кафе рядом",
+        "сушилка для экипировки"
+      ],
+      "isAvailable": true
+    },
+    {
+      "id": 3,
+      "title": "Корпус \"Лесной\"",
+      "description": "Тихое размещение рядом с лесом для семейного отдыха и спокойных поездок на выходные.",
+      "distance": "7 минут пешком до учебного склона",
+      "address": "территория ЦАО Евразия, лесная зона",
+      "features": [
+        "Wi-Fi",
+        "мангальная зона",
+        "парковка",
+        "семейные номера"
+      ],
+      "isAvailable": true
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "hotelId": 1,
+      "roomNumber": "12",
+      "title": "Стандартный номер",
+      "roomType": "standard",
+      "capacity": 2,
+      "pricePerNight": 15000,
+      "description": "Номер для двух гостей с отдельными кроватями.",
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "hotelId": 1,
+      "roomNumber": "18",
+      "title": "Номер комфорт",
+      "roomType": "comfort",
+      "capacity": 2,
+      "pricePerNight": 18000,
+      "description": "Уютный номер с рабочей зоной и местом для хранения экипировки.",
+      "isAvailable": true
+    },
+    {
+      "id": 3,
+      "hotelId": 1,
+      "roomNumber": "24",
+      "title": "Семейный номер",
+      "roomType": "family",
+      "capacity": 4,
+      "pricePerNight": 24000,
+      "description": "Просторный номер для семьи или компании до четырех гостей.",
+      "isAvailable": true
+    },
+    {
+      "id": 4,
+      "hotelId": 2,
+      "roomNumber": "G-1",
+      "title": "Стандарт у склона",
+      "roomType": "standard",
+      "capacity": 2,
+      "pricePerNight": 17000,
+      "description": "Номер рядом с подъемником и пунктом проката.",
+      "isAvailable": true
+    },
+    {
+      "id": 5,
+      "hotelId": 2,
+      "roomNumber": "G-5",
+      "title": "Комфорт с видом на склон",
+      "roomType": "comfort",
+      "capacity": 3,
+      "pricePerNight": 22000,
+      "description": "Номер повышенной комфортности с видом на горную зону.",
+      "isAvailable": true
+    },
+    {
+      "id": 6,
+      "hotelId": 2,
+      "roomNumber": "G-9",
+      "title": "Семейный горный номер",
+      "roomType": "family",
+      "capacity": 5,
+      "pricePerNight": 29000,
+      "description": "Большой номер для семейного отдыха рядом с трассами.",
+      "isAvailable": true
+    },
+    {
+      "id": 7,
+      "hotelId": 3,
+      "roomNumber": "L-2",
+      "title": "Лесной стандарт",
+      "roomType": "standard",
+      "capacity": 2,
+      "pricePerNight": 16000,
+      "description": "Спокойный номер в лесной зоне комплекса.",
+      "isAvailable": true
+    },
+    {
+      "id": 8,
+      "hotelId": 3,
+      "roomNumber": "L-6",
+      "title": "Семейный лесной номер",
+      "roomType": "family",
+      "capacity": 4,
+      "pricePerNight": 26000,
+      "description": "Номер для семьи рядом с прогулочными маршрутами.",
+      "isAvailable": true
+    },
+    {
+      "id": 9,
+      "hotelId": 3,
+      "roomNumber": "Дом-1",
+      "title": "Отдельный домик",
+      "roomType": "house",
+      "capacity": 6,
+      "pricePerNight": 36000,
+      "description": "Отдельное размещение для большой компании с зоной отдыха.",
+      "isAvailable": true
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 1,
+      "checkIn": "2026-12-10",
+      "checkOut": "2026-12-15",
+      "guests": 2,
+      "totalPrice": 75000,
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "createdAt": "2026-11-20"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "hotelId": 2,
+      "roomId": 5,
+      "checkIn": "2025-12-12",
+      "checkOut": "2025-12-15",
+      "guests": 2,
+      "totalPrice": 66000,
+      "status": "completed",
+      "paymentStatus": "paid",
+      "createdAt": "2025-11-30"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "hotelId": 3,
+      "roomId": 8,
+      "checkIn": "2026-12-28",
+      "checkOut": "2027-01-03",
+      "guests": 4,
+      "totalPrice": 156000,
+      "status": "confirmed",
+      "paymentStatus": "pending",
+      "createdAt": "2026-11-25"
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "hotelId": 2,
+      "roomId": 4,
+      "checkIn": "2026-01-10",
+      "checkOut": "2026-01-12",
+      "guests": 2,
+      "totalPrice": 34000,
+      "status": "completed",
+      "paymentStatus": "paid",
+      "createdAt": "2025-12-20"
+    },
+    {
+      "id": 5,
+      "userId": 4,
+      "hotelId": 1,
+      "roomId": 3,
+      "checkIn": "2026-07-18",
+      "checkOut": "2026-07-20",
+      "guests": 4,
+      "totalPrice": 48000,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "createdAt": "2026-06-28"
+    },
+    {
+      "id": 6,
+      "userId": 5,
+      "hotelId": 3,
+      "roomId": 9,
+      "checkIn": "2027-01-05",
+      "checkOut": "2027-01-09",
+      "guests": 6,
+      "totalPrice": 144000,
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "createdAt": "2026-12-01"
+    },
+    {
+      "id": 7,
+      "userId": 6,
+      "hotelId": 1,
+      "roomId": 2,
+      "checkIn": "2026-02-15",
+      "checkOut": "2026-02-18",
+      "guests": 2,
+      "totalPrice": 54000,
+      "status": "completed",
+      "paymentStatus": "paid",
+      "createdAt": "2026-01-25"
+    },
+    {
+      "id": 8,
+      "userId": 7,
+      "hotelId": 2,
+      "roomId": 6,
+      "checkIn": "2026-12-20",
+      "checkOut": "2026-12-24",
+      "guests": 5,
+      "totalPrice": 116000,
+      "status": "confirmed",
+      "paymentStatus": "pending",
+      "createdAt": "2026-11-28"
+    }
+  ],
+  "tariffs": [
+    {
+      "id": 1,
+      "title": "Комплект",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "(горные лыжи, сноуборд, ботинки, палки)",
+      "minPrice": 250,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 250,
+            "2hours": 350,
+            "3hours": 400,
+            "4hours": 450,
+            "day": 500
+          },
+          "adult": {
+            "1hour": 500,
+            "2hours": 600,
+            "3hours": 700,
+            "4hours": 800,
+            "day": 1000
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 400,
+            "2hours": 450,
+            "3hours": 500,
+            "4hours": 550,
+            "day": 600
+          },
+          "adult": {
+            "1hour": 700,
+            "2hours": 800,
+            "3hours": 900,
+            "4hours": 1000,
+            "day": 1200
+          },
+          "evening": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": 1500,
+            "4hours": 1800,
+            "day": null
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 500,
+            "2hours": 600,
+            "3hours": 700,
+            "4hours": 800,
+            "day": 900
+          },
+          "adult": {
+            "1hour": 900,
+            "2hours": 1000,
+            "3hours": 1200,
+            "4hours": 1300,
+            "day": 1500
+          },
+          "evening": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": 1700,
+            "4hours": 2000,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "Комплект при занятии с инструктором",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "(горные лыжи, сноуборд, ботинки, палки) при занятии с инструктором",
+      "minPrice": 200,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 200,
+            "2hours": 350,
+            "3hours": 400,
+            "4hours": 450,
+            "day": 500
+          },
+          "adult": {
+            "1hour": 300,
+            "2hours": 600,
+            "3hours": 700,
+            "4hours": 800,
+            "day": 1000
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 300,
+            "2hours": 450,
+            "3hours": 500,
+            "4hours": 550,
+            "day": 600
+          },
+          "adult": {
+            "1hour": 500,
+            "2hours": 800,
+            "3hours": 900,
+            "4hours": 1000,
+            "day": 1200
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 300,
+            "2hours": 350,
+            "3hours": 700,
+            "4hours": 750,
+            "day": 600
+          },
+          "adult": {
+            "1hour": 500,
+            "2hours": 600,
+            "3hours": 700,
+            "4hours": 1000,
+            "day": 1200
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "Горные лыжи / сноуборд",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат горных лыж или сноуборда без ботинок и палок.",
+      "minPrice": 150,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 150,
+            "2hours": 200,
+            "3hours": 225,
+            "4hours": 250,
+            "day": 275
+          },
+          "adult": {
+            "1hour": 300,
+            "2hours": 350,
+            "3hours": 400,
+            "4hours": 450,
+            "day": 600
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 250,
+            "2hours": 275,
+            "3hours": 300,
+            "4hours": 325,
+            "day": 350
+          },
+          "adult": {
+            "1hour": 400,
+            "2hours": 450,
+            "3hours": 500,
+            "4hours": 550,
+            "day": 650
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 250,
+            "2hours": 275,
+            "3hours": 300,
+            "4hours": 325,
+            "day": 350
+          },
+          "adult": {
+            "1hour": 400,
+            "2hours": 450,
+            "3hours": 500,
+            "4hours": 550,
+            "day": 650
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "title": "Сноуборд",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат сноуборда без ботинок.",
+      "minPrice": 200,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 200,
+            "2hours": 280,
+            "3hours": 340,
+            "4hours": 400,
+            "day": 480
+          },
+          "adult": {
+            "1hour": 380,
+            "2hours": 480,
+            "3hours": 580,
+            "4hours": 700,
+            "day": 850
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 300,
+            "2hours": 360,
+            "3hours": 430,
+            "4hours": 500,
+            "day": 560
+          },
+          "adult": {
+            "1hour": 550,
+            "2hours": 650,
+            "3hours": 760,
+            "4hours": 860,
+            "day": 1000
+          },
+          "evening": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": 1250,
+            "4hours": 1500,
+            "day": null
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 380,
+            "2hours": 480,
+            "3hours": 580,
+            "4hours": 680,
+            "day": 780
+          },
+          "adult": {
+            "1hour": 750,
+            "2hours": 850,
+            "3hours": 950,
+            "4hours": 1100,
+            "day": 1300
+          },
+          "evening": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": 1550,
+            "4hours": 1800,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "title": "Ботинки",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат горнолыжных или сноубордических ботинок.",
+      "minPrice": 100,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 100,
+            "2hours": 150,
+            "3hours": 175,
+            "4hours": 200,
+            "day": 225
+          },
+          "adult": {
+            "1hour": 200,
+            "2hours": 250,
+            "3hours": 300,
+            "4hours": 350,
+            "day": 400
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 150,
+            "2hours": 175,
+            "3hours": 200,
+            "4hours": 225,
+            "day": 250
+          },
+          "adult": {
+            "1hour": 300,
+            "2hours": 350,
+            "3hours": 400,
+            "4hours": 450,
+            "day": 550
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 150,
+            "2hours": 175,
+            "3hours": 200,
+            "4hours": 225,
+            "day": 250
+          },
+          "adult": {
+            "1hour": 300,
+            "2hours": 350,
+            "3hours": 400,
+            "4hours": 450,
+            "day": 550
+          }
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "Ботинки сноубордические",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат ботинок для сноуборда.",
+      "minPrice": 150,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 150,
+            "2hours": 200,
+            "3hours": 250,
+            "4hours": 300,
+            "day": 350
+          },
+          "adult": {
+            "1hour": 260,
+            "2hours": 330,
+            "3hours": 400,
+            "4hours": 470,
+            "day": 560
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 220,
+            "2hours": 280,
+            "3hours": 330,
+            "4hours": 390,
+            "day": 450
+          },
+          "adult": {
+            "1hour": 360,
+            "2hours": 440,
+            "3hours": 520,
+            "4hours": 600,
+            "day": 720
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 300,
+            "2hours": 370,
+            "3hours": 440,
+            "4hours": 510,
+            "day": 580
+          },
+          "adult": {
+            "1hour": 520,
+            "2hours": 600,
+            "3hours": 690,
+            "4hours": 780,
+            "day": 920
+          }
+        }
+      }
+    },
+    {
+      "id": 7,
+      "title": "Лыжные палки",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат лыжных палок.",
+      "minPrice": 30,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 30,
+            "2hours": 45,
+            "3hours": 60,
+            "4hours": 75,
+            "day": 90
+          },
+          "adult": {
+            "1hour": 50,
+            "2hours": 75,
+            "3hours": 100,
+            "4hours": 125,
+            "day": 150
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 40,
+            "2hours": 60,
+            "3hours": 80,
+            "4hours": 100,
+            "day": 120
+          },
+          "adult": {
+            "1hour": 60,
+            "2hours": 90,
+            "3hours": 120,
+            "4hours": 150,
+            "day": 180
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 40,
+            "2hours": 60,
+            "3hours": 80,
+            "4hours": 100,
+            "day": 120
+          },
+          "adult": {
+            "1hour": 60,
+            "2hours": 90,
+            "3hours": 120,
+            "4hours": 150,
+            "day": 180
+          }
+        }
+      }
+    },
+    {
+      "id": 8,
+      "title": "Защитный шлем",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат защитного шлема.",
+      "minPrice": 30,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 30,
+            "2hours": 45,
+            "3hours": 60,
+            "4hours": 75,
+            "day": 90
+          },
+          "adult": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 40,
+            "2hours": 60,
+            "3hours": 80,
+            "4hours": 100,
+            "day": 120
+          },
+          "adult": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 40,
+            "2hours": 60,
+            "3hours": 80,
+            "4hours": 100,
+            "day": 120
+          },
+          "adult": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "title": "Защитная маска",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат защитной маски.",
+      "minPrice": 50,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 50,
+            "2hours": 75,
+            "3hours": 100,
+            "4hours": 125,
+            "day": 150
+          },
+          "adult": {
+            "1hour": 50,
+            "2hours": 75,
+            "3hours": 100,
+            "4hours": 125,
+            "day": 150
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 60,
+            "2hours": 90,
+            "3hours": 120,
+            "4hours": 150,
+            "day": 180
+          },
+          "adult": {
+            "1hour": 60,
+            "2hours": 90,
+            "3hours": 120,
+            "4hours": 150,
+            "day": 180
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 60,
+            "2hours": 90,
+            "3hours": 120,
+            "4hours": 150,
+            "day": 180
+          },
+          "adult": {
+            "1hour": 60,
+            "2hours": 90,
+            "3hours": 120,
+            "4hours": 150,
+            "day": 180
+          }
+        }
+      }
+    },
+    {
+      "id": 10,
+      "title": "Защита спины",
+      "category": "rental",
+      "categoryTitle": "Прокат",
+      "description": "Прокат защитного жилета для уверенного катания.",
+      "minPrice": 180,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 180,
+            "2hours": 240,
+            "3hours": 300,
+            "4hours": 360,
+            "day": 450
+          },
+          "adult": {
+            "1hour": 250,
+            "2hours": 330,
+            "3hours": 420,
+            "4hours": 500,
+            "day": 620
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 240,
+            "2hours": 310,
+            "3hours": 380,
+            "4hours": 460,
+            "day": 540
+          },
+          "adult": {
+            "1hour": 330,
+            "2hours": 430,
+            "3hours": 540,
+            "4hours": 640,
+            "day": 780
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 300,
+            "2hours": 390,
+            "3hours": 480,
+            "4hours": 570,
+            "day": 660
+          },
+          "adult": {
+            "1hour": 420,
+            "2hours": 540,
+            "3hours": 660,
+            "4hours": 780,
+            "day": 950
+          }
+        }
+      }
+    },
+    {
+      "id": 11,
+      "title": "Ски-пасс на 1 час",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Подъемы на трассах комплекса в течение одного часа.",
+      "minPrice": 300,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 300,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 450,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 600,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 12,
+      "title": "Ски-пасс на 2 часа",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Подъемы на трассах комплекса в течение двух часов.",
+      "minPrice": 500,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": null,
+            "2hours": 500,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": null,
+            "2hours": 700,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": null,
+            "2hours": 900,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 13,
+      "title": "Ски-пасс на 3 часа",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Подъемы на трассах комплекса в течение трех часов.",
+      "minPrice": 700,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": 700,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": 950,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": 1200,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 14,
+      "title": "Ски-пасс на 4 часа",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Подъемы на трассах комплекса в течение четырех часов.",
+      "minPrice": 850,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": 850,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": 1150,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": 1400,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 15,
+      "title": "Ски-пасс на день",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Дневной доступ к подъемникам комплекса.",
+      "minPrice": 1200,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": 1200
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": 1700
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": null,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": 2200
+          }
+        }
+      }
+    },
+    {
+      "id": 16,
+      "title": "Вечерний ски-пасс",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Доступ к освещенным трассам в вечерний блок.",
+      "minPrice": 900,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "evening": {
+            "1hour": null,
+            "2hours": 900,
+            "3hours": 1100,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "evening": {
+            "1hour": null,
+            "2hours": 1200,
+            "3hours": 1500,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "evening": {
+            "1hour": null,
+            "2hours": 1500,
+            "3hours": 1800,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 17,
+      "title": "Детский ски-пасс",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Льготный ски-пасс для детей до 14 лет.",
+      "minPrice": 250,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 250,
+            "2hours": 400,
+            "3hours": 550,
+            "4hours": 700,
+            "day": 900
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 350,
+            "2hours": 550,
+            "3hours": 750,
+            "4hours": 950,
+            "day": 1200
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 450,
+            "2hours": 700,
+            "3hours": 950,
+            "4hours": 1200,
+            "day": 1500
+          }
+        }
+      }
+    },
+    {
+      "id": 18,
+      "title": "Семейный ски-пасс",
+      "category": "skipass",
+      "categoryTitle": "Ски-пасс",
+      "description": "Ски-пасс для семьи из двух взрослых и одного ребенка.",
+      "minPrice": 2200,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": null,
+            "2hours": 2200,
+            "3hours": 2800,
+            "4hours": 3300,
+            "day": 4200
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": null,
+            "2hours": 3000,
+            "3hours": 3700,
+            "4hours": 4500,
+            "day": 5600
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": null,
+            "2hours": 3800,
+            "3hours": 4700,
+            "4hours": 5600,
+            "day": 6900
+          }
+        }
+      }
+    },
+    {
+      "id": 19,
+      "title": "Индивидуальное занятие с инструктором",
+      "category": "instructor",
+      "categoryTitle": "Инструктор",
+      "description": "Персональное занятие по горным лыжам или сноуборду.",
+      "minPrice": 1800,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 1800,
+            "2hours": 3200,
+            "3hours": 4500,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 2200,
+            "2hours": 3900,
+            "3hours": 5400,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 2600,
+            "2hours": 4600,
+            "3hours": 6300,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 20,
+      "title": "Групповое занятие с инструктором",
+      "category": "instructor",
+      "categoryTitle": "Инструктор",
+      "description": "Занятие в группе до 6 человек.",
+      "minPrice": 900,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 900,
+            "2hours": 1600,
+            "3hours": 2200,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 1200,
+            "2hours": 2100,
+            "3hours": 2900,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 1500,
+            "2hours": 2600,
+            "3hours": 3600,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 21,
+      "title": "Детское занятие с инструктором",
+      "category": "instructor",
+      "categoryTitle": "Инструктор",
+      "description": "Обучение детей базовой технике катания.",
+      "minPrice": 1500,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 1500,
+            "2hours": 2700,
+            "3hours": 3800,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 1900,
+            "2hours": 3300,
+            "3hours": 4600,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 2300,
+            "2hours": 4000,
+            "3hours": 5500,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 22,
+      "title": "Первый старт",
+      "category": "instructor",
+      "categoryTitle": "Инструктор",
+      "description": "Короткое вводное занятие для новичков.",
+      "minPrice": 1000,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 1000,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 1300,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 1600,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 23,
+      "title": "Инструктор для семьи",
+      "category": "instructor",
+      "categoryTitle": "Инструктор",
+      "description": "Занятие для семьи до четырех человек.",
+      "minPrice": 3500,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 3500,
+            "2hours": 6200,
+            "3hours": 8600,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 4200,
+            "2hours": 7600,
+            "3hours": 10200,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 5000,
+            "2hours": 9000,
+            "3hours": 12200,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 24,
+      "title": "Разбор техники с инструктором",
+      "category": "instructor",
+      "categoryTitle": "Инструктор",
+      "description": "Занятие для гостей, которые хотят улучшить технику катания.",
+      "minPrice": 2000,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 2000,
+            "2hours": 3600,
+            "3hours": 5000,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 2400,
+            "2hours": 4300,
+            "3hours": 6000,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 2900,
+            "2hours": 5200,
+            "3hours": 7200,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 25,
+      "title": "Ватрушка (тюбинг)",
+      "category": "tubing",
+      "categoryTitle": "Тюбинг",
+      "description": "Прокат ватрушки для тюбинга.",
+      "minPrice": 100,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 100,
+            "2hours": 150,
+            "3hours": 200,
+            "4hours": null,
+            "day": 300
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 150,
+            "2hours": 200,
+            "3hours": 300,
+            "4hours": null,
+            "day": 450
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 200,
+            "2hours": 300,
+            "3hours": 400,
+            "4hours": null,
+            "day": 600
+          }
+        }
+      }
+    },
+    {
+      "id": 26,
+      "title": "Тюбинг 1 час",
+      "category": "tubing",
+      "categoryTitle": "Тюбинг",
+      "description": "Катание на тюбинговой горке в течение одного часа.",
+      "minPrice": 300,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 300,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 450,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 550,
+            "2hours": null,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 27,
+      "title": "Тюбинг 2 часа",
+      "category": "tubing",
+      "categoryTitle": "Тюбинг",
+      "description": "Катание на тюбинговой горке в течение двух часов.",
+      "minPrice": 500,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": null,
+            "2hours": 500,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": null,
+            "2hours": 750,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": null,
+            "2hours": 950,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 28,
+      "title": "Семейный тюбинг",
+      "category": "tubing",
+      "categoryTitle": "Тюбинг",
+      "description": "Комплект из четырех билетов на тюбинговую горку.",
+      "minPrice": 1000,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "all": {
+            "1hour": 1000,
+            "2hours": 1700,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "all": {
+            "1hour": 1500,
+            "2hours": 2400,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "all": {
+            "1hour": 1900,
+            "2hours": 3000,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 29,
+      "title": "Детский тюбинг",
+      "category": "tubing",
+      "categoryTitle": "Тюбинг",
+      "description": "Билет на тюбинговую горку для ребенка до 14 лет.",
+      "minPrice": 200,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "child": {
+            "1hour": 200,
+            "2hours": 350,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "child": {
+            "1hour": 300,
+            "2hours": 500,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "child": {
+            "1hour": 400,
+            "2hours": 650,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    },
+    {
+      "id": 30,
+      "title": "Тюбинг вечерний блок",
+      "category": "tubing",
+      "categoryTitle": "Тюбинг",
+      "description": "Вечернее катание на тюбинговой горке.",
+      "minPrice": 600,
+      "isAvailable": true,
+      "prices": {
+        "weekday": {
+          "evening": {
+            "1hour": 600,
+            "2hours": 900,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "weekend": {
+          "evening": {
+            "1hour": 800,
+            "2hours": 1200,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        },
+        "holiday": {
+          "evening": {
+            "1hour": 1000,
+            "2hours": 1500,
+            "3hours": null,
+            "4hours": null,
+            "day": null
+          }
+        }
+      }
+    }
+  ],
+  "workSchedule": [
+    {
+      "id": 1,
+      "day": "Понедельник",
+      "dayType": "weekday",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 18.00",
+      "trainingSlope": "09.00 - 18.00",
+      "rentalService": "10.00 - 17.00"
+    },
+    {
+      "id": 2,
+      "day": "Вторник",
+      "dayType": "weekday",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 18.00",
+      "trainingSlope": "09.00 - 18.00",
+      "rentalService": "09.00 - 18.00"
+    },
+    {
+      "id": 3,
+      "day": "Среда",
+      "dayType": "weekday",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 18.00",
+      "trainingSlope": "09.00 - 18.00",
+      "rentalService": "09.00 - 18.00"
+    },
+    {
+      "id": 4,
+      "day": "Четверг",
+      "dayType": "weekday",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 18.00",
+      "trainingSlope": "09.00 - 18.00",
+      "rentalService": "09.00 - 18.00"
+    },
+    {
+      "id": 5,
+      "day": "Пятница",
+      "dayType": "weekday",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 20.00",
+      "trainingSlope": "09.00 - 18.00",
+      "rentalService": "09.00 - 18.00"
+    },
+    {
+      "id": 6,
+      "day": "Суббота",
+      "dayType": "weekend",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 21.00",
+      "trainingSlope": "09.00 - 21.00",
+      "rentalService": "10.00 - 20.00"
+    },
+    {
+      "id": 7,
+      "day": "Воскресенье",
+      "dayType": "weekend",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 18.00",
+      "trainingSlope": "09.00 - 18.00",
+      "rentalService": "10.00 - 17.00"
+    },
+    {
+      "id": 8,
+      "day": "Праздничные дни",
+      "dayType": "holiday",
+      "trailsWithoutLight": "09.00 - 18.00",
+      "trailsWithLight": "09.00 - 21.00",
+      "trainingSlope": "09.00 - 21.00",
+      "rentalService": "10.00 - 20.00"
+    }
+  ],
+  "trails": [
+    {
+      "id": 1,
+      "title": "Трасса 1А",
+      "level": "beginner",
+      "levelTitle": "Для новичков",
+      "length": 1650,
+      "description": "Трасса подходит для начинающих гостей курорта.",
+      "isOpen": true
+    },
+    {
+      "id": 2,
+      "title": "Учебный склон",
+      "level": "beginner",
+      "levelTitle": "Для новичков",
+      "length": 350,
+      "description": "Короткий склон для первых занятий с инструктором.",
+      "isOpen": true
+    },
+    {
+      "id": 3,
+      "title": "Трасса 2",
+      "level": "middle",
+      "levelTitle": "Средний уровень",
+      "length": 1200,
+      "description": "Трасса для гостей с базовым опытом катания.",
+      "isOpen": true
+    },
+    {
+      "id": 4,
+      "title": "Трасса 3",
+      "level": "middle",
+      "levelTitle": "Средний уровень",
+      "length": 980,
+      "description": "Динамичная трасса с плавными поворотами.",
+      "isOpen": true
+    },
+    {
+      "id": 5,
+      "title": "Спортивная трасса",
+      "level": "hard",
+      "levelTitle": "Сложная трасса",
+      "length": 850,
+      "description": "Сложный участок для уверенных райдеров.",
+      "isOpen": false
+    },
+    {
+      "id": 6,
+      "title": "Фрирайд-зона",
+      "level": "freeride",
+      "levelTitle": "Фрирайд",
+      "length": 700,
+      "description": "Зона для свободного катания вне подготовленной трассы.",
+      "isOpen": false
+    },
+    {
+      "id": 7,
+      "title": "Пешая тропа к смотровой",
+      "level": "walking",
+      "levelTitle": "Пеший маршрут",
+      "length": 2400,
+      "description": "Маршрут для прогулок и зимних фотопрогулок.",
+      "isOpen": true
+    },
+    {
+      "id": 8,
+      "title": "Тюбинговая горка",
+      "level": "tubing",
+      "levelTitle": "Тюбинг",
+      "length": 180,
+      "description": "Отдельная горка для катания на ватрушках.",
+      "isOpen": true
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "title": "30 декабря в ЦАО \"Евразия\" состоится тестовое открытие 2 склона",
+      "date": "2026-12-01",
+      "category": "announcement",
+      "shortText": "К новогодним праздникам подготовлены большие склоны, учебная трасса и тюбинговая горка.",
+      "fullText": "30 декабря в центре активного отдыха Евразия состоится тестовое открытие второго склона. Для гостей будут доступны подготовленные трассы, прокат и тюбинговая зона.",
+      "image": "assets/images/home/hero-snowboard.jpg",
+      "isActive": true,
+      "showOnHome": true
+    },
+    {
+      "id": 2,
+      "title": "Состоялось первенство России по сноуборду в дисциплине Big-Air",
+      "date": "2026-04-20",
+      "category": "event",
+      "shortText": "На территории комплекса прошли спортивные старты для сноубордистов.",
+      "fullText": "В ЦАО Евразия состоялось первенство России по сноуборду в дисциплине Big-Air. Гости увидели яркие выступления спортсменов и работу обновленной спортивной зоны.",
+      "image": "assets/images/home/news-big-air.jpg",
+      "isActive": true,
+      "showOnHome": true
+    },
+    {
+      "id": 3,
+      "title": "Всероссийские соревнования по сноуборду в городе Куса",
+      "date": "2026-04-12",
+      "category": "event",
+      "shortText": "Главные события сезона и новости горнолыжного центра.",
+      "fullText": "В городе Куса прошли всероссийские соревнования по сноуборду. Центр Евразия выступил площадкой для тренировок и встреч участников.",
+      "image": "assets/images/home/news-kusa.jpg",
+      "isActive": true,
+      "showOnHome": true
+    },
+    {
+      "id": 4,
+      "title": "Открыта новая учебная трасса",
+      "date": "2026-03-28",
+      "category": "news",
+      "shortText": "Учебная трасса стала удобнее для первых занятий и детских групп.",
+      "fullText": "В комплексе открыта обновленная учебная трасса. На ней будут проходить индивидуальные и групповые занятия с инструкторами.",
+      "image": "assets/images/home/intro-lift.jpg",
+      "isActive": true,
+      "showOnHome": true
+    },
+    {
+      "id": 5,
+      "title": "Прокат пополнился детскими комплектами",
+      "date": "2026-02-18",
+      "category": "news",
+      "shortText": "В пункте проката появились новые комплекты для детей.",
+      "fullText": "Пункт проката ЦАО Евразия пополнился детскими лыжами, ботинками и защитными шлемами. Новое снаряжение доступно в будние и выходные дни.",
+      "image": "assets/images/home/hero-snowboard.jpg",
+      "isActive": true,
+      "showOnHome": false
+    },
+    {
+      "id": 6,
+      "title": "График работы в праздничные дни",
+      "date": "2026-01-05",
+      "category": "announcement",
+      "shortText": "Трассы, прокат и учебный склон работают по праздничному расписанию.",
+      "fullText": "В праздничные дни трассы с освещением, учебный склон и пункт проката работают по расширенному графику. Актуальные часы доступны в разделе услуг и тарифов.",
+      "image": "assets/images/home/new-year-program.jpg",
+      "isActive": true,
+      "showOnHome": false
+    },
+    {
+      "id": 7,
+      "title": "Запущены пешие зимние маршруты",
+      "date": "2025-12-24",
+      "category": "news",
+      "shortText": "Для гостей открыты прогулочные маршруты по лесной зоне.",
+      "fullText": "На территории ЦАО Евразия открыты пешие зимние маршруты. Гости могут прогуляться до смотровой площадки и вернуться к центральной зоне комплекса.",
+      "image": "assets/images/home/bbq-area.jpg",
+      "isActive": true,
+      "showOnHome": false
+    },
+    {
+      "id": 8,
+      "title": "Неделя безопасности на склонах",
+      "date": "2025-12-15",
+      "category": "event",
+      "shortText": "Инструкторы проведут вводные занятия по безопасному катанию.",
+      "fullText": "В рамках недели безопасности инструкторы центра проведут открытые занятия и расскажут гостям о правилах поведения на трассах.",
+      "image": "assets/images/home/news-kusa.jpg",
+      "isActive": true,
+      "showOnHome": false
+    },
+    {
+      "id": 9,
+      "title": "Обновление зоны отдыха у лесного корпуса",
+      "date": "2025-11-30",
+      "category": "news",
+      "shortText": "Рядом с корпусом Лесной обновлены места отдыха для гостей.",
+      "fullText": "В лесной зоне комплекса обновлены места отдыха, лавочки и навигация для гостей, которые выбирают спокойное размещение.",
+      "image": "assets/images/home/bbq-area.jpg",
+      "isActive": true,
+      "showOnHome": false
+    },
+    {
+      "id": 10,
+      "title": "Подготовка трасс к зимнему сезону",
+      "date": "2025-11-10",
+      "category": "announcement",
+      "shortText": "Службы комплекса проводят подготовку трасс и оборудования.",
+      "fullText": "Перед зимним сезоном специалисты ЦАО Евразия проводят подготовку трасс, проверку подъемников и обновление пунктов проката.",
+      "image": "assets/images/home/intro-lift.jpg",
+      "isActive": true,
+      "showOnHome": false
+    }
+  ],
+  "promotions": [
+    {
+      "id": 1,
+      "title": "Снежные будни",
+      "type": "promotion",
+      "description": "Специальная цена на прокат и подъемник в будние дни.",
+      "periodType": "weekdays",
+      "periodText": "Будние дни",
+      "startDay": null,
+      "endDay": null,
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday"
+      ],
+      "durationDays": null,
+      "price": 1400,
+      "oldPrice": 1800,
+      "validFrom": "2025-12-01",
+      "validTo": "2026-03-31",
+      "image": "assets/images/home/hero-snowboard.jpg",
+      "isActive": true,
+      "showOnHome": true,
+      "canAddToCart": true
+    },
+    {
+      "id": 2,
+      "title": "Неделя в горах",
+      "type": "tour",
+      "description": "Горнолыжный тур на неделю с проживанием и прокатом.",
+      "periodType": "dayRange",
+      "periodText": "С воскресенья по субботу",
+      "startDay": "sunday",
+      "endDay": "saturday",
+      "availableDays": [
+        "sunday",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday"
+      ],
+      "durationDays": 7,
+      "price": 25000,
+      "oldPrice": 30000,
+      "validFrom": "2025-12-01",
+      "validTo": "2026-03-31",
+      "image": "assets/images/home/intro-lift.jpg",
+      "isActive": true,
+      "showOnHome": true,
+      "canAddToCart": true
+    },
+    {
+      "id": 3,
+      "title": "Новогодняя программа",
+      "type": "promotion",
+      "description": "Праздничные активности на территории центра активного отдыха Евразия.",
+      "periodType": "dateRange",
+      "periodText": "31 декабря - 8 января",
+      "startDay": null,
+      "endDay": null,
+      "availableDays": [],
+      "durationDays": null,
+      "price": 2200,
+      "oldPrice": 2800,
+      "validFrom": "2025-12-31",
+      "validTo": "2026-01-08",
+      "image": "assets/images/home/new-year-program.jpg",
+      "isActive": true,
+      "showOnHome": true,
+      "canAddToCart": true
+    },
+    {
+      "id": 4,
+      "title": "BBQ площадки",
+      "type": "promotion",
+      "description": "Зоны отдыха для компаний и семейных поездок рядом с зимними маршрутами центра.",
+      "periodType": "any",
+      "periodText": "Каждый день сезона",
+      "startDay": null,
+      "endDay": null,
+      "availableDays": [],
+      "durationDays": null,
+      "price": 3500,
+      "oldPrice": null,
+      "validFrom": "2025-12-01",
+      "validTo": "2026-03-31",
+      "image": "assets/images/home/bbq-area.jpg",
+      "isActive": true,
+      "showOnHome": true,
+      "canAddToCart": true
+    },
+    {
+      "id": 5,
+      "title": "Семейные выходные",
+      "type": "tour",
+      "description": "Тур выходного дня для семьи с катанием и проживанием.",
+      "periodType": "weekend",
+      "periodText": "Суббота и воскресенье",
+      "startDay": null,
+      "endDay": null,
+      "availableDays": [
+        "saturday",
+        "sunday"
+      ],
+      "durationDays": 2,
+      "price": 18000,
+      "oldPrice": 22000,
+      "validFrom": "2025-12-01",
+      "validTo": "2026-03-31",
+      "image": "assets/images/home/hero-snowboard.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "canAddToCart": true
+    },
+    {
+      "id": 6,
+      "title": "Скидка студентам",
+      "type": "promotion",
+      "description": "Скидка на прокат снаряжения при предъявлении студенческого билета.",
+      "periodType": "any",
+      "periodText": "Каждый день сезона",
+      "startDay": null,
+      "endDay": null,
+      "availableDays": [],
+      "durationDays": null,
+      "price": null,
+      "oldPrice": null,
+      "validFrom": "2025-12-01",
+      "validTo": "2026-03-31",
+      "image": "assets/images/home/news-big-air.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "canAddToCart": false
+    },
+    {
+      "id": 7,
+      "title": "Детский старт",
+      "type": "promotion",
+      "description": "Комплект для первого занятия ребенка с инструктором и прокатом.",
+      "periodType": "specificDays",
+      "periodText": "Вторник и четверг",
+      "startDay": null,
+      "endDay": null,
+      "availableDays": [
+        "tuesday",
+        "thursday"
+      ],
+      "durationDays": null,
+      "price": 2600,
+      "oldPrice": 3200,
+      "validFrom": "2025-12-01",
+      "validTo": "2026-03-31",
+      "image": "assets/images/home/news-kusa.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "canAddToCart": true
+    },
+    {
+      "id": 8,
+      "title": "Вечернее катание",
+      "type": "promotion",
+      "description": "Ски-пасс и прокат для вечернего катания на освещенных трассах.",
+      "periodType": "specificDays",
+      "periodText": "Среда, пятница, суббота",
+      "startDay": null,
+      "endDay": null,
+      "availableDays": [
+        "wednesday",
+        "friday",
+        "saturday"
+      ],
+      "durationDays": null,
+      "price": 1900,
+      "oldPrice": 2400,
+      "validFrom": "2025-12-01",
+      "validTo": "2026-03-31",
+      "image": "assets/images/home/intro-lift.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "canAddToCart": true
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "userId": 1,
+      "itemType": "tariff",
+      "itemId": 1,
+      "title": "Комплект",
+      "price": 500,
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "itemType": "promotion",
+      "itemId": 4,
+      "title": "BBQ площадки",
+      "price": 3500,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "itemType": "tariff",
+      "itemId": 19,
+      "title": "Индивидуальное занятие с инструктором",
+      "price": 1800,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "itemType": "promotion",
+      "itemId": 1,
+      "title": "Снежные будни",
+      "price": 1400,
+      "quantity": 2
+    },
+    {
+      "id": 5,
+      "userId": 4,
+      "itemType": "tariff",
+      "itemId": 25,
+      "title": "Ватрушка",
+      "price": 250,
+      "quantity": 3
+    },
+    {
+      "id": 6,
+      "userId": 5,
+      "itemType": "promotion",
+      "itemId": 7,
+      "title": "Детский старт",
+      "price": 2600,
+      "quantity": 1
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        {
+          "itemType": "tariff",
+          "itemId": 1,
+          "title": "Комплект",
+          "quantity": 2,
+          "price": 500
+        },
+        {
+          "itemType": "promotion",
+          "itemId": 1,
+          "title": "Снежные будни",
+          "quantity": 1,
+          "price": 1400
+        }
+      ],
+      "totalPrice": 2400,
+      "status": "paid",
+      "createdAt": "2026-04-10",
+      "paymentMethod": "online"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "items": [
+        {
+          "itemType": "tariff",
+          "itemId": 19,
+          "title": "Индивидуальное занятие с инструктором",
+          "quantity": 1,
+          "price": 1800
+        }
+      ],
+      "totalPrice": 1800,
+      "status": "pending",
+      "createdAt": "2026-04-12",
+      "paymentMethod": "card"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "items": [
+        {
+          "itemType": "promotion",
+          "itemId": 2,
+          "title": "Неделя в горах",
+          "quantity": 1,
+          "price": 25000
+        }
+      ],
+      "totalPrice": 25000,
+      "status": "paid",
+      "createdAt": "2026-03-18",
+      "paymentMethod": "online"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "items": [
+        {
+          "itemType": "tariff",
+          "itemId": 25,
+          "title": "Ватрушка",
+          "quantity": 3,
+          "price": 250
+        },
+        {
+          "itemType": "tariff",
+          "itemId": 26,
+          "title": "Тюбинг 1 час",
+          "quantity": 3,
+          "price": 300
+        }
+      ],
+      "totalPrice": 1650,
+      "status": "paid",
+      "createdAt": "2026-02-01",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "items": [
+        {
+          "itemType": "promotion",
+          "itemId": 5,
+          "title": "Семейные выходные",
+          "quantity": 1,
+          "price": 18000
+        }
+      ],
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "createdAt": "2026-01-22",
+      "paymentMethod": "card"
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "items": [
+        {
+          "itemType": "tariff",
+          "itemId": 15,
+          "title": "Ски-пасс на день",
+          "quantity": 2,
+          "price": 1200
+        },
+        {
+          "itemType": "promotion",
+          "itemId": 8,
+          "title": "Вечернее катание",
+          "quantity": 1,
+          "price": 1900
+        }
+      ],
+      "totalPrice": 4300,
+      "status": "paid",
+      "createdAt": "2026-02-20",
+      "paymentMethod": "online"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "userId": 1,
+      "userName": "Иван Иванович",
+      "rating": 5,
+      "text": "Отличный курорт, хорошие трассы и удобное проживание.",
+      "date": "2026-04-12",
+      "isPublished": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "userName": "Анна Сергеевна",
+      "rating": 5,
+      "text": "Понравилась учебная трасса и работа инструкторов.",
+      "date": "2026-03-20",
+      "isPublished": true
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "userName": "Максим Олегович",
+      "rating": 4,
+      "text": "Хорошие склоны, хотелось бы больше вечерних часов в будни.",
+      "date": "2026-02-18",
+      "isPublished": true
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "userName": "Екатерина Андреевна",
+      "rating": 5,
+      "text": "Семейный отдых прошел отлично, детям понравился тюбинг.",
+      "date": "2026-01-28",
+      "isPublished": true
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "userName": "Дмитрий Павлович",
+      "rating": 4,
+      "text": "Удобный прокат и понятная навигация по трассам.",
+      "date": "2026-01-15",
+      "isPublished": true
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "userName": "Мария Игоревна",
+      "rating": 3,
+      "text": "Оставила отзыв для проверки модерации.",
+      "date": "2026-01-10",
+      "isPublished": false
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "name": "Анна",
+      "email": "anna@mail.ru",
+      "phone": "+375291112233",
+      "message": "Хочу уточнить условия бронирования.",
+      "createdAt": "2026-04-15",
+      "status": "new"
+    },
+    {
+      "id": 2,
+      "name": "Павел",
+      "email": "pavel@mail.ru",
+      "phone": "+73519007766",
+      "message": "Подскажите, работает ли прокат вечером в субботу?",
+      "createdAt": "2026-04-10",
+      "status": "processed"
+    },
+    {
+      "id": 3,
+      "name": "Елена",
+      "email": "elena@mail.ru",
+      "phone": "+79221112233",
+      "message": "Можно ли приехать с ребенком на первое занятие без своего снаряжения?",
+      "createdAt": "2026-03-29",
+      "status": "new"
+    },
+    {
+      "id": 4,
+      "name": "Сергей",
+      "email": "sergey@mail.ru",
+      "phone": "+73513334455",
+      "message": "Интересуют условия аренды BBQ площадки для компании.",
+      "createdAt": "2026-03-18",
+      "status": "processed"
+    }
+  ]
+}

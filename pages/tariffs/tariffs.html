@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги и тарифы — ЦАО Евразия</title>
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css?v=2">
+  <link rel="stylesheet" href="../../css/layout.css?v=2">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/responsive.css?v=3">
+  <link rel="stylesheet" href="tariffs.css?v=13">
+  <script src="../../js/pages/tariffs.js?v=13" defer></script>
+</head>
+<body class="theme-light">
+  <header class="site-header">
+    <div class="container header-container">
+      <a class="logo" href="../../index.html" aria-label="Евразия — на главную">
+        <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="../trails/trails.html">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="tariffs.html" aria-current="page">Услуги и тарифы</a>
+        <a href="../cart/cart.html">Корзина</a>
+        <a href="../account/account.html">Личный кабинет</a>
+      </nav>
+
+      <div class="header-side">
+        <div class="header-phones" aria-label="Телефоны">
+          <a class="header-phone" href="tel:+79227288288">+79227288288</a>
+          <a class="header-phone" href="tel:+73513790979">+73513790979</a>
+        </div>
+        <div class="user-settings" aria-label="Настройки сайта">
+          <button class="settings-button" type="button">RU | EN</button>
+          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему">🌙</button>
+          <button class="settings-button" type="button" aria-label="Версия для слабовидящих">A+</button>
+        </div>
+      </div>
+
+      <div class="mobile-menu">
+        <input class="mobile-menu__toggle" type="checkbox" id="mobile-menu-toggle">
+        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <span class="mobile-menu__overlay" aria-hidden="true"></span>
+        <nav class="mobile-menu__panel" aria-label="Мобильная навигация">
+          <a class="mobile-menu__item" href="../trails/trails.html" aria-label="Трассы">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cable-car.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Трассы</span>
+          </a>
+          <a class="mobile-menu__item" href="../hotels/hotels.html" aria-label="Проживание">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-home.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Проживание</span>
+          </a>
+          <a class="mobile-menu__item" href="tariffs.html" aria-label="Услуги и тарифы" aria-current="page">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-tickets.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Услуги и тарифы</span>
+          </a>
+          <a class="mobile-menu__item" href="../cart/cart.html" aria-label="Корзина">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cart.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Корзина</span>
+          </a>
+          <a class="mobile-menu__item" href="../account/account.html" aria-label="Личный кабинет">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-user.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Личный кабинет</span>
+          </a>
+          <span class="mobile-menu__divider" aria-hidden="true"></span>
+          <button class="mobile-menu__control" type="button">RU</button>
+          <button class="mobile-menu__control" type="button">EN</button>
+          <button class="mobile-menu__control" type="button">A+</button>
+          <button class="mobile-menu__control" type="button" aria-label="Переключить тему">🌙</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="tariffs-page">
+    <section class="tariffs-hero section" aria-labelledby="tariffs-title">
+      <div class="container">
+        <article class="tariffs-hero__card">
+          <img src="../../assets/images/tariffs/tariffs-hero.jpg" alt="Горнолыжник на фоне зимних гор">
+          <div class="tariffs-hero__content">
+            <h1 id="tariffs-title">Тарифы на прокат горнолыжного и сноубордического снаряжения</h1>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tariffs-intro section" aria-labelledby="season-title">
+      <div class="container">
+        <h2 id="season-title" class="section-title tariffs-intro__title">Сезон 2025/2026</h2>
+        <div class="tariffs-intro__text">
+          <p>Для вас работает прокат горнолыжного и сноубордического снаряжения.</p>
+          <p>Чтобы воспользоваться прокатом снаряжения, необходим залог: документ, удостоверяющий личность, паспорт или водительское удостоверение.</p>
+        </div>
+
+        <form class="tariffs-controls" data-tariffs-controls>
+          <label class="tariffs-search">
+            <span class="visually-hidden">Поиск по услуге</span>
+            <input type="search" name="search" placeholder="Поиск по услуге..." autocomplete="off" data-tariff-search>
+          </label>
+
+          <button class="tariffs-reset" type="button" data-tariff-reset>Сбросить</button>
+
+          <fieldset class="tariffs-fieldset tariffs-fieldset--categories">
+            <legend>Тип снаряжения</legend>
+            <label><input type="checkbox" name="category" value="all" checked> Все</label>
+            <label><input type="checkbox" name="category" value="kits"> Комплекты</label>
+            <label><input type="checkbox" name="category" value="ride"> Лыжи и сноуборд</label>
+            <label><input type="checkbox" name="category" value="equipment"> Ботинки и палки</label>
+            <label><input type="checkbox" name="category" value="protection"> Защита</label>
+            <label><input type="checkbox" name="category" value="tubing"> Тюбинг</label>
+          </fieldset>
+
+          <fieldset class="tariffs-fieldset tariffs-fieldset--sort">
+            <legend>Сортировать</legend>
+            <label><input type="radio" name="sort" value="price-asc"> По цене ↑</label>
+            <label><input type="radio" name="sort" value="price-desc"> По цене ↓</label>
+            <label><input type="radio" name="sort" value="title"> По названию</label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <section class="tariff-section section" aria-labelledby="weekday-title">
+      <div class="container">
+        <h2 id="weekday-title" class="tariff-section__title">Стоимость проката в будний день</h2>
+        <div class="tariff-table-wrap" data-tariff-table="weekday">
+          <p class="tariffs-message">Загрузка тарифов...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariff-section section" aria-labelledby="weekend-title">
+      <div class="container">
+        <h2 id="weekend-title" class="tariff-section__title">Стоимость проката в выходной день (суббота, воскресенье).</h2>
+        <div class="tariff-table-wrap" data-tariff-table="weekend">
+          <p class="tariffs-message">Загрузка тарифов...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariff-section section" aria-labelledby="holiday-title">
+      <div class="container">
+        <h2 id="holiday-title" class="tariff-section__title">Стоимость проката в праздничные дни.</h2>
+        <div class="tariff-table-wrap" data-tariff-table="holiday">
+          <p class="tariffs-message">Загрузка тарифов...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariff-section section" aria-labelledby="tubing-title">
+      <div class="container">
+        <h2 id="tubing-title" class="tariff-section__title">Стоимость проката ватрушек (тюбинг).</h2>
+        <div class="tariff-table-wrap" data-tubing-table>
+          <p class="tariffs-message">Загрузка тарифов...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariff-section section" aria-labelledby="schedule-title">
+      <div class="container">
+        <h2 id="schedule-title" class="tariff-section__title tariff-section__title--plain">График работы горнолыжных трасс и службы проката снаряжения</h2>
+        <div class="tariff-table-wrap" data-work-schedule>
+          <p class="tariffs-message">Загрузка графика...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section" aria-label="Социальные сети">
+      <div class="social-links">
+        <a href="#" aria-label="ВКонтакте">
+          <img src="../../assets/images/common/icons/vk.png" alt="">
+        </a>
+        <a href="#" aria-label="YouTube">
+          <img src="../../assets/images/common/icons/youtube.png" alt="">
+        </a>
+        <a href="#" aria-label="Дзен">
+          <img src="../../assets/images/common/icons/zen.png" alt="">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия — на главную">
+        <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+      </a>
+
+      <section class="footer-block" aria-labelledby="footer-hours">
+        <h2 id="footer-hours">Режим работы:</h2>
+        <p>Пн-пт: 10.00-21.00</p>
+        <p>Сб-вс 9.00-21.00</p>
+      </section>
+
+      <section class="footer-block footer-block--wide" aria-labelledby="footer-contacts">
+        <h2 id="footer-contacts">Контакты</h2>
+        <p>Всесезонный центр спорта и отдыха находится в рекреационной зоне на границе с заповедниками «Таганай» и «Зюраткуль» всего в 30 минутах езды от Златоуста, и в 1,5 часах от Челябинска.</p>
+      </section>
+
+      <nav class="footer-nav" aria-label="Разделы сайта">
+        <a href="../trails/trails.html">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="tariffs.html" aria-current="page">Услуги и тарифы</a>
+        <a href="../tours/tours.html">Туры и акции</a>
+        <a href="../contacts/contacts.html">Контакты</a>
+      </nav>
+
+      <div class="footer-phones" aria-label="Телефоны">
+        <a href="tel:+79227288288">+79227288288</a>
+        <a href="tel:+73513790979">+73513790979</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
