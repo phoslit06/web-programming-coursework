@@ -45,6 +45,12 @@
   color: var(--color-text);
 }
 
+.main-nav a[aria-current="page"],
+.footer-nav a[aria-current="page"],
+.mobile-menu__panel a[aria-current="page"] {
+  color: var(--color-primary);
+}
+
 .main-nav a:hover,
 .footer-nav a:hover,
 .mobile-menu__panel a:hover {
