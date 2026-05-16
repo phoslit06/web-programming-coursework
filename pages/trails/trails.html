@@ -6,27 +6,271 @@
   <title>Горнолыжные трассы — ЦАО Евразия</title>
   <link rel="stylesheet" href="../../css/normalize.css">
   <link rel="stylesheet" href="../../css/variables.css">
-  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/base.css?v=2">
   <link rel="stylesheet" href="../../css/layout.css?v=2">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/responsive.css?v=3">
-  <link rel="stylesheet" href="trails.css">
+  <link rel="stylesheet" href="trails.css?v=3">
+  <script src="../../js/pages/trails.js?v=3" defer></script>
 </head>
 <body class="theme-light">
   <header class="site-header">
-    <div class="container section-heading">
+    <div class="container header-container">
       <a class="logo" href="../../index.html" aria-label="Евразия — на главную">
         <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
         <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
       </a>
-      <a class="button button--primary" href="../../index.html">На главную</a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="trails.html" aria-current="page">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
+        <a href="../cart/cart.html">Корзина</a>
+        <a href="../account/account.html">Личный кабинет</a>
+      </nav>
+
+      <div class="header-side">
+        <div class="header-phones" aria-label="Телефоны">
+          <a class="header-phone" href="tel:+79227288288">+79227288288</a>
+          <a class="header-phone" href="tel:+73513790979">+73513790979</a>
+        </div>
+        <div class="user-settings" aria-label="Настройки сайта">
+          <button class="settings-button" type="button">RU | EN</button>
+          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему">Тема</button>
+          <button class="settings-button" type="button" aria-label="Версия для слабовидящих">A+</button>
+        </div>
+      </div>
+
+      <div class="mobile-menu">
+        <input class="mobile-menu__toggle" type="checkbox" id="mobile-menu-toggle">
+        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <span class="mobile-menu__overlay" aria-hidden="true"></span>
+        <nav class="mobile-menu__panel" aria-label="Мобильная навигация">
+          <a class="mobile-menu__item" href="trails.html" aria-label="Трассы" aria-current="page">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cable-car.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Трассы</span>
+          </a>
+          <a class="mobile-menu__item" href="../hotels/hotels.html" aria-label="Проживание">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-home.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Проживание</span>
+          </a>
+          <a class="mobile-menu__item" href="../tariffs/tariffs.html" aria-label="Услуги и тарифы">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-tickets.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Услуги и тарифы</span>
+          </a>
+          <a class="mobile-menu__item" href="../cart/cart.html" aria-label="Корзина">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cart.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Корзина</span>
+          </a>
+          <a class="mobile-menu__item" href="../account/account.html" aria-label="Личный кабинет">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-user.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Личный кабинет</span>
+          </a>
+          <span class="mobile-menu__divider" aria-hidden="true"></span>
+          <button class="mobile-menu__control" type="button">RU</button>
+          <button class="mobile-menu__control" type="button">EN</button>
+          <button class="mobile-menu__control" type="button">A+</button>
+          <button class="mobile-menu__control" type="button" aria-label="Переключить тему">Т</button>
+        </nav>
+      </div>
     </div>
   </header>
-  <main class="page-stub">
-    <div class="container page-stub__card">
-      <h1 class="section-title">Горнолыжные трассы</h1>
-      <p>Каркас будущей страницы. Полная HTML/CSS-верстка будет добавлена на отдельном этапе по макету.</p>
-    </div>
+
+  <main class="trails-page">
+    <section class="trails-hero" aria-label="Открытие второго склона">
+      <div class="container">
+        <article class="trails-hero__card">
+          <img src="../../assets/images/trails/figma-hero.png" alt="Лыжник на склоне центра Евразия">
+          <div class="trails-hero__content">
+            <p class="trails-hero__lead">30 декабря в ЦАО "Евразия" состоится тестовое открытие 2 склона.</p>
+            <p class="trails-hero__title">Новый сезон — новые горизонты</p>
+            <p class="trails-hero__text">Центр активного отдыха «Евразия» — активный отдых в гармонии с природой.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="trails-title-section">
+      <div class="container">
+        <h1>Горнолыжные трассы</h1>
+      </div>
+    </section>
+
+    <section class="trails-scheme" aria-labelledby="trails-list-title">
+      <div class="container trails-scheme__grid">
+        <div class="trails-table">
+          <h2 id="trails-list-title">Трассы</h2>
+          <div class="trails-table__list" data-trails-list>
+            <p class="trails-message">Загрузка трасс...</p>
+          </div>
+        </div>
+
+        <div class="trails-map">
+          <img src="../../assets/images/trails/figma-slopes.png" alt="Схема горнолыжных трасс">
+          <div class="trails-difficulty" aria-label="Сложность трасс">
+            <h2>Сложность</h2>
+            <img src="../../assets/images/trails/figma-difficulty.png" alt="Легкая, средняя, высокая и трасса тюбинг">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trails-legend" aria-labelledby="trails-legend-title">
+      <div class="container trails-legend__grid">
+        <div>
+          <h2 id="trails-legend-title">Обозначения на схеме</h2>
+          <img class="legend-picture" src="../../assets/images/trails/figma-designations.png" alt="Обозначения на схеме трасс">
+        </div>
+        <div class="trails-legend__items">
+          <article class="legend-item legend-item--open">
+            <span>open</span>
+            <p>Трасса открыта и полностью подготовлена к катанию. Огорожена сетями безопасности. Трассу ежедневно обрабатывает снегоуплотнительная техника. Снежный покров — искусственный и естественный.</p>
+          </article>
+          <article class="legend-item legend-item--closed">
+            <span>close</span>
+            <p>Трасса закрыта для катания. Не огорожена сетями безопасности. Недостаточно снежного покрова для безопасного катания.</p>
+          </article>
+          <article class="legend-item legend-item--natural">
+            <span aria-hidden="true"></span>
+            <p>Трасса частично подготовлена. Снежный покров — естественный. Катание осуществляется на страх и риск отдыхающих.</p>
+          </article>
+        </div>
+        <div class="trails-map-links">
+          <a href="../../assets/images/trails/figma-slopes.png" download>Скачать карту</a>
+          <a href="../../assets/images/trails/figma-extra-map.png" download>Скачать карту пеших троп</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trail-descriptions" aria-labelledby="trail-descriptions-title">
+      <div class="container">
+        <h2 id="trail-descriptions-title" class="visually-hidden">Описание трасс</h2>
+        <div class="trail-descriptions__list" data-trail-descriptions>
+          <p class="trails-message">Загрузка описаний...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trail-extra">
+      <div class="container trail-extra__grid">
+        <img src="../../assets/images/trails/figma-extra-map.png" alt="Схема трасс центра Евразия">
+        <div class="trail-extra__text" data-extra-trails></div>
+      </div>
+    </section>
+
+    <section class="trail-gallery" aria-label="Фотографии трасс">
+      <div class="container trail-gallery__grid">
+        <img src="../../assets/images/trails/figma-gallery-8-2.png" alt="Снегоуплотнительная техника на трассе">
+        <img src="../../assets/images/trails/figma-gallery-14-2.png" alt="Подъемник на склоне">
+        <img src="../../assets/images/trails/figma-gallery-14-2.png" alt="Подъемник центра Евразия">
+      </div>
+    </section>
+
+    <section class="trail-lifts" aria-labelledby="trail-lifts-title">
+      <div class="container">
+        <h2 id="trail-lifts-title">Подъемники</h2>
+        <div class="trail-lifts__banner">
+          <p>Все трассы обслуживаются 4-х кресельным подъемником австрийской фирмы «Doppelmayr», который всего за 7-8 минут доставит вас на вершину горы Копанец 610 метров.</p>
+          <p>Учебный склон обслуживается бугельным подъемником типа: бэби-лифт.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trail-gallery trail-gallery--after-lifts" aria-label="Фотографии подъемников">
+      <div class="container trail-gallery__grid">
+        <img src="../../assets/images/trails/figma-gallery-8-2.png" alt="Снегоуплотнительная техника">
+        <img src="../../assets/images/trails/figma-gallery-14-2.png" alt="Канатная дорога">
+        <img src="../../assets/images/trails/figma-gallery-14-2.png" alt="Верхняя станция подъемника">
+      </div>
+    </section>
+
+    <section class="trail-rules" aria-labelledby="trail-rules-title">
+      <div class="container">
+        <h2 id="trail-rules-title">Правила</h2>
+        <div class="trail-rules__grid">
+          <a href="#">Правила поведения посетителей на горнолыжных трассах</a>
+          <a href="#">Правила поведения посетителей на канатной дороге</a>
+          <a href="#">Иные правила курорта</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section" aria-label="Социальные сети">
+      <div class="social-links">
+        <a href="#" aria-label="ВКонтакте">
+          <img src="../../assets/images/common/icons/vk.png" alt="">
+        </a>
+        <a href="#" aria-label="YouTube">
+          <img src="../../assets/images/common/icons/youtube.png" alt="">
+        </a>
+        <a href="#" aria-label="Дзен">
+          <img src="../../assets/images/common/icons/zen.png" alt="">
+        </a>
+      </div>
+    </section>
   </main>
+
+  <template id="trail-row-template">
+    <article class="trail-row">
+      <span class="trail-row__number" data-trail-number></span>
+      <span class="trail-row__kind" data-trail-kind></span>
+      <span class="trail-row__length" data-trail-length></span>
+      <span class="trail-row__status" data-trail-status></span>
+    </article>
+  </template>
+
+  <template id="trail-description-template">
+    <article class="trail-description">
+      <h3 data-trail-title></h3>
+      <p data-trail-description></p>
+    </article>
+  </template>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия — на главную">
+        <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+      </a>
+
+      <section class="footer-block" aria-labelledby="footer-hours">
+        <h2 id="footer-hours">Режим работы:</h2>
+        <p>Пн-пт: 10.00-21.00</p>
+        <p>Сб-вс 9.00-21.00</p>
+      </section>
+
+      <section class="footer-block footer-block--wide" aria-labelledby="footer-contacts">
+        <h2 id="footer-contacts">Контакты</h2>
+        <p>Всесезонный центр спорта и отдыха находится в рекреационной зоне на границе с заповедниками «Таганай» и «Зюраткуль» всего в 30 минутах езды от Златоуста и в 1,5 часах от Челябинска.</p>
+      </section>
+
+      <nav class="footer-nav" aria-label="Разделы сайта">
+        <a href="trails.html" aria-current="page">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
+        <a href="../tours/tours.html">Туры и акции</a>
+        <a href="../contacts/contacts.html">Контакты</a>
+      </nav>
+
+      <div class="footer-phones" aria-label="Телефоны">
+        <a href="tel:+79227288288">+79227288288</a>
+        <a href="tel:+73513790979">+73513790979</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
