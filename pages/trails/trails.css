@@ -229,6 +229,10 @@
   object-fit: contain;
 }
 
+.trails-difficulty--mobile {
+  display: none;
+}
+
 .trails-legend {
   margin-bottom: 35px;
 }
@@ -500,19 +504,11 @@
   }
 }
 
-@media (max-width: 980px) {
-  .trails-title-section {
-    margin-top: 42px;
-  }
-
+@media (max-width: 1024px) {
   .trails-scheme__grid,
   .trails-legend__grid,
   .trail-extra__grid {
     grid-template-columns: 1fr;
-  }
-
-  .trails-scheme {
-    margin-bottom: 48px;
   }
 
   .trails-map {
@@ -541,171 +537,411 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 640px) {
+  .trails-page .container {
+    width: calc(100% - 50px);
+    max-width: 340px;
+    padding-inline: 0;
+  }
+
+  .trails-hero {
+    margin-top: 1px;
+  }
+
   .trails-hero__card {
-    height: min(360px, calc((100vw - 50px) * 0.72));
-    min-height: 260px;
+    width: 100%;
+    height: min(calc(100vw - 50px), 340px);
+    min-height: 0;
+    border-radius: 20px;
+  }
+
+  .trails-hero__card img {
+    object-position: center top;
   }
 
   .trails-hero__lead {
-    top: 18px;
-    left: 19px;
-    max-width: 330px;
-    font-size: 1.35rem;
+    display: none;
   }
 
   .trails-hero__title {
-    top: 150px;
+    top: 173px;
     left: 19px;
-    max-width: 330px;
-    font-size: 1.4rem;
+    max-width: 231px;
+    font-size: 1.5rem;
+    line-height: 1.3;
   }
 
   .trails-hero__text {
-    top: 205px;
+    top: 252px;
     left: 19px;
-    max-width: 240px;
-    font-size: 0.9rem;
+    max-width: 221px;
+    font-size: 1rem;
+    line-height: 1.4;
   }
 
-  .trails-title-section h1,
-  .trail-lifts h2,
-  .trail-rules h2 {
-    font-size: 1.75rem;
+  .trails-title-section {
+    margin-top: 38px;
+    margin-bottom: 49px;
   }
 
-  .trail-row,
-  .trail-row--special {
-    grid-template-columns: 46px minmax(0, 1fr) 86px;
-    gap: 8px;
-    min-height: 55px;
+  .trails-title-section h1 {
+    max-width: 296px;
+    font-size: 1.875rem;
+    line-height: 1;
+  }
+
+  .trails-scheme {
+    margin-bottom: 35px;
+  }
+
+  .trails-scheme__grid {
+    gap: 26px;
+  }
+
+  .trails-table h2 {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .trails-table__list {
+    gap: 22px;
+  }
+
+  .trail-row {
+    grid-template-columns: 34px 74px 115px 93px;
+    gap: 7px;
+    width: 100%;
+    min-height: 44px;
   }
 
   .trail-row__number {
-    grid-row: 1 / 3;
+    width: 34px;
+    height: 40px;
+    font-size: 1.125rem;
+    letter-spacing: -0.04em;
   }
 
-  .trail-row__kind {
-    width: auto;
-    min-width: 0;
-    padding-inline: 8px;
-    font-size: 0.95rem;
+  .trail-row__kind,
+  .trail-row__length,
+  .trail-row__status {
+    height: 44px;
+    border-radius: 5px;
+    padding-inline: 4px;
+    font-size: 1rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .trail-row__length {
+    width: 115px;
+  }
+
+  .trail-row__status {
+    width: 93px;
+  }
+
+  .trail-row--special {
+    grid-template-columns: 34px 197px 93px;
+    min-height: 48px;
   }
 
   .trail-row--special .trail-row__kind {
     width: auto;
-  }
-
-  .trail-row__length {
-    grid-column: 2;
-    width: auto;
-    height: 34px;
     padding-inline: 8px;
-    font-size: 0.85rem;
+    white-space: normal;
   }
 
-  .trail-row__status {
-    grid-column: 3;
-    grid-row: 1 / 3;
-    width: 86px;
-    font-size: 0.95rem;
+  .trail-row--special .trail-row__length {
+    display: none;
   }
 
-  .trails-difficulty {
-    gap: 14px;
+  .trail-row--natural .trail-row__number {
+    width: 45px;
+    height: 46px;
+    transform: translateX(-6px);
   }
 
-  .trails-difficulty img {
+  .trail-row--snowman .trail-row__number {
+    width: 54px;
+    height: 48px;
+  }
+
+  .trail-row--snowpark .trail-row__number {
+    width: 31px;
+    height: 14px;
+  }
+
+  .trails-map {
+    margin-top: 0;
+  }
+
+  .trails-map > img {
     width: 100%;
-    max-width: 437px;
-    height: auto;
+    height: 345px;
+    object-fit: contain;
+  }
+
+  .trails-map .trails-difficulty {
+    display: none;
+  }
+
+  .trails-legend {
+    margin-bottom: 42px;
+  }
+
+  .trails-legend__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .trails-legend__items {
-    padding-top: 24px;
+    order: 1;
+    display: grid;
+    gap: 22px;
+    padding-top: 0;
   }
 
   .legend-item {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  .legend-item span {
+    width: 96px;
+    height: 34px;
+    border-radius: 5px;
+    font-size: 1rem;
   }
 
   .legend-item p {
-    line-height: 1.25;
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .trails-difficulty--mobile {
+    order: 2;
+    display: grid;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .trails-difficulty--mobile h2,
+  .trails-legend h2 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .trails-difficulty--mobile img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .trails-legend__signs {
+    order: 3;
+    margin-top: 30px;
+  }
+
+  .legend-picture {
+    width: 100%;
+    height: auto;
+    margin-top: 18px;
+    object-fit: contain;
   }
 
   .trails-map-links {
-    grid-template-columns: 1fr;
+    display: none;
+  }
+
+  .trail-descriptions {
+    margin-bottom: 45px;
+  }
+
+  .trail-descriptions__list {
+    gap: 25px;
   }
 
   .trail-description {
-    padding-left: 0;
-  }
-
-  .trail-description p {
+    gap: 9px;
     padding-left: 0;
   }
 
   .trail-description h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.3;
   }
 
-  .trail-description p,
-  .trail-lifts__banner p {
-    font-size: 0.9rem;
+  .trail-description p {
+    max-width: 100%;
+    padding-left: 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
 
-  .trail-gallery__grid,
-  .trail-rules__grid {
-    grid-template-columns: 1fr;
+  .trail-extra {
+    margin-bottom: 38px;
+  }
+
+  .trail-extra__grid {
+    gap: 32px;
+  }
+
+  .trail-extra__grid > img {
+    width: 100%;
+    height: 345px;
+    object-fit: contain;
+  }
+
+  .trail-extra__text {
+    gap: 25px;
+  }
+
+  .trail-gallery {
+    margin-bottom: 36px;
+    overflow: hidden;
+  }
+
+  .trail-gallery__grid {
+    display: flex;
+    gap: 22px;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .trail-gallery__grid::-webkit-scrollbar {
+    display: none;
   }
 
   .trail-gallery img {
-    height: min(320px, calc(100vw - 50px));
+    flex: 0 0 min(298px, calc(100vw - 92px));
+    width: min(298px, calc(100vw - 92px));
+    height: 228px;
+    border-radius: 5px;
+    scroll-snap-align: center;
+  }
+
+  .trail-lifts {
+    margin-bottom: 44px;
+  }
+
+  .trail-lifts h2,
+  .trail-rules h2 {
+    margin-bottom: 34px;
+    color: var(--color-primary);
+    font-size: 1.875rem;
+    line-height: 1;
   }
 
   .trail-lifts__banner {
-    min-height: 0;
-    border-radius: 18px;
-    padding: 24px 18px;
+    min-height: min(calc(100vw - 50px), 340px);
+    align-content: start;
+    border-radius: 15px;
+    padding: 25px 20px;
+  }
+
+  .trail-lifts__banner p {
+    max-width: 300px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .trail-gallery--after-lifts {
+    margin-bottom: 48px;
+  }
+
+  .trail-rules {
+    margin-bottom: 37px;
   }
 
   .trail-rules__grid {
-    gap: 14px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trail-rules__grid a {
+    min-height: 54px;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 380px) {
-  .trails-hero__card {
-    min-height: 245px;
+  .trails-page .container {
+    width: calc(100% - 32px);
+    max-width: 340px;
   }
 
-  .trails-hero__lead {
-    max-width: 250px;
-    font-size: 1.15rem;
+  .trails-hero__card {
+    height: calc(100vw - 32px);
   }
 
   .trails-hero__title {
-    top: 140px;
+    top: 49%;
+    left: 18px;
+    max-width: 225px;
+    font-size: 1.35rem;
   }
 
   .trails-hero__text {
-    top: 190px;
+    top: 72%;
+    left: 18px;
+    max-width: 210px;
+    font-size: 0.92rem;
   }
 
-  .trail-row,
-  .trail-row--special {
-    grid-template-columns: 42px minmax(0, 1fr);
+  .trail-row {
+    grid-template-columns: 30px minmax(60px, 0.75fr) minmax(88px, 1fr) 82px;
+    gap: 5px;
   }
 
   .trail-row__number {
-    width: 42px;
+    width: 30px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .trail-row__kind,
+  .trail-row__length,
+  .trail-row__status {
+    font-size: 0.86rem;
+  }
+
+  .trail-row__length {
+    width: auto;
   }
 
   .trail-row__status {
-    grid-column: 2;
-    grid-row: auto;
-    width: 86px;
-    justify-self: start;
+    width: 82px;
+  }
+
+  .trail-row--special {
+    grid-template-columns: 30px minmax(0, 1fr) 82px;
+  }
+
+  .trails-map > img,
+  .trail-extra__grid > img {
+    height: min(345px, calc(100vw - 35px));
+  }
+
+  .trail-gallery img {
+    flex-basis: min(298px, calc(100vw - 62px));
+    width: min(298px, calc(100vw - 62px));
+  }
+
+  .legend-item {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .legend-item span {
+    width: 88px;
   }
 }
