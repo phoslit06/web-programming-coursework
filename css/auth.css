@@ -1,0 +1,1428 @@
+.auth-page,
+.account-page {
+  padding-top: 30px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 34px 18px;
+  background: rgba(0, 0, 0, 0.67);
+}
+
+.auth-modal[hidden] {
+  display: none;
+}
+
+.auth-dialog[hidden],
+.account-logout[hidden],
+.account-message[hidden],
+.account-grid[hidden],
+.account-dashboard[hidden] {
+  display: none !important;
+}
+
+.auth-dialog {
+  position: relative;
+  width: min(100%, 530px);
+  border-radius: 30px;
+  padding: 76px 96px 70px;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.2);
+}
+
+.auth-dialog--register {
+  width: min(100%, 560px);
+  padding-top: 72px;
+}
+
+.auth-dialog h2 {
+  margin-bottom: 18px;
+  color: #111827;
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.auth-dialog__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 28%, #70cef8 0%, #22a7e4 58%, #0a8dce 100%);
+  box-shadow: 0 10px 18px rgba(0, 147, 221, 0.34);
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.auth-dialog__close:hover {
+  background: var(--color-primary-hover);
+}
+
+.auth-dialog .auth-form {
+  gap: 12px;
+}
+
+.auth-dialog .auth-form--grid {
+  grid-template-columns: 1fr;
+}
+
+.auth-dialog .form-field {
+  gap: 4px;
+}
+
+.auth-dialog .form-field label {
+  font-size: 0.86rem;
+}
+
+.auth-dialog .form-field input,
+.auth-dialog .password-field button,
+.auth-dialog .login-field button {
+  min-height: 36px;
+  border-color: #415474;
+  border-radius: 4px;
+  padding: 7px 10px;
+  color: #111827;
+}
+
+.auth-dialog .password-field,
+.auth-dialog .login-field {
+  gap: 6px;
+}
+
+.auth-dialog .password-field button,
+.auth-dialog .login-field button {
+  font-size: 0.8rem;
+}
+
+.auth-dialog .password-field:has([data-generate-password]:not([hidden])) {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
+.password-mode {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+}
+
+.password-mode legend {
+  grid-column: 1 / -1;
+  margin-bottom: 2px;
+  color: #111827;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.password-mode legend span {
+  color: #e53935;
+}
+
+.password-mode label {
+  display: flex;
+  min-width: 0;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #415474;
+  border-radius: 4px;
+  padding: 7px 10px;
+  color: #111827;
+  font-size: 0.82rem;
+}
+
+.password-mode input {
+  accent-color: var(--color-primary);
+}
+
+.auth-dialog .form-field small,
+.auth-dialog .agreement-error {
+  min-height: 15px;
+  font-size: 0.72rem;
+}
+
+.auth-dialog .agreement-field {
+  grid-template-columns: 17px minmax(0, 1fr);
+  gap: 7px;
+  margin-top: 2px;
+  color: #111827;
+  font-size: 0.76rem;
+  line-height: 1.3;
+}
+
+.auth-dialog .agreement-field input {
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+}
+
+.agreement-field__link {
+  display: inline;
+  min-height: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-primary);
+  font: inherit;
+  font-weight: 800;
+  line-height: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: normal;
+}
+
+.agreement-field__link:hover {
+  color: var(--color-primary-hover);
+}
+
+.auth-dialog--agreement {
+  width: min(100%, 620px);
+}
+
+.agreement-text {
+  display: grid;
+  gap: 12px;
+  max-height: min(52vh, 420px);
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 16px;
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+}
+
+.agreement-text p {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.auth-dialog .form-message {
+  min-height: 18px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.auth-dialog .auth-submit {
+  min-height: 38px;
+  margin-top: 8px;
+  border-radius: 16px;
+  padding-block: 8px;
+}
+
+.auth-dialog__link {
+  display: block;
+  margin: 20px auto 0;
+  background: transparent;
+  color: #111827;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.auth-dialog__link:hover {
+  color: var(--color-primary);
+}
+
+.auth-section {
+  margin-bottom: var(--section-gap);
+}
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
+  align-items: stretch;
+  gap: 28px;
+}
+
+.auth-layout--wide {
+  grid-template-columns: minmax(290px, 0.7fr) minmax(0, 1fr);
+}
+
+.auth-media,
+.auth-card,
+.account-hero__card,
+.account-panel {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.auth-media {
+  display: grid;
+  min-height: 520px;
+}
+
+.auth-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auth-media--register img {
+  object-position: center;
+}
+
+.auth-card {
+  display: grid;
+  align-content: center;
+  padding: 42px;
+}
+
+.auth-card--wide {
+  align-content: start;
+}
+
+.auth-card__eyebrow {
+  margin-bottom: 10px;
+  color: var(--color-primary);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.auth-card h1,
+.account-hero__card h1 {
+  margin-bottom: 14px;
+  color: var(--color-text);
+  font-size: clamp(2rem, 1.44rem + 2vw, 3rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.auth-card__text {
+  max-width: 520px;
+  margin-bottom: 26px;
+  color: var(--color-muted);
+}
+
+.auth-form {
+  display: grid;
+  gap: 18px;
+}
+
+.auth-form--grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 18px;
+}
+
+.form-field,
+.agreement-field,
+.form-message,
+.auth-submit,
+.auth-card__note {
+  min-width: 0;
+}
+
+.form-field {
+  display: grid;
+  gap: 7px;
+}
+
+.form-field--login,
+.agreement-field,
+.agreement-error,
+.form-message,
+.auth-form--grid .auth-submit {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-weight: 700;
+}
+
+.form-field label span,
+.agreement-field b {
+  color: #e53935;
+}
+
+.form-field input,
+.password-field,
+.login-field {
+  width: 100%;
+}
+
+.form-field input {
+  min-height: 52px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-control);
+  padding: 12px 14px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.form-field input:focus {
+  border-color: var(--color-primary-hover);
+  outline: 3px solid rgba(0, 147, 221, 0.18);
+}
+
+.form-field input::placeholder {
+  color: rgba(17, 24, 39, 0.48);
+}
+
+.form-field input.is-invalid {
+  border-color: #e53935;
+}
+
+.form-field small {
+  min-height: 19px;
+  color: #d32f2f;
+  font-size: 0.84rem;
+  line-height: 1.25;
+}
+
+.agreement-error {
+  min-height: 19px;
+  margin-top: -10px;
+  color: #d32f2f;
+  font-size: 0.84rem;
+  line-height: 1.25;
+}
+
+.password-field,
+.login-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.password-field input,
+.login-field input {
+  min-width: 0;
+}
+
+.password-field button,
+.login-field button {
+  min-height: 52px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-control);
+  padding: 0 15px;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.password-field button:hover,
+.login-field button:hover {
+  background: rgba(0, 147, 221, 0.1);
+}
+
+.agreement-field {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  color: var(--color-muted);
+  line-height: 1.35;
+}
+
+.agreement-field input {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+}
+
+.form-message {
+  min-height: 22px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.form-message.is-error {
+  color: #d32f2f;
+}
+
+.form-message.is-success {
+  color: #2f8a19;
+}
+
+.auth-submit {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
+
+.auth-submit:disabled {
+  background: #b0b0b0;
+  color: #ffffff;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-card__note {
+  margin-top: 22px;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.auth-card__note a {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.account-hero {
+  margin-bottom: 32px;
+}
+
+.account-hero__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: 42px;
+}
+
+.account-hero__card p:last-child {
+  max-width: 680px;
+  color: var(--color-muted);
+}
+
+.account-logout {
+  min-width: 150px;
+  border: 0;
+  cursor: pointer;
+}
+
+.account-section {
+  margin-bottom: var(--section-gap);
+}
+
+.account-message {
+  border-radius: var(--radius-card);
+  padding: 28px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+.account-message a {
+  color: var(--color-primary);
+}
+
+.account-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  gap: 24px;
+}
+
+.account-dashboard {
+  display: grid;
+  grid-template-columns: 342px minmax(0, 813px);
+  align-items: start;
+  gap: 32px;
+}
+
+.account-bookings {
+  display: grid;
+  gap: 52px;
+}
+
+.account-sidebar {
+  display: grid;
+  gap: 24px;
+}
+
+.account-booking-section {
+  display: grid;
+  gap: 25px;
+}
+
+.account-booking-section h1 {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.account-booking-list {
+  display: grid;
+  gap: 25px;
+}
+
+.account-booking-list > p {
+  border-radius: 22px;
+  padding: 28px;
+  background: var(--color-surface);
+  box-shadow: 0 0 18px rgba(0, 147, 221, 0.18);
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+.account-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  border-top: 1px solid #eaecf0;
+  padding-top: 18px;
+}
+
+.account-pagination[hidden] {
+  display: none;
+}
+
+.account-pagination__button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 8px;
+  background: transparent;
+  color: #667085;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.account-pagination__button:hover:not(:disabled),
+.account-pagination__button:focus-visible:not(:disabled) {
+  background: rgba(0, 147, 221, 0.1);
+  color: var(--color-primary);
+}
+
+.account-pagination__button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.account-pagination__pages {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.account-pagination__page,
+.account-pagination__ellipsis {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #667085;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.account-pagination__page {
+  background: transparent;
+}
+
+.account-pagination__page:hover,
+.account-pagination__page:focus-visible {
+  background: rgba(0, 147, 221, 0.08);
+  color: var(--color-primary);
+}
+
+.account-pagination__page.is-active {
+  background: rgba(0, 147, 221, 0.1);
+  color: var(--color-primary);
+}
+
+.account-booking-card {
+  display: grid;
+  grid-template-columns: 247px minmax(0, 1fr) 152px;
+  align-items: center;
+  min-height: 218px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--color-surface);
+  box-shadow: 0 0 18px rgba(0, 147, 221, 0.18);
+}
+
+.account-booking-card__image {
+  width: 247px;
+  height: 218px;
+  object-fit: cover;
+}
+
+.account-booking-card__text {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 26px 28px;
+  color: #111827;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.account-booking-card__text h2 {
+  color: #111827;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.account-booking-card__text strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.account-booking-card__actions {
+  display: grid;
+  gap: 15px;
+  padding-right: 22px;
+}
+
+.account-booking-card__status,
+.account-booking-card__cancel {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  padding: 11px 18px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.account-booking-card__status {
+  border: 0;
+}
+
+button.account-booking-card__status {
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+button.account-booking-card__status:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.account-booking-card__cancel {
+  border: 0;
+  background: #9a9a9a;
+  cursor: pointer;
+}
+
+.account-booking-card__status--cancelled {
+  background: #9a9a9a;
+}
+
+.account-booking-card__cancel:hover {
+  background: #858585;
+}
+
+.account-notice-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.account-notice-modal[hidden] {
+  display: none;
+}
+
+.account-notice-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.66);
+}
+
+.account-notice {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(460px, 100%);
+  justify-items: center;
+  gap: 18px;
+  border-radius: 28px;
+  background: var(--color-surface);
+  padding: 48px 34px 34px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+
+.account-notice__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.9rem;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(0, 147, 221, 0.35);
+}
+
+.account-notice__icon {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 2.6rem;
+  font-weight: 900;
+}
+
+.account-notice h2 {
+  color: #111827;
+  font-size: 1.65rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.account-notice p {
+  color: #111827;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.account-notice__button {
+  min-width: 180px;
+  min-height: 48px;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.account-profile-card {
+  display: grid;
+  gap: 24px;
+  padding: 30px 28px;
+  border-radius: 22px;
+  box-shadow: 0 0 18px rgba(0, 147, 221, 0.18);
+  order: -1;
+}
+
+.account-profile-card h2 {
+  margin-bottom: 0;
+  color: #111827;
+  font-size: 1.5rem;
+}
+
+.account-profile__actions {
+  display: grid;
+  gap: 13px;
+}
+
+.account-profile__edit,
+.account-profile__logout {
+  min-height: 48px;
+  border-radius: 16px;
+  padding: 11px 18px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.account-profile__logout {
+  background: #9a9a9a;
+}
+
+.account-profile__edit:hover {
+  background: var(--color-primary-hover);
+}
+
+.account-profile__logout:hover {
+  background: #858585;
+}
+
+.account-panel {
+  padding: 28px;
+}
+
+.account-panel--wide {
+  grid-column: 1 / -1;
+}
+
+.account-panel h2 {
+  margin-bottom: 18px;
+  color: var(--color-primary);
+  font-size: 1.65rem;
+  font-weight: 900;
+}
+
+.account-feedback-panel {
+  display: grid;
+  gap: 18px;
+  border-radius: 22px;
+  box-shadow: 0 0 18px rgba(0, 147, 221, 0.18);
+}
+
+.account-feedback__text {
+  color: var(--color-muted);
+  line-height: 1.35;
+}
+
+.account-feedback-form {
+  display: grid;
+  gap: 14px;
+}
+
+.account-feedback-form__field {
+  display: grid;
+  gap: 7px;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.account-feedback-form__field input,
+.account-feedback-form__field textarea {
+  width: 100%;
+  border: 1px solid #15365f;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  resize: vertical;
+}
+
+.account-feedback-form__message,
+.account-feedback-empty {
+  color: var(--color-muted);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.account-feedback-form__message.is-error {
+  color: #9b0000;
+}
+
+.account-feedback-form__message.is-success {
+  color: #16803a;
+}
+
+.account-feedback-item {
+  gap: 9px;
+}
+
+.account-feedback-item p {
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.account-feedback-item__button {
+  width: fit-content;
+  min-height: 42px;
+  border: 0;
+  border-radius: 12px;
+  padding: 9px 18px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.account-feedback-item__button:hover {
+  background: var(--color-primary-hover);
+}
+
+.account-profile {
+  display: grid;
+  gap: 12px;
+}
+
+.account-profile__row {
+  display: grid;
+  gap: 3px;
+}
+
+.account-profile__row span {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.account-profile__row b {
+  overflow-wrap: anywhere;
+}
+
+.role-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 14px;
+  background: rgba(0, 147, 221, 0.12);
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.account-list,
+.account-stats {
+  display: grid;
+  gap: 14px;
+}
+
+.account-list__item {
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  padding: 14px;
+}
+
+.account-list__item h3 {
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.account-list__item p,
+.account-list__item span {
+  color: var(--color-muted);
+}
+
+.account-list__item strong {
+  color: var(--color-primary);
+}
+
+.account-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.account-stat {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  padding: 18px 12px;
+  text-align: center;
+}
+
+.account-stat b {
+  color: var(--color-primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.account-stat span {
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+body.theme-dark .form-field input,
+body.theme-dark .password-field button,
+body.theme-dark .login-field button,
+body.theme-dark .password-mode label {
+  background: #101626;
+}
+
+body.theme-dark .password-mode legend,
+body.theme-dark .password-mode label {
+  color: var(--color-text);
+}
+
+body.theme-dark .form-field input::placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+body.theme-dark .account-booking-card__text,
+body.theme-dark .account-booking-card__text h2,
+body.theme-dark .account-profile-card h2,
+body.theme-dark .account-notice h2,
+body.theme-dark .account-notice p {
+  color: var(--color-text);
+}
+
+body.accessibility-mode .auth-card,
+body.accessibility-mode .account-panel,
+body.accessibility-mode .account-hero__card,
+body.accessibility-mode .account-booking-card,
+body.accessibility-mode .account-booking-list > p {
+  box-shadow: 0 0 0 2px var(--color-border);
+}
+
+@media (max-width: 1024px) {
+  .auth-page,
+  .account-page {
+    padding-top: 18px;
+  }
+
+  .auth-layout,
+  .auth-layout--wide {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-media {
+    min-height: 330px;
+  }
+
+  .auth-card {
+    padding: 34px;
+  }
+
+  .account-grid,
+  .account-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .account-profile-card {
+    width: 100%;
+    max-width: none;
+  }
+
+  .account-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .auth-modal {
+    align-items: start;
+    padding: 24px 14px;
+  }
+
+  .auth-dialog,
+  .auth-dialog--register {
+    width: min(100%, 380px);
+    border-radius: 24px;
+    padding: 64px 26px 36px;
+  }
+
+  .auth-dialog__close {
+    width: 48px;
+    height: 48px;
+    font-size: 2.35rem;
+  }
+
+  .auth-layout,
+  .auth-layout--wide {
+    gap: 18px;
+  }
+
+  .auth-media {
+    min-height: 240px;
+  }
+
+  .auth-card,
+  .account-hero__card,
+  .account-panel {
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .account-dashboard,
+  .account-bookings,
+  .account-booking-section,
+  .account-booking-list {
+    gap: 20px;
+  }
+
+  .account-profile-card {
+    width: 100%;
+    max-width: none;
+  }
+
+  .account-booking-section h1 {
+    font-size: 1.75rem;
+    line-height: 1.12;
+  }
+
+  .account-booking-card {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    border-radius: 14px;
+  }
+
+  .account-booking-card__image {
+    width: 100%;
+    height: 178px;
+  }
+
+  .account-booking-card__text {
+    gap: 8px;
+    padding: 16px 16px 0;
+    font-size: 0.95rem;
+  }
+
+  .account-booking-card__text h2,
+  .account-booking-card__text strong {
+    font-size: 1rem;
+  }
+
+  .account-booking-card__actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 14px 16px 16px;
+  }
+
+  .account-booking-card__status,
+  .account-booking-card__cancel {
+    min-height: 40px;
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+    min-width: 0;
+  }
+
+  .account-pagination {
+    gap: 10px;
+  }
+
+  .account-pagination__button {
+    min-width: 40px;
+    justify-content: center;
+    padding: 0 6px;
+    font-size: 0.75rem;
+  }
+
+  .account-pagination__pages {
+    gap: 0;
+  }
+
+  .account-pagination__page,
+  .account-pagination__ellipsis {
+    width: 34px;
+    height: 34px;
+    font-size: 0.82rem;
+  }
+
+  .account-booking-list > p,
+  .account-profile-card {
+    border-radius: 14px;
+  }
+
+  .auth-form--grid,
+  .account-hero__card {
+    grid-template-columns: 1fr;
+  }
+
+  .password-field,
+  .login-field,
+  .auth-dialog .password-field:has([data-generate-password]:not([hidden])),
+  .password-mode {
+    grid-template-columns: 1fr;
+  }
+
+  .password-field button,
+  .login-field button {
+    width: 100%;
+  }
+
+  .account-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .account-logout {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .auth-card,
+  .account-hero__card,
+  .account-panel {
+    padding: 20px;
+  }
+
+  .account-booking-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .account-booking-card__image {
+    width: 100%;
+    height: 160px;
+  }
+
+  .auth-card h1,
+  .account-hero__card h1 {
+    font-size: 1.9rem;
+  }
+}
+
+body.accessibility-mode .auth-layout,
+body.accessibility-mode .auth-layout--wide,
+body.accessibility-mode .auth-form--grid,
+body.accessibility-mode .account-grid,
+body.accessibility-mode .account-dashboard,
+body.accessibility-mode .account-hero__card,
+body.accessibility-mode .account-stats {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body.accessibility-mode .auth-card,
+body.accessibility-mode .auth-dialog,
+body.accessibility-mode .account-hero__card,
+body.accessibility-mode .account-panel,
+body.accessibility-mode .account-profile-card,
+body.accessibility-mode .account-booking-card,
+body.accessibility-mode .account-booking-list > p {
+  overflow: visible;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+body.accessibility-mode .auth-media {
+  min-height: 0;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+
+body.accessibility-mode .auth-media img,
+body.accessibility-mode .account-booking-card__image {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+body.accessibility-mode .account-booking-card {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body.accessibility-mode .account-booking-card__text,
+body.accessibility-mode .account-booking-card__actions {
+  padding: 18px;
+}
+
+body.accessibility-mode .account-booking-card__actions,
+body.accessibility-mode .account-pagination {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body.accessibility-mode .account-booking-card__status,
+body.accessibility-mode .account-booking-card__cancel,
+body.accessibility-mode .account-logout {
+  width: auto;
+  min-width: min(220px, 100%);
+  white-space: normal;
+}
+
+body.accessibility-mode .form-field,
+body.accessibility-mode .password-field,
+body.accessibility-mode .login-field,
+body.accessibility-mode .password-mode {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body.accessibility-mode .auth-modal,
+body.accessibility-mode .account-notice-modal {
+  z-index: 7000 !important;
+  align-items: start;
+  overflow-y: auto;
+  padding: 24px var(--container-padding);
+}
+
+body.accessibility-mode .auth-dialog,
+body.accessibility-mode .account-notice {
+  width: min(720px, 100%);
+  max-height: calc(100dvh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 72px 24px 28px;
+}
+
+body.accessibility-mode .auth-dialog .auth-form,
+body.accessibility-mode .auth-dialog .auth-form--grid,
+body.accessibility-mode .account-feedback-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+body.accessibility-mode .auth-dialog .form-field,
+body.accessibility-mode .account-feedback-form__field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.accessibility-mode .auth-dialog :where(.password-field, .login-field) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+
+body.accessibility-mode .auth-dialog :where(.password-field button, .login-field button),
+body.accessibility-mode .auth-dialog__link,
+body.accessibility-mode .account-profile__edit,
+body.accessibility-mode .account-profile__logout,
+body.accessibility-mode .account-feedback-item__button {
+  min-height: 54px;
+  border: 2px solid var(--color-border) !important;
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: var(--color-primary) !important;
+  color: var(--color-page) !important;
+  font: inherit;
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
+}
+
+body.accessibility-mode .auth-dialog :where(.password-field button, .login-field button):hover,
+body.accessibility-mode .auth-dialog__link:hover,
+body.accessibility-mode .account-profile__edit:hover,
+body.accessibility-mode .account-profile__logout:hover,
+body.accessibility-mode .account-feedback-item__button:hover {
+  background: var(--color-primary-hover) !important;
+  color: var(--color-page) !important;
+}
+
+body.accessibility-mode .auth-submit:disabled,
+body.accessibility-mode .auth-dialog :where(.password-field button, .login-field button):disabled {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 2px solid var(--color-border) !important;
+  opacity: 1;
+}
+
+body.accessibility-mode :where(.auth-dialog__close, .account-notice__close) {
+  top: 12px;
+  right: 12px;
+  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  place-items: center;
+  border: 2px solid var(--color-border) !important;
+  border-radius: 50%;
+  padding: 0;
+  background: var(--color-primary) !important;
+  box-shadow: none;
+  color: var(--color-page) !important;
+  font-size: 0 !important;
+  line-height: 1;
+}
+
+body.accessibility-mode :where(.auth-dialog__close, .account-notice__close)::before {
+  content: "\00d7";
+  color: currentColor;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}

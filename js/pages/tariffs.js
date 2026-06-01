@@ -87,6 +87,23 @@ function getJson(endpoint) {
   });
 }
 
+function sendJson(endpoint, options = {}) {
+  return fetch(`${API_BASE_URL}${endpoint}`, {
+    cache: "no-store",
+    ...options,
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error(`Ошибка запроса: ${response.status}`);
+    }
+
+    if (response.status === 204) {
+      return null;
+    }
+
+    return response.text().then((text) => (text ? JSON.parse(text) : null));
+  });
+}
+
 function normalizeText(value) {
   return String(value || "").trim().toLowerCase();
 }
@@ -193,6 +210,10 @@ function createTableHeader() {
       th.innerHTML = `<span class="tariff-table__head-prefix">Стоимость проката, рублей</span><span class="tariff-table__head-time">${column.label.replace("Стоимость проката, рублей ", "")}</span>`;
     }
 
+    if (column === "" && !isTariffsAdmin()) {
+      th.hidden = true;
+    }
+
     row.append(th);
   });
 
@@ -253,6 +274,14 @@ function createTariffRow(tariff, dayKey) {
   actionButton.textContent = "⋮";
   actionButton.setAttribute("aria-label", `Выбрать тариф: ${getDisplayText(tariff).title}`);
   actionButton.dataset.tariffId = String(tariff.id);
+  if (isTariffsAdmin()) {
+    actionButton.textContent = "⋮";
+    actionButton.setAttribute("aria-label", `Действия для тарифа: ${getDisplayText(tariff).title}`);
+    actionButton.addEventListener("click", () => handleTariffAction(tariff));
+  } else {
+    actionCell.hidden = true;
+    actionButton.hidden = true;
+  }
   actionCell.append(actionButton);
   row.append(actionCell);
 
@@ -433,7 +462,7 @@ function createCellWithStack(items, className = "") {
 
 function renderAll() {
   const visibleTariffs = getVisibleTariffs();
-  const rentalTariffs = visibleTariffs.filter((tariff) => RENTAL_TARIFF_IDS.includes(tariff.id));
+  const rentalTariffs = visibleTariffs.filter((tariff) => RENTAL_TARIFF_IDS.includes(tariff.id) || tariff.category === "rental");
 
   tariffContainers.forEach((container) => {
     renderTariffTable(container, container.dataset.tariffTable, rentalTariffs);
@@ -441,6 +470,267 @@ function renderAll() {
 
   renderTubingTable(visibleTariffs);
   renderScheduleTable();
+}
+
+function initTariffsAdminPanel() {
+  document.body.classList.toggle("is-admin", isTariffsAdmin());
+  document.querySelector("[data-tariffs-admin-panel]")?.remove();
+
+  if (!isTariffsAdmin() || !controls) {
+    return;
+  }
+
+  const panel = document.createElement("section");
+  panel.className = "admin-panel";
+  panel.dataset.tariffsAdminPanel = "";
+
+  const title = document.createElement("h2");
+  title.className = "admin-panel__title";
+  title.textContent = "Управление услугами";
+
+  const actions = document.createElement("div");
+  actions.className = "admin-panel__actions";
+
+  const addButton = document.createElement("button");
+  addButton.className = "admin-button";
+  addButton.type = "button";
+  addButton.textContent = "Добавить услугу";
+  addButton.addEventListener("click", addTariffItem);
+
+  actions.append(addButton);
+  panel.append(title, actions);
+  controls.parentNode.insertBefore(panel, controls.nextSibling);
+}
+
+function createDefaultTariffPrices(price) {
+  return ["weekday", "weekend", "holiday"].reduce((days, dayKey) => {
+    days[dayKey] = {
+      all: {
+        "1hour": price,
+        "2hours": price,
+        "3hours": price,
+        "4hours": price,
+        day: price
+      }
+    };
+    return days;
+  }, {});
+}
+
+function getMinTariffPrice(prices) {
+  const values = [];
+
+  Object.values(prices || {}).forEach((day) => {
+    Object.values(day || {}).forEach((group) => {
+      Object.values(group || {}).forEach((value) => {
+        if (typeof value === "number") {
+          values.push(value);
+        }
+      });
+    });
+  });
+
+  return values.length ? Math.min(...values) : 0;
+}
+
+function cloneData(value) {
+  return JSON.parse(JSON.stringify(value || {}));
+}
+
+function isTariffsAdmin() {
+  try {
+    const user = JSON.parse(localStorage.getItem("eurasiaCurrentUser"));
+    return user && user.role === "admin";
+  } catch (error) {
+    return false;
+  }
+}
+
+async function handleTariffAction(tariff) {
+  const data = await window.EurasiaAdminUI.form({
+    title: getDisplayText(tariff).title,
+    submitText: "Продолжить",
+    fields: [
+      {
+        name: "action",
+        label: "Действие",
+        type: "select",
+        required: true,
+        value: "edit",
+        options: [
+          { value: "edit", label: "Изменить цену" },
+          { value: "delete", label: "Удалить тариф" }
+        ]
+      }
+    ]
+  });
+
+  if (!data) {
+    return;
+  }
+
+  if (data.action === "delete") {
+    await deleteTariffItem(tariff);
+    return;
+  }
+
+  await editTariffPrice(tariff);
+}
+
+async function editTariffPrice(tariff) {
+  const data = await window.EurasiaAdminUI.form({
+    title: "Изменить цену",
+    submitText: "Сохранить",
+    fields: [
+      {
+        name: "dayKey",
+        label: "День",
+        type: "select",
+        value: "weekday",
+        required: true,
+        options: [
+          { value: "weekday", label: "Будний день" },
+          { value: "weekend", label: "Выходной день" },
+          { value: "holiday", label: "Праздничный день" }
+        ]
+      },
+      {
+        name: "groupKey",
+        label: "Группа",
+        type: "select",
+        value: "adult",
+        required: true,
+        options: [
+          { value: "child", label: "Дети до 14 лет" },
+          { value: "adult", label: "Взрослые" },
+          { value: "evening", label: "Вечер" },
+          { value: "all", label: "Для всех" }
+        ]
+      },
+      {
+        name: "priceKey",
+        label: "Период",
+        type: "select",
+        value: "1hour",
+        required: true,
+        options: [
+          { value: "1hour", label: "1 час" },
+          { value: "2hours", label: "2 часа" },
+          { value: "3hours", label: "3 часа" },
+          { value: "4hours", label: "4 часа" },
+          { value: "day", label: "День" }
+        ]
+      },
+      { name: "price", label: "Новая цена", type: "number", min: 0, step: 1, value: "", required: true }
+    ]
+  });
+
+  if (!data) {
+    return;
+  }
+
+  const price = Number(data.price);
+  const prices = cloneData(tariff.prices || {});
+  prices[data.dayKey] = prices[data.dayKey] || {};
+  prices[data.dayKey][data.groupKey] = prices[data.dayKey][data.groupKey] || {};
+  prices[data.dayKey][data.groupKey][data.priceKey] = price;
+
+  try {
+    const saved = await sendJson(`/tariffs/${tariff.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        prices,
+        minPrice: getMinTariffPrice(prices)
+      })
+    });
+
+    Object.assign(tariff, saved || { prices });
+    renderAll();
+  } catch (error) {
+    console.error("Не удалось изменить цену:", error);
+    window.EurasiaAdminUI.notice({
+      title: "Цена не сохранена",
+      text: "Не удалось изменить цену. Проверьте JSON Server."
+    });
+  }
+}
+
+async function addTariffItem() {
+  const data = await window.EurasiaAdminUI.form({
+    title: "Новая услуга",
+    submitText: "Добавить",
+    fields: [
+      { name: "title", label: "Название услуги", value: "Новая услуга проката", required: true },
+      { name: "description", label: "Описание", type: "textarea", value: "" },
+      { name: "price", label: "Базовая цена", type: "number", min: 0, step: 1, value: 500, required: true }
+    ]
+  });
+
+  if (!data) {
+    return;
+  }
+
+  const price = Number(data.price);
+  const prices = createDefaultTariffPrices(price);
+
+  try {
+    const saved = await sendJson("/tariffs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: data.title.trim(),
+        category: "rental",
+        categoryTitle: "Прокат",
+        description: data.description || "",
+        minPrice: price,
+        isAvailable: true,
+        prices
+      })
+    });
+
+    if (saved) {
+      state.tariffs.push(saved);
+    }
+
+    renderAll();
+  } catch (error) {
+    console.error("Не удалось добавить тариф:", error);
+    window.EurasiaAdminUI.notice({
+      title: "Тариф не добавлен",
+      text: "Не удалось добавить тариф. Проверьте JSON Server."
+    });
+  }
+}
+
+async function deleteTariffItem(tariff) {
+  const shouldDelete = await window.EurasiaAdminUI.confirm({
+    title: "Удалить тариф",
+    text: `Тариф "${getDisplayText(tariff).title}" будет удален из списка услуг.`,
+    confirmText: "Удалить"
+  });
+
+  if (!shouldDelete) {
+    return;
+  }
+
+  try {
+    await sendJson(`/tariffs/${tariff.id}`, {
+      method: "DELETE"
+    });
+    state.tariffs = state.tariffs.filter((item) => item.id !== tariff.id);
+    renderAll();
+  } catch (error) {
+    console.error("Не удалось удалить тариф:", error);
+    window.EurasiaAdminUI.notice({
+      title: "Тариф не удален",
+      text: "Не удалось удалить тариф. Проверьте JSON Server."
+    });
+  }
 }
 
 function setUnavailableMessage() {
@@ -519,6 +809,7 @@ function initTariffsPage() {
   }
 
   bindControls();
+  initTariffsAdminPanel();
 
   Promise.all([getJson("/tariffs"), getJson("/workSchedule")])
     .then(([tariffs, workSchedule]) => {
@@ -532,3 +823,7 @@ function initTariffsPage() {
 }
 
 initTariffsPage();
+window.addEventListener("eurasia:user-change", () => {
+  initTariffsAdminPanel();
+  renderAll();
+});

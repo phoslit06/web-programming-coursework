@@ -1,22 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Горнолыжные трассы — ЦАО Евразия</title>
+  <title>Горнолыжные трассы - ЦАО Евразия</title>
   <link rel="stylesheet" href="../../css/normalize.css">
   <link rel="stylesheet" href="../../css/variables.css">
-  <link rel="stylesheet" href="../../css/base.css?v=2">
-  <link rel="stylesheet" href="../../css/layout.css?v=2">
+  <link rel="stylesheet" href="../../css/base.css?v=7">
+  <link rel="stylesheet" href="../../css/layout.css?v=6">
   <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/responsive.css?v=3">
-  <link rel="stylesheet" href="trails.css?v=4">
-  <script src="../../js/pages/trails.js?v=3" defer></script>
+  <link rel="stylesheet" href="../../css/responsive.css?v=4">
+  <link rel="stylesheet" href="../../css/auth.css?v=13">
+  <link rel="stylesheet" href="../../css/admin.css?v=3">
+  <link rel="stylesheet" href="trails.css?v=17">
+  <script src="../../js/admin-ui.js?v=3" defer></script>
+  <script src="../../js/pages/trails.js?v=9" defer></script>
+  <script src="../../js/pages/auth.js?v=21" defer></script>
 </head>
 <body class="theme-light">
   <header class="site-header">
     <div class="container header-container">
-      <a class="logo" href="../../index.html" aria-label="Евразия — на главную">
+      <a class="logo" href="../../index.html" aria-label="Евразия - на главную">
         <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
         <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
       </a>
@@ -26,7 +30,7 @@
         <a href="../hotels/hotels.html">Проживание</a>
         <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
         <a href="../cart/cart.html">Корзина</a>
-        <a href="../account/account.html">Личный кабинет</a>
+        <a href="../account/account.html" data-auth-link>Вход</a>
       </nav>
 
       <div class="header-side">
@@ -36,7 +40,7 @@
         </div>
         <div class="user-settings" aria-label="Настройки сайта">
           <button class="settings-button" type="button">RU | EN</button>
-          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему">Тема</button>
+          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle></button>
           <button class="settings-button" type="button" aria-label="Версия для слабовидящих">A+</button>
         </div>
       </div>
@@ -74,17 +78,17 @@
             </span>
             <span class="mobile-menu__text">Корзина</span>
           </a>
-          <a class="mobile-menu__item" href="../account/account.html" aria-label="Личный кабинет">
+          <a class="mobile-menu__item" href="../account/account.html" aria-label="Вход" data-auth-link>
             <span class="mobile-menu__icon" aria-hidden="true">
               <img src="../../assets/images/common/icons/menu-user.png" alt="">
             </span>
-            <span class="mobile-menu__text">Личный кабинет</span>
+            <span class="mobile-menu__text">Вход</span>
           </a>
           <span class="mobile-menu__divider" aria-hidden="true"></span>
           <button class="mobile-menu__control" type="button">RU</button>
           <button class="mobile-menu__control" type="button">EN</button>
           <button class="mobile-menu__control" type="button">A+</button>
-          <button class="mobile-menu__control" type="button" aria-label="Переключить тему">Т</button>
+          <button class="mobile-menu__control" type="button" aria-label="Переключить тему" data-theme-toggle></button>
         </nav>
       </div>
     </div>
@@ -97,8 +101,8 @@
           <img src="../../assets/images/trails/figma-hero.png" alt="Лыжник на склоне центра Евразия">
           <div class="trails-hero__content">
             <p class="trails-hero__lead">30 декабря в ЦАО "Евразия" состоится тестовое открытие 2 склона.</p>
-            <p class="trails-hero__title">Новый сезон — новые горизонты</p>
-            <p class="trails-hero__text">Центр активного отдыха «Евразия» — активный отдых в гармонии с природой.</p>
+            <p class="trails-hero__title">Новый сезон - новые горизонты</p>
+            <p class="trails-hero__text">Центр активного отдыха «Евразия» - активный отдых в гармонии с природой.</p>
           </div>
         </article>
       </div>
@@ -117,45 +121,53 @@
           <div class="trails-table__list" data-trails-list>
             <p class="trails-message">Загрузка трасс...</p>
           </div>
+          <div class="trails-legend__signs">
+            <h2 id="trails-legend-title">Обозначения на схеме</h2>
+            <img class="legend-picture" src="../../assets/images/trails/figma-designations.png" alt="Обозначения на схеме трасс">
+          </div>
         </div>
 
         <div class="trails-map">
           <img src="../../assets/images/trails/figma-slopes.png" alt="Схема горнолыжных трасс">
           <div class="trails-difficulty" aria-label="Сложность трасс">
             <h2>Сложность</h2>
-            <img src="../../assets/images/trails/figma-difficulty.png" alt="Легкая, средняя, высокая и трасса тюбинг">
+            <div class="difficulty-scale" role="list">
+              <span class="difficulty-card difficulty-card--easy" role="listitem">
+                <span class="difficulty-mark"><span></span><span></span><span></span></span>
+                <span>легкая</span>
+              </span>
+              <span class="difficulty-card difficulty-card--medium" role="listitem">
+                <span class="difficulty-mark"><span></span><span></span><span></span></span>
+                <span>средняя</span>
+              </span>
+              <span class="difficulty-card difficulty-card--hard" role="listitem">
+                <span class="difficulty-mark"><span></span><span></span><span></span></span>
+                <span>высокая</span>
+              </span>
+              <span class="difficulty-card difficulty-card--tubing" role="listitem">
+                <span class="difficulty-mark"><span></span><span></span><span></span></span>
+                <span>трасса<br>тюбинг</span>
+              </span>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trails-legend" aria-labelledby="trails-legend-title">
-      <div class="container trails-legend__grid">
-        <div class="trails-legend__signs">
-          <h2 id="trails-legend-title">Обозначения на схеме</h2>
-          <img class="legend-picture" src="../../assets/images/trails/figma-designations.png" alt="Обозначения на схеме трасс">
-        </div>
-        <div class="trails-legend__items">
-          <article class="legend-item legend-item--open">
-            <span>open</span>
-            <p>Трасса открыта и полностью подготовлена к катанию. Огорожена сетями безопасности. Трассу ежедневно обрабатывает снегоуплотнительная техника. Снежный покров — искусственный и естественный.</p>
-          </article>
-          <article class="legend-item legend-item--closed">
-            <span>close</span>
-            <p>Трасса закрыта для катания. Не огорожена сетями безопасности. Недостаточно снежного покрова для безопасного катания.</p>
-          </article>
-          <article class="legend-item legend-item--natural">
-            <span aria-hidden="true"></span>
-            <p>Трасса частично подготовлена. Снежный покров — естественный. Катание осуществляется на страх и риск отдыхающих.</p>
-          </article>
-        </div>
-        <div class="trails-difficulty trails-difficulty--mobile" aria-label="Сложность трасс">
-          <h2>Сложность</h2>
-          <img src="../../assets/images/trails/figma-difficulty.png" alt="Сложность трасс">
-        </div>
-        <div class="trails-map-links">
-          <a href="../../assets/images/trails/figma-slopes.png" download>Скачать карту</a>
-          <a href="../../assets/images/trails/figma-extra-map.png" download>Скачать карту пеших троп</a>
+          <div class="trails-legend__items">
+            <article class="legend-item legend-item--open">
+              <span>open</span>
+              <p>Трасса открыта и полностью подготовлена к катанию. Огорожена сетями безопасности. Трассу ежедневно обрабатывает снегоуплотнительная техника. Снежный покров - искусственный и естественный.</p>
+            </article>
+            <article class="legend-item legend-item--closed">
+              <span>close</span>
+              <p>Трасса закрыта для катания. Не огорожена сетями безопасности. Недостаточно снежного покрова для безопасного катания.</p>
+            </article>
+            <article class="legend-item legend-item--natural">
+              <span aria-hidden="true"></span>
+              <p>Трасса частично подготовлена. Снежный покров - естественный. Катание осуществляется на страх и риск отдыхающих.</p>
+            </article>
+          </div>
+          <div class="trails-map-links">
+            <a href="../../assets/images/trails/figma-slopes.png" download="eurasia-trails-map.png" data-download-url="../../assets/images/trails/figma-slopes.png" data-download-name="eurasia-trails-map.png">Скачать карту</a>
+            <a href="../../assets/images/trails/figma-extra-map.png" download="eurasia-walking-map.png" data-download-url="../../assets/images/trails/figma-extra-map.png" data-download-name="eurasia-walking-map.png">Скачать карту пеших троп</a>
+          </div>
         </div>
       </div>
     </section>
@@ -171,7 +183,7 @@
 
     <section class="trail-extra">
       <div class="container trail-extra__grid">
-        <img src="../../assets/images/trails/figma-extra-map.png" alt="Схема трасс центра Евразия">
+        <img src="../../assets/images/trails/figma-map-sky.png" alt="Схема ЦАО Евразия">
         <div class="trail-extra__text" data-extra-trails></div>
       </div>
     </section>
@@ -206,22 +218,22 @@
       <div class="container">
         <h2 id="trail-rules-title">Правила</h2>
         <div class="trail-rules__grid">
-          <a href="#">Правила поведения посетителей на горнолыжных трассах</a>
-          <a href="#">Правила поведения посетителей на канатной дороге</a>
-          <a href="#">Иные правила курорта</a>
+          <a href="../../assets/docs/ski-trails-rules.pdf" download="pravila-gornolyzhnye-trassy.pdf" data-download-url="../../assets/docs/ski-trails-rules.pdf" data-download-name="pravila-gornolyzhnye-trassy.pdf">Правила поведения посетителей на горнолыжных трассах</a>
+          <a href="../../assets/docs/cable-car-rules.pdf" download="pravila-kanatnaya-doroga.pdf" data-download-url="../../assets/docs/cable-car-rules.pdf" data-download-name="pravila-kanatnaya-doroga.pdf">Правила поведения посетителей на канатной дороге</a>
+          <a href="../../assets/docs/resort-rules.pdf" download="inye-pravila-kurorta.pdf" data-download-url="../../assets/docs/resort-rules.pdf" data-download-name="inye-pravila-kurorta.pdf">Иные правила курорта</a>
         </div>
       </div>
     </section>
 
     <section class="social-section" aria-label="Социальные сети">
       <div class="social-links">
-        <a href="#" aria-label="ВКонтакте">
+        <a href="https://vk.com" aria-label="ВКонтакте" target="_blank" rel="noopener">
           <img src="../../assets/images/common/icons/vk.png" alt="">
         </a>
-        <a href="#" aria-label="YouTube">
+        <a href="https://www.youtube.com" aria-label="YouTube" target="_blank" rel="noopener">
           <img src="../../assets/images/common/icons/youtube.png" alt="">
         </a>
-        <a href="#" aria-label="Дзен">
+        <a href="../contacts/contacts.html" aria-label="Контакты">
           <img src="../../assets/images/common/icons/zen.png" alt="">
         </a>
       </div>
@@ -246,7 +258,7 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия — на главную">
+      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия - на главную">
         <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
         <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
       </a>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -6,27 +6,160 @@
   <title>Корзина — ЦАО Евразия</title>
   <link rel="stylesheet" href="../../css/normalize.css">
   <link rel="stylesheet" href="../../css/variables.css">
-  <link rel="stylesheet" href="../../css/base.css">
-  <link rel="stylesheet" href="../../css/layout.css?v=2">
+  <link rel="stylesheet" href="../../css/base.css?v=7">
+  <link rel="stylesheet" href="../../css/layout.css?v=6">
   <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/responsive.css?v=3">
-  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="../../css/responsive.css?v=4">
+  <link rel="stylesheet" href="../../css/auth.css?v=13">
+  <link rel="stylesheet" href="cart.css?v=4">
+  <script src="../../js/pages/auth.js?v=21" defer></script>
+  <script src="../../js/pages/cart.js?v=4" defer></script>
 </head>
-<body class="theme-light">
+<body class="theme-light" data-page="cart">
   <header class="site-header">
-    <div class="container section-heading">
-      <a class="logo" href="../../index.html" aria-label="Евразия — на главную">
+    <div class="container header-container">
+      <a class="logo" href="../../index.html" aria-label="Евразия - на главную">
         <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
         <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
       </a>
-      <a class="button button--primary" href="../../index.html">На главную</a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="../trails/trails.html">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
+        <a href="../cart/cart.html" aria-current="page">Корзина</a>
+        <a href="../account/account.html" data-auth-link>Вход</a>
+      </nav>
+
+      <div class="header-side">
+        <div class="header-phones" aria-label="Телефоны">
+          <a class="header-phone" href="tel:+79227288288">+79227288288</a>
+          <a class="header-phone" href="tel:+73513790979">+73513790979</a>
+        </div>
+        <div class="user-settings" aria-label="Настройки сайта">
+          <button class="settings-button" type="button" data-lang-toggle>RU | EN</button>
+          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle></button>
+          <button class="settings-button" type="button" aria-label="Версия для слабовидящих" data-accessibility-toggle>A+</button>
+        </div>
+      </div>
+
+      <div class="mobile-menu">
+        <input class="mobile-menu__toggle" type="checkbox" id="mobile-menu-toggle">
+        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <span class="mobile-menu__overlay" aria-hidden="true"></span>
+        <nav class="mobile-menu__panel" aria-label="Мобильная навигация">
+          <a class="mobile-menu__item" href="../trails/trails.html" aria-label="Трассы">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cable-car.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Трассы</span>
+          </a>
+          <a class="mobile-menu__item" href="../hotels/hotels.html" aria-label="Проживание">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-home.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Проживание</span>
+          </a>
+          <a class="mobile-menu__item" href="../tariffs/tariffs.html" aria-label="Услуги и тарифы">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-tickets.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Услуги и тарифы</span>
+          </a>
+          <a class="mobile-menu__item" href="../cart/cart.html" aria-label="Корзина" aria-current="page">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cart.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Корзина</span>
+          </a>
+          <a class="mobile-menu__item" href="../account/account.html" aria-label="Вход" data-auth-link>
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-user.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Вход</span>
+          </a>
+          <span class="mobile-menu__divider" aria-hidden="true"></span>
+          <button class="mobile-menu__control" type="button" data-mobile-lang="ru">RU</button>
+          <button class="mobile-menu__control" type="button" data-mobile-lang="en">EN</button>
+          <button class="mobile-menu__control" type="button" data-accessibility-toggle>A+</button>
+          <button class="mobile-menu__control" type="button" aria-label="Переключить тему" data-theme-toggle></button>
+        </nav>
+      </div>
     </div>
   </header>
-  <main class="page-stub">
-    <div class="container page-stub__card">
-      <h1 class="section-title">Корзина</h1>
-      <p>Каркас будущей страницы. Полная HTML/CSS-верстка будет добавлена на отдельном этапе по макету.</p>
-    </div>
+  <main class="cart-page">
+    <section class="cart-section" aria-labelledby="cart-title">
+      <div class="container">
+        <h1 class="cart-title" id="cart-title">Корзина</h1>
+        <div class="cart-state" data-cart-state>Загрузка корзины...</div>
+        <div class="cart-layout" data-cart-layout hidden>
+          <div class="cart-list" data-cart-list></div>
+          <aside class="cart-summary" aria-labelledby="cart-summary-title" data-cart-summary>
+            <h2 id="cart-summary-title">Стоимость отдыха</h2>
+            <div class="cart-summary__row">
+              <span data-summary-count>Товары, 0шт</span>
+              <b data-summary-subtotal>0 ₽</b>
+            </div>
+            <div class="cart-summary__total">
+              <span>Итого</span>
+              <strong data-summary-total>0 ₽</strong>
+            </div>
+            <button class="button button--primary cart-summary__order" type="button" data-order-button>Заказать</button>
+            <p class="cart-summary__message" data-order-message></p>
+          </aside>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <div class="cart-payment-modal" data-cart-payment-modal hidden>
+    <div class="cart-payment-modal__backdrop" data-payment-close></div>
+    <section class="cart-payment" role="dialog" aria-modal="true" aria-labelledby="cart-payment-title">
+      <button class="cart-payment__close" type="button" aria-label="Закрыть" data-payment-close>×</button>
+      <h2 id="cart-payment-title">Способ оплаты</h2>
+      <p>Выберите, оплатить бронирование сейчас или позже.</p>
+      <div class="cart-payment__actions">
+        <button class="button button--primary" type="button" data-pay-now>Оплатить сейчас</button>
+        <button class="button button--primary" type="button" data-pay-later>Оплатить позже</button>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия - на главную">
+        <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+      </a>
+
+      <section class="footer-block" aria-labelledby="footer-hours-cart">
+        <h2 id="footer-hours-cart">Режим работы:</h2>
+        <p>Пн-пт: 10.00-21.00</p>
+        <p>Сб-вс 9.00-21.00</p>
+      </section>
+
+      <section class="footer-block footer-block--wide" aria-labelledby="footer-contacts-cart">
+        <h2 id="footer-contacts-cart">Контакты</h2>
+        <p>Всесезонный центр спорта и отдыха находится в рекреационной зоне на границе с заповедниками «Таганай» и «Зюраткуль» всего в 30 минутах езды от Златоуста, и в 1,5 часах от Челябинска.</p>
+      </section>
+
+      <nav class="footer-nav" aria-label="Разделы сайта">
+        <a href="../trails/trails.html">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
+        <a href="../tours/tours.html">Туры и акции</a>
+        <a href="../contacts/contacts.html">Контакты</a>
+      </nav>
+
+      <div class="footer-phones" aria-label="Телефоны">
+        <a href="tel:+79227288288">+79227288288</a>
+        <a href="tel:+73513790979">+73513790979</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

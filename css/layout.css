@@ -29,6 +29,36 @@
   object-fit: contain;
 }
 
+body.theme-dark .logo__text,
+body.accessibility-mode.a11y-scheme-black-white .logo__text,
+body.accessibility-mode.a11y-scheme-black-green .logo__text {
+  filter: brightness(0) invert(1);
+}
+
+body.accessibility-mode.a11y-images-off .logo__text,
+body.accessibility-mode.a11y-images-off .logo__mark {
+  display: none !important;
+}
+
+body.accessibility-mode.a11y-images-off .logo {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--color-text);
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+body.accessibility-mode.a11y-images-off .logo::after {
+  content: "На главную";
+}
+
 .main-nav {
   display: flex;
   align-items: center;
@@ -98,6 +128,187 @@
 
 .settings-button:hover {
   color: var(--color-primary);
+}
+
+.theme-toggle,
+.settings-button--icon,
+.mobile-menu__control[aria-label="Переключить тему"] {
+  --theme-toggle-bg: var(--color-page);
+  position: relative;
+  display: inline-grid;
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  min-height: 34px;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  padding: 0;
+  color: var(--color-primary);
+  font-size: 0;
+  line-height: 1;
+}
+
+.theme-toggle::before,
+.theme-toggle::after,
+.settings-button--icon::before,
+.settings-button--icon::after,
+.mobile-menu__control[aria-label="Переключить тему"]::before,
+.mobile-menu__control[aria-label="Переключить тему"]::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+}
+
+.theme-toggle:hover,
+.settings-button--icon:hover,
+.mobile-menu__control[aria-label="Переключить тему"]:hover {
+  border-color: currentColor;
+  color: var(--color-primary-hover);
+}
+
+.theme-toggle:focus-visible,
+.settings-button--icon:focus-visible,
+.mobile-menu__control[aria-label="Переключить тему"]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.theme-toggle[data-theme-icon="moon"]::before,
+.settings-button--icon:not([data-theme-icon])::before,
+.mobile-menu__control[aria-label="Переключить тему"]:not([data-theme-icon])::before {
+  width: 19px;
+  height: 19px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.theme-toggle[data-theme-icon="moon"]::after,
+.settings-button--icon:not([data-theme-icon])::after,
+.mobile-menu__control[aria-label="Переключить тему"]:not([data-theme-icon])::after {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--theme-toggle-bg);
+  transform: translate(5px, -3px);
+}
+
+.theme-toggle[data-theme-icon="sun"]::before {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.theme-toggle[data-theme-icon="sun"]::after {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow:
+    0 -13px 0 currentColor,
+    0 13px 0 currentColor,
+    13px 0 0 currentColor,
+    -13px 0 0 currentColor,
+    9px 9px 0 currentColor,
+    -9px 9px 0 currentColor,
+    9px -9px 0 currentColor,
+    -9px -9px 0 currentColor;
+}
+
+.mobile-menu__control.theme-toggle {
+  justify-content: center;
+}
+
+.mobile-menu__panel .theme-toggle {
+  --theme-toggle-bg: var(--color-surface);
+}
+
+body.accessibility-mode .site-header {
+  border-bottom: 2px solid var(--color-border);
+}
+
+body.accessibility-mode .header-container {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 16px 22px;
+}
+
+body.accessibility-mode .logo {
+  max-width: 100%;
+}
+
+body.accessibility-mode .logo__mark {
+  width: 52px;
+  height: 64px;
+}
+
+body.accessibility-mode .logo__text {
+  width: 132px;
+  height: auto;
+}
+
+body.accessibility-mode .main-nav {
+  align-self: center;
+  min-height: 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px 20px;
+  font-size: 1rem;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+body.accessibility-mode .header-side {
+  justify-self: end;
+  justify-items: end;
+  max-width: 100%;
+}
+
+body.accessibility-mode .header-phones,
+body.accessibility-mode .user-settings {
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+body.accessibility-mode .header-phone,
+body.accessibility-mode .settings-button {
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  word-spacing: normal;
+}
+
+body.accessibility-mode .settings-button {
+  min-height: 34px;
+  padding: 3px 6px;
+}
+
+body.accessibility-mode .theme-toggle,
+body.accessibility-mode .settings-button--icon,
+body.accessibility-mode .mobile-menu__control[aria-label="Переключить тему"] {
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  border-color: var(--color-border);
+  padding: 0;
+  color: var(--color-primary);
+}
+
+body.accessibility-mode.a11y-font-large .header-container {
+  grid-template-columns: 1fr;
+}
+
+body.accessibility-mode.a11y-font-large .logo,
+body.accessibility-mode.a11y-font-large .header-side {
+  justify-self: start;
+  justify-items: start;
+}
+
+body.accessibility-mode.a11y-font-large .main-nav {
+  width: 100%;
+  gap: 10px 16px;
 }
 
 .mobile-menu {

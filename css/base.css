@@ -4,6 +4,18 @@ html {
   scroll-behavior: smooth;
 }
 
+html[data-a11y-font="small"] {
+  font-size: 18px;
+}
+
+html[data-a11y-font="medium"] {
+  font-size: 22px;
+}
+
+html[data-a11y-font="large"] {
+  font-size: 32px;
+}
+
 body {
   min-width: 320px;
   overflow-x: hidden;
@@ -14,8 +26,222 @@ body {
   line-height: var(--line-height-base);
 }
 
-body.accessibility-mode {
-  letter-spacing: 0.02em;
+body.accessibility-mode main p,
+body.accessibility-mode main li,
+body.accessibility-mode main td,
+body.accessibility-mode main th,
+body.accessibility-mode main label,
+body.accessibility-mode main small,
+body.accessibility-mode .auth-dialog p,
+body.accessibility-mode .auth-dialog label,
+body.accessibility-mode .auth-dialog small,
+body.accessibility-mode .admin-modal__dialog p,
+body.accessibility-mode .admin-modal__dialog label,
+body.accessibility-mode .admin-modal__dialog small,
+body.accessibility-mode .tour-booking p,
+body.accessibility-mode .tour-booking label,
+body.accessibility-mode .hotel-booking p,
+body.accessibility-mode .hotel-booking label,
+body.accessibility-mode .cart-payment p {
+  letter-spacing: 0.04em;
+  word-spacing: 0.12em;
+}
+
+body.accessibility-mode p,
+body.accessibility-mode li,
+body.accessibility-mode td,
+body.accessibility-mode th,
+body.accessibility-mode label,
+body.accessibility-mode input,
+body.accessibility-mode textarea,
+body.accessibility-mode select {
+  line-height: 1.6;
+  text-align: left;
+}
+
+body.accessibility-mode main :where(p, li, td, th, label, input, textarea, select, small),
+body.accessibility-mode :where(.auth-dialog, .admin-modal__dialog, .tour-booking, .hotel-booking, .cart-payment, .account-notice) :where(p, label, input, textarea, select, small) {
+  font-size: 1rem !important;
+}
+
+body.accessibility-mode button {
+  line-height: 1.3;
+  text-align: center;
+}
+
+body.accessibility-mode a,
+body.accessibility-mode button,
+body.accessibility-mode input,
+body.accessibility-mode textarea,
+body.accessibility-mode select,
+body.accessibility-mode .main-nav,
+body.accessibility-mode .section-title,
+body.accessibility-mode h1,
+body.accessibility-mode h2,
+body.accessibility-mode h3 {
+  letter-spacing: 0;
+  word-spacing: normal;
+}
+
+body.accessibility-mode p {
+  max-width: 80ch;
+  margin-bottom: 2em;
+}
+
+body.accessibility-mode main :where(h1, h2, h3, h4, p, li, td, th, small, strong, b, span),
+body.accessibility-mode :where(.auth-dialog, .admin-modal__dialog, .tour-booking, .hotel-booking, .cart-payment, .account-notice) :where(h1, h2, h3, h4, p, label, small, strong, b, span) {
+  color: var(--color-text) !important;
+  text-shadow: none !important;
+}
+
+body.accessibility-mode main a {
+  color: var(--color-primary) !important;
+}
+
+body.a11y-images-off img {
+  display: none !important;
+}
+
+body.a11y-images-off *,
+body.a11y-images-off *::before,
+body.a11y-images-off *::after {
+  background-image: none !important;
+}
+
+body.accessibility-mode.a11y-images-off img {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body.accessibility-mode.a11y-images-off .news-page-card__media,
+body.accessibility-mode.a11y-images-off .hotel-card__media,
+body.accessibility-mode.a11y-images-off .auth-media,
+body.accessibility-mode.a11y-images-off .trail-gallery,
+body.accessibility-mode.a11y-images-off .legend-picture {
+  display: none !important;
+}
+
+body.accessibility-mode.a11y-images-off *,
+body.accessibility-mode.a11y-images-off *::before,
+body.accessibility-mode.a11y-images-off *::after {
+  background-image: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+body.a11y-images-off .hero-card,
+body.a11y-images-off .image-card,
+body.a11y-images-off .poster-card,
+body.a11y-images-off [class*="hero__card"],
+body.a11y-images-off [class*="card"] {
+  background: var(--color-surface) !important;
+  background-image: none !important;
+}
+
+body.a11y-images-off .hero-card,
+body.a11y-images-off .image-card,
+body.a11y-images-off .poster-card,
+body.a11y-images-off [class*="hero__card"] {
+  border: 2px solid var(--color-border);
+  min-height: auto;
+}
+
+body.a11y-images-off .social-links a::after {
+  content: attr(aria-label);
+  color: var(--color-page);
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.accessibility-panel {
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid var(--color-border);
+  padding: 12px var(--container-padding);
+  background: var(--color-page);
+  color: var(--color-text);
+}
+
+.accessibility-panel[hidden] {
+  display: none;
+}
+
+.accessibility-panel__group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.accessibility-panel span {
+  font-weight: 900;
+}
+
+.accessibility-panel button {
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 900;
+}
+
+.accessibility-panel button[aria-pressed="true"] {
+  background: var(--color-text);
+  color: var(--color-page);
+}
+
+.page-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--color-page) 92%, transparent);
+  color: var(--color-text);
+  opacity: 1;
+  transition: opacity 240ms ease, visibility 240ms ease;
+}
+
+.page-preloader.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-preloader__box {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  border: 2px solid var(--color-border);
+  border-radius: 18px;
+  padding: 26px 34px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  font-weight: 900;
+}
+
+.page-preloader__spinner {
+  width: 46px;
+  height: 46px;
+  border: 5px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: preloader-spin 850ms linear infinite;
+}
+
+@keyframes preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 a,
@@ -74,5 +300,440 @@ summary:focus-visible {
 
 body.accessibility-mode .section-title,
 body.theme-contrast .section-title {
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
+}
+
+body.theme-dark input,
+body.theme-dark textarea,
+body.theme-dark select,
+body.theme-dark .auth-dialog,
+body.theme-dark .admin-modal__dialog,
+body.theme-dark .tour-booking,
+body.theme-dark .hotel-booking,
+body.theme-dark .cart-payment,
+body.theme-dark .account-notice,
+body.theme-dark .account-notice-modal,
+body.theme-dark .account-modal,
+body.theme-dark .account-panel,
+body.theme-dark .admin-panel,
+body.theme-dark .cart-card,
+body.theme-dark .cart-summary,
+body.theme-dark .contacts-review-card,
+body.theme-dark .contacts-review-form,
+body.theme-dark .tariff-table,
+body.theme-dark .schedule-table {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+body.theme-dark input::placeholder,
+body.theme-dark textarea::placeholder {
+  color: #aab7c5;
+}
+
+body.theme-dark .auth-modal,
+body.theme-dark .admin-modal,
+body.theme-dark .tour-booking-modal,
+body.theme-dark .hotel-booking-modal,
+body.theme-dark .cart-payment-modal,
+body.theme-dark .account-notice-modal {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+body.accessibility-mode input,
+body.accessibility-mode textarea,
+body.accessibility-mode select,
+body.accessibility-mode .auth-dialog,
+body.accessibility-mode .admin-modal__dialog,
+body.accessibility-mode .tour-booking,
+body.accessibility-mode .hotel-booking,
+body.accessibility-mode .cart-payment,
+body.accessibility-mode .account-notice,
+body.accessibility-mode .account-notice-modal,
+body.accessibility-mode .account-modal,
+body.accessibility-mode .account-panel,
+body.accessibility-mode .admin-panel,
+body.accessibility-mode .cart-card,
+body.accessibility-mode .cart-summary,
+body.accessibility-mode .contacts-review-card,
+body.accessibility-mode .contacts-review-form,
+body.accessibility-mode .tariff-table,
+body.accessibility-mode .schedule-table {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+body.theme-dark .admin-panel__title,
+body.theme-dark .admin-panel__text,
+body.theme-dark .admin-panel__message,
+body.accessibility-mode .admin-panel__title,
+body.accessibility-mode .admin-panel__text,
+body.accessibility-mode .admin-panel__message {
+  color: var(--color-text) !important;
+}
+
+body.theme-dark .auth-dialog *,
+body.theme-dark .admin-modal__dialog *,
+body.theme-dark .tour-booking *,
+body.theme-dark .hotel-booking *,
+body.theme-dark .cart-payment *,
+body.theme-dark .account-notice *,
+body.accessibility-mode .auth-dialog *,
+body.accessibility-mode .admin-modal__dialog *,
+body.accessibility-mode .tour-booking *,
+body.accessibility-mode .hotel-booking *,
+body.accessibility-mode .cart-payment *,
+body.accessibility-mode .account-notice * {
+  color: inherit;
+}
+
+body.theme-dark .auth-dialog input,
+body.theme-dark .auth-dialog textarea,
+body.theme-dark .auth-dialog select,
+body.theme-dark .admin-modal__dialog input,
+body.theme-dark .admin-modal__dialog textarea,
+body.theme-dark .admin-modal__dialog select,
+body.theme-dark .tour-booking input,
+body.theme-dark .hotel-booking input,
+body.theme-dark .cart-payment input,
+body.accessibility-mode .auth-dialog input,
+body.accessibility-mode .auth-dialog textarea,
+body.accessibility-mode .auth-dialog select,
+body.accessibility-mode .admin-modal__dialog input,
+body.accessibility-mode .admin-modal__dialog textarea,
+body.accessibility-mode .admin-modal__dialog select,
+body.accessibility-mode .tour-booking input,
+body.accessibility-mode .hotel-booking input,
+body.accessibility-mode .cart-payment input {
+  background: var(--color-page) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+body.theme-dark .auth-submit,
+body.theme-dark .auth-dialog__close,
+body.theme-dark .admin-button,
+body.theme-dark .admin-card-action,
+body.theme-dark .admin-modal__close,
+body.theme-dark .tour-booking button,
+body.theme-dark .hotel-booking button,
+body.theme-dark .cart-payment button,
+body.theme-dark .account-notice button,
+body.theme-dark .auth-submit *,
+body.theme-dark .auth-dialog__close *,
+body.theme-dark .admin-button *,
+body.theme-dark .admin-card-action *,
+body.theme-dark .admin-modal__close *,
+body.theme-dark .tour-booking button *,
+body.theme-dark .hotel-booking button *,
+body.theme-dark .cart-payment button *,
+body.theme-dark .account-notice button *,
+body.accessibility-mode main button,
+body.accessibility-mode main button *,
+body.accessibility-mode .auth-submit,
+body.accessibility-mode .auth-dialog__close,
+body.accessibility-mode .admin-button,
+body.accessibility-mode .admin-card-action,
+body.accessibility-mode .admin-modal__close,
+body.accessibility-mode .tour-booking button,
+body.accessibility-mode .hotel-booking button,
+body.accessibility-mode .cart-payment button,
+body.accessibility-mode .account-notice button,
+body.accessibility-mode .auth-submit *,
+body.accessibility-mode .auth-dialog__close *,
+body.accessibility-mode .admin-button *,
+body.accessibility-mode .admin-card-action *,
+body.accessibility-mode .admin-modal__close *,
+body.accessibility-mode .tour-booking button *,
+body.accessibility-mode .hotel-booking button *,
+body.accessibility-mode .cart-payment button *,
+body.accessibility-mode .account-notice button * {
+  background: var(--color-primary) !important;
+  color: var(--color-page) !important;
+  border-color: var(--color-border) !important;
+}
+
+body.accessibility-mode main :where(
+  .button,
+  a[download],
+  .trails-map-links a,
+  .trail-rules__grid a,
+  .tour-card__button,
+  .hotel-card__button,
+  .cart-summary__order,
+  .cart-state .button,
+  .contacts-review-form .button,
+  .admin-button,
+  .admin-card-action,
+  .account-profile__edit,
+  .account-profile__logout,
+  .account-booking-card__status,
+  .account-booking-card__cancel,
+  .account-notice__button,
+  .account-feedback-item__button,
+  .news-pagination__page.is-active,
+  .tours-pagination__page.is-active,
+  .contacts-reviews-pagination__page.is-active,
+  .account-pagination__page.is-active
+) {
+  background: var(--color-primary) !important;
+  color: var(--color-page) !important;
+  border-color: var(--color-border) !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+}
+
+body.accessibility-mode main :where(
+  .button,
+  a[download],
+  .trails-map-links a,
+  .trail-rules__grid a,
+  .tour-card__button,
+  .hotel-card__button,
+  .cart-summary__order,
+  .cart-state .button,
+  .contacts-review-form .button,
+  .admin-button,
+  .admin-card-action,
+  .account-profile__edit,
+  .account-profile__logout,
+  .account-booking-card__status,
+  .account-booking-card__cancel,
+  .account-notice__button,
+  .account-feedback-item__button,
+  .news-pagination__page.is-active,
+  .tours-pagination__page.is-active,
+  .contacts-reviews-pagination__page.is-active,
+  .account-pagination__page.is-active
+) :where(span, strong, b, small, svg) {
+  color: var(--color-page) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+body.accessibility-mode main :where(
+  .button,
+  a[download],
+  .trails-map-links a,
+  .trail-rules__grid a,
+  .tour-card__button,
+  .hotel-card__button,
+  .cart-summary__order,
+  .cart-state .button,
+  .contacts-review-form .button,
+  .admin-button,
+  .admin-card-action,
+  .account-profile__edit,
+  .account-profile__logout,
+  .account-booking-card__status,
+  .account-booking-card__cancel,
+  .account-notice__button,
+  .account-feedback-item__button
+):where(:hover, :focus-visible) {
+  background: var(--color-primary-hover) !important;
+  color: var(--color-page) !important;
+}
+
+body.accessibility-mode main :where(
+  .slider-dot,
+  .news-pagination__page,
+  .tours-pagination__page,
+  .contacts-reviews-pagination__page,
+  .account-pagination__page
+) {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+body.accessibility-mode main :where(
+  .slider-dot.is-active,
+  .news-pagination__page.is-active,
+  .tours-pagination__page.is-active,
+  .contacts-reviews-pagination__page.is-active,
+  .account-pagination__page.is-active
+) {
+  background: var(--color-primary) !important;
+  color: var(--color-page) !important;
+  border-color: var(--color-border) !important;
+}
+
+body.accessibility-mode main button:disabled,
+body.accessibility-mode main .button:disabled {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+  opacity: 1;
+}
+
+body.accessibility-mode main button:disabled *,
+body.accessibility-mode main .button:disabled * {
+  background: transparent !important;
+  color: var(--color-text) !important;
+}
+
+body.accessibility-mode main a.button,
+body.accessibility-mode main a.button:visited,
+body.accessibility-mode main a.button:hover,
+body.accessibility-mode main a.button:focus-visible,
+body.accessibility-mode main a[download],
+body.accessibility-mode main a[download]:visited,
+body.accessibility-mode main a[download]:hover,
+body.accessibility-mode main .trails-map-links a,
+body.accessibility-mode main .trail-rules__grid a {
+  background: var(--color-primary) !important;
+  color: var(--color-page) !important;
+  border-color: var(--color-border) !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+}
+
+body.accessibility-mode main a.button *,
+body.accessibility-mode main a[download] *,
+body.accessibility-mode main .trails-map-links a *,
+body.accessibility-mode main .trail-rules__grid a * {
+  background: transparent !important;
+  color: var(--color-page) !important;
+  text-shadow: none !important;
+}
+
+body.accessibility-mode input::placeholder,
+body.accessibility-mode textarea::placeholder {
+  color: var(--color-muted);
+  opacity: 0.85;
+}
+
+.auth-modal,
+.admin-modal,
+.tour-booking-modal,
+.hotel-booking-modal,
+.cart-payment-modal,
+.account-notice-modal {
+  z-index: 7000 !important;
+}
+
+:where(.auth-dialog__close, .admin-modal__close, .tour-booking__close, .hotel-booking__close, .cart-payment__close, .account-notice__close) {
+  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  place-items: center;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  padding: 0;
+  background: var(--color-primary);
+  color: var(--color-page);
+  font-size: 0 !important;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+
+:where(.auth-dialog__close, .admin-modal__close, .tour-booking__close, .hotel-booking__close, .cart-payment__close, .account-notice__close)::before {
+  content: "\00d7";
+  color: currentColor;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+body.accessibility-mode :where(.auth-dialog__close, .admin-modal__close, .tour-booking__close, .hotel-booking__close, .cart-payment__close, .account-notice__close),
+body.accessibility-mode :where(.auth-dialog__close, .admin-modal__close, .tour-booking__close, .hotel-booking__close, .cart-payment__close, .account-notice__close)::before {
+  background: var(--color-primary) !important;
+  color: var(--color-page) !important;
+  border-color: var(--color-border) !important;
+}
+
+body.accessibility-mode :where(.auth-dialog__close, .admin-modal__close, .tour-booking__close, .hotel-booking__close, .cart-payment__close, .account-notice__close)::before {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+body.accessibility-mode button.auth-dialog__close,
+body.accessibility-mode button.admin-modal__close,
+body.accessibility-mode button.tour-booking__close,
+body.accessibility-mode button.hotel-booking__close,
+body.accessibility-mode button.cart-payment__close,
+body.accessibility-mode button.account-notice__close {
+  position: absolute;
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+body.accessibility-mode button.auth-dialog__close::before,
+body.accessibility-mode button.auth-dialog__close::after,
+body.accessibility-mode button.admin-modal__close::before,
+body.accessibility-mode button.admin-modal__close::after,
+body.accessibility-mode button.tour-booking__close::before,
+body.accessibility-mode button.tour-booking__close::after,
+body.accessibility-mode button.hotel-booking__close::before,
+body.accessibility-mode button.hotel-booking__close::after,
+body.accessibility-mode button.cart-payment__close::before,
+body.accessibility-mode button.cart-payment__close::after,
+body.accessibility-mode button.account-notice__close::before,
+body.accessibility-mode button.account-notice__close::after {
+  content: "" !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 4px;
+  border: 0 !important;
+  border-radius: 999px;
+  background: currentColor !important;
+  color: inherit !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+body.accessibility-mode button.auth-dialog__close::after,
+body.accessibility-mode button.admin-modal__close::after,
+body.accessibility-mode button.tour-booking__close::after,
+body.accessibility-mode button.hotel-booking__close::after,
+body.accessibility-mode button.cart-payment__close::after,
+body.accessibility-mode button.account-notice__close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+body.accessibility-mode :where(.tour-booking__nav button, .hotel-booking__nav button) {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+body.accessibility-mode :where(.tour-booking__nav button, .hotel-booking__nav button)::before {
+  content: "" !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border: 0 !important;
+  border-left: 4px solid currentColor !important;
+  border-bottom: 4px solid currentColor !important;
+  background: transparent !important;
+  transform: translate(-35%, -50%) rotate(45deg);
+}
+
+body.accessibility-mode :where([data-booking-next], [data-hotel-booking-next])::before {
+  transform: translate(-65%, -50%) rotate(-135deg);
+}
+
+body.accessibility-mode :where(.tour-booking__day, .hotel-booking__day) {
+  display: grid;
+  place-items: center;
+  padding: 0 !important;
+  line-height: 1 !important;
+  text-align: center;
+  text-shadow: none !important;
 }

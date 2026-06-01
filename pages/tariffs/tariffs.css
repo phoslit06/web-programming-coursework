@@ -968,3 +968,225 @@ body.accessibility-mode .schedule-table {
     font-size: 0.48rem;
   }
 }
+
+body.accessibility-mode .tariffs-hero__card {
+  display: block;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  overflow: visible;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface) !important;
+  box-shadow: none;
+}
+
+body.accessibility-mode .tariffs-hero__card::before {
+  content: none;
+  display: none;
+}
+
+body.accessibility-mode .tariffs-hero__card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+body.accessibility-mode .tariffs-hero__content {
+  position: static;
+  padding: 22px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+body.accessibility-mode .tariffs-hero__content h1 {
+  max-width: none;
+  color: var(--color-text);
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 2rem);
+  line-height: 1.25;
+  text-shadow: none;
+}
+
+body.accessibility-mode .tariffs-intro__text {
+  max-width: none;
+  color: var(--color-text);
+  text-align: left;
+}
+
+body.accessibility-mode .tariffs-controls,
+body.accessibility-mode .tariffs-fieldset--categories,
+body.accessibility-mode .tariffs-fieldset--sort {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body.accessibility-mode .tariffs-fieldset--categories,
+body.accessibility-mode .tariffs-fieldset--sort {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+body.accessibility-mode .tariffs-fieldset label {
+  align-items: flex-start;
+  min-height: 44px;
+  line-height: 1.35;
+}
+
+body.accessibility-mode .tariff-table-wrap {
+  overflow: visible;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+body.accessibility-mode .tariff-table,
+body.accessibility-mode .schedule-table,
+body.accessibility-mode .tariff-table thead,
+body.accessibility-mode .schedule-table thead,
+body.accessibility-mode .tariff-table tbody,
+body.accessibility-mode .schedule-table tbody,
+body.accessibility-mode .tariff-table tr,
+body.accessibility-mode .schedule-table tr,
+body.accessibility-mode .tariff-table th,
+body.accessibility-mode .schedule-table th,
+body.accessibility-mode .tariff-table td,
+body.accessibility-mode .schedule-table td {
+  display: block;
+  width: auto !important;
+}
+
+body.accessibility-mode .tariff-table,
+body.accessibility-mode .schedule-table {
+  border-collapse: separate;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+body.accessibility-mode .tariff-table thead,
+body.accessibility-mode .schedule-table thead {
+  position: absolute;
+  width: 1px !important;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+body.accessibility-mode .tariff-table tbody,
+body.accessibility-mode .schedule-table tbody {
+  display: grid;
+  gap: 14px;
+}
+
+body.accessibility-mode .tariff-table tr,
+body.accessibility-mode .schedule-table tr {
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px;
+  background: var(--color-surface) !important;
+}
+
+body.accessibility-mode .tariff-table td,
+body.accessibility-mode .schedule-table td {
+  border: 0;
+  padding: 8px 0;
+  color: var(--color-text);
+  line-height: 1.45;
+}
+
+body.accessibility-mode .tariff-table td::before,
+body.accessibility-mode .schedule-table td::before {
+  display: block !important;
+  margin-bottom: 4px;
+  color: var(--color-primary);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+body.accessibility-mode .tariff-table td:nth-child(1)::before {
+  content: "Наименование";
+}
+
+body.accessibility-mode .tariff-table td:nth-child(2)::before {
+  content: "Категория";
+}
+
+body.accessibility-mode .tariff-table td:nth-child(3)::before {
+  content: "1 час";
+}
+
+body.accessibility-mode .tariff-table td:nth-child(4)::before {
+  content: "2 часа";
+}
+
+body.accessibility-mode .tariff-table td:nth-child(5)::before {
+  content: "3 часа";
+}
+
+body.accessibility-mode .tariff-table td:nth-child(6)::before {
+  content: "4 часа";
+}
+
+body.accessibility-mode .tariff-table td:nth-child(7)::before {
+  content: "День";
+}
+
+body.accessibility-mode .tariff-table--tubing td:nth-child(2)::before {
+  content: "Дни";
+}
+
+body.accessibility-mode .tariff-table--tubing td:nth-child(6)::before {
+  content: "День";
+}
+
+body.accessibility-mode .schedule-table td:nth-child(1)::before {
+  content: "День недели";
+}
+
+body.accessibility-mode .schedule-table td:nth-child(2)::before {
+  content: "Трассы без освещения";
+}
+
+body.accessibility-mode .schedule-table td:nth-child(3)::before {
+  content: "Трассы с освещением";
+}
+
+body.accessibility-mode .schedule-table td:nth-child(4)::before {
+  content: "Учебный склон";
+}
+
+body.accessibility-mode .schedule-table td:nth-child(5)::before {
+  content: "Прокат";
+}
+
+body.accessibility-mode .tariff-table td[hidden],
+body.accessibility-mode .schedule-table td[hidden],
+body.accessibility-mode .tariff-table th[hidden],
+body.accessibility-mode .schedule-table th[hidden],
+body.accessibility-mode .tariff-table:not(.tariff-table--tubing) td:last-child,
+body.accessibility-mode .schedule-table td:last-child {
+  display: none !important;
+}
+
+body.accessibility-mode .tariff-table__name,
+body.accessibility-mode .schedule-table__day {
+  gap: 10px;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+body.accessibility-mode .tariff-table__name-text,
+body.accessibility-mode .tariff-table__stack {
+  max-width: none;
+  gap: 4px;
+  white-space: normal !important;
+}
+
+body.accessibility-mode .tariff-table__title,
+body.accessibility-mode .tariff-table__subtitle,
+body.accessibility-mode .tariff-table__muted {
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}

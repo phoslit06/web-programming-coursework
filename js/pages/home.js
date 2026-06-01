@@ -1,6 +1,8 @@
 const API_URL = "http://localhost:3000";
 const PROMOTIONS_URL = `${API_URL}/promotions?isActive=true&showOnHome=true&_sort=validFrom&_order=desc&_limit=4`;
 const NEWS_URL = `${API_URL}/news?isActive=true&showOnHome=true&_sort=date&_order=desc&_limit=2`;
+const ALL_PROMOTIONS_URL = `${API_URL}/promotions?isActive=true&_sort=id&_order=asc`;
+const ALL_NEWS_URL = `${API_URL}/news?isActive=true&_sort=date&_order=desc`;
 const SLIDER_INTERVAL = 5000;
 
 document.addEventListener("DOMContentLoaded", initHomePage);
@@ -33,10 +35,13 @@ async function initHomePage() {
     renderPromotions(page, promotionItems);
     renderNews(page, newsItems);
     renderSlider(page, [...promotionItems, ...newsItems]);
+    initHomeAdmin(page);
   } catch (error) {
     console.error("Не удалось загрузить данные главной страницы:", error);
     showDataError(page);
   }
+
+  window.addEventListener("eurasia:user-change", () => initHomeAdmin(page));
 }
 
 function getHomeElements() {
@@ -55,14 +60,233 @@ function getHomeElements() {
   };
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url);
+async function fetchJson(url, options = {}) {
+  const response = await fetch(url, {
+    cache: "no-store",
+    ...options
+  });
 
   if (!response.ok) {
     throw new Error(`Ошибка загрузки ${url}: ${response.status}`);
   }
 
   return response.json();
+}
+
+function initHomeAdmin(page) {
+  document.querySelector("[data-home-admin-panel]")?.remove();
+  document.querySelector("[data-home-admin-modal]")?.remove();
+
+  if (!isHomeAdmin()) {
+    return;
+  }
+
+  const panel = document.createElement("section");
+  panel.className = "admin-panel";
+  panel.dataset.homeAdminPanel = "";
+
+  const title = document.createElement("h2");
+  title.className = "admin-panel__title";
+  title.textContent = "Управление главной";
+
+  const text = document.createElement("p");
+  text.className = "admin-panel__text";
+  text.textContent = "Выберите 4 акции или тура и 2 новости, которые будут показаны на главной странице.";
+
+  const button = document.createElement("button");
+  button.className = "admin-button";
+  button.type = "button";
+  button.textContent = "Настроить главную";
+  button.addEventListener("click", () => openHomeAdminModal());
+
+  panel.append(title, text, button);
+
+  const anchor = page.promotionsList.closest("section") || page.promotionsList;
+  anchor.parentNode.insertBefore(panel, anchor);
+}
+
+async function openHomeAdminModal() {
+  const oldModal = document.querySelector("[data-home-admin-modal]");
+  if (oldModal) {
+    oldModal.hidden = false;
+    document.body.classList.add("modal-open");
+    return;
+  }
+
+  const modal = createHomeAdminModal();
+  document.body.append(modal);
+  document.body.classList.add("modal-open");
+
+  const message = modal.querySelector("[data-admin-message]");
+  const content = modal.querySelector("[data-admin-content]");
+  message.textContent = "Загрузка списков...";
+
+  try {
+    const [promotions, news] = await Promise.all([
+      fetchJson(ALL_PROMOTIONS_URL),
+      fetchJson(ALL_NEWS_URL)
+    ]);
+
+    content.replaceChildren(
+      createHomeAdminChecks("Акции и туры", "home-promotion", promotions),
+      createHomeAdminChecks("Новости", "home-news", news)
+    );
+    message.textContent = "";
+    modal.querySelector("[data-admin-save]").disabled = false;
+    modal.querySelector("[data-admin-save]").addEventListener("click", () => saveHomeAdminSelection(modal, promotions, news));
+  } catch (error) {
+    console.error("Не удалось загрузить элементы главной:", error);
+    message.textContent = "Не удалось загрузить списки. Проверьте JSON Server.";
+    message.classList.add("is-error");
+  }
+}
+
+function createHomeAdminModal() {
+  const modal = document.createElement("div");
+  modal.className = "admin-modal";
+  modal.dataset.homeAdminModal = "";
+
+  const dialog = document.createElement("div");
+  dialog.className = "admin-modal__dialog";
+
+  const head = document.createElement("div");
+  head.className = "admin-modal__head";
+
+  const title = document.createElement("h2");
+  title.className = "admin-modal__title";
+  title.textContent = "Главная страница";
+
+  const close = document.createElement("button");
+  close.className = "admin-modal__close";
+  close.type = "button";
+  close.textContent = "×";
+  close.addEventListener("click", () => closeHomeAdminModal(modal));
+
+  const content = document.createElement("div");
+  content.className = "admin-check-grid";
+  content.dataset.adminContent = "";
+
+  const message = document.createElement("p");
+  message.className = "admin-panel__message";
+  message.dataset.adminMessage = "";
+
+  const actions = document.createElement("div");
+  actions.className = "admin-panel__actions";
+
+  const save = document.createElement("button");
+  save.className = "admin-button";
+  save.type = "button";
+  save.textContent = "Сохранить";
+  save.disabled = true;
+  save.dataset.adminSave = "";
+
+  actions.append(save);
+  head.append(title, close);
+  dialog.append(head, content, message, actions);
+  modal.append(dialog);
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeHomeAdminModal(modal);
+    }
+  });
+
+  return modal;
+}
+
+function closeHomeAdminModal(modal) {
+  modal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+function createHomeAdminChecks(titleText, name, items) {
+  const group = document.createElement("div");
+  group.className = "admin-check-group";
+
+  const title = document.createElement("h3");
+  title.textContent = titleText;
+  group.append(title);
+
+  items.forEach((item) => {
+    const label = document.createElement("label");
+    label.className = "admin-check-item";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = name;
+    input.value = item.id;
+    input.checked = item.showOnHome === true;
+
+    const text = document.createElement("span");
+    text.textContent = item.title;
+
+    label.append(input, text);
+    group.append(label);
+  });
+
+  return group;
+}
+
+async function saveHomeAdminSelection(modal, promotions, news) {
+  const message = modal.querySelector("[data-admin-message]");
+  const save = modal.querySelector("[data-admin-save]");
+  const promotionIds = getCheckedIds(modal, "home-promotion");
+  const newsIds = getCheckedIds(modal, "home-news");
+
+  message.className = "admin-panel__message";
+
+  if (promotionIds.length !== 4 || newsIds.length !== 2) {
+    message.textContent = "Нужно выбрать ровно 4 акции или тура и ровно 2 новости.";
+    message.classList.add("is-error");
+    return;
+  }
+
+  save.disabled = true;
+  message.textContent = "Сохраняем...";
+
+  try {
+    await Promise.all([
+      ...promotions.map((item) => patchHomeItem("promotions", item.id, {
+        showOnHome: promotionIds.includes(Number(item.id))
+      })),
+      ...news.map((item) => patchHomeItem("news", item.id, {
+        showOnHome: newsIds.includes(Number(item.id))
+      }))
+    ]);
+
+    message.textContent = "Главная обновлена.";
+    message.classList.add("is-success");
+    window.setTimeout(() => window.location.reload(), 500);
+  } catch (error) {
+    console.error("Не удалось сохранить главную:", error);
+    message.textContent = "Не удалось сохранить. Проверьте JSON Server.";
+    message.classList.add("is-error");
+    save.disabled = false;
+  }
+}
+
+function patchHomeItem(collection, id, data) {
+  return fetchJson(`${API_URL}/${collection}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+}
+
+function getCheckedIds(modal, name) {
+  return Array.from(modal.querySelectorAll(`input[name="${name}"]:checked`))
+    .map((input) => Number(input.value));
+}
+
+function isHomeAdmin() {
+  try {
+    const user = JSON.parse(localStorage.getItem("eurasiaCurrentUser"));
+    return user && user.role === "admin";
+  } catch (error) {
+    return false;
+  }
 }
 
 function renderPromotions(page, promotions) {
@@ -195,6 +419,7 @@ function createSliderDot(item, index) {
   const dot = document.createElement("button");
   dot.className = "slider-dot";
   dot.type = "button";
+  dot.textContent = String(index + 1);
   dot.setAttribute("aria-label", `Открыть слайд: ${item.title}`);
   dot.dataset.slideIndex = String(index);
 
@@ -223,7 +448,7 @@ function setupSliderControls(page, slides, dots) {
   };
 
   const startAutoPlay = () => {
-    if (slides.length < 2 || timerId) {
+    if (slides.length < 2 || timerId || document.body.classList.contains("accessibility-mode")) {
       return;
     }
 
@@ -313,7 +538,9 @@ function formatPrice(value) {
 }
 
 function formatDate(value) {
-  return new Intl.DateTimeFormat("ru-RU", {
+  const locale = document.documentElement.lang === "en" ? "en-US" : "ru-RU";
+
+  return new Intl.DateTimeFormat(locale, {
     day: "2-digit",
     month: "long",
     year: "numeric"

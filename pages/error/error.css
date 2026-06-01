@@ -1,0 +1,70 @@
+.error-page {
+  min-height: calc(100vh - 150px);
+  display: grid;
+  align-items: center;
+  padding: 56px 0;
+}
+
+.error-card {
+  display: grid;
+  max-width: 760px;
+  justify-items: start;
+  gap: 20px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding-block: 48px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.error-card__code {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.error-card h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2rem, 1.3rem + 2vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.error-card p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.error-card__details {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 14px;
+  font-weight: 700;
+}
+
+.error-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .error-page {
+    padding: 32px 0;
+  }
+
+  .error-card {
+    width: calc(100% - 50px);
+    padding: 32px 22px;
+  }
+
+  .error-card__actions,
+  .error-card__actions .button {
+    width: 100%;
+  }
+}

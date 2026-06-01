@@ -1,0 +1,1226 @@
+.contacts-page {
+  overflow-x: hidden;
+  background: var(--color-page);
+}
+
+body[data-page="contacts"] .container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--container-padding) + var(--container-padding));
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+@media (min-width: 1025px) {
+  body[data-page="contacts"] .site-header {
+    padding: 16px 0 18px;
+  }
+
+  body[data-page="contacts"] .header-container {
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: 34px;
+  }
+
+  body[data-page="contacts"] .logo__mark {
+    width: 60px;
+    height: 74px;
+  }
+
+  body[data-page="contacts"] .logo__text {
+    width: 146px;
+    height: 42px;
+  }
+
+  body[data-page="contacts"] .main-nav {
+    gap: 36px;
+    min-height: 74px;
+    font-size: 1.125rem;
+  }
+
+  body[data-page="contacts"] .user-settings {
+    font-size: 1.125rem;
+  }
+}
+
+.contacts-hero {
+  margin-bottom: 26px;
+}
+
+.contacts-hero__card {
+  display: grid;
+  aspect-ratio: 1160 / 406;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background-color: #06111e;
+  background-image: url("../../assets/images/trails/figma-gallery-14-2.png");
+  background-attachment: fixed;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: var(--shadow-card);
+}
+
+.contacts-hero__card::before {
+  content: "";
+  grid-area: 1 / 1;
+  background: linear-gradient(90deg, rgba(6, 17, 30, 0.68) 0%, rgba(6, 17, 30, 0.54) 42%, rgba(6, 17, 30, 0.18) 68%, rgba(6, 17, 30, 0.04) 100%);
+}
+
+.contacts-hero__content {
+  z-index: 1;
+  grid-area: 1 / 1;
+  display: flex;
+  width: min(620px, 64%);
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 22px;
+  padding: 40px 30px;
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.48);
+}
+
+.contacts-hero__content h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 1.45rem + 2vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.contacts-hero__content p {
+  max-width: 626px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.5rem);
+  line-height: 1.2;
+}
+
+.contacts-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.contacts-section + .contacts-section {
+  margin-top: 70px;
+}
+
+.contacts-section__title {
+  margin-bottom: 30px;
+  color: var(--color-primary);
+}
+
+.contacts-address,
+.contacts-requisites {
+  display: grid;
+  width: min(768px, 100%);
+  margin-inline: auto;
+  gap: 14px;
+  text-align: center;
+}
+
+.contacts-address__label {
+  color: var(--color-primary);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.contacts-address__text {
+  color: var(--color-text);
+  font-size: clamp(1.65rem, 1.18rem + 1.5vw, 2.25rem);
+  font-weight: 900;
+  line-height: 1.22;
+}
+
+.contacts-address__coords {
+  color: var(--color-muted);
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.contacts-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 50px;
+}
+
+.contacts-card {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.contacts-card__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(0, 147, 221, 0.16);
+  color: var(--color-primary);
+}
+
+.contacts-card__icon::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: var(--color-primary);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.contacts-card__icon--admin::before {
+  mask-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.24.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E");
+}
+
+.contacts-card__icon--manager::before {
+  mask-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+}
+
+.contacts-card__icon--finance::before {
+  mask-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11zM7 7v3h3V7H7zm5 0v3h5V7h-5zm-5 5v2h3v-2H7zm5 0v2h5v-2h-5zm-5 4v1h3v-1H7zm5 0v1h5v-1h-5z'/%3E%3C/svg%3E");
+}
+
+.contacts-card h3 {
+  min-height: 60px;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.contacts-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contacts-card a {
+  color: inherit;
+}
+
+.contacts-card a:hover,
+.contacts-map__caption a:hover {
+  color: var(--color-primary);
+}
+
+.contacts-requisites {
+  margin-top: 50px;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  line-height: 1.45;
+}
+
+.contacts-route__text {
+  width: min(1164px, 100%);
+  margin-bottom: 58px;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contacts-map {
+  display: grid;
+  width: min(1024px, 100%);
+  min-height: 488px;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #dbe9f3;
+  box-shadow: var(--shadow-card);
+}
+
+.contacts-map iframe,
+.contacts-map__caption {
+  grid-area: 1 / 1;
+}
+
+.contacts-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 488px;
+  border: 0;
+}
+
+.contacts-map__caption {
+  align-self: start;
+  justify-self: center;
+  display: grid;
+  width: min(320px, calc(100% - 32px));
+  gap: 8px;
+  margin-top: 24px;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 14px 16px;
+  color: #111827;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.18);
+}
+
+.contacts-map__caption strong {
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.contacts-map__caption a {
+  color: #111827;
+  font-weight: 700;
+}
+
+.contacts-schedule__subtitle {
+  margin: 0 0 22px;
+  color: var(--color-primary);
+  font-size: 1.125rem;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.contacts-table-wrap {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  background: var(--color-surface);
+  box-shadow: 0 8px 24px rgba(18, 49, 75, 0.08);
+  scrollbar-width: none;
+}
+
+.contacts-table-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.contacts-table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #ffffff;
+}
+
+.contacts-table th,
+.contacts-table td {
+  border-bottom: 1px solid #eaecf0;
+  padding: 18px 24px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.contacts-table th {
+  min-height: 44px;
+  color: #667085;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.contacts-table td {
+  color: #667085;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.contacts-table td:first-child {
+  color: #101828;
+  font-weight: 700;
+}
+
+.contacts-table tbody tr:nth-child(odd) {
+  background: #f9fafb;
+}
+
+.contacts-table tbody tr:hover {
+  background: rgba(0, 147, 221, 0.2);
+}
+
+.contacts-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.contacts-table--small {
+  min-width: 0;
+}
+
+.contacts-table th:first-child,
+.contacts-table td:first-child {
+  width: 22%;
+}
+
+.contacts-table th:not(:first-child),
+.contacts-table td:not(:first-child) {
+  width: 19.5%;
+}
+
+.contacts-table--small th:first-child,
+.contacts-table--small td:first-child {
+  width: 32%;
+}
+
+.contacts-table--small th:not(:first-child),
+.contacts-table--small td:not(:first-child) {
+  width: 34%;
+}
+
+.contacts-table--summer th:first-child,
+.contacts-table--summer td:first-child {
+  width: 50%;
+}
+
+.contacts-table--summer th:not(:first-child),
+.contacts-table--summer td:not(:first-child) {
+  width: 50%;
+}
+
+.contacts-schedule__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 58px;
+}
+
+.contacts-schedule__grid > div {
+  display: grid;
+  grid-template-rows: 86px 1fr;
+  align-content: start;
+}
+
+.contacts-schedule__grid .contacts-schedule__subtitle {
+  margin-bottom: 0;
+}
+
+.contacts-schedule__grid .contacts-table-wrap {
+  height: 100%;
+}
+
+.contacts-reviews__grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.35fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.contacts-review-form,
+.contacts-reviews__catalog {
+  min-width: 0;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.contacts-review-form {
+  display: grid;
+  gap: 18px;
+  padding: 30px;
+}
+
+.contacts-review-form h3,
+.contacts-reviews__catalog h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.contacts-review-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.contacts-review-form input,
+.contacts-review-form select,
+.contacts-review-form textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 12px 14px;
+  color: #111827;
+  font: inherit;
+  font-weight: 400;
+}
+
+.contacts-review-form textarea {
+  resize: vertical;
+}
+
+.contacts-review-form input::placeholder,
+.contacts-review-form textarea::placeholder {
+  color: rgba(17, 24, 39, 0.45);
+}
+
+.contacts-review-form__message {
+  min-height: 20px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.contacts-review-form__message.is-error {
+  color: #9b1c1c;
+}
+
+.contacts-review-form__message.is-success {
+  color: #178a2f;
+}
+
+.contacts-review-form .button {
+  min-height: 52px;
+}
+
+.contacts-reviews__catalog {
+  padding: 30px;
+}
+
+.contacts-reviews__list {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.contacts-review-card {
+  display: grid;
+  gap: 12px;
+  border: 1px solid #e3eef7;
+  border-radius: 8px;
+  padding: 18px;
+  background: #ffffff;
+}
+
+.contacts-review-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.contacts-review-card h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.contacts-review-card__rating {
+  display: inline-flex;
+  min-width: 54px;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(0, 147, 221, 0.12);
+  color: var(--color-primary);
+  font-weight: 900;
+}
+
+.contacts-review-card p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.contacts-review-card time {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.contacts-reviews__message {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 24px;
+  background: #ffffff;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.contacts-reviews-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-top: 34px;
+  border-top: 1px solid #eaecf0;
+  padding-top: 20px;
+}
+
+.contacts-reviews-pagination[hidden] {
+  display: none;
+}
+
+.contacts-reviews-pagination__button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 0 8px;
+  background: transparent;
+  color: #667085;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.contacts-reviews-pagination__button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.contacts-reviews-pagination__button:hover:not(:disabled),
+.contacts-reviews-pagination__button:focus-visible:not(:disabled) {
+  background: rgba(0, 147, 221, 0.1);
+  color: var(--color-primary);
+}
+
+.contacts-reviews-pagination__button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.contacts-reviews-pagination__pages {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.contacts-reviews-pagination__page,
+.contacts-reviews-pagination__ellipsis {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #667085;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.contacts-reviews-pagination__page {
+  background: transparent;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.contacts-reviews-pagination__page:hover,
+.contacts-reviews-pagination__page:focus-visible {
+  background: rgba(0, 147, 221, 0.08);
+  color: var(--color-primary);
+}
+
+.contacts-reviews-pagination__page.is-active {
+  background: rgba(0, 147, 221, 0.1);
+  color: var(--color-primary);
+}
+
+.contacts-reviews + .social-section {
+  margin-top: 52px;
+}
+
+body.theme-dark .contacts-table,
+body.theme-dark .contacts-map__caption {
+  background: var(--color-surface);
+}
+
+body.theme-dark .contacts-map__caption,
+body.theme-dark .contacts-map__caption a,
+body.theme-dark .contacts-table td:first-child,
+body.theme-dark .contacts-review-form input,
+body.theme-dark .contacts-review-form select,
+body.theme-dark .contacts-review-form textarea,
+body.theme-dark .contacts-review-card,
+body.theme-dark .contacts-reviews__message {
+  color: var(--color-text);
+}
+
+body.theme-dark .contacts-review-form input,
+body.theme-dark .contacts-review-form select,
+body.theme-dark .contacts-review-form textarea,
+body.theme-dark .contacts-review-card,
+body.theme-dark .contacts-reviews__message {
+  background: var(--color-surface);
+}
+
+body.theme-dark .contacts-table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body.theme-contrast .contacts-hero__card,
+body.theme-contrast .contacts-map,
+body.theme-contrast .contacts-table-wrap,
+body.theme-contrast .contacts-review-form,
+body.theme-contrast .contacts-reviews__catalog,
+body.accessibility-mode .contacts-hero__card,
+body.accessibility-mode .contacts-map,
+body.accessibility-mode .contacts-table-wrap,
+body.accessibility-mode .contacts-review-form,
+body.accessibility-mode .contacts-reviews__catalog {
+  border: 2px solid var(--color-border);
+}
+
+@media (max-width: 1024px) {
+  .contacts-hero {
+    margin-top: 18px;
+    margin-bottom: 34px;
+  }
+
+  .contacts-hero__card {
+    min-height: 340px;
+    aspect-ratio: auto;
+    border-radius: 16px;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .contacts-hero__content {
+    width: 100%;
+    padding: 28px 28px 30px;
+  }
+
+  .contacts-hero__content h1 {
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  .contacts-hero__content p {
+    font-size: 1.15rem;
+  }
+
+  .contacts-cards {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    width: min(620px, 100%);
+    margin-inline: auto;
+  }
+
+  .contacts-card h3 {
+    min-height: 0;
+  }
+
+  .contacts-map,
+  .contacts-map iframe {
+    min-height: 430px;
+  }
+
+  .contacts-schedule__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contacts-schedule__grid > div {
+    grid-template-rows: auto 1fr;
+  }
+
+  .contacts-schedule__grid .contacts-schedule__subtitle {
+    margin-bottom: 18px;
+  }
+
+  .contacts-reviews__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .contacts-table {
+    font-size: 0.78rem;
+  }
+
+  .contacts-table th,
+  .contacts-table td {
+    padding: 11px 8px;
+    line-height: 1.18;
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-page="contacts"] .site-header {
+    padding-block: 25px 22px;
+  }
+
+  body[data-page="contacts"] .header-container {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  body[data-page="contacts"] .logo {
+    gap: 6px;
+  }
+
+  body[data-page="contacts"] .logo__mark {
+    width: 39px;
+    height: 48px;
+  }
+
+  body[data-page="contacts"] .logo__text {
+    width: 95px;
+    height: auto;
+  }
+
+  body[data-page="contacts"] .container {
+    width: calc(100% - 50px);
+    max-width: 560px;
+    padding-inline: 0;
+  }
+
+  .contacts-hero {
+    margin-top: 18px;
+    margin-bottom: 24px;
+  }
+
+  .contacts-hero .container,
+  .contacts-section .container {
+    width: calc(100% - 50px);
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .contacts-hero__card {
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .contacts-hero__content {
+    width: 100%;
+    padding: 22px 19px 24px;
+  }
+
+  .contacts-hero__content h1 {
+    font-size: 1.55rem;
+    line-height: 1.1;
+  }
+
+  .contacts-hero__content p {
+    max-width: 230px;
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  .contacts-section + .contacts-section {
+    margin-top: 48px;
+  }
+
+  .contacts-section__title {
+    margin-bottom: 18px;
+    font-size: 1.875rem;
+    line-height: 1.15;
+  }
+
+  .contacts-address,
+  .contacts-requisites {
+    text-align: left;
+  }
+
+  .contacts-address__text {
+    font-size: 1.35rem;
+  }
+
+  .contacts-address__coords,
+  .contacts-requisites {
+    font-size: 1rem;
+  }
+
+  .contacts-cards {
+    gap: 28px;
+    margin-top: 34px;
+  }
+
+  .contacts-card {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .contacts-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contacts-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .contacts-route__text {
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+  }
+
+  .contacts-map,
+  .contacts-map iframe {
+    min-height: 340px;
+  }
+
+  .contacts-map__caption {
+    align-self: end;
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 0.78rem;
+  }
+
+  .contacts-table-wrap {
+    border-radius: 6px;
+  }
+
+  .contacts-table {
+    font-size: 0.58rem;
+  }
+
+  .contacts-table th,
+  .contacts-table td {
+    padding: 8px 4px;
+    font-size: 0.58rem;
+    line-height: 1.15;
+  }
+
+  .contacts-table th:first-child,
+  .contacts-table td:first-child {
+    width: 20%;
+  }
+
+  .contacts-table th:not(:first-child),
+  .contacts-table td:not(:first-child) {
+    width: 20%;
+  }
+
+  .contacts-table--small th:first-child,
+  .contacts-table--small td:first-child {
+    width: 34%;
+  }
+
+  .contacts-table--small th:not(:first-child),
+  .contacts-table--small td:not(:first-child) {
+    width: 33%;
+  }
+
+  .contacts-table--summer th:first-child,
+  .contacts-table--summer td:first-child,
+  .contacts-table--summer th:not(:first-child),
+  .contacts-table--summer td:not(:first-child) {
+    width: 50%;
+  }
+
+  .contacts-schedule__subtitle {
+    margin-bottom: 14px;
+    font-size: 1rem;
+  }
+
+  .contacts-schedule__grid .contacts-schedule__subtitle {
+    margin-bottom: 14px;
+  }
+
+  .contacts-schedule__grid {
+    gap: 34px;
+    margin-top: 38px;
+  }
+
+  .contacts-review-form,
+  .contacts-reviews__catalog {
+    border-radius: 16px;
+    padding: 22px;
+  }
+
+  .contacts-review-form h3,
+  .contacts-reviews__catalog h3 {
+    font-size: 1.2rem;
+  }
+
+  .contacts-review-card__top {
+    align-items: flex-start;
+  }
+
+  .contacts-reviews-pagination {
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .contacts-reviews-pagination__button {
+    min-width: 40px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .contacts-reviews-pagination__button span {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+  }
+
+  .contacts-reviews-pagination__pages {
+    gap: 0;
+  }
+
+  .contacts-reviews-pagination__page,
+  .contacts-reviews-pagination__ellipsis {
+    width: 34px;
+    height: 34px;
+  }
+
+  .social-section {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 380px) {
+  body[data-page="contacts"] .container,
+  .contacts-hero .container,
+  .contacts-section .container {
+    width: calc(100% - 32px);
+    max-width: none;
+  }
+
+  .contacts-hero__card {
+    min-height: 360px;
+    aspect-ratio: auto;
+  }
+
+  .contacts-hero__content {
+    gap: 18px;
+    padding: 18px 16px 20px;
+  }
+
+  .contacts-hero__content h1 {
+    font-size: 1.23rem;
+    line-height: 1.08;
+  }
+
+  .contacts-hero__content p {
+    font-size: 0.82rem;
+  }
+
+  .contacts-review-form,
+  .contacts-reviews__catalog {
+    padding: 18px;
+  }
+
+  .contacts-review-card {
+    padding: 14px;
+  }
+
+  .contacts-reviews-pagination__page,
+  .contacts-reviews-pagination__ellipsis {
+    width: 30px;
+    height: 30px;
+  }
+
+  .contacts-table th,
+  .contacts-table td {
+    padding: 7px 3px;
+    font-size: 0.5rem;
+  }
+
+  .contacts-table--small th,
+  .contacts-table--small td {
+    font-size: 0.54rem;
+  }
+}
+
+body.accessibility-mode .contacts-hero__card {
+  display: block;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  overflow: visible;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface) !important;
+  box-shadow: none;
+}
+
+body.accessibility-mode[data-page="contacts"] .header-container {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 16px 22px;
+}
+
+body.accessibility-mode[data-page="contacts"] .main-nav {
+  min-height: 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px 20px;
+  font-size: 1rem;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+body.accessibility-mode .contacts-hero__card::before {
+  content: none;
+  display: none;
+}
+
+body.accessibility-mode .contacts-hero__content {
+  width: 100%;
+  max-width: none;
+  padding: 22px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-shadow: none;
+}
+
+body.accessibility-mode .contacts-hero__content h1,
+body.accessibility-mode .contacts-hero__content p {
+  max-width: none;
+  color: var(--color-text);
+  line-height: 1.35;
+  text-shadow: none;
+}
+
+body.accessibility-mode .contacts-address,
+body.accessibility-mode .contacts-requisites,
+body.accessibility-mode .contacts-route__text {
+  width: 100%;
+  max-width: none;
+  text-align: left;
+}
+
+body.accessibility-mode .contacts-cards,
+body.accessibility-mode .contacts-schedule__grid,
+body.accessibility-mode .contacts-reviews__grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body.accessibility-mode .contacts-card {
+  justify-items: start;
+  text-align: left;
+}
+
+body.accessibility-mode .contacts-map {
+  min-height: 0;
+  overflow: visible;
+  background: var(--color-surface);
+  box-shadow: none;
+}
+
+body.accessibility-mode .contacts-map iframe {
+  min-height: 360px;
+}
+
+body.accessibility-mode .contacts-map__caption {
+  position: static;
+  width: 100%;
+  margin: 0;
+  border: 2px solid var(--color-border);
+  box-shadow: none;
+  color: var(--color-text);
+}
+
+body.accessibility-mode .contacts-table-wrap {
+  overflow: visible;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+body.accessibility-mode .contacts-table,
+body.accessibility-mode .contacts-table thead,
+body.accessibility-mode .contacts-table tbody,
+body.accessibility-mode .contacts-table tr,
+body.accessibility-mode .contacts-table th,
+body.accessibility-mode .contacts-table td {
+  display: block;
+  width: auto !important;
+}
+
+body.accessibility-mode .contacts-table {
+  border-collapse: separate;
+  background: transparent;
+}
+
+body.accessibility-mode .contacts-table thead {
+  position: absolute;
+  width: 1px !important;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+body.accessibility-mode .contacts-table tbody {
+  display: grid;
+  gap: 14px;
+}
+
+body.accessibility-mode .contacts-table tr {
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px;
+  background: var(--color-surface) !important;
+}
+
+body.accessibility-mode .contacts-table td {
+  border: 0;
+  padding: 8px 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+body.accessibility-mode .contacts-table td::before {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-primary);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+body.accessibility-mode .contacts-table td:nth-child(1)::before {
+  content: "День недели";
+}
+
+body.accessibility-mode .contacts-table:not(.contacts-table--small) td:nth-child(2)::before {
+  content: "Трассы без освещения";
+}
+
+body.accessibility-mode .contacts-table:not(.contacts-table--small) td:nth-child(3)::before {
+  content: "Трассы с освещением";
+}
+
+body.accessibility-mode .contacts-table:not(.contacts-table--small) td:nth-child(4)::before {
+  content: "Учебный склон";
+}
+
+body.accessibility-mode .contacts-table:not(.contacts-table--small) td:nth-child(5)::before {
+  content: "Прокат и сервис";
+}
+
+body.accessibility-mode .contacts-table--small.contacts-table--summer td:nth-child(2)::before {
+  content: "Кафе";
+}
+
+body.accessibility-mode .contacts-table--small.contacts-table--summer td:nth-child(3)::before {
+  content: "Гриль-бар";
+}
+
+body.accessibility-mode .contacts-table--small:not(.contacts-table--summer) td:nth-child(2)::before {
+  content: "Время работы";
+}
+
+body.accessibility-mode .contacts-review-form,
+body.accessibility-mode .contacts-reviews__catalog,
+body.accessibility-mode .contacts-review-card {
+  box-shadow: none;
+}
+
+body.accessibility-mode .contacts-review-card__top,
+body.accessibility-mode .contacts-reviews-pagination {
+  flex-wrap: wrap;
+}

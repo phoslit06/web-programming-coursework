@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибка - ЦАО Евразия</title>
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/base.css?v=7">
+  <link rel="stylesheet" href="../../css/layout.css?v=6">
+  <link rel="stylesheet" href="../../css/components.css?v=3">
+  <link rel="stylesheet" href="../../css/responsive.css?v=4">
+  <link rel="stylesheet" href="error.css">
+  <script src="../../js/pages/auth.js?v=21" defer></script>
+</head>
+<body class="theme-light">
+  <header class="site-header">
+    <div class="container header-container">
+      <a class="logo" href="../../index.html" aria-label="Евразия - на главную">
+        <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="../trails/trails.html">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
+        <a href="../cart/cart.html">Корзина</a>
+        <a href="../account/account.html" data-auth-link>Вход</a>
+      </nav>
+
+      <div class="header-side">
+        <div class="header-phones" aria-label="Телефоны">
+          <a class="header-phone" href="tel:+79227288288">+79227288288</a>
+          <a class="header-phone" href="tel:+73513790979">+73513790979</a>
+        </div>
+        <div class="user-settings" aria-label="Настройки сайта">
+          <button class="settings-button" type="button" data-lang-toggle>RU | EN</button>
+          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle></button>
+          <button class="settings-button" type="button" aria-label="Версия для слабовидящих" data-accessibility-toggle>A+</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="error-page">
+    <section class="container error-card" aria-labelledby="error-title">
+      <p class="error-card__code">404 / 500</p>
+      <h1 id="error-title">Что-то пошло не так</h1>
+      <p>Страница не найдена или данные временно недоступны. Проверьте JSON Server и попробуйте открыть страницу ещё раз.</p>
+      <p class="error-card__details" data-error-details hidden></p>
+      <div class="error-card__actions">
+        <a class="button button--primary" href="../../index.html">На главную</a>
+        <button class="button button--primary" type="button" data-error-back>Назад</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var details = document.querySelector("[data-error-details]");
+      var back = document.querySelector("[data-error-back]");
+      var message = sessionStorage.getItem("eurasiaLastError");
+
+      if (details && message) {
+        details.hidden = false;
+        details.textContent = message;
+      }
+
+      if (back) {
+        back.addEventListener("click", function () {
+          if (history.length > 1) {
+            history.back();
+          } else {
+            window.location.href = "../../index.html";
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

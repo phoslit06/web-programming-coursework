@@ -6,7 +6,7 @@
       "lastName": "Иванов",
       "middleName": "Иванович",
       "email": "ivan@mail.ru",
-      "phone": "+375291234567",
+      "phone": "+79291234567",
       "birthDate": "2003-04-15",
       "login": "ivan_ivanov",
       "password": "Ivan1234!",
@@ -18,7 +18,7 @@
       "lastName": "Петрова",
       "middleName": "Сергеевна",
       "email": "anna@mail.ru",
-      "phone": "+375291112233",
+      "phone": "+79291112233",
       "birthDate": "2001-09-21",
       "login": "anna_petrova",
       "password": "Anna1234!",
@@ -119,6 +119,19 @@
       "login": "admin_eurasia",
       "password": "Admin1234!",
       "role": "admin"
+    },
+    {
+      "firstName": "Тест",
+      "lastName": "Тест",
+      "middleName": "Тестович",
+      "email": "chvv.chu@bk.ru",
+      "phone": "+79646786294",
+      "birthDate": "2000-09-09",
+      "login": "test_test",
+      "password": "qKfSa#49kcL?",
+      "role": "user",
+      "createdAt": "2026-05-30T16:26:26.158Z",
+      "id": 11
     }
   ],
   "hotels": [
@@ -279,7 +292,7 @@
       "checkOut": "2026-12-15",
       "guests": 2,
       "totalPrice": 75000,
-      "status": "confirmed",
+      "status": "cancelled",
       "paymentStatus": "paid",
       "createdAt": "2026-11-20"
     },
@@ -373,6 +386,268 @@
       "status": "confirmed",
       "paymentStatus": "pending",
       "createdAt": "2026-11-28"
+    },
+    {
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 2,
+      "checkIn": "2026-05-24",
+      "checkOut": "2026-05-25",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-24",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 2,
+      "checkIn": "2026-05-25",
+      "checkOut": "2026-05-26",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 2,
+      "checkIn": "2026-05-26",
+      "checkOut": "2026-05-27",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 2,
+      "checkIn": "2026-05-29",
+      "checkOut": "2026-05-30",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 2,
+      "checkIn": "2026-05-30",
+      "checkOut": "2026-05-31",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "itemType": "tour",
+      "itemId": 14,
+      "title": "Праздничный склон",
+      "details": "12.01.2027 - 16.01.2027",
+      "image": "assets/images/home/new-year-program.jpg",
+      "checkIn": "2027-01-12",
+      "checkOut": "2027-01-17",
+      "guests": 1,
+      "totalPrice": 39000,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "createdAt": "2026-05-24",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "itemType": "hotel",
+      "title": "Корпус \"Город\"",
+      "details": "Номер 24 · 24.05.2026 - 27.05.2026",
+      "image": "assets/images/hotels/hotel-city.jpg",
+      "checkIn": "2026-05-24",
+      "checkOut": "2026-05-27",
+      "guests": 4,
+      "totalPrice": 72000,
+      "status": "confirmed",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "hotelId": 1,
+      "roomId": 3,
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "itemType": "hotel",
+      "title": "Корпус \"Город\"",
+      "details": "Номер 18 · 29.05.2026 - 30.05.2026",
+      "image": "assets/images/hotels/hotel-city.jpg",
+      "checkIn": "2026-05-29",
+      "checkOut": "2026-05-30",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "createdAt": "2026-05-24",
+      "hotelId": 1,
+      "roomId": 2,
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "itemType": "promotion",
+      "title": "Снежные будни",
+      "details": "08.12.2026 · с понедельника по пятницу",
+      "image": "assets/images/tours/promo-02.jpg",
+      "checkIn": "2026-12-08",
+      "checkOut": "2026-12-09",
+      "guests": 1,
+      "totalPrice": 2800,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "createdAt": "2026-05-24",
+      "itemId": 6,
+      "id": 17
+    },
+    {
+      "userId": 1,
+      "itemType": "tour",
+      "title": "Фрирайд-уикенд",
+      "details": "25.12.2026 - 27.12.2026",
+      "image": "assets/images/trails/trails-hero.jpg",
+      "checkIn": "2026-12-25",
+      "checkOut": "2026-12-28",
+      "guests": 1,
+      "totalPrice": 22000,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "createdAt": "2026-05-24",
+      "itemId": 13,
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "itemType": "hotel",
+      "title": "Корпус \"Горный\"",
+      "details": "Номер G-9 · 29.05.2026 - 07.06.2026",
+      "image": "assets/images/hotels/hotel-mountain.jpg",
+      "checkIn": "2026-05-29",
+      "checkOut": "2026-06-07",
+      "guests": 5,
+      "totalPrice": 261000,
+      "status": "cancelled",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "hotelId": 2,
+      "roomId": 6,
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "itemType": "hotel",
+      "title": "Корпус \"Лесной\"",
+      "details": "Номер Дом-1 · 28.05.2026 - 31.05.2026",
+      "image": "assets/images/hotels/hotel-forest.jpg",
+      "checkIn": "2026-05-28",
+      "checkOut": "2026-05-31",
+      "guests": 6,
+      "totalPrice": 108000,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "createdAt": "2026-05-25",
+      "hotelId": 3,
+      "roomId": 9,
+      "id": 20
+    },
+    {
+      "userId": 10,
+      "itemType": "hotel",
+      "title": "Корпус \"Город\"",
+      "details": "Номер 18 · 28.05.2026 - 29.05.2026",
+      "image": "assets/images/hotels/hotel-city.jpg",
+      "checkIn": "2026-05-28",
+      "checkOut": "2026-05-29",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-26",
+      "hotelId": 1,
+      "roomId": 2,
+      "id": 21
+    },
+    {
+      "userId": 10,
+      "itemType": "tour",
+      "title": "Снежные будни Light",
+      "details": "Тур",
+      "image": "assets/images/tours/tour-01.jpg",
+      "checkIn": "2027-01-17",
+      "checkOut": "2027-01-24",
+      "guests": 1,
+      "totalPrice": 25000,
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-26",
+      "itemId": 1,
+      "id": 22
+    },
+    {
+      "userId": 10,
+      "itemType": "tour",
+      "title": "Уикенд на склоне",
+      "details": "Тур",
+      "image": "assets/images/tours/tour-02.jpg",
+      "checkIn": "2026-12-11",
+      "checkOut": "2026-12-14",
+      "guests": 1,
+      "totalPrice": 18000,
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-26",
+      "itemId": 2,
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "itemType": "promotion",
+      "title": "Евробус - экспресс",
+      "details": "Акция",
+      "image": "assets/images/tours/promo-01.jpg",
+      "checkIn": "2026-12-31",
+      "checkOut": "2027-01-01",
+      "guests": 1,
+      "totalPrice": 1200,
+      "status": "confirmed",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-30",
+      "itemId": 5,
+      "id": 24
+    },
+    {
+      "userId": 1,
+      "itemType": "tour",
+      "title": "Уикенд на склоне",
+      "details": "Тур",
+      "image": "assets/images/tours/tour-02.jpg",
+      "checkIn": "2026-12-18",
+      "checkOut": "2026-12-21",
+      "guests": 1,
+      "totalPrice": 18000,
+      "status": "confirmed",
+      "paymentStatus": "paid",
+      "createdAt": "2026-06-01",
+      "itemId": 2,
+      "id": 25
     }
   ],
   "tariffs": [
@@ -1853,13 +2128,13 @@
       "level": "beginner",
       "levelTitle": "Легкая",
       "length": 175,
-      "status": "open",
-      "statusTitle": "open",
+      "status": "closed",
+      "statusTitle": "close",
       "description": "Более крутой спуск первой трассы.",
       "image": "assets/images/trails/figma-gallery-8-2.png",
       "showInList": true,
       "showDescription": false,
-      "isOpen": true
+      "isOpen": false
     },
     {
       "id": 3,
@@ -1915,12 +2190,12 @@
       "level": "middle",
       "levelTitle": "Средняя",
       "length": 1500,
-      "status": "closed",
-      "statusTitle": "close",
+      "status": "open",
+      "statusTitle": "open",
       "description": "Трасса для райдеров \"Среднего\" уровня катания, продолжительностью 1 500 метров. Снег естественный. Меняющийся угол склона дает возможность научиться смене техники катания и проверить свои силы на постоянно меняющемся рельефе.",
       "image": "assets/images/trails/figma-gallery-14-2.png",
       "showInList": true,
-      "isOpen": false
+      "isOpen": true
     },
     {
       "id": 7,
@@ -2057,7 +2332,7 @@
       "fullText": "В период с 23 по 28 января в городе Куса на территории ЦАО \"Евразия\" состоялось Первенство Уральского федерального округа и Первенство Челябинской области по горнолыжному спорту. Для участников подготовили трассы, зону разминки и работу службы проката.",
       "image": "assets/images/news/news-01.jpg",
       "isActive": true,
-      "showOnHome": true
+      "showOnHome": false
     },
     {
       "id": 2,
@@ -2079,7 +2354,7 @@
       "fullText": "Региональное отделение федерации сноуборда и Центр активного отдыха \"Евразия\" приглашают принять участие во Всероссийских соревнованиях и Первенстве города Куса по сноуборду. В программе заявлены дисциплины PGS и PSL.",
       "image": "assets/images/news/news-03.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": true
     },
     {
       "id": 4,
@@ -2112,7 +2387,7 @@
       "fullText": "30 декабря в ЦАО \"Евразия\" состоится тестовое открытие второго склона. К новогодним праздникам подготовлены пять больших склонов, учебная трасса, тюбинговая горка и пункт проката.",
       "image": "assets/images/news/news-06.jpg",
       "isActive": true,
-      "showOnHome": true
+      "showOnHome": false
     },
     {
       "id": 7,
@@ -2316,13 +2591,181 @@
   "promotions": [
     {
       "id": 1,
+      "title": "Снежные будни Light",
+      "type": "tour",
+      "subtitle": "Горнолыжный тур",
+      "description": "Короткий тур с проживанием, ски-пассом, прокатом и завтраками для спокойного катания в будни.",
+      "periodType": "dayRange",
+      "startDay": "sunday",
+      "endDay": "wednesday",
+      "periodText": "с воскресенья  по среду",
+      "periodLines": [
+        "с воскресенья  по среду"
+      ],
+      "features": [
+        "проживание",
+        "ски-пасс",
+        "прокат",
+        "завтраки"
+      ],
+      "durationDays": 7,
+      "durationNights": 3,
+      "price": 25000,
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/tour-01.jpg",
+      "isActive": true,
+      "showOnHome": true,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true,
+      "bookingLengthDays": 7,
+      "priceText": "25 000 руб.",
+      "discountText": ""
+    },
+    {
+      "id": 2,
+      "title": "Уикенд на склоне",
+      "type": "tour",
+      "subtitle": "Тур выходного дня",
+      "description": "Тур на три дня для тех, кто хочет приехать к выходным и успеть покататься без лишней суеты.",
+      "periodType": "dayRange",
+      "startDay": "friday",
+      "endDay": "sunday",
+      "periodText": "с пятницы по воскресенье",
+      "periodLines": [
+        "с пятницы",
+        "по воскресенье"
+      ],
+      "features": [
+        "проживание",
+        "ски-пасс",
+        "прокат",
+        "трансфер"
+      ],
+      "durationDays": 3,
+      "durationNights": 2,
+      "price": 18000,
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/tour-02.jpg",
+      "isActive": true,
+      "showOnHome": true,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true
+    },
+    {
+      "id": 3,
+      "title": "Твои горы Standard",
+      "type": "tour",
+      "subtitle": "Недельный тур",
+      "description": "Пятидневный тур с проживанием, катанием, прокатом и питанием для уверенного отдыха на склоне.",
+      "periodType": "dayRange",
+      "startDay": "monday",
+      "endDay": "friday",
+      "periodText": "с понедельника по пятницу",
+      "periodLines": [
+        "с понедельника по пятницу"
+      ],
+      "features": [
+        "проживание",
+        "ски-пасс",
+        "прокат",
+        "питание"
+      ],
+      "durationDays": 5,
+      "durationNights": 4,
+      "price": 32000,
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/tour-03.jpg",
+      "isActive": true,
+      "showOnHome": true,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true,
+      "bookingLengthDays": 5,
+      "priceText": "32 000 руб.",
+      "discountText": ""
+    },
+    {
+      "id": 4,
+      "title": "Семейные горы",
+      "type": "tour",
+      "subtitle": "Тур для семьи",
+      "description": "Тур для семьи с проживанием, прокатом и занятиями с инструктором для детей и взрослых.",
+      "periodType": "dayRange",
+      "startDay": "monday",
+      "endDay": "friday",
+      "periodText": "с понедельника по пятницу",
+      "periodLines": [
+        "с понедельника",
+        "по пятницу"
+      ],
+      "features": [
+        "проживание",
+        "ски-пасс",
+        "инструктор",
+        "питание"
+      ],
+      "durationDays": 5,
+      "durationNights": 4,
+      "price": 35000,
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/tour-04.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true
+    },
+    {
+      "id": 5,
+      "title": "Евробус - экспресс",
+      "type": "promotion",
+      "subtitle": "Челябинск-Куса",
+      "description": "Трансфер до центра активного отдыха из Челябинска в Кусу и обратно в выбранный день.",
+      "periodType": "any",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "ежедневно",
+      "periodLines": [
+        "Челябинск-Куса",
+        "ежедневно"
+      ],
+      "features": [
+        "дорога туда и обратно"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1200,
+      "priceText": "1 200 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/promo-01.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 6,
       "title": "Снежные будни",
       "type": "promotion",
-      "description": "Специальная цена на прокат и подъемник в будние дни.",
+      "subtitle": "прокат + подъёмник",
+      "description": "Пакет на четыре часа: прокат снаряжения и кресельный подъёмник в будние дни.",
       "periodType": "weekdays",
-      "periodText": "Будние дни",
-      "startDay": null,
-      "endDay": null,
       "availableDays": [
         "monday",
         "tuesday",
@@ -2330,194 +2773,809 @@
         "thursday",
         "friday"
       ],
+      "periodText": "с понедельника по пятницу",
+      "periodLines": [
+        "с понедельника",
+        "по пятницу"
+      ],
+      "features": [
+        "прокат снаряжения",
+        "кресельный подъёмник"
+      ],
       "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
       "price": 1400,
-      "oldPrice": 1800,
-      "validFrom": "2025-12-01",
-      "validTo": "2026-03-31",
-      "image": "assets/images/home/hero-snowboard.jpg",
+      "priceText": "1 400 руб.",
+      "oldPrice": null,
+      "discountText": "4 часа",
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/promo-02.jpg",
       "isActive": true,
       "showOnHome": true,
+      "ctaLabel": "Заказать",
       "canAddToCart": true
     },
     {
-      "id": 2,
-      "title": "Неделя в горах",
-      "type": "tour",
-      "description": "Горнолыжный тур на неделю с проживанием и прокатом.",
-      "periodType": "dayRange",
-      "periodText": "С воскресенья по субботу",
-      "startDay": "sunday",
-      "endDay": "saturday",
+      "id": 7,
+      "title": "Вечерний блок",
+      "type": "promotion",
+      "subtitle": "суббота вечер",
+      "description": "Вечерний тариф на прокат и подъёмник для катания после дневного потока гостей.",
+      "periodType": "specificDays",
       "availableDays": [
-        "sunday",
+        "saturday"
+      ],
+      "periodText": "суббота с 17.00 до 21.00",
+      "periodLines": [
+        "суббота",
+        "17.00-21.00"
+      ],
+      "features": [
+        "прокат",
+        "подъёмник"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1200,
+      "priceText": "1 200 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/promo-03.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 8,
+      "title": "Пятничный старт",
+      "type": "promotion",
+      "subtitle": "катание в пятницу",
+      "description": "Однодневный пятничный пакет для катания по специальной цене перед выходными.",
+      "periodType": "specificDays",
+      "availableDays": [
+        "friday"
+      ],
+      "periodText": "каждую пятницу",
+      "periodLines": [
+        "каждую пятницу"
+      ],
+      "features": [
+        "ски-пасс на день"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 900,
+      "priceText": "900 руб.",
+      "oldPrice": null,
+      "discountText": "пятница",
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/promo-04.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 9,
+      "title": "Тариф местного жителя",
+      "type": "promotion",
+      "subtitle": "для жителей Кусы",
+      "description": "Специальная цена на подъёмник для жителей Кусы и ближайших населённых пунктов.",
+      "periodType": "any",
+      "availableDays": [
         "monday",
         "tuesday",
         "wednesday",
         "thursday",
         "friday",
-        "saturday"
+        "saturday",
+        "sunday"
       ],
-      "durationDays": 7,
-      "price": 25000,
-      "oldPrice": 30000,
-      "validFrom": "2025-12-01",
-      "validTo": "2026-03-31",
-      "image": "assets/images/home/intro-lift.jpg",
-      "isActive": true,
-      "showOnHome": true,
-      "canAddToCart": true
-    },
-    {
-      "id": 3,
-      "title": "Новогодняя программа",
-      "type": "promotion",
-      "description": "Праздничные активности на территории центра активного отдыха Евразия.",
-      "periodType": "dateRange",
-      "periodText": "31 декабря - 8 января",
-      "startDay": null,
-      "endDay": null,
-      "availableDays": [],
+      "periodText": "по документу жителя",
+      "periodLines": [
+        "по документу",
+        "жителя"
+      ],
+      "features": [
+        "подъёмник"
+      ],
       "durationDays": null,
-      "price": 2200,
-      "oldPrice": 2800,
-      "validFrom": "2025-12-31",
-      "validTo": "2026-01-08",
-      "image": "assets/images/home/new-year-program.jpg",
-      "isActive": true,
-      "showOnHome": true,
-      "canAddToCart": true
-    },
-    {
-      "id": 4,
-      "title": "BBQ площадки",
-      "type": "promotion",
-      "description": "Зоны отдыха для компаний и семейных поездок рядом с зимними маршрутами центра.",
-      "periodType": "any",
-      "periodText": "Каждый день сезона",
-      "startDay": null,
-      "endDay": null,
-      "availableDays": [],
-      "durationDays": null,
-      "price": 3500,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 350,
+      "priceText": "350 руб.",
       "oldPrice": null,
-      "validFrom": "2025-12-01",
-      "validTo": "2026-03-31",
-      "image": "assets/images/home/bbq-area.jpg",
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/promo-05.jpg",
       "isActive": true,
-      "showOnHome": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
       "canAddToCart": true
     },
     {
-      "id": 5,
-      "title": "Семейные выходные",
-      "type": "tour",
-      "description": "Тур выходного дня для семьи с катанием и проживанием.",
-      "periodType": "weekend",
-      "periodText": "Суббота и воскресенье",
-      "startDay": null,
-      "endDay": null,
+      "id": 10,
+      "title": "Бархатный сезон",
+      "type": "promotion",
+      "subtitle": "мартовское катание",
+      "description": "Пакет на мягкий мартовский снег: подъёмник и прокат на один день.",
+      "periodType": "weekdays",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday"
+      ],
+      "periodText": "будни марта",
+      "periodLines": [
+        "будни марта"
+      ],
+      "features": [
+        "подъёмник",
+        "прокат"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1100,
+      "priceText": "1 100 руб.",
+      "oldPrice": null,
+      "discountText": "март",
+      "validFrom": "2027-03-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/promo-08.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 11,
+      "title": "Урок - всё включено",
+      "type": "promotion",
+      "subtitle": "инструктор + прокат",
+      "description": "Занятие с инструктором, прокат снаряжения и подъёмник в одном пакете.",
+      "periodType": "any",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "любой день сезона",
+      "periodLines": [
+        "любой день",
+        "сезона"
+      ],
+      "features": [
+        "инструктор",
+        "прокат",
+        "подъёмник"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 2100,
+      "priceText": "2 100 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/tours/promo-07.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 12,
+      "title": "Купон на катание",
+      "type": "promotion",
+      "subtitle": "выходной пакет",
+      "description": "Пакет выходного дня: ски-пасс и прокат для одного гостя.",
+      "periodType": "weekends",
       "availableDays": [
         "saturday",
         "sunday"
       ],
-      "durationDays": 2,
-      "price": 18000,
-      "oldPrice": 22000,
-      "validFrom": "2025-12-01",
-      "validTo": "2026-03-31",
-      "image": "assets/images/home/hero-snowboard.jpg",
+      "periodText": "суббота и воскресенье",
+      "periodLines": [
+        "суббота",
+        "и воскресенье"
+      ],
+      "features": [
+        "ски-пасс",
+        "прокат"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1500,
+      "priceText": "1 500 руб.",
+      "oldPrice": null,
+      "discountText": "выходной",
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-08.jpg",
       "isActive": true,
       "showOnHome": false,
+      "ctaLabel": "Заказать",
       "canAddToCart": true
     },
     {
-      "id": 6,
-      "title": "Скидка студентам",
-      "type": "promotion",
-      "description": "Скидка на прокат снаряжения при предъявлении студенческого билета.",
-      "periodType": "any",
-      "periodText": "Каждый день сезона",
-      "startDay": null,
-      "endDay": null,
-      "availableDays": [],
-      "durationDays": null,
-      "price": null,
+      "id": 13,
+      "title": "Фрирайд-уикенд",
+      "type": "tour",
+      "subtitle": "тур для опытных",
+      "description": "Тур на выходные с инструктором, разбором техники и катанием на подготовленных маршрутах.",
+      "periodType": "dayRange",
+      "startDay": "friday",
+      "endDay": "sunday",
+      "periodText": "с пятницы по воскресенье",
+      "periodLines": [
+        "с пятницы",
+        "по воскресенье"
+      ],
+      "features": [
+        "проживание",
+        "инструктор",
+        "ски-пасс",
+        "прокат"
+      ],
+      "durationDays": 3,
+      "durationNights": 2,
+      "price": 22000,
       "oldPrice": null,
-      "validFrom": "2025-12-01",
-      "validTo": "2026-03-31",
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/trails/trails-hero.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true
+    },
+    {
+      "id": 14,
+      "title": "Праздничный склон",
+      "type": "tour",
+      "subtitle": "праздничный тур",
+      "description": "Праздничный тур с проживанием, вечерней программой и катанием после новогодних каникул.",
+      "periodType": "dayRange",
+      "startDay": "tuesday",
+      "endDay": "saturday",
+      "periodText": "с 12 января по 16 января",
+      "periodLines": [
+        "12 января",
+        "16 января"
+      ],
+      "features": [
+        "проживание",
+        "ски-пасс",
+        "праздничная программа",
+        "завтраки"
+      ],
+      "durationDays": 5,
+      "durationNights": 4,
+      "price": 39000,
+      "oldPrice": null,
+      "validFrom": "2027-01-12",
+      "validTo": "2027-01-16",
+      "image": "assets/images/home/new-year-program.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true
+    },
+    {
+      "id": 15,
+      "title": "Семейный ski-тур",
+      "type": "tour",
+      "subtitle": "дети и родители",
+      "description": "Семейный тур с проживанием, детским инструктором и спокойным графиком катания.",
+      "periodType": "dayRange",
+      "startDay": "saturday",
+      "endDay": "thursday",
+      "periodText": "с субботы по четверг",
+      "periodLines": [
+        "с субботы",
+        "по четверг"
+      ],
+      "features": [
+        "проживание",
+        "детский инструктор",
+        "прокат",
+        "питание"
+      ],
+      "durationDays": 6,
+      "durationNights": 5,
+      "price": 42000,
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/hotels/hotel-forest.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true
+    },
+    {
+      "id": 16,
+      "title": "Активные каникулы",
+      "type": "tour",
+      "subtitle": "тур на неделю",
+      "description": "Недельная программа с катанием, тюбингом, прогулками и проживанием рядом со склоном.",
+      "periodType": "dayRange",
+      "startDay": "sunday",
+      "endDay": "saturday",
+      "periodText": "с воскресенья по субботу",
+      "periodLines": [
+        "с воскресенья",
+        "по субботу"
+      ],
+      "features": [
+        "проживание",
+        "ски-пасс",
+        "тюбинг",
+        "прогулки"
+      ],
+      "durationDays": 7,
+      "durationNights": 6,
+      "price": 48000,
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/hotels/hotel-mountain.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Забронировать тур",
+      "canAddToCart": true
+    },
+    {
+      "id": 17,
+      "title": "Семейный день на склоне",
+      "type": "promotion",
+      "subtitle": "пакет для 3 гостей",
+      "description": "Однодневный семейный пакет со ски-пассами и прокатом для трёх гостей.",
+      "periodType": "weekends",
+      "availableDays": [
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "выходные дни",
+      "periodLines": [
+        "выходные",
+        "для семьи"
+      ],
+      "features": [
+        "3 ски-пасса",
+        "3 комплекта проката"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 6200,
+      "priceText": "6 200 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
       "image": "assets/images/home/news-big-air.jpg",
       "isActive": true,
       "showOnHome": false,
-      "canAddToCart": false
-    },
-    {
-      "id": 7,
-      "title": "Детский старт",
-      "type": "promotion",
-      "description": "Комплект для первого занятия ребенка с инструктором и прокатом.",
-      "periodType": "specificDays",
-      "periodText": "Вторник и четверг",
-      "startDay": null,
-      "endDay": null,
-      "availableDays": [
-        "tuesday",
-        "thursday"
-      ],
-      "durationDays": null,
-      "price": 2600,
-      "oldPrice": 3200,
-      "validFrom": "2025-12-01",
-      "validTo": "2026-03-31",
-      "image": "assets/images/home/news-kusa.jpg",
-      "isActive": true,
-      "showOnHome": false,
+      "ctaLabel": "Заказать",
       "canAddToCart": true
     },
     {
-      "id": 8,
-      "title": "Вечернее катание",
+      "id": 18,
+      "title": "Школьная группа",
       "type": "promotion",
-      "description": "Ски-пасс и прокат для вечернего катания на освещенных трассах.",
-      "periodType": "specificDays",
-      "periodText": "Среда, пятница, суббота",
-      "startDay": null,
-      "endDay": null,
+      "subtitle": "будний выезд",
+      "description": "Пакет для школьной группы: инструктор, прокат и сопровождение на учебном склоне.",
+      "periodType": "weekdays",
       "availableDays": [
+        "monday",
+        "tuesday",
         "wednesday",
+        "thursday",
+        "friday"
+      ],
+      "periodText": "будние дни",
+      "periodLines": [
+        "будние дни",
+        "для группы"
+      ],
+      "features": [
+        "инструктор",
+        "прокат",
+        "учебный склон"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 9800,
+      "priceText": "9 800 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/home/news-kusa.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 19,
+      "title": "BBQ после катания",
+      "type": "promotion",
+      "subtitle": "зона отдыха",
+      "description": "Бронирование BBQ-зоны для компании после катания на склоне.",
+      "periodType": "specificDays",
+      "availableDays": [
         "friday",
         "saturday"
       ],
+      "periodText": "пятница и суббота",
+      "periodLines": [
+        "пятница",
+        "и суббота"
+      ],
+      "features": [
+        "BBQ-зона",
+        "стол для компании"
+      ],
       "durationDays": null,
-      "price": 1900,
-      "oldPrice": 2400,
-      "validFrom": "2025-12-01",
-      "validTo": "2026-03-31",
-      "image": "assets/images/home/intro-lift.jpg",
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1700,
+      "priceText": "1 700 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/home/bbq-area.jpg",
       "isActive": true,
       "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 20,
+      "title": "Кресельный подъёмник",
+      "type": "promotion",
+      "subtitle": "дневной проход",
+      "description": "Дневной билет на кресельный подъёмник для гостей, которые катаются без проката.",
+      "periodType": "any",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "любой день",
+      "periodLines": [
+        "любой день",
+        "подъёмник"
+      ],
+      "features": [
+        "кресельный подъёмник",
+        "дневной проход"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1800,
+      "priceText": "1 800 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/trails/lift.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 21,
+      "title": "Тюбинг на весь день",
+      "type": "promotion",
+      "subtitle": "семейная зона",
+      "description": "Дневной билет в тюбинг-зону без почасового продления.",
+      "periodType": "any",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "ежедневно",
+      "periodLines": [
+        "тюбинг",
+        "на весь день"
+      ],
+      "features": [
+        "тюбинг-зона",
+        "дневной билет"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1900,
+      "priceText": "1 900 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/trails/tubing.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 22,
+      "title": "Подъёмник + чай",
+      "type": "promotion",
+      "subtitle": "короткий отдых",
+      "description": "Дневной подъёмник и горячий чай в кафе после катания.",
+      "periodType": "weekends",
+      "availableDays": [
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "выходные",
+      "periodLines": [
+        "подъёмник",
+        "и чай"
+      ],
+      "features": [
+        "подъёмник",
+        "горячий чай"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1300,
+      "priceText": "1 300 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-09.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 23,
+      "title": "Тюбинг для компании",
+      "type": "promotion",
+      "subtitle": "4 человека",
+      "description": "Комплект билетов на тюбинг для компании из четырёх гостей.",
+      "periodType": "weekends",
+      "availableDays": [
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "суббота и воскресенье",
+      "periodLines": [
+        "тюбинг",
+        "для 4 гостей"
+      ],
+      "features": [
+        "4 билета",
+        "1 час катания"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 3600,
+      "priceText": "3 600 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-02.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 24,
+      "title": "Детский инструктор",
+      "type": "promotion",
+      "subtitle": "первый урок",
+      "description": "Первое занятие с детским инструктором на учебном склоне.",
+      "periodType": "weekends",
+      "availableDays": [
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "выходные дни",
+      "periodLines": [
+        "первый урок",
+        "для ребёнка"
+      ],
+      "features": [
+        "инструктор",
+        "учебный склон"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 2500,
+      "priceText": "2 500 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-03.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 25,
+      "title": "Сервис лыж",
+      "type": "promotion",
+      "subtitle": "подготовка канта",
+      "description": "Заточка канта и обработка скользящей поверхности перед катанием.",
+      "periodType": "any",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "ежедневно",
+      "periodLines": [
+        "сервис",
+        "перед катанием"
+      ],
+      "features": [
+        "заточка",
+        "парафин"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 800,
+      "priceText": "800 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-04.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 26,
+      "title": "Ранний ски-пасс",
+      "type": "promotion",
+      "subtitle": "до 12.00",
+      "description": "Утренний ски-пасс для тех, кто приезжает на склон раньше основного потока.",
+      "periodType": "weekdays",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday"
+      ],
+      "periodText": "будни до 12.00",
+      "periodLines": [
+        "будни",
+        "до 12.00"
+      ],
+      "features": [
+        "утренний ски-пасс"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 1100,
+      "priceText": "1 100 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-05.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 27,
+      "title": "Кафе на склоне",
+      "type": "promotion",
+      "subtitle": "обед после катания",
+      "description": "Комплексный обед в кафе для гостей, которые проводят день на склоне.",
+      "periodType": "any",
+      "availableDays": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "ежедневно",
+      "periodLines": [
+        "обед",
+        "после катания"
+      ],
+      "features": [
+        "горячее блюдо",
+        "напиток"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 950,
+      "priceText": "950 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-06.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
+      "canAddToCart": true
+    },
+    {
+      "id": 28,
+      "title": "Группа новичков",
+      "type": "promotion",
+      "subtitle": "мини-группа",
+      "description": "Групповое занятие для начинающих лыжников и сноубордистов.",
+      "periodType": "weekends",
+      "availableDays": [
+        "saturday",
+        "sunday"
+      ],
+      "periodText": "выходные",
+      "periodLines": [
+        "мини-группа",
+        "для новичков"
+      ],
+      "features": [
+        "инструктор",
+        "учебный склон"
+      ],
+      "durationDays": null,
+      "durationNights": null,
+      "bookingLengthDays": 1,
+      "price": 2200,
+      "priceText": "2 200 руб.",
+      "oldPrice": null,
+      "validFrom": "2026-12-01",
+      "validTo": "2027-03-31",
+      "image": "assets/images/news/news-07.jpg",
+      "isActive": true,
+      "showOnHome": false,
+      "ctaLabel": "Заказать",
       "canAddToCart": true
     }
   ],
   "cart": [
-    {
-      "id": 1,
-      "userId": 1,
-      "itemType": "tariff",
-      "itemId": 1,
-      "title": "Комплект",
-      "price": 500,
-      "quantity": 2
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "itemType": "promotion",
-      "itemId": 4,
-      "title": "BBQ площадки",
-      "price": 3500,
-      "quantity": 1
-    },
     {
       "id": 3,
       "userId": 2,
@@ -2550,134 +3608,422 @@
       "userId": 5,
       "itemType": "promotion",
       "itemId": 7,
-      "title": "Детский старт",
-      "price": 2600,
-      "quantity": 1
+      "title": "Вечерний блок",
+      "price": 1200,
+      "quantity": 1,
+      "details": "суббота с 17.00 до 21.00",
+      "image": "assets/images/tours/promo-03.jpg"
     }
   ],
   "orders": [
     {
-      "id": 1,
       "userId": 1,
       "items": [
         {
-          "itemType": "tariff",
-          "itemId": 1,
-          "title": "Комплект",
-          "quantity": 2,
-          "price": 500
-        },
+          "userId": 1,
+          "itemType": "tour",
+          "itemId": 4,
+          "title": "Твои горы",
+          "details": "14.12.2026 - 19.12.2026",
+          "periodText": "с понедельника по воскресенье",
+          "checkIn": "2026-12-14",
+          "checkOut": "2026-12-19",
+          "price": 35000,
+          "quantity": 1,
+          "image": "assets/images/tours/tour-04.jpg"
+        }
+      ],
+      "totalPrice": 35000,
+      "status": "created",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "items": [
         {
+          "userId": 1,
           "itemType": "promotion",
-          "itemId": 1,
+          "itemId": 6,
           "title": "Снежные будни",
+          "details": "с понедельника по пятницу",
+          "periodText": "с понедельника по пятницу",
+          "checkIn": null,
+          "checkOut": null,
+          "price": 1400,
           "quantity": 1,
-          "price": 1400
-        }
-      ],
-      "totalPrice": 2400,
-      "status": "paid",
-      "createdAt": "2026-04-10",
-      "paymentMethod": "online"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "items": [
-        {
-          "itemType": "tariff",
-          "itemId": 19,
-          "title": "Индивидуальное занятие с инструктором",
-          "quantity": 1,
-          "price": 1800
-        }
-      ],
-      "totalPrice": 1800,
-      "status": "pending",
-      "createdAt": "2026-04-12",
-      "paymentMethod": "card"
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "items": [
-        {
-          "itemType": "promotion",
-          "itemId": 2,
-          "title": "Неделя в горах",
-          "quantity": 1,
-          "price": 25000
-        }
-      ],
-      "totalPrice": 25000,
-      "status": "paid",
-      "createdAt": "2026-03-18",
-      "paymentMethod": "online"
-    },
-    {
-      "id": 4,
-      "userId": 4,
-      "items": [
-        {
-          "itemType": "tariff",
-          "itemId": 25,
-          "title": "Ватрушка",
-          "quantity": 3,
-          "price": 250
+          "image": "assets/images/tours/promo-02.jpg"
         },
         {
-          "itemType": "tariff",
-          "itemId": 26,
-          "title": "Тюбинг 1 час",
-          "quantity": 3,
-          "price": 300
-        }
-      ],
-      "totalPrice": 1650,
-      "status": "paid",
-      "createdAt": "2026-02-01",
-      "paymentMethod": "cash"
-    },
-    {
-      "id": 5,
-      "userId": 5,
-      "items": [
-        {
+          "userId": 1,
           "itemType": "promotion",
           "itemId": 5,
-          "title": "Семейные выходные",
+          "title": "Евробус - экспресс",
+          "details": "за 3 часа",
+          "periodText": "за 3 часа",
+          "checkIn": null,
+          "checkOut": null,
+          "price": 1200,
           "quantity": 1,
-          "price": 18000
-        }
-      ],
-      "totalPrice": 18000,
-      "status": "cancelled",
-      "createdAt": "2026-01-22",
-      "paymentMethod": "card"
-    },
-    {
-      "id": 6,
-      "userId": 6,
-      "items": [
-        {
-          "itemType": "tariff",
-          "itemId": 15,
-          "title": "Ски-пасс на день",
-          "quantity": 2,
-          "price": 1200
+          "image": "assets/images/tours/promo-01.jpg"
         },
         {
+          "userId": 1,
           "itemType": "promotion",
-          "itemId": 8,
-          "title": "Вечернее катание",
+          "itemId": 7,
+          "title": "Тариф \"Блочный\"",
+          "details": "с 17.00 до 21.00",
+          "periodText": "с 17.00 до 21.00",
+          "checkIn": null,
+          "checkOut": null,
+          "price": 1200,
           "quantity": 1,
-          "price": 1900
+          "image": "assets/images/tours/promo-03.jpg"
+        },
+        {
+          "userId": 1,
+          "itemType": "promotion",
+          "itemId": 9,
+          "title": "Тариф \"Местный\"",
+          "details": "с 10.00 до 14.00",
+          "periodText": "с 10.00 до 14.00",
+          "checkIn": null,
+          "checkOut": null,
+          "price": 75,
+          "quantity": 1,
+          "image": "assets/images/tours/promo-05.jpg"
+        },
+        {
+          "userId": 1,
+          "itemType": "promotion",
+          "itemId": 10,
+          "title": "Тариф \"Бархатный сезон\"",
+          "details": "сезонный тариф",
+          "periodText": "сезонный тариф",
+          "checkIn": null,
+          "checkOut": null,
+          "price": 1100,
+          "quantity": 1,
+          "image": "assets/images/tours/promo-08.jpg"
+        },
+        {
+          "userId": 1,
+          "itemType": "promotion",
+          "itemId": 12,
+          "title": "Купон на катание",
+          "details": "цена по купону",
+          "periodText": "цена по купону",
+          "checkIn": null,
+          "checkOut": null,
+          "price": 1500,
+          "quantity": 1,
+          "image": "assets/images/tours/promo-08.jpg"
         }
       ],
-      "totalPrice": 4300,
-      "status": "paid",
-      "createdAt": "2026-02-20",
-      "paymentMethod": "online"
+      "totalPrice": 6475,
+      "status": "created",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "tour",
+          "itemId": 14,
+          "title": "Праздничный склон",
+          "details": "12.01.2027 - 16.01.2027",
+          "periodText": "с 12 января по 16 января",
+          "checkIn": "2027-01-12",
+          "checkOut": "2027-01-17",
+          "price": 39000,
+          "quantity": 1,
+          "image": "assets/images/home/new-year-program.jpg"
+        }
+      ],
+      "bookingIds": [
+        14
+      ],
+      "totalPrice": 39000,
+      "status": "created",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "hotel",
+          "hotelId": 1,
+          "roomId": 3,
+          "title": "Корпус \"Город\"",
+          "details": "Номер 24 · 24.05.2026 - 27.05.2026",
+          "checkIn": "2026-05-24",
+          "checkOut": "2026-05-27",
+          "guests": 4,
+          "price": 72000,
+          "quantity": 1,
+          "image": "assets/images/hotels/hotel-city.jpg",
+          "createdAt": "2026-05-24"
+        }
+      ],
+      "bookingIds": [
+        15
+      ],
+      "totalPrice": 72000,
+      "status": "created",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "hotel",
+          "hotelId": 1,
+          "roomId": 2,
+          "title": "Корпус \"Город\"",
+          "details": "Номер 18 · 29.05.2026 - 30.05.2026",
+          "checkIn": "2026-05-29",
+          "checkOut": "2026-05-30",
+          "guests": 2,
+          "price": 18000,
+          "quantity": 1,
+          "image": "assets/images/hotels/hotel-city.jpg",
+          "createdAt": "2026-05-24"
+        }
+      ],
+      "bookingIds": [
+        16
+      ],
+      "totalPrice": 18000,
+      "status": "created",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-24",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "promotion",
+          "itemId": 6,
+          "title": "Снежные будни",
+          "details": "08.12.2026 · с понедельника по пятницу",
+          "periodText": "с понедельника по пятницу",
+          "checkIn": "2026-12-08",
+          "checkOut": "2026-12-09",
+          "price": 1400,
+          "quantity": 2,
+          "image": "assets/images/tours/promo-02.jpg"
+        },
+        {
+          "userId": 1,
+          "itemType": "tour",
+          "itemId": 13,
+          "title": "Фрирайд-уикенд",
+          "details": "25.12.2026 - 27.12.2026",
+          "periodText": "с пятницы по воскресенье",
+          "checkIn": "2026-12-25",
+          "checkOut": "2026-12-28",
+          "price": 22000,
+          "quantity": 1,
+          "image": "assets/images/trails/trails-hero.jpg"
+        }
+      ],
+      "bookingIds": [
+        17,
+        18
+      ],
+      "totalPrice": 24800,
+      "status": "created",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-24",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "hotel",
+          "hotelId": 2,
+          "roomId": 6,
+          "title": "Корпус \"Горный\"",
+          "details": "Номер G-9 · 29.05.2026 - 07.06.2026",
+          "checkIn": "2026-05-29",
+          "checkOut": "2026-06-07",
+          "guests": 5,
+          "price": 261000,
+          "quantity": 1,
+          "image": "assets/images/hotels/hotel-mountain.jpg",
+          "createdAt": "2026-05-24"
+        }
+      ],
+      "bookingIds": [
+        19
+      ],
+      "totalPrice": 261000,
+      "status": "created",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-24",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "hotel",
+          "hotelId": 3,
+          "roomId": 9,
+          "title": "Корпус \"Лесной\"",
+          "details": "Номер Дом-1 · 28.05.2026 - 31.05.2026",
+          "checkIn": "2026-05-28",
+          "checkOut": "2026-05-31",
+          "guests": 6,
+          "price": 108000,
+          "quantity": 1,
+          "image": "assets/images/hotels/hotel-forest.jpg",
+          "createdAt": "2026-05-25"
+        }
+      ],
+      "bookingIds": [
+        20
+      ],
+      "totalPrice": 108000,
+      "status": "created",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-25",
+      "id": 8
+    },
+    {
+      "userId": 10,
+      "items": [
+        {
+          "userId": 10,
+          "itemType": "hotel",
+          "hotelId": 1,
+          "roomId": 2,
+          "title": "Корпус \"Город\"",
+          "details": "Номер 18 · 28.05.2026 - 29.05.2026",
+          "checkIn": "2026-05-28",
+          "checkOut": "2026-05-29",
+          "guests": 2,
+          "price": 18000,
+          "quantity": 1,
+          "image": "assets/images/hotels/hotel-city.jpg",
+          "createdAt": "2026-05-26"
+        },
+        {
+          "userId": 10,
+          "itemType": "tour",
+          "itemId": 1,
+          "title": "Снежные будни Light",
+          "details": "17.01.2027 - 23.01.2027",
+          "periodText": "с воскресенья  по среду",
+          "checkIn": "2027-01-17",
+          "checkOut": "2027-01-24",
+          "price": 25000,
+          "quantity": 1,
+          "image": "assets/images/tours/tour-01.jpg"
+        }
+      ],
+      "bookingIds": [
+        21,
+        22
+      ],
+      "totalPrice": 43000,
+      "status": "created",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-26",
+      "id": 9
+    },
+    {
+      "userId": 10,
+      "items": [
+        {
+          "userId": 10,
+          "itemType": "tour",
+          "itemId": 2,
+          "title": "Уикенд на склоне",
+          "details": "11.12.2026 - 13.12.2026",
+          "periodText": "с пятницы по воскресенье",
+          "checkIn": "2026-12-11",
+          "checkOut": "2026-12-14",
+          "price": 18000,
+          "quantity": 1,
+          "image": "assets/images/tours/tour-02.jpg"
+        }
+      ],
+      "bookingIds": [
+        23
+      ],
+      "totalPrice": 18000,
+      "status": "created",
+      "paymentStatus": "paid",
+      "createdAt": "2026-05-26",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "promotion",
+          "itemId": 5,
+          "title": "Евробус - экспресс",
+          "details": "31.12.2026 · ежедневно",
+          "periodText": "ежедневно",
+          "checkIn": "2026-12-31",
+          "checkOut": "2027-01-01",
+          "price": 1200,
+          "quantity": 1,
+          "image": "assets/images/tours/promo-01.jpg"
+        }
+      ],
+      "bookingIds": [
+        24
+      ],
+      "totalPrice": 1200,
+      "status": "created",
+      "paymentStatus": "pending",
+      "createdAt": "2026-05-30",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "tour",
+          "itemId": 2,
+          "title": "Уикенд на склоне",
+          "details": "18.12.2026 - 20.12.2026",
+          "periodText": "с пятницы по воскресенье",
+          "checkIn": "2026-12-18",
+          "checkOut": "2026-12-21",
+          "price": 18000,
+          "quantity": 1,
+          "image": "assets/images/tours/tour-02.jpg"
+        }
+      ],
+      "bookingIds": [
+        25
+      ],
+      "totalPrice": 18000,
+      "status": "created",
+      "paymentStatus": "paid",
+      "createdAt": "2026-06-01",
+      "id": 12
     }
   ],
   "reviews": [
@@ -2741,7 +4087,7 @@
       "id": 1,
       "name": "Анна",
       "email": "anna@mail.ru",
-      "phone": "+375291112233",
+      "phone": "+79291112233",
       "message": "Хочу уточнить условия бронирования.",
       "createdAt": "2026-04-15",
       "status": "new"
@@ -2762,7 +4108,7 @@
       "phone": "+79221112233",
       "message": "Можно ли приехать с ребенком на первое занятие без своего снаряжения?",
       "createdAt": "2026-03-29",
-      "status": "new"
+      "status": "processed"
     },
     {
       "id": 4,
@@ -2772,6 +4118,26 @@
       "message": "Интересуют условия аренды BBQ площадки для компании.",
       "createdAt": "2026-03-18",
       "status": "processed"
+    },
+    {
+      "userId": 1,
+      "name": "Иванов Иван Иванович",
+      "email": "ivan@mail.ru",
+      "phone": "+79291234567",
+      "message": "Ляляляляляляляляялляля",
+      "createdAt": "2026-05-31",
+      "status": "new",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "Иванов Иван Иванович",
+      "email": "ivan@mail.ru",
+      "phone": "+79291234567",
+      "message": "ТестТестТестТест",
+      "createdAt": "2026-06-01",
+      "status": "new",
+      "id": 6
     }
   ]
 }

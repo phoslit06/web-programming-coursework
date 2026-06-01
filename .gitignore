@@ -1,2 +1,6 @@
 node_modules/
 .env
+*.tmp.jpg
+a11y-*.png
+edge-a11y-profile/
+edge-test-profile/

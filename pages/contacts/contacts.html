@@ -1,32 +1,347 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контакты — ЦАО Евразия</title>
+  <title>Контакты - ЦАО Евразия</title>
   <link rel="stylesheet" href="../../css/normalize.css">
   <link rel="stylesheet" href="../../css/variables.css">
-  <link rel="stylesheet" href="../../css/base.css">
-  <link rel="stylesheet" href="../../css/layout.css?v=2">
+  <link rel="stylesheet" href="../../css/base.css?v=7">
+  <link rel="stylesheet" href="../../css/layout.css?v=6">
   <link rel="stylesheet" href="../../css/components.css">
-  <link rel="stylesheet" href="../../css/responsive.css?v=3">
-  <link rel="stylesheet" href="contacts.css">
+  <link rel="stylesheet" href="../../css/responsive.css?v=4">
+  <link rel="stylesheet" href="../../css/auth.css?v=13">
+  <link rel="stylesheet" href="../../css/admin.css?v=3">
+  <link rel="stylesheet" href="contacts.css?v=9">
+  <script src="../../js/pages/auth.js?v=21" defer></script>
+  <script src="../../js/admin-ui.js?v=3" defer></script>
+  <script src="../../js/pages/contacts.js?v=3" defer></script>
 </head>
-<body class="theme-light">
+<body class="theme-light" data-page="contacts">
   <header class="site-header">
-    <div class="container section-heading">
-      <a class="logo" href="../../index.html" aria-label="Евразия — на главную">
+    <div class="container header-container">
+      <a class="logo" href="../../index.html" aria-label="Евразия - на главную">
         <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
         <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
       </a>
-      <a class="button button--primary" href="../../index.html">На главную</a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="../trails/trails.html">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
+        <a href="../cart/cart.html">Корзина</a>
+        <a href="../account/account.html" data-auth-link>Вход</a>
+      </nav>
+
+      <div class="header-side">
+        <div class="header-phones" aria-label="Телефоны">
+          <a class="header-phone" href="tel:+79227288288">+79227288288</a>
+          <a class="header-phone" href="tel:+73513790979">+73513790979</a>
+        </div>
+        <div class="user-settings" aria-label="Настройки сайта">
+          <button class="settings-button" type="button" data-lang-toggle>RU | EN</button>
+          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle></button>
+          <button class="settings-button" type="button" aria-label="Версия для слабовидящих" data-accessibility-toggle>A+</button>
+        </div>
+      </div>
+
+      <div class="mobile-menu">
+        <input class="mobile-menu__toggle" type="checkbox" id="mobile-menu-toggle">
+        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <span class="mobile-menu__overlay" aria-hidden="true"></span>
+        <nav class="mobile-menu__panel" aria-label="Мобильная навигация">
+          <a class="mobile-menu__item" href="../trails/trails.html" aria-label="Трассы">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cable-car.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Трассы</span>
+          </a>
+          <a class="mobile-menu__item" href="../hotels/hotels.html" aria-label="Проживание">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-home.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Проживание</span>
+          </a>
+          <a class="mobile-menu__item" href="../tariffs/tariffs.html" aria-label="Услуги и тарифы">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-tickets.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Услуги и тарифы</span>
+          </a>
+          <a class="mobile-menu__item" href="../cart/cart.html" aria-label="Корзина">
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-cart.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Корзина</span>
+          </a>
+          <a class="mobile-menu__item" href="../account/account.html" aria-label="Вход" data-auth-link>
+            <span class="mobile-menu__icon" aria-hidden="true">
+              <img src="../../assets/images/common/icons/menu-user.png" alt="">
+            </span>
+            <span class="mobile-menu__text">Вход</span>
+          </a>
+          <span class="mobile-menu__divider" aria-hidden="true"></span>
+          <button class="mobile-menu__control" type="button" data-mobile-lang="ru">RU</button>
+          <button class="mobile-menu__control" type="button" data-mobile-lang="en">EN</button>
+          <button class="mobile-menu__control" type="button" data-accessibility-toggle>A+</button>
+          <button class="mobile-menu__control" type="button" aria-label="Переключить тему" data-theme-toggle></button>
+        </nav>
+      </div>
     </div>
   </header>
-  <main class="page-stub">
-    <div class="container page-stub__card">
-      <h1 class="section-title">Контакты</h1>
-      <p>Каркас будущей страницы. Полная HTML/CSS-верстка будет добавлена на отдельном этапе по макету.</p>
-    </div>
+
+  <main class="contacts-page">
+    <section class="contacts-hero section" aria-labelledby="contacts-hero-title">
+      <div class="container">
+        <article class="contacts-hero__card">
+          <div class="contacts-hero__content">
+            <h1 id="contacts-hero-title">Контакты</h1>
+            <p>Центр активного отдыха "Евразия"</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contacts-section contacts-info" aria-labelledby="contacts-title">
+      <div class="container">
+        <h2 class="section-title contacts-section__title" id="contacts-title">Контакты</h2>
+
+        <div class="contacts-address">
+          <p class="contacts-address__label">Фактический адрес:</p>
+          <p class="contacts-address__text">Челябинская область, г. Куса, ул. Олимпийская, д.75, стр. 1</p>
+          <p class="contacts-address__coords">Координаты: N55°23.088' E59°24.058'</p>
+        </div>
+
+        <div class="contacts-cards">
+          <article class="contacts-card">
+            <span class="contacts-card__icon contacts-card__icon--admin" aria-hidden="true"></span>
+            <h3>Администрация</h3>
+            <p><a href="tel:+73513790979">+7 (3513)79-09-79 (код 1)</a></p>
+            <p><a href="tel:+79227288288">+7 (922) 7-288-288</a></p>
+            <p><a href="mailto:mail@euroasia.su">E-mail: mail@euroasia.su</a></p>
+          </article>
+
+          <article class="contacts-card">
+            <span class="contacts-card__icon contacts-card__icon--manager" aria-hidden="true"></span>
+            <h3>Заместитель управляющего по организационным вопросам</h3>
+            <p><a href="tel:+79049797342">+7 (904)979-73-42</a></p>
+            <p><a href="mailto:pro@euroasia.su">E-mail: pro@euroasia.su</a></p>
+          </article>
+
+          <article class="contacts-card">
+            <span class="contacts-card__icon contacts-card__icon--finance" aria-hidden="true"></span>
+            <h3>Бухгалтерия</h3>
+            <p><a href="tel:+73513790979">+7 (3513)79-09-79 (код 3)</a></p>
+            <p><a href="mailto:buh@euroasia.su">E-mail: buh@euroasia.su</a></p>
+          </article>
+        </div>
+
+        <div class="contacts-requisites">
+          <p class="contacts-address__label">Реквизиты:</p>
+          <p>ООО "Евразия Сервис"</p>
+          <p>ИНН/ОГРН 7404060424/1127404002098</p>
+          <p>Юридический адрес: Челябинская область, г. Куса, ул. Олимпийская, д.75, стр. 1</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts-section contacts-route" aria-labelledby="route-title">
+      <div class="container">
+        <h2 class="section-title contacts-section__title" id="route-title">Схема проезда</h2>
+        <p class="contacts-route__text">В наш современный и цифровой век многие пользуются навигаторами для путешествий по России. Однако наша российская специфика вносит свои коррективы в использовании этих приборов. Различные системы и программы совершенно по разному прокладывают маршруты и не все из них это делают корректно. В этой связи у многих наших гостей возникли проблемы с навигацией при проезде через г. Златоуст и через г. Кусу. Для Вашего удобства мы разместили схемы проезда через эти города, с нашей точки зрения, наиболее удобные. Для путешествующих по трассе М5 со стороны г. Челябинск наиболее удобным представляется маршрут через перевал "Уреньга" (Zlatoust_m5.pdf). Для путешествующих со стороны г. Екатеринбург наиболее удобным представляется путь через г. Миасс и, далее, г. Златоуст (Zlatoust_Miass.pdf). По г. Кусе навигацию лучше осуществлять по указателям "ЦАО ЕВРАЗИЯ", размещенным на всех ключевых перекрестках, но на всякий случай - Kusa.pdf.</p>
+
+        <div class="contacts-map">
+          <iframe title="Карта проезда к ЦАО Евразия" src="https://www.google.com/maps?q=55.3848,59.4010&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="contacts-map__caption">
+            <strong>Центр активного отдыха "Евразия"</strong>
+            <span>Челябинская область, г. Куса, ул. Олимпийская, д.75, стр. 1</span>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=55.3848,59.4010" target="_blank" rel="noopener">Открыть в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts-section contacts-schedule" aria-labelledby="schedule-title">
+      <div class="container">
+        <h2 class="section-title contacts-section__title" id="schedule-title">График работы</h2>
+
+        <h3 class="contacts-schedule__subtitle">График работы горнолыжных трасс и службы проката снаряжения</h3>
+        <div class="contacts-table-wrap">
+          <table class="contacts-table">
+            <thead>
+              <tr>
+                <th>День недели</th>
+                <th>График работы трасс без освещения</th>
+                <th>График работы трассы с освещением №1 и №2</th>
+                <th>График работы учебного склона</th>
+                <th>График работы службы проката и сервиса снаряжения</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Понедельник</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>10.00 - 17.00</td></tr>
+              <tr><td>Вторник</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td></tr>
+              <tr><td>Среда</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td></tr>
+              <tr><td>Четверг</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td></tr>
+              <tr><td>Пятница</td><td>09.00 - 18.00</td><td>09.00 - 20.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td></tr>
+              <tr><td>Суббота</td><td>09.00 - 18.00</td><td>09.00 - 21.00</td><td>09.00 - 21.00</td><td>10.00 - 20.00</td></tr>
+              <tr><td>Воскресенье</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>09.00 - 18.00</td><td>10.00 - 17.00</td></tr>
+              <tr><td>Праздничные дни</td><td>09.00 - 18.00</td><td>09.00 - 21.00</td><td>09.00 - 21.00</td><td>10.00 - 20.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="contacts-schedule__grid">
+          <div>
+            <h3 class="contacts-schedule__subtitle">График работы кафе и гриль-бара:</h3>
+            <div class="contacts-table-wrap">
+              <table class="contacts-table contacts-table--small contacts-table--summer">
+                <thead>
+                  <tr>
+                    <th>День недели</th>
+                    <th>Время работы кафе</th>
+                    <th>Время работы гриль-бара</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Понедельник</td><td>09.00 - 19.00</td><td>09.00 - 20.00</td></tr>
+                  <tr><td>Вторник</td><td>09.00 - 19.00</td><td>09.00 - 20.00</td></tr>
+                  <tr><td>Среда</td><td>09.00 - 19.00</td><td>09.00 - 20.00</td></tr>
+                  <tr><td>Четверг</td><td>09.00 - 19.00</td><td>09.00 - 20.00</td></tr>
+                  <tr><td>Пятница</td><td>09.00 - 19.00</td><td>09.00 - 24.00</td></tr>
+                  <tr><td>Суббота</td><td>09.00 - 20.00</td><td>09.00 - 01.00</td></tr>
+                  <tr><td>Воскресенье</td><td>09.00 - 19.00</td><td>09.00 - 19.00</td></tr>
+                  <tr><td>Праздничные дни</td><td>09.00 - 19.00</td><td>09.00 - 01.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="contacts-schedule__subtitle">График работы кафе и сервисного здания в летний период</h3>
+            <div class="contacts-table-wrap">
+              <table class="contacts-table contacts-table--small">
+                <thead>
+                  <tr>
+                    <th>День недели</th>
+                    <th>Время работы</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Понедельник</td><td>10.00 - 20.00</td></tr>
+                  <tr><td>Вторник</td><td>10.00 - 20.00</td></tr>
+                  <tr><td>Среда</td><td>10.00 - 20.00</td></tr>
+                  <tr><td>Четверг</td><td>10.00 - 20.00</td></tr>
+                  <tr><td>Пятница</td><td>10.00 - 20.00</td></tr>
+                  <tr><td>Суббота</td><td>10.00 - 20.00</td></tr>
+                  <tr><td>Воскресенье</td><td>10.00 - 20.00</td></tr>
+                  <tr><td>Праздничные дни</td><td>10.00 - 20.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts-section contacts-reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 class="section-title contacts-section__title" id="reviews-title">Отзывы</h2>
+        <div class="contacts-reviews__grid">
+          <form class="contacts-review-form" data-review-form>
+            <h3>Оставить отзыв</h3>
+            <label>
+              Ваше имя
+              <input type="text" name="userName" placeholder="Иван Иванов" required>
+            </label>
+            <label>
+              Оценка
+              <select name="rating" required>
+                <option value="5">5 - отлично</option>
+                <option value="4">4 - хорошо</option>
+                <option value="3">3 - нормально</option>
+                <option value="2">2 - плохо</option>
+                <option value="1">1 - очень плохо</option>
+              </select>
+            </label>
+            <label>
+              Ваш отзыв
+              <textarea name="text" rows="5" placeholder="Поделитесь впечатлением о Евразии" required></textarea>
+            </label>
+            <p class="contacts-review-form__message" data-review-message></p>
+            <button class="button button--primary" type="submit">Отправить отзыв</button>
+          </form>
+
+          <div class="contacts-reviews__catalog">
+            <h3>Отзывы посетителей</h3>
+            <div class="contacts-reviews__list" data-reviews-list>
+              <p class="contacts-reviews__message">Загрузка отзывов...</p>
+            </div>
+            <nav class="contacts-reviews-pagination" aria-label="Пагинация отзывов" data-reviews-pagination hidden>
+              <button class="contacts-reviews-pagination__button" type="button" data-reviews-prev>
+                <img src="../../assets/images/common/icons/arrow-left.svg" alt="">
+                <span>Назад</span>
+              </button>
+              <div class="contacts-reviews-pagination__pages" data-reviews-pages></div>
+              <button class="contacts-reviews-pagination__button" type="button" data-reviews-next>
+                <span>Далее</span>
+                <img src="../../assets/images/common/icons/arrow-right.svg" alt="">
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section" aria-label="Социальные сети">
+      <div class="social-links">
+        <a href="https://vk.com" aria-label="ВКонтакте" target="_blank" rel="noopener">
+          <img src="../../assets/images/common/icons/vk.png" alt="">
+        </a>
+        <a href="https://www.youtube.com" aria-label="YouTube" target="_blank" rel="noopener">
+          <img src="../../assets/images/common/icons/youtube.png" alt="">
+        </a>
+        <a href="contacts.html" aria-label="Контакты">
+          <img src="../../assets/images/common/icons/zen.png" alt="">
+        </a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия - на главную">
+        <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+      </a>
+
+      <section class="footer-block" aria-labelledby="footer-hours-contacts">
+        <h2 id="footer-hours-contacts">Режим работы:</h2>
+        <p>Пн-пт: 10.00-21.00</p>
+        <p>Сб-вс 9.00-21.00</p>
+      </section>
+
+      <section class="footer-block footer-block--wide" aria-labelledby="footer-contacts-page">
+        <h2 id="footer-contacts-page">Контакты</h2>
+        <p>Всесезонный центр спорта и отдыха находится в рекреационной зоне на границе с заповедниками «Таганай» и «Зюраткуль» всего в 30 минутах езды от Златоуста, и в 1,5 часах от Челябинска.</p>
+      </section>
+
+      <nav class="footer-nav" aria-label="Разделы сайта">
+        <a href="../trails/trails.html">Трассы</a>
+        <a href="../hotels/hotels.html">Проживание</a>
+        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
+        <a href="../tours/tours.html">Туры и акции</a>
+        <a href="contacts.html" aria-current="page">Контакты</a>
+      </nav>
+
+      <div class="footer-phones" aria-label="Телефоны">
+        <a href="tel:+79227288288">+79227288288</a>
+        <a href="tel:+73513790979">+73513790979</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

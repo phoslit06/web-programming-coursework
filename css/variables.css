@@ -25,12 +25,17 @@
 }
 
 body.theme-dark {
+  --color-primary: #38bdf8;
+  --color-primary-hover: #7dd3fc;
+  --color-primary-active: #0ea5e9;
   --color-page: #101626;
   --color-surface: #172033;
   --color-text: #f4f8fb;
   --color-muted: #d2d9e0;
+  --color-soft: #9fb0c2;
   --color-footer: #1d2533;
   --color-border: #334155;
+  --color-focus: #fde047;
   --shadow-card: 0 14px 32px rgba(0, 0, 0, 0.34);
 }
 
@@ -53,4 +58,65 @@ body.font-large {
   --font-size-base: 19px;
   --line-height-base: 1.65;
   --container-padding: 28px;
+}
+
+body.accessibility-mode.a11y-font-small {
+  --font-size-base: 18px;
+  --line-height-base: 1.6;
+}
+
+body.accessibility-mode.a11y-font-medium {
+  --font-size-base: 22px;
+  --line-height-base: 1.65;
+}
+
+body.accessibility-mode.a11y-font-large {
+  --font-size-base: 32px;
+  --line-height-base: 1.7;
+  --container-padding: 18px;
+}
+
+body.accessibility-mode.a11y-scheme-black-white {
+  --color-primary: #ffffff;
+  --color-primary-hover: #dddddd;
+  --color-primary-active: #cfcfcf;
+  --color-page: #000000;
+  --color-surface: #000000;
+  --color-text: #ffffff;
+  --color-muted: #ffffff;
+  --color-soft: #ffffff;
+  --color-footer: #000000;
+  --color-border: #ffffff;
+  --color-focus: #ffff00;
+  --shadow-card: 0 0 0 2px #ffffff;
+}
+
+body.accessibility-mode.a11y-scheme-black-green {
+  --color-primary: #00ff66;
+  --color-primary-hover: #7cffaa;
+  --color-primary-active: #00cc52;
+  --color-page: #000000;
+  --color-surface: #000000;
+  --color-text: #00ff66;
+  --color-muted: #00ff66;
+  --color-soft: #00ff66;
+  --color-footer: #000000;
+  --color-border: #00ff66;
+  --color-focus: #ffffff;
+  --shadow-card: 0 0 0 2px #00ff66;
+}
+
+body.accessibility-mode.a11y-scheme-white-black {
+  --color-primary: #000000;
+  --color-primary-hover: #333333;
+  --color-primary-active: #555555;
+  --color-page: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #000000;
+  --color-muted: #000000;
+  --color-soft: #000000;
+  --color-footer: #ffffff;
+  --color-border: #000000;
+  --color-focus: #ff0000;
+  --shadow-card: 0 0 0 2px #000000;
 }
