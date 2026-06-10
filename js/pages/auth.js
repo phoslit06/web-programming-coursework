@@ -3,267 +3,18 @@ const API_URL = "http://localhost:3000";
 const CURRENT_USER_KEY = "eurasiaCurrentUser";
 const THEME_KEY = "eurasiaTheme";
 const ACCESSIBILITY_KEY = "eurasiaAccessibility";
-const LANG_KEY = "eurasiaLang";
 const ACCESSIBILITY_FONT_KEY = "eurasiaAccessibilityFont";
 const ACCESSIBILITY_SCHEME_KEY = "eurasiaAccessibilityScheme";
 const ACCESSIBILITY_IMAGES_KEY = "eurasiaAccessibilityImages";
 const ACCOUNT_BOOKINGS_PAGE_SIZE = 3;
-const i18nTextNodes = new WeakMap();
-let i18nObserverStarted = false;
-let i18nApplying = false;
 
-const i18nExact = {
-  "Трассы": "Trails",
-  "Проживание": "Accommodation",
-  "Услуги и тарифы": "Services and prices",
-  "Корзина": "Cart",
-  "Вход": "Sign in",
-  "Личный кабинет": "Account",
-  "Регистрация": "Registration",
-  "Уже есть аккаунт? Войти": "Already have an account? Sign in",
-  "Ваш e-mail или логин": "Your email or login",
-  "Ваш пароль": "Your password",
-  "Ваше имя": "Your first name",
-  "Ваша фамилия": "Your last name",
-  "Ваше отчество": "Your middle name",
-  "Ваш e-mail": "Your email",
-  "Ваш логин": "Your login",
-  "Ваш телефон": "Your phone",
-  "Ваша дата рождения": "Your date of birth",
-  "Повторите пароль": "Repeat password",
-  "Войти": "Sign in",
-  "Зарегистрироваться": "Register",
-  "Сохранить": "Save",
-  "Отмена": "Cancel",
-  "Редактировать профиль": "Edit profile",
-  "Выйти": "Log out",
-  "Профиль": "Profile",
-  "Забронировано": "Booked",
-  "Прошлые брони": "Past bookings",
-  "Оплачено": "Paid",
-  "Ожидает оплаты": "Awaiting payment",
-  "Отменить": "Cancel",
-  "Заказать": "Order",
-  "Забронировать": "Book",
-  "Забронировать тур": "Book tour",
-  "Добавить в корзину": "Add to cart",
-  "Стоимость отдыха": "Trip cost",
-  "Итого": "Total",
-  "Товары": "Items",
-  "Новости": "News",
-  "Контакты": "Contacts",
-  "Акции": "Special offers",
-  "Горнолыжные туры": "Ski tours",
-  "Горнолыжные туры и акции": "Ski tours and special offers",
-  "Горнолыжные трассы": "Ski trails",
-  "Сложность": "Difficulty",
-  "Обозначения на схеме": "Map legend",
-  "Скачать карту": "Download map",
-  "Скачать карту пеших троп": "Download walking map",
-  "легкая": "easy",
-  "средняя": "medium",
-  "высокая": "hard",
-  "трасса тюбинг": "tubing trail",
-  "открыто": "open",
-  "закрыто": "closed",
-  "Отзывы": "Reviews",
-  "Оставить отзыв": "Leave a review",
-  "Фактический адрес:": "Actual address:",
-  "График работы кафе и гриль-бара:": "Cafe and grill-bar schedule:",
-  "День недели": "Day",
-  "Время работы": "Working hours",
-  "Понедельник": "Monday",
-  "Вторник": "Tuesday",
-  "Среда": "Wednesday",
-  "Четверг": "Thursday",
-  "Пятница": "Friday",
-  "Суббота": "Saturday",
-  "Воскресенье": "Sunday",
-  "Праздничные дни": "Holidays",
-  "Поиск": "Search",
-  "Назад": "Back",
-  "Далее": "Next",
-  "Страница": "Page",
-  "Версия для слабовидящих": "Accessibility version",
-  "Размер шрифта": "Font size",
-  "Цветовая схема": "Color scheme",
-  "Изображения": "Images",
-  "Обычный": "Normal",
-  "Крупный": "Large",
-  "Очень крупный": "Extra large",
-  "Черный/белый": "Black/white",
-  "Черный/зеленый": "Black/green",
-  "Белый/черный": "White/black",
-  "Отключить изображения": "Disable images",
-  "Включить изображения": "Enable images",
-  "Закрыть": "Close",
-  "Изображение отключено": "Image disabled",
-  "ЦАО Евразия — центр активного отдыха": "Eurasia Active Recreation Center",
-  "Центр активного отдыха \"Евразия\"": "Eurasia Active Recreation Center",
-  "Мы рады приветствовать любителей активного отдыха в нашем экологическом парке — самом динамично развивающемся горнолыжном центре Южного Урала!": "Welcome to our eco park, one of the fastest growing ski centers in the Southern Urals!",
-  "Акции и спец предложения": "Tours and special offers",
-  "Посмотреть все": "View all",
-  "Режим работы:": "Opening hours:",
-  "Пн-пт: 10.00-21.00": "Mon-Fri: 10.00-21.00",
-  "Сб-вс 9.00-21.00": "Sat-Sun: 9.00-21.00",
-  "Разделы сайта": "Site sections",
-  "Туры и акции": "Tours and offers",
-  "Всесезонный центр спорта и отдыха находится в рекреационной зоне на границе с заповедниками «Таганай» и «Зюраткуль» всего в 30 минутах езды от Златоуста, и в 1,5 часах от Челябинска.": "The year-round sports and recreation center is located near the Taganay and Zyuratkul nature reserves, 30 minutes from Zlatoust and 1.5 hours from Chelyabinsk.",
-  "Снежные будни Light": "Snowy Weekdays Light",
-  "Уикенд на склоне": "Slope Weekend",
-  "Твои горы Standard": "Your Mountains Standard",
-  "Семейные горы": "Family Mountains",
-  "Евробус - экспресс": "Eurobus Express",
-  "Снежные будни": "Snowy Weekdays",
-  "Вечерний блок": "Evening Session",
-  "Пятничный старт": "Friday Start",
-  "Тариф местного жителя": "Local Resident Rate",
-  "Бархатный сезон": "Soft Snow Season",
-  "Урок - всё включено": "All-Inclusive Lesson",
-  "Купон на катание": "Skiing Coupon",
-  "Фрирайд-уикенд": "Freeride Weekend",
-  "Праздничный склон": "Holiday Slope",
-  "Семейный ski-тур": "Family Ski Tour",
-  "Активные каникулы": "Active Holidays",
-  "Семейный день на склоне": "Family Day on the Slope",
-  "Школьная группа": "School Group",
-  "BBQ после катания": "BBQ After Skiing",
-  "Кресельный подъёмник": "Chairlift",
-  "Тюбинг на весь день": "All-Day Tubing",
-  "Подъёмник + чай": "Lift and Tea",
-  "Тюбинг для компании": "Tubing for a Group",
-  "Детский инструктор": "Children's Instructor",
-  "Сервис лыж": "Ski Service",
-  "Ранний ски-пасс": "Early Ski Pass",
-  "Кафе на склоне": "Slope Cafe",
-  "Группа новичков": "Beginner Group",
-  "Горнолыжный тур": "Ski tour",
-  "Тур выходного дня": "Weekend tour",
-  "Недельный тур": "Weekly tour",
-  "Тур для семьи": "Family tour",
-  "Челябинск-Куса": "Chelyabinsk-Kusa",
-  "прокат + подъёмник": "rental + lift",
-  "суббота вечер": "Saturday evening",
-  "катание в пятницу": "Friday skiing",
-  "для жителей Кусы": "for Kusa residents",
-  "мартовское катание": "March skiing",
-  "инструктор + прокат": "instructor + rental",
-  "выходной пакет": "weekend package",
-  "тур для опытных": "tour for advanced riders",
-  "праздничный тур": "holiday tour",
-  "дети и родители": "children and parents",
-  "тур на неделю": "week-long tour",
-  "пакет для 3 гостей": "package for 3 guests",
-  "будний выезд": "weekday trip",
-  "зона отдыха": "recreation area",
-  "дневной проход": "day pass",
-  "семейная зона": "family area",
-  "короткий отдых": "short break",
-  "4 человека": "4 people",
-  "первый урок": "first lesson",
-  "подготовка канта": "edge service",
-  "до 12.00": "until 12.00",
-  "обед после катания": "lunch after skiing",
-  "мини-группа": "mini group",
-  "Короткий тур с проживанием, ски-пассом, прокатом и завтраками для спокойного катания в будни.": "A short tour with accommodation, ski pass, rental and breakfasts for calm weekday skiing.",
-  "Тур на три дня для тех, кто хочет приехать к выходным и успеть покататься без лишней суеты.": "A three-day tour for guests who want to arrive for the weekend and ski without extra fuss.",
-  "Пятидневный тур с проживанием, катанием, прокатом и питанием для уверенного отдыха на склоне.": "A five-day tour with accommodation, skiing, rental and meals for a confident holiday on the slope.",
-  "Тур для семьи с проживанием, прокатом и занятиями с инструктором для детей и взрослых.": "A family tour with accommodation, rental and instructor lessons for children and adults.",
-  "Трансфер до центра активного отдыха из Челябинска в Кусу и обратно в выбранный день.": "Transfer from Chelyabinsk to Kusa and back on the selected day.",
-  "Пакет на четыре часа: прокат снаряжения и кресельный подъёмник в будние дни.": "A four-hour package with equipment rental and chairlift access on weekdays.",
-  "Вечерний тариф на прокат и подъёмник для катания после дневного потока гостей.": "An evening rental and lift rate for skiing after the daytime rush.",
-  "Однодневный пятничный пакет для катания по специальной цене перед выходными.": "A one-day Friday skiing package at a special pre-weekend price.",
-  "Специальная цена на подъёмник для жителей Кусы и ближайших населённых пунктов.": "A special lift price for residents of Kusa and nearby towns.",
-  "Пакет на мягкий мартовский снег: подъёмник и прокат на один день.": "A soft March snow package with lift and rental for one day.",
-  "Занятие с инструктором, прокат снаряжения и подъёмник в одном пакете.": "Instructor lesson, equipment rental and lift in one package.",
-  "Пакет выходного дня: ски-пасс и прокат для одного гостя.": "A weekend package with ski pass and rental for one guest.",
-  "Тур на выходные с инструктором, разбором техники и катанием на подготовленных маршрутах.": "A weekend tour with an instructor, technique review and skiing on prepared routes.",
-  "Праздничный тур с проживанием, вечерней программой и катанием после новогодних каникул.": "A holiday tour with accommodation, an evening program and skiing after the New Year break.",
-  "Семейный тур с проживанием, детским инструктором и спокойным графиком катания.": "A family tour with accommodation, a children's instructor and a relaxed skiing schedule.",
-  "Недельная программа с катанием, тюбингом, прогулками и проживанием рядом со склоном.": "A week-long program with skiing, tubing, walks and accommodation near the slope.",
-  "Однодневный семейный пакет со ски-пассами и прокатом для трёх гостей.": "A one-day family package with ski passes and rental for three guests.",
-  "Пакет для школьной группы: инструктор, прокат и сопровождение на учебном склоне.": "A school group package with instructor, rental and support on the training slope.",
-  "Бронирование BBQ-зоны для компании после катания на склоне.": "BBQ area booking for a group after skiing.",
-  "Дневной билет на кресельный подъёмник для гостей, которые катаются без проката.": "A day chairlift ticket for guests skiing without rental.",
-  "Дневной билет в тюбинг-зону без почасового продления.": "An all-day tubing area ticket without hourly extension.",
-  "Дневной подъёмник и горячий чай в кафе после катания.": "Day lift access and hot tea in the cafe after skiing.",
-  "Комплект билетов на тюбинг для компании из четырёх гостей.": "A tubing ticket set for a group of four guests.",
-  "Первое занятие с детским инструктором на учебном склоне.": "A first lesson with a children's instructor on the training slope.",
-  "Заточка канта и обработка скользящей поверхности перед катанием.": "Edge sharpening and base waxing before skiing.",
-  "Утренний ски-пасс для тех, кто приезжает на склон раньше основного потока.": "A morning ski pass for guests who arrive before the main crowd.",
-  "Комплексный обед в кафе для гостей, которые проводят день на склоне.": "A set lunch in the cafe for guests spending the day on the slope.",
-  "Групповое занятие для начинающих лыжников и сноубордистов.": "A group lesson for beginner skiers and snowboarders.",
-  "В ЦАО \"Евразия\" состоялось Первенство Челябинской области и УрФО по горнолыжному спорту сезона 2025-2026": "The Chelyabinsk Region and Ural Federal District alpine skiing championship took place at Eurasia",
-  "На трассах центра прошли старты среди юных спортсменов в дисциплинах слалом и слалом-гигант.": "Young athletes competed on the center's slopes in slalom and giant slalom.",
-  "В ЦАО \"Евразия\" состоялось Первенство России по сноуборду в дисциплине Big-Air": "The Russian Big Air snowboard championship took place at Eurasia",
-  "Соревнования собрали сильных райдеров и стали одним из самых ярких событий зимнего сезона.": "The competition brought together strong riders and became one of the brightest events of the winter season.",
-  "Всероссийские соревнования и Первенство города Куса по сноуборду пройдут в ЦАО \"Евразия\"": "National snowboard competitions and the Kusa city championship will be held at Eurasia",
-  "Центр приглашает спортсменов и зрителей на соревнования в дисциплинах PSL и PGS.": "The center invites athletes and spectators to PSL and PGS competitions."
-};
+function translateAuthText(source, values = {}) {
+  if (window.getTranslationBySource) {
+    return window.getTranslationBySource(source, values);
+  }
 
-const i18nPhrases = [
-  ["Центр Активного Отдыха", "Active Recreation Center"],
-  ["Центр активного отдыха", "Active Recreation Center"],
-  ["Евразия", "Eurasia"],
-  ["на главную", "home"],
-  ["Основная навигация", "Main navigation"],
-  ["Мобильная навигация", "Mobile navigation"],
-  ["Открыть меню", "Open menu"],
-  ["Переключить тему", "Toggle theme"],
-  ["Версия для слабовидящих", "Accessibility version"],
-  ["Запустите JSON Server командой npm run server", "Run JSON Server with npm run server"],
-  ["Данные временно недоступны", "Data is temporarily unavailable"],
-  ["Проверьте JSON Server", "Check JSON Server"],
-  ["Данные временно недоступны.", "Data is temporarily unavailable."],
-  ["Трасса открыта", "Trail is open"],
-  ["Трасса закрыта", "Trail is closed"],
-  ["метров", "meters"],
-  ["трасса", "trail",
-  ],
-  ["неподготовленный склон", "natural slope"],
-  ["тропа снежного человека", "snowman trail"],
-  ["сноу парк", "snow park"],
-  ["с понедельника по пятницу", "from Monday to Friday"],
-  ["с пятницы по воскресенье", "from Friday to Sunday"],
-  ["с воскресенья по среду", "from Sunday to Wednesday"],
-  ["будние дни", "weekdays"],
-  ["выходные дни", "weekends"],
-  ["любой день", "any day"],
-  ["руб.", "RUB"],
-  ["₽", "RUB"],
-  ["дня", "days"],
-  ["дней", "days"],
-  ["ночи", "nights"],
-  ["ночей", "nights"],
-  ["проживанием", "accommodation"],
-  ["проживание", "accommodation"],
-  ["катанием", "skiing"],
-  ["ски-пасс", "ski pass"],
-  ["прокатом", "rental"],
-  ["прокат", "rental"],
-  ["питанием", "meals"],
-  ["питание", "meals"],
-  ["завтраками", "breakfasts"],
-  ["инструктор", "instructor"],
-  ["подъёмник", "lift"],
-  ["подъемник", "lift"],
-  ["пользователь", "user"],
-  ["администратор", "administrator"],
-  ["имя", "first name"],
-  ["фамилия", "last name"],
-  ["телефон", "phone"],
-  ["дата рождения", "date of birth"],
-  ["пароль", "password"],
-  ["логин", "login"],
-  ["почта", "email"],
-  ["описание", "description"],
-  ["название", "title"],
-  ["редактировать", "edit"],
-  ["удалить", "delete"],
-  ["добавить", "add"],
-  ["сохранить", "save"],
-  ["отмена", "cancel"]
-];
+  return source;
+}
 
 const popularPasswords = new Set([
   "123456", "123456789", "12345", "qwerty", "password", "12345678", "111111", "123123", "1234567890", "1234567",
@@ -314,12 +65,12 @@ window.addEventListener("unhandledrejection", (event) => {
 
 function initSiteSettings() {
   normalizeSettingsControls();
+  window.refreshPageTranslations?.();
   createAccessibilityPanel();
   optimizeImagesForLoading();
 
   const theme = localStorage.getItem(THEME_KEY);
   const accessibility = localStorage.getItem(ACCESSIBILITY_KEY);
-  const lang = localStorage.getItem(LANG_KEY) || "ru";
   const font = localStorage.getItem(ACCESSIBILITY_FONT_KEY) || "medium";
   const scheme = localStorage.getItem(ACCESSIBILITY_SCHEME_KEY) || "black-white";
   const images = localStorage.getItem(ACCESSIBILITY_IMAGES_KEY) || "on";
@@ -331,8 +82,6 @@ function initSiteSettings() {
     scheme,
     images
   });
-  startTranslationObserver();
-  setLanguage(lang);
 
   document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -349,18 +98,6 @@ function initSiteSettings() {
     });
   });
 
-  document.querySelectorAll("[data-lang-toggle]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const nextLang = document.documentElement.lang === "ru" ? "en" : "ru";
-      setLanguage(nextLang);
-    });
-  });
-
-  document.querySelectorAll("[data-mobile-lang]").forEach((button) => {
-    button.addEventListener("click", () => {
-      setLanguage(button.dataset.mobileLang);
-    });
-  });
 }
 
 function createPagePreloader() {
@@ -405,7 +142,7 @@ function optimizeImagesForLoading(root = document) {
 
 function applyTheme(theme) {
   const isDarkTheme = theme === "dark";
-  const toggleLabel = isDarkTheme ? "Включить светлую тему" : "Включить темную тему";
+  const toggleLabel = translateAuthText(isDarkTheme ? "Включить светлую тему" : "Включить темную тему");
 
   document.body.classList.toggle("theme-dark", isDarkTheme);
   document.body.classList.toggle("theme-light", !isDarkTheme);
@@ -416,16 +153,6 @@ function applyTheme(theme) {
     button.textContent = "";
     button.setAttribute("aria-label", toggleLabel);
     button.title = toggleLabel;
-  });
-}
-
-function updateLangButtons(lang) {
-  document.querySelectorAll("[data-lang-toggle]").forEach((button) => {
-    button.textContent = lang === "ru" ? "RU | EN" : "EN | RU";
-  });
-
-  document.querySelectorAll("[data-mobile-lang]").forEach((button) => {
-    button.setAttribute("aria-pressed", button.dataset.mobileLang === lang ? "true" : "false");
   });
 }
 
@@ -465,137 +192,6 @@ function normalizeSettingsControls() {
       button.textContent = "";
     }
   });
-}
-
-function setLanguage(lang) {
-  const nextLang = lang === "en" ? "en" : "ru";
-  const originalTitle = document.documentElement.dataset.i18nOriginalTitle || document.title;
-
-  document.documentElement.dataset.i18nOriginalTitle = originalTitle;
-  localStorage.setItem(LANG_KEY, nextLang);
-  document.documentElement.lang = nextLang;
-  document.title = nextLang === "en" ? translateText(originalTitle) : originalTitle;
-  updateLangButtons(nextLang);
-  translatePage(nextLang);
-}
-
-function translatePage(lang) {
-  i18nApplying = true;
-  translateNode(document.body, lang);
-  i18nApplying = false;
-}
-
-function startTranslationObserver() {
-  if (i18nObserverStarted) {
-    return;
-  }
-
-  i18nObserverStarted = true;
-  const observer = new MutationObserver((mutations) => {
-    if (i18nApplying) {
-      return;
-    }
-
-    const lang = document.documentElement.lang === "en" ? "en" : "ru";
-    i18nApplying = true;
-
-    mutations.forEach((mutation) => {
-      mutation.addedNodes.forEach((node) => translateNode(node, lang));
-      mutation.addedNodes.forEach((node) => {
-        if (node.nodeType === Node.ELEMENT_NODE) {
-          optimizeImagesForLoading(node);
-        }
-      });
-    });
-    i18nApplying = false;
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-}
-
-function translateNode(node, lang) {
-  if (!node || shouldSkipTranslateNode(node)) {
-    return;
-  }
-
-  if (node.nodeType === Node.TEXT_NODE) {
-    translateTextNode(node, lang);
-    return;
-  }
-
-  if (node.nodeType !== Node.ELEMENT_NODE) {
-    return;
-  }
-
-  translateElementAttributes(node, lang);
-  node.childNodes.forEach((child) => translateNode(child, lang));
-}
-
-function shouldSkipTranslateNode(node) {
-  const element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-
-  return element && element.closest("script, style, code, pre, [data-no-translate]");
-}
-
-function translateTextNode(node, lang) {
-  const original = i18nTextNodes.get(node) || node.nodeValue;
-
-  if (!original || !original.trim()) {
-    return;
-  }
-
-  i18nTextNodes.set(node, original);
-  const nextValue = lang === "en" ? translateText(original) : original;
-
-  if (node.nodeValue !== nextValue) {
-    node.nodeValue = nextValue;
-  }
-}
-
-function translateElementAttributes(element, lang) {
-  ["aria-label", "placeholder", "title", "alt"].forEach((attr) => {
-    if (!element.hasAttribute(attr)) {
-      return;
-    }
-
-    const key = `i18nOriginal${attr.replace(/[^a-z]/gi, "")}`;
-    const original = element.dataset[key] || element.getAttribute(attr);
-    const nextValue = lang === "en" ? translateText(original) : original;
-
-    element.dataset[key] = original;
-
-    if (element.getAttribute(attr) !== nextValue) {
-      element.setAttribute(attr, nextValue);
-    }
-  });
-}
-
-function translateText(text) {
-  const leading = text.match(/^\s*/)[0];
-  const trailing = text.match(/\s*$/)[0];
-  let value = text.trim();
-
-  if (!value) {
-    return text;
-  }
-
-  if (i18nExact[value]) {
-    return `${leading}${i18nExact[value]}${trailing}`;
-  }
-
-  i18nPhrases.forEach(([ru, en]) => {
-    const pattern = new RegExp(`(^|[^А-Яа-яЁё])(${escapeRegExp(ru)})(?=$|[^А-Яа-яЁё])`, "gi");
-    value = value.replace(pattern, (match, before) => `${before}${en}`);
-  });
-
-  return `${leading}${value}${trailing}`;
-}
-
-function escapeRegExp(value) {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function createAccessibilityPanel() {
@@ -863,6 +459,27 @@ function createAuthModals() {
   `;
 
   document.body.append(modal);
+  translateAuthModalAttributes(modal);
+}
+
+function translateAuthModalAttributes(modal) {
+  const placeholders = {
+    "ivan@mail.ru или ivan_ivanov": "ivan@mail.ru or ivan_ivanov",
+    "Иван": "John",
+    "Иванов": "Smith",
+    "Иванович": "Middle name"
+  };
+
+  modal.querySelectorAll("[placeholder]").forEach((field) => {
+    const source = field.getAttribute("placeholder");
+    const translated = placeholders[source] || translateAuthText(source);
+    field.setAttribute("placeholder", translated);
+  });
+
+  modal.querySelectorAll("[aria-label]").forEach((element) => {
+    const source = element.getAttribute("aria-label");
+    element.setAttribute("aria-label", translateAuthText(source));
+  });
 }
 
 function initAuthNavigation() {
@@ -937,7 +554,7 @@ function updateAuthLinks() {
   const accountHref = getAccountHref();
 
   document.querySelectorAll("[data-auth-link]").forEach((link) => {
-    const label = user ? "Личный кабинет" : "Вход";
+    const label = translateAuthText(user ? "Личный кабинет" : "Вход");
     const textElement = link.querySelector(".mobile-menu__text") || link;
 
     link.href = user ? accountHref : "#auth-login";
@@ -1030,9 +647,11 @@ function initPasswordToggles() {
     button.addEventListener("click", () => {
       const input = button.parentElement.querySelector("input");
       const isHidden = input.type === "password";
+      const label = translateAuthText(isHidden ? "Скрыть пароль" : "Показать пароль");
 
       input.type = isHidden ? "text" : "password";
-      button.textContent = isHidden ? "Скрыть" : "Показать";
+      button.textContent = translateAuthText(isHidden ? "Скрыть" : "Показать");
+      button.setAttribute("aria-label", label);
     });
   });
 }
@@ -1671,7 +1290,7 @@ async function loadAccount(savedUser, message, content) {
   } catch (error) {
     console.error(error);
     message.hidden = false;
-    message.textContent = "Не удалось загрузить кабинет. Проверьте JSON Server.";
+    message.textContent = translateAccountText("Не удалось загрузить кабинет. Проверьте JSON Server.");
     content.hidden = true;
   }
 }
@@ -1690,12 +1309,13 @@ function renderGuestAccount(message, content) {
 }
 
 async function renderUserAccount(content, user) {
-  const [bookings, hotels, rooms] = await Promise.all([
+  const [bookings, hotels, rooms, promotions] = await Promise.all([
     fetchJson(`${API_URL}/bookings?userId=${user.id}`),
     fetchJson(`${API_URL}/hotels`),
-    fetchJson(`${API_URL}/rooms`)
+    fetchJson(`${API_URL}/rooms`),
+    fetchJson(`${API_URL}/promotions`)
   ]);
-  const data = createBookingData(hotels, rooms);
+  const data = createBookingData(hotels, rooms, promotions);
   const { active, past } = splitBookings(bookings);
   const main = document.createElement("div");
   main.className = "account-bookings";
@@ -1713,15 +1333,16 @@ async function renderUserAccount(content, user) {
 }
 
 async function renderAdminAccount(content, user) {
-  const [users, bookings, hotels, rooms, reviews, feedback] = await Promise.all([
+  const [users, bookings, hotels, rooms, promotions, reviews, feedback] = await Promise.all([
     fetchJson(`${API_URL}/users`),
     fetchJson(`${API_URL}/bookings`),
     fetchJson(`${API_URL}/hotels`),
     fetchJson(`${API_URL}/rooms`),
+    fetchJson(`${API_URL}/promotions`),
     fetchJson(`${API_URL}/reviews`),
     fetchJson(`${API_URL}/feedback`)
   ]);
-  const data = createBookingData(hotels, rooms);
+  const data = createBookingData(hotels, rooms, promotions);
   const main = document.createElement("div");
   main.className = "account-bookings";
 
@@ -1944,14 +1565,18 @@ function createProfilePanel(user) {
 
 function createBookingSection(title, items, data, canCancel) {
   const section = document.createElement("section");
+  const translatedTitle = translateAccountText(title);
   section.className = "account-booking-section";
-  section.append(createElement("h1", title));
+  section.append(createElement("h1", translatedTitle));
 
   const list = document.createElement("div");
   list.className = "account-booking-list";
   const pagination = document.createElement("nav");
   pagination.className = "account-pagination";
-  pagination.setAttribute("aria-label", `Пагинация: ${title}`);
+  pagination.setAttribute(
+    "aria-label",
+    `${window.getCurrentLanguage?.() === "en" ? "Pagination" : "Пагинация"}: ${translatedTitle}`
+  );
   let currentPage = 1;
 
   const render = () => {
@@ -2021,7 +1646,7 @@ function renderAccountPagination(container, currentPage, totalPages, onPageChang
     button.className = "account-pagination__page";
     button.type = "button";
     button.textContent = String(item);
-    button.setAttribute("aria-label", `Страница ${item}`);
+    button.setAttribute("aria-label", `${window.getCurrentLanguage?.() === "en" ? "Page" : "Страница"} ${item}`);
 
     if (item === currentPage) {
       button.classList.add("is-active");
@@ -2072,18 +1697,19 @@ function getAccountPageItems(currentPage, totalPages) {
 function createBookingItem(item, data, canCancel) {
   const hotel = data.hotels.get(Number(item.hotelId));
   const room = data.rooms.get(Number(item.roomId));
+  const promotion = data.promotions.get(Number(item.itemId));
   const card = document.createElement("article");
   card.className = "account-booking-card";
 
   const image = document.createElement("img");
   image.className = "account-booking-card__image";
   image.src = getBookingImage(hotel, item);
-  image.alt = getBookingTitle(hotel, item);
+  image.alt = getBookingTitle(hotel, item, promotion);
 
   const text = document.createElement("div");
   text.className = "account-booking-card__text";
   text.append(
-    createElement("h2", getBookingTitle(hotel, item)),
+    createElement("h2", getBookingTitle(hotel, item, promotion)),
     createElement("p", getRoomText(room, item)),
     createElement("p", formatDateRange(item.checkIn, item.checkOut)),
     createElement("strong", formatPrice(item.totalPrice))
@@ -2116,10 +1742,11 @@ function createBookingItem(item, data, canCancel) {
   return card;
 }
 
-function createBookingData(hotels, rooms) {
+function createBookingData(hotels, rooms, promotions = []) {
   return {
     hotels: new Map(hotels.map((hotel) => [Number(hotel.id), hotel])),
-    rooms: new Map(rooms.map((room) => [Number(room.id), room]))
+    rooms: new Map(rooms.map((room) => [Number(room.id), room])),
+    promotions: new Map(promotions.map((promotion) => [Number(promotion.id), promotion]))
   };
 }
 
@@ -2267,7 +1894,7 @@ async function cancelBooking(ids, item = {}) {
 }
 
 async function payBooking(ids) {
-  const shouldPay = window.confirm("Оплатить бронь сейчас?");
+  const shouldPay = window.confirm(translateAccountText("Оплатить бронь сейчас?"));
 
   if (!shouldPay) {
     return;
@@ -2320,27 +1947,33 @@ function showAccountNotice(title, text) {
     });
   }
 
-  modal.querySelector("[data-account-notice-title]").textContent = title;
-  modal.querySelector("[data-account-notice-text]").textContent = text;
+  modal.querySelector("[data-account-notice-title]").textContent = translateAccountText(title);
+  modal.querySelector("[data-account-notice-text]").textContent = translateAccountText(text);
   modal.hidden = false;
   document.body.classList.add("modal-open");
 }
 
-function getBookingTitle(hotel, item) {
+function getBookingTitle(hotel, item, promotion) {
   if (hotel) {
-    return hotel.title.toUpperCase();
+    return getAccountField(hotel, "title").toUpperCase();
   }
 
-  return String(item.title || "Бронирование").toUpperCase();
+  if (promotion) {
+    return getAccountField(promotion, "title").toUpperCase();
+  }
+
+  return String(getAccountField(item, "title") || translateAccountText("Бронирование")).toUpperCase();
 }
 
 function getRoomText(room, item) {
   if (room && room.roomNumber) {
-    return `Номер ${room.roomNumber}`;
+    return `${translateAccountText("Номер")} ${room.roomNumber}`;
   }
 
-  if (item.details && !isDateOnlyBookingDetail(item.details)) {
-    return item.details;
+  const details = getAccountField(item, "details");
+
+  if (details && !isDateOnlyBookingDetail(details)) {
+    return details;
   }
 
   return translateBookingType(item.itemType);
@@ -2355,10 +1988,10 @@ function isDateOnlyBookingDetail(value) {
 
 function getPaymentText(item) {
   if (item.status === "cancelled") {
-    return "Отменена";
+    return translateAccountText("Отменена");
   }
 
-  return item.paymentStatus === "paid" ? "Оплачено" : "Ожидает оплаты";
+  return translateAccountText(item.paymentStatus === "paid" ? "Оплачено" : "Ожидает оплаты");
 }
 
 function getBookingImage(hotel, item) {
@@ -2389,7 +2022,7 @@ function translateBookingType(type) {
     tariff: "Услуга"
   };
 
-  return types[type] || "Бронирование";
+  return translateAccountText(types[type] || "Бронирование");
 }
 
 function formatDateRange(from, to) {
@@ -2400,10 +2033,10 @@ function formatBookingDate(value) {
   const date = parseDateOnly(value);
 
   if (!date || Number.isNaN(date.getTime())) {
-    return "Не указано";
+    return translateAccountText("Не указано");
   }
 
-  return date.toLocaleDateString("ru-RU", {
+  return date.toLocaleDateString(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric"
@@ -2413,7 +2046,7 @@ function formatBookingDate(value) {
 function createProfileRow(label, value) {
   const row = document.createElement("div");
   row.className = "account-profile__row";
-  row.append(createElement("span", label), createElement("b", value || "Не указано"));
+  row.append(createElement("span", label), createElement("b", value || translateAccountText("Не указано")));
   return row;
 }
 
@@ -2426,7 +2059,7 @@ function createPanel(title, extraClass = "") {
 
 function createElement(tagName, text, className = "") {
   const element = document.createElement(tagName);
-  element.textContent = text;
+  element.textContent = translateAccountText(text);
 
   if (className) {
     element.className = className;
@@ -2436,13 +2069,13 @@ function createElement(tagName, text, className = "") {
 }
 
 function createText(text) {
-  return document.createTextNode(text);
+  return document.createTextNode(translateAccountText(text));
 }
 
 function createLink(href, text) {
   const link = document.createElement("a");
   link.href = href;
-  link.textContent = text;
+  link.textContent = translateAccountText(text);
   return link;
 }
 
@@ -2500,7 +2133,7 @@ function setFieldError(form, name, message) {
   }
 
   if (error) {
-    error.textContent = message || "";
+    error.textContent = translateAuthText(message || "");
   }
 
   return Boolean(message);
@@ -2515,7 +2148,7 @@ function setMessage(element, text, type = "") {
     return;
   }
 
-  element.textContent = text || "";
+  element.textContent = translateAuthText(text || "");
   element.classList.toggle("is-error", type === "error");
   element.classList.toggle("is-success", type === "success");
 }
@@ -2569,14 +2202,24 @@ function getFullName(user) {
 
 function formatDate(value) {
   if (!value) {
-    return "Не указано";
+    return translateAccountText("Не указано");
   }
 
-  return new Date(value).toLocaleDateString("ru-RU");
+  return new Date(value).toLocaleDateString(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU");
 }
 
 function formatPrice(value) {
-  return `${Number(value || 0).toLocaleString("ru-RU")} ₽`;
+  return window.formatLocalizedCurrency
+    ? window.formatLocalizedCurrency(value)
+    : `${Number(value || 0).toLocaleString("ru-RU")} ₽`;
+}
+
+function getAccountField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
+}
+
+function translateAccountText(text) {
+  return window.translateUiText ? window.translateUiText(text) : text;
 }
 
 function translateStatus(status) {
@@ -2588,7 +2231,7 @@ function translateStatus(status) {
     paid: "оплачено"
   };
 
-  return statuses[status] || status || "не указан";
+  return translateAccountText(statuses[status] || status || "не указан");
 }
 
 function translateItemType(type) {
@@ -2598,6 +2241,6 @@ function translateItemType(type) {
     hotel: "проживание"
   };
 
-  return types[type] || type || "позиция";
+  return translateAccountText(types[type] || type || "позиция");
 }
 })();

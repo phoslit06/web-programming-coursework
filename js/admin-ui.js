@@ -1,4 +1,8 @@
 (function () {
+  function translate(text) {
+    return window.translateUiText ? window.translateUiText(text) : text;
+  }
+
   function openModal(titleText) {
     const modal = document.createElement("div");
     modal.className = "admin-modal";
@@ -11,7 +15,7 @@
 
     const title = document.createElement("h2");
     title.className = "admin-modal__title";
-    title.textContent = titleText;
+    title.textContent = translate(titleText);
 
     const close = document.createElement("button");
     close.className = "admin-modal__close";
@@ -46,10 +50,10 @@
       actions.className = "admin-panel__actions";
       submit.className = "admin-button";
       submit.type = "submit";
-      submit.textContent = options.submitText || "Сохранить";
+      submit.textContent = translate(options.submitText || "Сохранить");
       cancel.className = "admin-button admin-button--danger";
       cancel.type = "button";
-      cancel.textContent = "Отмена";
+      cancel.textContent = translate("Отмена");
 
       (options.fields || []).forEach((field) => {
         formElement.append(createField(field));
@@ -99,14 +103,14 @@
       const cancel = document.createElement("button");
 
       text.className = "admin-panel__text";
-      text.textContent = options.text || "";
+      text.textContent = translate(options.text || "");
       actions.className = "admin-panel__actions";
       submit.className = "admin-button";
       submit.type = "button";
-      submit.textContent = options.confirmText || "Да";
+      submit.textContent = translate(options.confirmText || "Да");
       cancel.className = "admin-button admin-button--danger";
       cancel.type = "button";
-      cancel.textContent = options.cancelText || "Отмена";
+      cancel.textContent = translate(options.cancelText || "Отмена");
 
       actions.append(submit);
 
@@ -146,7 +150,7 @@
     let control;
 
     label.className = "admin-form__field";
-    title.textContent = field.label || field.name;
+    title.textContent = translate(field.label || field.name);
 
     if (field.type === "textarea") {
       control = document.createElement("textarea");
@@ -156,7 +160,7 @@
       (field.options || []).forEach((option) => {
         const item = document.createElement("option");
         item.value = option.value;
-        item.textContent = option.label;
+        item.textContent = translate(option.label);
         control.append(item);
       });
     } else if (field.type === "checkboxes") {
@@ -172,7 +176,7 @@
         checkbox.name = field.name;
         checkbox.value = option.value;
         checkbox.checked = Array.isArray(field.value) && field.value.includes(option.value);
-        text.textContent = option.label;
+        text.textContent = translate(option.label);
         item.append(checkbox, text);
         control.append(item);
       });

@@ -68,13 +68,16 @@ function renderTrailsList(page, trails) {
     row.dataset.status = status;
     row.dataset.trailId = String(trail.id);
     addRowClass(row, trail);
-    numberElement.textContent = number;
+    numberElement.textContent = formatTrailNumber(number);
     if (number.length > 1) {
       row.classList.add("trail-row--wide-number");
     }
-    row.querySelector("[data-trail-kind]").textContent = trail.number ? trail.kind : trail.listTitle || trail.title.toLowerCase();
+    const trailTitle = getTrailField(trail, "title");
+    row.querySelector("[data-trail-kind]").textContent = trail.number
+      ? getTrailField(trail, "kind")
+      : getTrailField(trail, "listTitle") || trailTitle.toLowerCase();
     row.querySelector("[data-trail-length]").textContent = trail.length ? formatLength(trail.length) : "";
-    statusElement.textContent = trail.statusTitle || (trail.isOpen ? "open" : "close");
+    statusElement.textContent = getTrailField(trail, "statusTitle") || (trail.isOpen ? "open" : "close");
     setupTrailAdminToggle(statusElement, trail);
 
     fragment.append(row);
@@ -126,7 +129,7 @@ async function toggleTrailStatus(statusElement, trail) {
     initTrailsPage();
   } catch (error) {
     console.error("Не удалось изменить статус трассы:", error);
-    statusElement.textContent = trail.statusTitle || (trail.isOpen ? "open" : "close");
+    statusElement.textContent = getTrailField(trail, "statusTitle") || (trail.isOpen ? "open" : "close");
     window.EurasiaAdminUI.notice({
       title: "Статус не изменен",
       text: "Не удалось изменить статус трассы. Проверьте JSON Server."
@@ -179,8 +182,8 @@ function renderExtraTrails(page, trails) {
 function createDescription(page, trail) {
   const card = page.descriptionTemplate.content.firstElementChild.cloneNode(true);
 
-  card.querySelector("[data-trail-title]").textContent = trail.title;
-  card.querySelector("[data-trail-description]").textContent = trail.description;
+  card.querySelector("[data-trail-title]").textContent = getTrailField(trail, "title");
+  card.querySelector("[data-trail-description]").textContent = getTrailField(trail, "description");
 
   return card;
 }
@@ -206,13 +209,27 @@ function addRowClass(row, trail) {
 }
 
 function formatLength(length) {
-  return `${new Intl.NumberFormat("ru-RU").format(length)} метров`;
+  const number = new Intl.NumberFormat(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU").format(length);
+  const unit = window.getCurrentLanguage?.() === "en" ? "meters" : "метров";
+  return `${number} ${unit}`;
+}
+
+function formatTrailNumber(number) {
+  if (window.getCurrentLanguage?.() !== "en") {
+    return number;
+  }
+
+  return String(number).replaceAll("А", "A").replaceAll("В", "B");
+}
+
+function getTrailField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
 }
 
 function createMessage(text) {
   const message = document.createElement("p");
   message.className = "trails-message";
-  message.textContent = text;
+  message.textContent = window.translateUiText ? window.translateUiText(text) : text;
   return message;
 }
 

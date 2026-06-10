@@ -1,3 +1,4 @@
+
 const API_URL = "http://localhost:3000";
 const PROMOTIONS_URL = `${API_URL}/promotions?isActive=true&showOnHome=true&_sort=validFrom&_order=desc&_limit=4`;
 const NEWS_URL = `${API_URL}/news?isActive=true&showOnHome=true&_sort=date&_order=desc&_limit=2`;
@@ -218,7 +219,7 @@ function createHomeAdminChecks(titleText, name, items) {
     input.checked = item.showOnHome === true;
 
     const text = document.createElement("span");
-    text.textContent = item.title;
+    text.textContent = getHomeField(item, "title");
 
     label.append(input, text);
     group.append(label);
@@ -307,11 +308,12 @@ function renderPromotions(page, promotions) {
     const meta = card.querySelector("[data-promotion-meta]");
 
     card.href = promotion.link;
-    card.setAttribute("aria-label", promotion.title);
+    const promotionTitle = getHomeField(promotion, "title");
+    card.setAttribute("aria-label", promotionTitle);
     image.src = promotion.image;
-    image.alt = promotion.title;
-    title.textContent = promotion.title;
-    text.textContent = promotion.description;
+    image.alt = promotionTitle;
+    title.textContent = promotionTitle;
+    text.textContent = getHomeField(promotion, "description");
     meta.textContent = getPromotionMeta(promotion);
 
     fragment.append(card);
@@ -338,10 +340,11 @@ function renderNews(page, news) {
     const date = card.querySelector("[data-news-date]");
 
     link.href = item.link;
-    link.setAttribute("aria-label", item.title);
+    const newsTitle = getHomeField(item, "title");
+    link.setAttribute("aria-label", newsTitle);
     image.src = item.image;
-    image.alt = item.title;
-    title.textContent = item.title;
+    image.alt = newsTitle;
+    title.textContent = newsTitle;
     date.textContent = formatDate(item.date);
 
     fragment.append(card);
@@ -388,7 +391,7 @@ function createSlide(page, item, index) {
   const title = slide.querySelector("[data-slide-title]");
   const text = slide.querySelector("[data-slide-text]");
   const link = slide.querySelector("[data-slide-link]");
-  const titleText = item.title;
+  const titleText = getHomeField(item, "title");
 
   slide.classList.add(`home-slider__slide--${index + 1}`);
   slide.style.backgroundImage = `url("${item.image}")`;
@@ -404,9 +407,12 @@ function createSlide(page, item, index) {
     title.textContent = titleText;
   }
 
-  text.textContent = item.sourceType === "promotion" ? item.description : item.shortText;
+  text.textContent = item.sourceType === "promotion"
+    ? getHomeField(item, "description")
+    : getHomeField(item, "shortText");
   link.href = item.link;
-  link.setAttribute("aria-label", `Перейти: ${titleText}`);
+  const openLabel = window.getCurrentLanguage?.() === "en" ? "Open" : "Перейти";
+  link.setAttribute("aria-label", `${openLabel}: ${titleText}`);
 
   if (index === 0) {
     slide.classList.add("is-active");
@@ -420,7 +426,7 @@ function createSliderDot(item, index) {
   dot.className = "slider-dot";
   dot.type = "button";
   dot.textContent = String(index + 1);
-  dot.setAttribute("aria-label", `Открыть слайд: ${item.title}`);
+  dot.setAttribute("aria-label", translateHomeText(`Открыть слайд: ${getHomeField(item, "title")}`));
   dot.dataset.slideIndex = String(index);
 
   if (index === 0) {
@@ -493,10 +499,12 @@ function createFallbackSlide() {
   slide.className = "hero-card home-slider__slide is-active";
   slide.innerHTML = `
     <div class="hero-card__content">
-      <h1 id="hero-title">Данные временно недоступны</h1>
-      <p>Запустите JSON Server командой npm run server, чтобы загрузить актуальные акции и новости.</p>
+      <h1 id="hero-title" data-i18n="text.948c007e46d5">Данные временно недоступны</h1>
+      <p data-i18n="text.8f5a6a0c823c">Запустите JSON Server командой npm run server, чтобы загрузить актуальные акции и новости.</p>
     </div>
   `;
+
+  window.refreshPageTranslations?.();
   return slide;
 }
 
@@ -511,15 +519,17 @@ function showDataError(page) {
 function createMessage(text) {
   const message = document.createElement("p");
   message.className = "home-message";
-  message.textContent = text;
+  message.textContent = translateHomeText(text);
   return message;
 }
 
 function getPromotionMeta(promotion) {
   const parts = [];
 
-  if (promotion.periodText) {
-    parts.push(promotion.periodText);
+  const periodText = getHomeField(promotion, "periodText");
+
+  if (periodText) {
+    parts.push(periodText);
   }
 
   if (typeof promotion.price === "number") {
@@ -527,22 +537,34 @@ function getPromotionMeta(promotion) {
   }
 
   if (typeof promotion.oldPrice === "number") {
-    parts.push(`старая цена ${formatPrice(promotion.oldPrice)}`);
+    parts.push(`${translateHomeText("старая цена")} ${formatPrice(promotion.oldPrice)}`);
   }
 
   return parts.join(" / ");
 }
 
 function formatPrice(value) {
-  return `${value.toLocaleString("ru-RU")} ₽`;
+  return window.formatLocalizedCurrency
+    ? window.formatLocalizedCurrency(value)
+    : `${value.toLocaleString("ru-RU")} ₽`;
 }
 
 function formatDate(value) {
-  const locale = document.documentElement.lang === "en" ? "en-US" : "ru-RU";
-
-  return new Intl.DateTimeFormat(locale, {
+  return new Intl.DateTimeFormat(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU", {
     day: "2-digit",
     month: "long",
     year: "numeric"
   }).format(new Date(value));
+}
+
+function getHomeField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
+}
+
+function getHomeText(key, fallback) {
+  return window.getTranslation ? window.getTranslation(key) : fallback;
+}
+
+function translateHomeText(text) {
+  return window.translateUiText ? window.translateUiText(text) : text;
 }

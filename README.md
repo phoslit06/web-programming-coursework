@@ -3,15 +3,20 @@
 Учебный проект по web-программированию для сайта центра активного отдыха и горнолыжного курорта «Евразия»
 
 
-```bash
-npm install
-```
-
 ## Запуск локального сервера
 
 ```bash
 npm run server
 ```
+Figma: https://www.figma.com/design/wRk3DiyExiC933XJ4hGOWV/Untitled?node-id=21-19127&t=N0Qeo1JT5ZdoaQ6O-1
+
+Администратор
+admin_eurasia
+Admin1234!
+
+Обычный пользователь
+ivan_ivanov
+Ivan1234!
 
 Сервер запускается на порту `3000` и использует файл `data/db.json`
 

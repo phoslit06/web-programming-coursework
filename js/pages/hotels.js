@@ -1,21 +1,6 @@
 const HOTELS_API_URL = "http://localhost:3000";
 const HOTELS_USER_KEY = "eurasiaCurrentUser";
 const PAGE_ASSET_PREFIX = "../../";
-const HOTEL_MONTHS = [
-  "январь",
-  "февраль",
-  "март",
-  "апрель",
-  "май",
-  "июнь",
-  "июль",
-  "август",
-  "сентябрь",
-  "октябрь",
-  "ноябрь",
-  "декабрь"
-];
-
 let hotelsData = [];
 let roomsData = [];
 let bookingsData = [];
@@ -134,11 +119,12 @@ function renderHotels(page, hotels) {
 
     card.dataset.hotelId = String(hotel.id);
     image.src = resolveAssetPath(hotel.image);
-    image.alt = hotel.title;
-    distance.textContent = hotel.distance;
-    title.textContent = hotel.title;
-    description.textContent = hotel.description;
-    button.setAttribute("aria-label", `Забронировать: ${hotel.title}`);
+    const hotelTitle = getHotelField(hotel, "title");
+    image.alt = hotelTitle;
+    distance.textContent = getHotelField(hotel, "distance");
+    title.textContent = hotelTitle;
+    description.textContent = getHotelField(hotel, "description");
+    button.setAttribute("aria-label", `${translateHotelText("Забронировать")}: ${hotelTitle}`);
     button.addEventListener("click", (event) => handleHotelButtonClick(event, page, hotel, button, message));
 
     fragment.append(card);
@@ -174,10 +160,10 @@ function openHotelBookingModal(page, hotel, message) {
     message
   };
 
-  page.bookingTitle.textContent = hotel.title;
-  page.bookingText.textContent = rooms.length
+  page.bookingTitle.textContent = getHotelField(hotel, "title");
+  page.bookingText.textContent = translateHotelText(rooms.length
     ? "Выберите номер, дату заезда и дату выезда. В корзину попадет одна бронь на весь период."
-    : "Для этого корпуса пока нет доступных номеров.";
+    : "Для этого корпуса пока нет доступных номеров.");
   page.bookingRooms.replaceChildren();
   page.bookingSelected.textContent = "";
   page.bookingSubmit.disabled = true;
@@ -219,9 +205,9 @@ function createRoomOption(page, room) {
   const text = document.createElement("span");
   text.className = "hotel-room-option__text";
   text.append(
-    createElement("strong", `${room.title} · номер ${room.roomNumber}`),
-    createElement("span", `${room.capacity} гост. · ${formatPrice(room.pricePerNight)} за ночь`),
-    createElement("small", room.description)
+    createElement("strong", `${getHotelField(room, "title")} · ${translateHotelText("номер")} ${room.roomNumber}`),
+    createElement("span", translateHotelText(`${room.capacity} гост. · ${formatPrice(room.pricePerNight)} за ночь`)),
+    createElement("small", getHotelField(room, "description"))
   );
 
   input.addEventListener("change", () => {
@@ -253,7 +239,10 @@ function changeHotelBookingMonth(page, direction) {
 function renderHotelCalendar(page) {
   const month = hotelBookingState.month || getInitialHotelMonth();
   page.bookingCalendar.replaceChildren();
-  page.bookingMonth.textContent = `${HOTEL_MONTHS[month.getMonth()]} ${month.getFullYear()}`;
+  page.bookingMonth.textContent = new Intl.DateTimeFormat(
+    window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU",
+    { month: "long", year: "numeric" }
+  ).format(month);
 
   const monthStart = new Date(month.getFullYear(), month.getMonth(), 1);
   const calendarStart = addDays(monthStart, -getMondayIndex(monthStart));
@@ -317,7 +306,7 @@ function selectHotelDate(page, date) {
   } else if (isHotelRangeAvailable(hotelBookingState.room.id, checkIn, selectedDate)) {
     hotelBookingState.checkOut = selectedDate;
   } else {
-    page.bookingSelected.textContent = "В выбранном периоде есть занятые даты.";
+    page.bookingSelected.textContent = translateHotelText("В выбранном периоде есть занятые даты.");
     page.bookingSubmit.disabled = true;
   }
 
@@ -330,22 +319,26 @@ function updateHotelBookingSummary(page) {
   const checkOut = hotelBookingState.checkOut;
 
   if (!hotelBookingState.room || !checkIn) {
-    page.bookingSelected.textContent = hotelBookingState.room
+    page.bookingSelected.textContent = translateHotelText(hotelBookingState.room
       ? "Выберите дату заезда."
-      : "Сначала выберите номер.";
+      : "Сначала выберите номер.");
     page.bookingSubmit.disabled = true;
     return;
   }
 
   if (!checkOut) {
-    page.bookingSelected.textContent = `Заезд: ${formatDisplayDate(checkIn)}. Теперь выберите дату выезда.`;
+    page.bookingSelected.textContent = translateHotelText(
+      `Заезд: ${formatDisplayDate(checkIn)}. Теперь выберите дату выезда.`
+    );
     page.bookingSubmit.disabled = true;
     return;
   }
 
   const nights = getHotelStayNights(checkIn, checkOut);
   const total = nights * Number(hotelBookingState.room.pricePerNight || 0);
-  page.bookingSelected.textContent = `Период: ${formatDisplayDate(checkIn)} - ${formatDisplayDate(checkOut)}. Ночей: ${nights}. Итого: ${formatPrice(total)}.`;
+  page.bookingSelected.textContent = translateHotelText(
+    `Период: ${formatDisplayDate(checkIn)} - ${formatDisplayDate(checkOut)}. Ночей: ${nights}. Итого: ${formatPrice(total)}.`
+  );
   page.bookingSubmit.disabled = false;
 }
 
@@ -361,7 +354,7 @@ async function submitHotelBooking(page) {
   }
 
   page.bookingSubmit.disabled = true;
-  page.bookingSubmit.textContent = "Добавляем...";
+  page.bookingSubmit.textContent = translateHotelText("Добавляем...");
 
   try {
     const item = await addHotelBookingToCart(user, hotelBookingState.hotel, room, checkIn, checkOut);
@@ -372,9 +365,9 @@ async function submitHotelBooking(page) {
     closeHotelBookingModal(page);
   } catch (error) {
     console.error("Не удалось добавить бронь в корзину:", error);
-    page.bookingSelected.textContent = "Не удалось добавить бронь в корзину. Проверьте JSON Server.";
+    page.bookingSelected.textContent = translateHotelText("Не удалось добавить бронь в корзину. Проверьте JSON Server.");
   } finally {
-    page.bookingSubmit.textContent = "Забронировать";
+    page.bookingSubmit.textContent = translateHotelText("Забронировать");
     page.bookingSubmit.disabled = !(hotelBookingState.checkIn && hotelBookingState.checkOut);
   }
 }
@@ -404,7 +397,9 @@ async function addHotelBookingToCart(user, hotel, room, checkInDate, checkOutDat
       hotelId: hotel.id,
       roomId: room.id,
       title: hotel.title,
+      titleEn: hotel.titleEn || hotel.title,
       details: `Номер ${room.roomNumber} · ${formatDisplayDate(checkInDate)} - ${formatDisplayDate(checkOutDate)}`,
+      detailsEn: `Room ${room.roomNumber} · ${formatDisplayDate(checkInDate, "en-US")} - ${formatDisplayDate(checkOutDate, "en-US")}`,
       checkIn,
       checkOut,
       guests: room.capacity,
@@ -541,12 +536,12 @@ function formatInputDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-function formatDisplayDate(date) {
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = date.getFullYear();
-
-  return `${day}.${month}.${year}`;
+function formatDisplayDate(date, locale) {
+  return new Intl.DateTimeFormat(locale || (window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU"), {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  }).format(date);
 }
 
 function addDays(date, count) {
@@ -564,7 +559,17 @@ function getMondayIndex(date) {
 }
 
 function formatPrice(value) {
-  return `${Number(value || 0).toLocaleString("ru-RU")} ₽`;
+  return window.formatLocalizedCurrency
+    ? window.formatLocalizedCurrency(value)
+    : `${Number(value || 0).toLocaleString("ru-RU")} ₽`;
+}
+
+function getHotelField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
+}
+
+function translateHotelText(text) {
+  return window.translateUiText ? window.translateUiText(text) : text;
 }
 
 function showHotelCardMessage(message, text, type = "") {
@@ -572,13 +577,13 @@ function showHotelCardMessage(message, text, type = "") {
     return;
   }
 
-  message.textContent = text;
+  message.textContent = translateHotelText(text);
   message.dataset.messageType = type;
 }
 
 function createElement(tagName, text, className = "") {
   const element = document.createElement(tagName);
-  element.textContent = text;
+  element.textContent = translateHotelText(text);
 
   if (className) {
     element.className = className;
@@ -590,6 +595,6 @@ function createElement(tagName, text, className = "") {
 function createMessage(text) {
   const message = document.createElement("p");
   message.className = "hotels-message";
-  message.textContent = text;
+  message.textContent = translateHotelText(text);
   return message;
 }

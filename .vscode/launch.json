@@ -5,9 +5,9 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "editor-browser",
+            "type": "chrome",
             "request": "launch",
-            "name": "Запустить встроенный браузер для localhost",
+            "name": "Запустить Chrome на localhost",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
         }

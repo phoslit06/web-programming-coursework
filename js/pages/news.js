@@ -76,7 +76,7 @@ function getUniqueNews(news) {
   const usedTitles = new Set();
 
   news.forEach((item) => {
-    const title = String(item.title || "").trim().toLowerCase();
+    const title = String(getNewsField(item, "title") || "").trim().toLowerCase();
     const hasTitle = title.length > 0;
 
     if (usedIds.has(item.id) || (hasTitle && usedTitles.has(title))) {
@@ -159,14 +159,16 @@ function renderNews(page, news, currentPage) {
     const text = card.querySelector("[data-news-text]");
 
     link.href = `news.html#news-${item.id}`;
-    link.setAttribute("aria-label", `Открыть новость: ${item.title}`);
+    const itemTitle = getNewsField(item, "title");
+    const openLabel = window.getCurrentLanguage?.() === "en" ? "Open news" : "Открыть новость";
+    link.setAttribute("aria-label", `${openLabel}: ${itemTitle}`);
     card.id = `news-${item.id}`;
     image.src = resolveAssetPath(item.image);
-    image.alt = item.title;
+    image.alt = itemTitle;
     date.dateTime = item.date;
     date.textContent = formatDate(item.date);
-    title.textContent = item.title;
-    text.textContent = item.shortText;
+    title.textContent = itemTitle;
+    text.textContent = getNewsField(item, "shortText");
 
     if (isNewsAdmin()) {
       card.append(createNewsAdminActions(item));
@@ -214,7 +216,7 @@ function renderPagination(page, currentPage, totalPages, onPageChange) {
     button.className = "news-pagination__page";
     button.type = "button";
     button.textContent = String(item);
-    button.setAttribute("aria-label", `Страница ${item}`);
+    button.setAttribute("aria-label", `${window.getCurrentLanguage?.() === "en" ? "Page" : "Страница"} ${item}`);
 
     if (item === currentPage) {
       button.classList.add("is-active");
@@ -334,11 +336,14 @@ async function getNewsEditorData(item = {}) {
     title: item.id ? "Редактировать новость" : "Новая новость",
     submitText: item.id ? "Сохранить" : "Добавить",
     fields: [
-      { name: "title", label: "Заголовок", value: item.title || "", required: true },
-      { name: "shortText", label: "Краткое описание", type: "textarea", value: item.shortText || "", required: true },
+      { name: "title", label: `${translateNewsText("Заголовок")} (RU)`, value: item.title || "", required: true },
+      { name: "titleEn", label: `${translateNewsText("Заголовок")} (EN)`, value: item.titleEn || "", required: true },
+      { name: "shortText", label: `${translateNewsText("Краткое описание")} (RU)`, type: "textarea", value: item.shortText || "", required: true },
+      { name: "shortTextEn", label: `${translateNewsText("Краткое описание")} (EN)`, type: "textarea", value: item.shortTextEn || "", required: true },
       { name: "date", label: "Дата", type: "date", value: item.date || new Date().toISOString().slice(0, 10), required: true },
       { name: "image", label: "Выберите изображение", type: "file", accept: "image/*", value: item.image || "assets/images/news/news-01.jpg", required: true },
-      { name: "fullText", label: "Полный текст", type: "textarea", rows: 5, value: item.fullText || item.shortText || "" }
+      { name: "fullText", label: `${translateNewsText("Полный текст")} (RU)`, type: "textarea", rows: 5, value: item.fullText || item.shortText || "", required: true },
+      { name: "fullTextEn", label: `${translateNewsText("Полный текст")} (EN)`, type: "textarea", rows: 5, value: item.fullTextEn || item.shortTextEn || "", required: true }
     ]
   });
 
@@ -348,10 +353,13 @@ async function getNewsEditorData(item = {}) {
 
   return {
     title: data.title.trim(),
+    titleEn: data.titleEn.trim(),
     date: data.date.trim(),
     category: item.category || "news",
     shortText: data.shortText.trim(),
+    shortTextEn: data.shortTextEn.trim(),
     fullText: String(data.fullText || data.shortText).trim(),
+    fullTextEn: String(data.fullTextEn || data.shortTextEn).trim(),
     image: data.image.trim(),
     isActive: item.isActive !== false,
     showOnHome: item.showOnHome === true
@@ -396,17 +404,25 @@ function resolveAssetPath(path) {
 }
 
 function formatDate(value) {
-  return new Intl.DateTimeFormat("ru-RU", {
+  return new Intl.DateTimeFormat(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU", {
     day: "2-digit",
     month: "long",
     year: "numeric"
   }).format(new Date(value));
 }
 
+function getNewsField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
+}
+
+function translateNewsText(text) {
+  return window.translateUiText ? window.translateUiText(text) : text;
+}
+
 function createMessage(text) {
   const message = document.createElement("p");
   message.className = "news-message";
-  message.textContent = text;
+  message.textContent = translateNewsText(text);
   return message;
 }
 

@@ -148,7 +148,17 @@
         "трансфер до комплекса"
       ],
       "image": "assets/images/hotels/hotel-city.jpg",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Building \"City\"",
+      "descriptionEn": "Guests are accommodated 2, 3 and 4 people per room. Each room has 2, 3 1.5 beds (a 4-bed room has 2 bunk beds), a large closet, and a hallway. Each room has a shower, sink, and toilet. The \"City\" building is located 10 minutes from the territory in the city of Kusa, st. Dekabristov, building 9. Delivery is carried out on a 35-seater bus in the morning, afternoon and evening.",
+      "distanceEn": "10 minutes by bus or car",
+      "addressEn": "Kusa, st. Dekabristov, house 9",
+      "featuresEn": [
+        "Wi-Fi",
+        "parking",
+        "shower and toilet in the room",
+        "transfer to the complex"
+      ]
     },
     {
       "id": 2,
@@ -163,7 +173,17 @@
         "рядом с сервисным зданием"
       ],
       "image": "assets/images/hotels/hotel-mountain.jpg",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "\"Mountain\" building",
+      "descriptionEn": "In the hotel complex (600 meters from the ski lift and service building) we can offer accommodation in 54 double, 12 single and 12 sports rooms.",
+      "distanceEn": "600 meters from the ski lift",
+      "addressEn": "territory of Central Administrative District Eurasia, lift area",
+      "featuresEn": [
+        "Wi-Fi",
+        "parking",
+        "next to the ski lift",
+        "next to the service building"
+      ]
     },
     {
       "id": 3,
@@ -178,7 +198,17 @@
         "лесная зона"
       ],
       "image": "assets/images/hotels/hotel-forest.jpg",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Building \"Lesnoy\"",
+      "descriptionEn": "There is also a guest house available for accommodation (2 km from the ski lift and service building) for groups of up to 16 people.",
+      "distanceEn": "guest house, 2 kilometers from the ski lift",
+      "addressEn": "territory of Central Administrative District Eurasia, forest zone",
+      "featuresEn": [
+        "guest house",
+        "up to 16 people",
+        "parking",
+        "forest zone"
+      ]
     }
   ],
   "rooms": [
@@ -191,7 +221,9 @@
       "capacity": 2,
       "pricePerNight": 15000,
       "description": "Номер для двух гостей с отдельными кроватями.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Standard room",
+      "descriptionEn": "Room for two guests with separate beds."
     },
     {
       "id": 2,
@@ -202,7 +234,9 @@
       "capacity": 2,
       "pricePerNight": 18000,
       "description": "Уютный номер с рабочей зоной и местом для хранения экипировки.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Comfort room",
+      "descriptionEn": "A cozy room with a work area and storage space for equipment."
     },
     {
       "id": 3,
@@ -213,7 +247,9 @@
       "capacity": 4,
       "pricePerNight": 24000,
       "description": "Просторный номер для семьи или компании до четырех гостей.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Family room",
+      "descriptionEn": "Spacious room for a family or group of up to four guests."
     },
     {
       "id": 4,
@@ -224,7 +260,9 @@
       "capacity": 2,
       "pricePerNight": 17000,
       "description": "Номер рядом с подъемником и пунктом проката.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Slope standard",
+      "descriptionEn": "The room is next to the ski lift and rental office."
     },
     {
       "id": 5,
@@ -235,7 +273,9 @@
       "capacity": 3,
       "pricePerNight": 22000,
       "description": "Номер повышенной комфортности с видом на горную зону.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Comfort with slope view",
+      "descriptionEn": "Superior room with mountain view."
     },
     {
       "id": 6,
@@ -246,7 +286,9 @@
       "capacity": 5,
       "pricePerNight": 29000,
       "description": "Большой номер для семейного отдыха рядом с трассами.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Family Mountain Room",
+      "descriptionEn": "Large family friendly room close to the pistes."
     },
     {
       "id": 7,
@@ -257,7 +299,9 @@
       "capacity": 2,
       "pricePerNight": 16000,
       "description": "Спокойный номер в лесной зоне комплекса.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Forest standard",
+      "descriptionEn": "Quiet room in the forest area of ​​the complex."
     },
     {
       "id": 8,
@@ -268,7 +312,9 @@
       "capacity": 4,
       "pricePerNight": 26000,
       "description": "Номер для семьи рядом с прогулочными маршрутами.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Family forest room",
+      "descriptionEn": "Room for a family close to walking routes."
     },
     {
       "id": 9,
@@ -279,7 +325,9 @@
       "capacity": 6,
       "pricePerNight": 36000,
       "description": "Отдельное размещение для большой компании с зоной отдыха.",
-      "isAvailable": true
+      "isAvailable": true,
+      "titleEn": "Separate house",
+      "descriptionEn": "Separate accommodation for a large company with a relaxation area."
     }
   ],
   "bookings": [
@@ -722,7 +770,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Set",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "(alpine skis, snowboard, boots, poles)"
     },
     {
       "id": 2,
@@ -781,7 +832,10 @@
             "day": 1200
           }
         }
-      }
+      },
+      "titleEn": "Kit for lessons with an instructor",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "(alpine skis, snowboard, boots, poles) during lessons with an instructor"
     },
     {
       "id": 3,
@@ -840,7 +894,10 @@
             "day": 650
           }
         }
-      }
+      },
+      "titleEn": "Alpine skiing/snowboarding",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Rent alpine skis or snowboards without boots and poles."
     },
     {
       "id": 4,
@@ -913,7 +970,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Snowboard",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Snowboard rental without boots."
     },
     {
       "id": 5,
@@ -972,7 +1032,10 @@
             "day": 550
           }
         }
-      }
+      },
+      "titleEn": "Boots",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Rental of ski or snowboard boots."
     },
     {
       "id": 6,
@@ -1031,7 +1094,10 @@
             "day": 920
           }
         }
-      }
+      },
+      "titleEn": "Snowboard boots",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Snowboard boots rental."
     },
     {
       "id": 7,
@@ -1090,7 +1156,10 @@
             "day": 180
           }
         }
-      }
+      },
+      "titleEn": "Ski poles",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Ski pole rental."
     },
     {
       "id": 8,
@@ -1149,7 +1218,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Safety helmet",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Protective helmet rental."
     },
     {
       "id": 9,
@@ -1208,7 +1280,10 @@
             "day": 180
           }
         }
-      }
+      },
+      "titleEn": "Protective mask",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Protective mask rental."
     },
     {
       "id": 10,
@@ -1267,7 +1342,10 @@
             "day": 950
           }
         }
-      }
+      },
+      "titleEn": "Back protection",
+      "categoryTitleEn": "Rental",
+      "descriptionEn": "Rent a protective vest for confident skiing."
     },
     {
       "id": 11,
@@ -1305,7 +1383,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Ski pass for 1 hour",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Ascents on the slopes of the complex for one hour."
     },
     {
       "id": 12,
@@ -1343,7 +1424,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Ski pass for 2 hours",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Climbing on the slopes of the complex for two hours."
     },
     {
       "id": 13,
@@ -1381,7 +1465,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Ski pass for 3 hours",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Climbing on the slopes of the complex for three hours."
     },
     {
       "id": 14,
@@ -1419,7 +1506,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Ski pass for 4 hours",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Climbing on the slopes of the complex for four hours."
     },
     {
       "id": 15,
@@ -1457,7 +1547,10 @@
             "day": 2200
           }
         }
-      }
+      },
+      "titleEn": "Ski pass for the day",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Daytime access to the complex's ski lifts."
     },
     {
       "id": 16,
@@ -1495,7 +1588,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Evening ski pass",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Access to illuminated trails in the evening block."
     },
     {
       "id": 17,
@@ -1533,7 +1629,10 @@
             "day": 1500
           }
         }
-      }
+      },
+      "titleEn": "Children's ski pass",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Reduced ski pass for children under 14 years old."
     },
     {
       "id": 18,
@@ -1571,7 +1670,10 @@
             "day": 6900
           }
         }
-      }
+      },
+      "titleEn": "Family ski pass",
+      "categoryTitleEn": "Ski pass",
+      "descriptionEn": "Ski pass for a family of two adults and one child."
     },
     {
       "id": 19,
@@ -1609,7 +1711,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Individual lesson with an instructor",
+      "categoryTitleEn": "Instructor",
+      "descriptionEn": "Personal skiing or snowboarding lesson."
     },
     {
       "id": 20,
@@ -1647,7 +1752,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Group lesson with instructor",
+      "categoryTitleEn": "Instructor",
+      "descriptionEn": "Lesson in a group of up to 6 people."
     },
     {
       "id": 21,
@@ -1685,7 +1793,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Children's lesson with instructor",
+      "categoryTitleEn": "Instructor",
+      "descriptionEn": "Teaching children basic skating techniques."
     },
     {
       "id": 22,
@@ -1723,7 +1834,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "First start",
+      "categoryTitleEn": "Instructor",
+      "descriptionEn": "A short introductory lesson for beginners."
     },
     {
       "id": 23,
@@ -1761,7 +1875,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Family instructor",
+      "categoryTitleEn": "Instructor",
+      "descriptionEn": "An activity for a family of up to four people."
     },
     {
       "id": 24,
@@ -1799,7 +1916,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Analysis of equipment with an instructor",
+      "categoryTitleEn": "Instructor",
+      "descriptionEn": "A lesson for guests who want to improve their skating technique."
     },
     {
       "id": 25,
@@ -1837,7 +1957,10 @@
             "day": 600
           }
         }
-      }
+      },
+      "titleEn": "Cheesecake (tubing)",
+      "categoryTitleEn": "Tubing",
+      "descriptionEn": "Cheesecake rental for tubing."
     },
     {
       "id": 26,
@@ -1875,7 +1998,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Tubing 1 hour",
+      "categoryTitleEn": "Tubing",
+      "descriptionEn": "Tubing ride for one hour."
     },
     {
       "id": 27,
@@ -1913,7 +2039,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Tubing 2 hours",
+      "categoryTitleEn": "Tubing",
+      "descriptionEn": "Riding on a tubing slide for two hours."
     },
     {
       "id": 28,
@@ -1951,7 +2080,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Family tubing",
+      "categoryTitleEn": "Tubing",
+      "descriptionEn": "Set of four tickets for the tubing slide."
     },
     {
       "id": 29,
@@ -1989,7 +2121,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Children's tubing",
+      "categoryTitleEn": "Tubing",
+      "descriptionEn": "Ticket to the tubing slide for a child under 14 years old."
     },
     {
       "id": 30,
@@ -2027,7 +2162,10 @@
             "day": null
           }
         }
-      }
+      },
+      "titleEn": "Tubing evening block",
+      "categoryTitleEn": "Tubing",
+      "descriptionEn": "Evening tubing ride."
     }
   ],
   "workSchedule": [
@@ -2038,7 +2176,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 18.00",
       "trainingSlope": "09.00 - 18.00",
-      "rentalService": "10.00 - 17.00"
+      "rentalService": "10.00 - 17.00",
+      "dayEn": "Monday"
     },
     {
       "id": 2,
@@ -2047,7 +2186,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 18.00",
       "trainingSlope": "09.00 - 18.00",
-      "rentalService": "09.00 - 18.00"
+      "rentalService": "09.00 - 18.00",
+      "dayEn": "Tuesday"
     },
     {
       "id": 3,
@@ -2056,7 +2196,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 18.00",
       "trainingSlope": "09.00 - 18.00",
-      "rentalService": "09.00 - 18.00"
+      "rentalService": "09.00 - 18.00",
+      "dayEn": "Wednesday"
     },
     {
       "id": 4,
@@ -2065,7 +2206,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 18.00",
       "trainingSlope": "09.00 - 18.00",
-      "rentalService": "09.00 - 18.00"
+      "rentalService": "09.00 - 18.00",
+      "dayEn": "Thursday"
     },
     {
       "id": 5,
@@ -2074,7 +2216,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 20.00",
       "trainingSlope": "09.00 - 18.00",
-      "rentalService": "09.00 - 18.00"
+      "rentalService": "09.00 - 18.00",
+      "dayEn": "Friday"
     },
     {
       "id": 6,
@@ -2083,7 +2226,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 21.00",
       "trainingSlope": "09.00 - 21.00",
-      "rentalService": "10.00 - 20.00"
+      "rentalService": "10.00 - 20.00",
+      "dayEn": "Saturday"
     },
     {
       "id": 7,
@@ -2092,7 +2236,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 18.00",
       "trainingSlope": "09.00 - 18.00",
-      "rentalService": "10.00 - 17.00"
+      "rentalService": "10.00 - 17.00",
+      "dayEn": "Sunday"
     },
     {
       "id": 8,
@@ -2101,7 +2246,8 @@
       "trailsWithoutLight": "09.00 - 18.00",
       "trailsWithLight": "09.00 - 21.00",
       "trainingSlope": "09.00 - 21.00",
-      "rentalService": "10.00 - 20.00"
+      "rentalService": "10.00 - 20.00",
+      "dayEn": "Holidays"
     }
   ],
   "trails": [
@@ -2118,7 +2264,12 @@
       "description": "Трасса для \"Новичков\", продолжительностью 1 650 метров. Склон оснащен системой искусственного освещения. По бокам трассы установлены небольшие трамплины. Рельеф склона отлично подходит для обучения технике катания и трассового фристайла. Пересекает \"2 трассу\" и \"секретную трассу\". Окончание трассы имеет 2 направления: 1А - более крутой спуск, 1В - более пологий спуск.",
       "image": "assets/images/trails/figma-gallery-8-2.png",
       "showInList": true,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "1 route",
+      "kindEn": "track",
+      "levelTitleEn": "Easy",
+      "statusTitleEn": "open",
+      "descriptionEn": "The route for “Beginners” is 1,650 meters long. The slope is equipped with an artificial lighting system. There are small jumps on the sides of the track. The terrain of the slope is excellent for learning skiing techniques and freestyle piste. Crosses \"Route 2\" and \"Secret Route\". The end of the route has 2 directions: 1A - a steeper descent, 1B - a gentler descent."
     },
     {
       "id": 2,
@@ -2134,7 +2285,12 @@
       "image": "assets/images/trails/figma-gallery-8-2.png",
       "showInList": true,
       "showDescription": false,
-      "isOpen": false
+      "isOpen": false,
+      "titleEn": "1A route",
+      "kindEn": "track",
+      "levelTitleEn": "Easy",
+      "statusTitleEn": "close",
+      "descriptionEn": "Steeper descent of the first route."
     },
     {
       "id": 3,
@@ -2150,7 +2306,12 @@
       "image": "assets/images/trails/figma-gallery-8-2.png",
       "showInList": true,
       "showDescription": false,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "1B track",
+      "kindEn": "track",
+      "levelTitleEn": "Easy",
+      "statusTitleEn": "open",
+      "descriptionEn": "The first route has a more gentle descent."
     },
     {
       "id": 4,
@@ -2165,7 +2326,12 @@
       "description": "Трасса для райдеров \"Среднего\" уровня катания, продолжительностью 1 420 метров. Склон оснащен системой искусственного освещения. Рельеф отлично подходит для совершенствования техники катания: карвинг, фан-карвинг, трассовый фристайл.",
       "image": "assets/images/trails/figma-gallery-14-2.png",
       "showInList": true,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "Route 2",
+      "kindEn": "track",
+      "levelTitleEn": "Medium",
+      "statusTitleEn": "open",
+      "descriptionEn": "The route is for “Intermediate” level riders, 1,420 meters long. The slope is equipped with an artificial lighting system. The terrain is great for improving your riding technique: carving, fan carving, freestyle piste."
     },
     {
       "id": 5,
@@ -2180,7 +2346,12 @@
       "description": "Трасса для райдеров \"Продвинутого\" уровня катания, продолжительностью 1 230 метров. Рельеф склона отлично подходит для совершенствования техники катания и карвинга. На склоне жесткое покрытие, трасса красная, уровень подготовки райдера продвинутый.",
       "image": "assets/images/trails/figma-gallery-14-2.png",
       "showInList": true,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "Route 3",
+      "kindEn": "track",
+      "levelTitleEn": "Hard",
+      "statusTitleEn": "open",
+      "descriptionEn": "The route for riders of the “Advanced” level of skiing, 1,230 meters long. The slope's topography is excellent for improving skiing and carving techniques. The slope has a hard surface, the track is red, the rider's level of training is advanced."
     },
     {
       "id": 6,
@@ -2195,7 +2366,12 @@
       "description": "Трасса для райдеров \"Среднего\" уровня катания, продолжительностью 1 500 метров. Снег естественный. Меняющийся угол склона дает возможность научиться смене техники катания и проверить свои силы на постоянно меняющемся рельефе.",
       "image": "assets/images/trails/figma-gallery-14-2.png",
       "showInList": true,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "Route 4",
+      "kindEn": "track",
+      "levelTitleEn": "Medium",
+      "statusTitleEn": "open",
+      "descriptionEn": "The route is for “Intermediate” riders, 1,500 meters long. Snow is natural. The changing angle of the slope gives you the opportunity to learn how to change your skiing technique and test your strength on the ever-changing terrain."
     },
     {
       "id": 7,
@@ -2210,7 +2386,12 @@
       "description": "Трасса для райдеров \"Среднего\" уровня катания, продолжительностью 1 500 метров, снег искусственный. На протяжении всей трассы установлены снежные фигуры: контруклоны, трамплины, бугры и другие неровности. Рельеф склона подходит для обучения технике катания в дисциплине \"ски-кросс\" и \"бордер-кросс\". Спуск по трассе можно начинать как с трассы 5, так и с трассы 5А.",
       "image": "assets/images/trails/figma-gallery-snowcat.png",
       "showInList": true,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "Route 5",
+      "kindEn": "track",
+      "levelTitleEn": "Medium",
+      "statusTitleEn": "open",
+      "descriptionEn": "The route for riders of “Intermediate” skiing level, 1,500 meters long, artificial snow. There are snow figures throughout the entire route: counterslopes, springboards, humps and other irregularities. The terrain of the slope is suitable for learning skiing techniques in the ski cross and border cross disciplines. The descent along the highway can be started from either Route 5 or Route 5A."
     },
     {
       "id": 8,
@@ -2226,7 +2407,12 @@
       "image": "assets/images/trails/figma-gallery-snowcat.png",
       "showInList": true,
       "showDescription": false,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "5A route",
+      "kindEn": "track",
+      "levelTitleEn": "Medium",
+      "statusTitleEn": "open",
+      "descriptionEn": "Additional section of the fifth route."
     },
     {
       "id": 9,
@@ -2241,7 +2427,12 @@
       "description": "Трасса для \"Начального\" обучения, продолжительностью 200 метров. Рельеф и продолжительность склона идеально подходят для обучения основам техники катания на лыжах и сноуборде.",
       "image": "assets/images/trails/figma-gallery-8-2.png",
       "showInList": true,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "Route 6",
+      "kindEn": "track",
+      "levelTitleEn": "Easy",
+      "statusTitleEn": "open",
+      "descriptionEn": "The route for “Initial” training, 200 meters long. The terrain and length of the slope are ideal for learning the basics of skiing and snowboarding."
     },
     {
       "id": 10,
@@ -2257,7 +2448,13 @@
       "description": "Трассы для райдеров \"Высокого уровня\" катания расположены на 4, 5, 5А, 7 и 8 склонах и между ними в лесной зоне, а также в лесных зонах между 1, 2 и 3 склонами. Трассы имеют предназначение для спуска по необработанной местности. Бугры, свисающие деревья, контруклоны и дропы дают возможность освоить технику внетрассового катания. Администрация не несет ответственность за травмы или поломку снаряжения, полученные при спуске по этим трассам.",
       "image": "assets/images/trails/figma-gallery-snowcat.png",
       "showInList": true,
-      "isOpen": false
+      "isOpen": false,
+      "titleEn": "Freeride trails (unprepared slopes)",
+      "kindEn": "slope",
+      "levelTitleEn": "Hard",
+      "statusTitleEn": "close",
+      "descriptionEn": "Trails for “High Level” riders are located on slopes 4, 5, 5A, 7 and 8 and between them in the forest zone, as well as in forest zones between slopes 1, 2 and 3. The trails are designed for descent through uncultivated terrain. Lumps, overhanging trees, counter slopes and drops provide the opportunity to master off-piste skiing techniques. The administration is not responsible for injuries or equipment damage incurred while descending these trails.",
+      "listTitleEn": "unprepared slope"
     },
     {
       "id": 11,
@@ -2273,7 +2470,13 @@
       "description": "Трасса для райдеров \"Среднего уровня\" катания и выше, протяженностью 800 метров. Трасса открыта нашим клиентам и имеет предназначение веселого спуска. Бугры, свисающие деревья и контруклоны дают возможность освоить технику внетрассового катания.",
       "image": "assets/images/trails/figma-gallery-snowcat.png",
       "showInList": true,
-      "isOpen": false
+      "isOpen": false,
+      "titleEn": "Bigfoot trail",
+      "kindEn": "track",
+      "levelTitleEn": "Medium",
+      "statusTitleEn": "close",
+      "descriptionEn": "The route is for riders of “Intermediate level” and above, 800 meters long. The track is open to our clients and is intended for a fun descent. Lumps, overhanging trees and counter slopes provide an opportunity to master off-piste skiing techniques.",
+      "listTitleEn": "Bigfoot trail"
     },
     {
       "id": 12,
@@ -2289,7 +2492,13 @@
       "description": "Трасса для райдеров \"Среднего\" и \"Высокого\" уровня катания, продолжительностью 850 метров. Серия трамплинов, различные джиббовые фигуры и бугры позволяют освоить технику фристайла и отлично провести время в кругу друзей. Парк находится на 1 склоне.",
       "image": "assets/images/trails/figma-gallery-snowcat.png",
       "showInList": true,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "Snow park",
+      "kindEn": "snow park",
+      "levelTitleEn": "Hard",
+      "statusTitleEn": "open",
+      "descriptionEn": "The route for riders of “Intermediate” and “High” skiing levels, 850 meters long. A series of springboards, various jibbing patterns and humps allow you to master freestyle techniques and have a great time with friends. The park is located on the 1st slope.",
+      "listTitleEn": "snow park"
     },
     {
       "id": 13,
@@ -2304,7 +2513,12 @@
       "description": "На трассе построено несколько стартовых участков с разной сложностью, на протяжении всей трассы возведены универсальные фигуры. Протяженность трассы 900 метров, подходит для разного уровня катания от новичков до профессионалов. Трасса кросса состоит из 3-х стартовых участков, 8 поворотов и 18 различных фигур. Самая высокая фигура \"Дракон\" высотой 9 метров, на данной фигуре 5 волн, между волнами пролет 12 метров.",
       "image": "assets/images/trails/figma-extra-map.png",
       "showInList": false,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "SKI CROSS track",
+      "kindEn": "ski cross",
+      "levelTitleEn": "For different levels",
+      "statusTitleEn": "open",
+      "descriptionEn": "There are several starting sections of varying difficulty built along the route, and universal figures have been built along the entire route. The length of the track is 900 meters, suitable for different levels of skiing from beginners to professionals. The cross-country course consists of 3 starting sections, 8 turns and 18 different figures. The tallest figure “Dragon” is 9 meters high, there are 5 waves on this figure, the gap between the waves is 12 meters."
     },
     {
       "id": 14,
@@ -2319,7 +2533,12 @@
       "description": "На территории ЦАО \"Евразия\" для любителей горных прогулок есть несколько троп для ходьбы. Первая тропа расположена между гостиницей и сервисным зданием, протяженность 500 метров. Вторая тропа расположена на самом верху горы Копанец, протяженность от вершины до сервисного здания 5 км. Третья тропа находится за учебным склоном, протяженность пути 5 км.",
       "image": "assets/images/trails/figma-extra-map.png",
       "showInList": false,
-      "isOpen": true
+      "isOpen": true,
+      "titleEn": "Walking route",
+      "kindEn": "walking trail",
+      "levelTitleEn": "Walking route",
+      "statusTitleEn": "open",
+      "descriptionEn": "On the territory of the Central Administrative District \"Eurasia\" there are several walking trails for lovers of mountain walks. The first trail is located between the hotel and the service building, the length is 500 meters. The second trail is located at the very top of Mount Kopanets, the length from the top to the service building is 5 km. The third trail is located behind the training slope, the length of the path is 5 km."
     }
   ],
   "news": [
@@ -2332,7 +2551,10 @@
       "fullText": "В период с 23 по 28 января в городе Куса на территории ЦАО \"Евразия\" состоялось Первенство Уральского федерального округа и Первенство Челябинской области по горнолыжному спорту. Для участников подготовили трассы, зону разминки и работу службы проката.",
       "image": "assets/images/news/news-01.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The Chelyabinsk Region and Ural Federal District alpine skiing championship took place at Eurasia",
+      "shortTextEn": "Young athletes competed on the center's slopes in slalom and giant slalom.",
+      "fullTextEn": "During the period from January 23 to 28, the Ural Federal District Championship and the Chelyabinsk Region Alpine Skiing Championship took place in the city of Kusa on the territory of the Central Administrative District \"Eurasia\". Trails, a warm-up area and a rental service were prepared for the participants."
     },
     {
       "id": 2,
@@ -2343,7 +2565,10 @@
       "fullText": "С 12 по 16 января в ЦАО \"Евразия\" успешно прошло Первенство России по сноуборду в дисциплине Big-Air. Подготовка площадки началась заранее, а спортивная зона выдержала высокую нагрузку даже при переменчивой погоде.",
       "image": "assets/images/news/news-02.jpg",
       "isActive": true,
-      "showOnHome": true
+      "showOnHome": true,
+      "titleEn": "The Russian Big Air snowboard championship took place at Eurasia",
+      "shortTextEn": "The competition brought together strong riders and became one of the brightest events of the winter season.",
+      "fullTextEn": "From January 12 to 16, the Russian Snowboard Championship in the Big-Air discipline was successfully held at the Eurasia Central Administrative District. Site preparation began early, and the sports area withstood high loads even in changeable weather."
     },
     {
       "id": 3,
@@ -2354,7 +2579,10 @@
       "fullText": "Региональное отделение федерации сноуборда и Центр активного отдыха \"Евразия\" приглашают принять участие во Всероссийских соревнованиях и Первенстве города Куса по сноуборду. В программе заявлены дисциплины PGS и PSL.",
       "image": "assets/images/news/news-03.jpg",
       "isActive": true,
-      "showOnHome": true
+      "showOnHome": true,
+      "titleEn": "National snowboard competitions and the Kusa city championship will be held at Eurasia",
+      "shortTextEn": "The center invites athletes and spectators to PSL and PGS competitions.",
+      "fullTextEn": "The regional branch of the snowboard federation and the Eurasia Active Recreation Center invite you to take part in the All-Russian competitions and the Kusa City Snowboard Championship. The program includes PGS and PSL disciplines."
     },
     {
       "id": 4,
@@ -2365,7 +2593,10 @@
       "fullText": "С 23 по 28 января на территории ЦАО \"Евразия\" состоится Чемпионат и Первенство Челябинской области по горнолыжному спорту. Для гостей будут работать основные трассы, прокат и зоны ожидания.",
       "image": "assets/images/news/news-04.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The Championship and Championship of the Chelyabinsk region in alpine skiing will be held in the Central Administrative District \"Eurasia\"",
+      "shortTextEn": "From January 23 to 28, the center will host regional alpine skiing competitions.",
+      "fullTextEn": "From January 23 to 28, the Championship and Championship of the Chelyabinsk Region in alpine skiing will be held on the territory of the Central Administrative District \"Eurasia\". The main trails, rentals and waiting areas will be open to guests."
     },
     {
       "id": 5,
@@ -2376,7 +2607,10 @@
       "fullText": "С 17 по 20 января на территории ЦАО \"Евразия\" состоится Кубок Уральских гор по горнолыжному спорту. К участию приглашены юноши и девушки 2009-2010, 2011-2012 и 2013-2014 годов рождения.",
       "image": "assets/images/news/news-05.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Ural Mountains Cup 2026 in Central Administrative District \"Eurasia\"",
+      "shortTextEn": "A series of starts will be held on the slopes of the center for boys and girls of different age groups.",
+      "fullTextEn": "From January 17 to 20, the Ural Mountains Alpine Skiing Cup will be held on the territory of the Central Administrative District \"Eurasia\". Boys and girls born in 2009-2010, 2011-2012 and 2013-2014 are invited to participate."
     },
     {
       "id": 6,
@@ -2387,7 +2621,10 @@
       "fullText": "30 декабря в ЦАО \"Евразия\" состоится тестовое открытие второго склона. К новогодним праздникам подготовлены пять больших склонов, учебная трасса, тюбинговая горка и пункт проката.",
       "image": "assets/images/news/news-06.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "December 30 opening of 2nd slope! What other routes will be open from December 30?",
+      "shortTextEn": "Five large slopes, a training track and a tubing hill have been prepared for the New Year holidays.",
+      "fullTextEn": "On December 30, a test opening of the second slope will take place at the Eurasia Central Administrative District. Five large slopes, a training track, a tubing hill and a rental point have been prepared for the New Year holidays."
     },
     {
       "id": 7,
@@ -2398,7 +2635,10 @@
       "fullText": "После обильного снегопада команда комплекса вывела дополнительную технику на вечернюю подготовку трасс. Это поможет сохранить ровное покрытие на основных маршрутах и сделать катание комфортнее утром.",
       "image": "assets/images/news/news-07.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "After snowfall, additional evening trail preparation is open",
+      "shortTextEn": "Slope Services have stepped up surface treatment following heavy snowfall.",
+      "fullTextEn": "After heavy snowfall, the complex team brought out additional equipment to prepare the slopes in the evening. This will help maintain an even surface on the main routes and make skiing more comfortable in the morning."
     },
     {
       "id": 8,
@@ -2409,7 +2649,10 @@
       "fullText": "Для гостей, которые приезжают с детьми, рядом с учебным склоном оборудована новая зона ожидания. Здесь можно встретиться с инструктором, уточнить расписание занятий и дождаться окончания тренировки.",
       "image": "assets/images/news/news-08.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The training slope received a new waiting area for parents",
+      "shortTextEn": "A warm waiting area and a meeting place with the instructor appeared next to the training slope.",
+      "fullTextEn": "For guests who come with children, a new waiting area has been equipped next to the training slope. Here you can meet with the instructor, check the class schedule and wait for the end of the training."
     },
     {
       "id": 9,
@@ -2420,7 +2663,10 @@
       "fullText": "Пункт проката ЦАО \"Евразия\" пополнился детскими лыжами, ботинками и защитными шлемами. Новые комплекты доступны в будние, выходные и праздничные дни при наличии свободного размера.",
       "image": "assets/images/news/news-09.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The rental point has been replenished with children's kits",
+      "shortTextEn": "New skis, boots and protective helmets for children have appeared in rental stores.",
+      "fullTextEn": "The rental point of the Central Administrative District \"Eurasia\" has been replenished with children's skis, boots and protective helmets. New sets are available on weekdays, weekends and holidays, subject to size availability."
     },
     {
       "id": 10,
@@ -2431,7 +2677,10 @@
       "fullText": "В рамках недели безопасности инструкторы центра проведут открытые занятия и расскажут гостям о правилах поведения на трассах, выборе скорости и безопасной посадке на подъемник.",
       "image": "assets/images/news/news-10.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Slope Safety Week starts in Eurasia",
+      "shortTextEn": "Instructors will conduct open classes on safe skiing and behavior on the slopes.",
+      "fullTextEn": "As part of the safety week, the center's instructors will hold open classes and tell guests about the rules of behavior on the slopes, choosing a speed and safe landing on the ski lift."
     },
     {
       "id": 11,
@@ -2442,7 +2691,10 @@
       "fullText": "При усилении ветра работа подъемника может временно приостанавливаться. Служба трасс будет обновлять информацию на стойке администратора и в новостном разделе сайта.",
       "image": "assets/images/news/news-11.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Due to strong winds, changes in the operation of the lift are possible",
+      "shortTextEn": "Guests are asked to monitor trail service announcements before heading to the slopes.",
+      "fullTextEn": "When the wind increases, lift operation may be temporarily suspended. The trail service will update information at the reception desk and in the news section of the website."
     },
     {
       "id": 12,
@@ -2453,7 +2705,10 @@
       "fullText": "На территории ЦАО \"Евразия\" открыты пешие зимние маршруты. Гости могут прогуляться до смотровой площадки, зоны отдыха и вернуться к центральной части комплекса.",
       "image": "assets/images/news/news-12.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Winter walking routes through the forest area have been launched",
+      "shortTextEn": "Walking routes are open to guests near the forest building and recreation area.",
+      "fullTextEn": "Winter walking routes are open on the territory of the Central Administrative District \"Eurasia\". Guests can walk to the observation deck, recreation area and return to the central part of the complex."
     },
     {
       "id": 13,
@@ -2464,7 +2719,10 @@
       "fullText": "В лесной зоне комплекса обновлены места отдыха, лавочки и навигация для гостей, которые выбирают спокойное размещение или прогулки после катания.",
       "image": "assets/images/news/news-13.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Recreation area near the forest building has been updated",
+      "shortTextEn": "New rest areas and navigation signs appeared near the building.",
+      "fullTextEn": "In the forest area of ​​the complex, rest areas, benches and navigation have been updated for guests who choose quiet accommodation or walks after skiing."
     },
     {
       "id": 14,
@@ -2475,7 +2733,10 @@
       "fullText": "Служба проката снаряжения переходит на зимний график. В выходные и праздничные дни время выдачи комплектов будет увеличено, чтобы гостям было удобнее планировать катание.",
       "image": "assets/images/news/news-14.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The rental service switches to winter operating hours",
+      "shortTextEn": "The rental will be open longer on weekends and during holidays.",
+      "fullTextEn": "Equipment rental service switches to winter schedule. On weekends and holidays, kit pick-up times will be extended to make it more convenient for guests to plan their skiing."
     },
     {
       "id": 15,
@@ -2486,7 +2747,10 @@
       "fullText": "Инструкторская служба ЦАО \"Евразия\" открыла запись на первые занятия сезона. Гости могут выбрать индивидуальный формат, семейную тренировку или групповое занятие для начинающих.",
       "image": "assets/images/news/news-15.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Instructors have opened registration for the first classes of the season",
+      "shortTextEn": "Individual and group training is available for children and adults.",
+      "fullTextEn": "The instructor service of the Central Administrative Okrug \"Eurasia\" has opened registration for the first classes of the season. Guests can choose an individual format, family training or a group lesson for beginners."
     },
     {
       "id": 16,
@@ -2497,7 +2761,10 @@
       "fullText": "На основных маршрутах комплекса появились дополнительные информационные щиты. Они показывают направление движения, сложность трассы и ближайшие сервисные зоны.",
       "image": "assets/images/news/news-16.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Additional information boards have been installed along the routes",
+      "shortTextEn": "New navigation helps guests navigate slopes and routes faster.",
+      "fullTextEn": "Additional information boards have appeared on the main routes of the complex. They show the direction of travel, the complexity of the route and the nearest service areas."
     },
     {
       "id": 17,
@@ -2508,7 +2775,10 @@
       "fullText": "Перед зимним сезоном специалисты ЦАО \"Евразия\" проводят подготовку трасс, проверку подъемников, освещения и обновление пунктов проката.",
       "image": "assets/images/news/news-17.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Preparation of the tracks for the winter season has reached the final stage",
+      "shortTextEn": "Specialists check lifts, lighting and rental equipment.",
+      "fullTextEn": "Before the winter season, specialists from the Central Administrative District \"Eurasia\" prepare the slopes, check the lifts, lighting and update the rental points."
     },
     {
       "id": 18,
@@ -2519,7 +2789,10 @@
       "fullText": "Команда комплекса провела учебную эвакуацию на склоне. В тренировке участвовали служба трасс, прокат, инструкторы и администраторы гостевой зоны.",
       "image": "assets/images/news/news-18.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The complex team conducted a training evacuation on the slope",
+      "shortTextEn": "Employees worked out what to do when the lift stops and the weather worsens.",
+      "fullTextEn": "The complex team conducted a training evacuation on the slope. The training was attended by the trail service, rentals, instructors and guest area administrators."
     },
     {
       "id": 19,
@@ -2530,7 +2803,10 @@
       "fullText": "ЦАО \"Евразия\" открыл предварительную запись на новогодние заезды. Гости могут заранее спланировать катание, оформить прокат и выбрать время занятия с инструктором.",
       "image": "assets/images/news/news-19.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Pre-registration for New Year's races is open",
+      "shortTextEn": "Guests can select ski dates, rentals and lessons with an instructor in advance.",
+      "fullTextEn": "Central Administrative Society \"Eurasia\" has opened pre-registration for New Year's races. Guests can plan their ride in advance, arrange a rental and choose the time of the lesson with an instructor."
     },
     {
       "id": 20,
@@ -2541,7 +2817,10 @@
       "fullText": "В кафе у склона появилось зимнее меню. Для гостей подготовили горячие напитки, сытные блюда и быстрые перекусы для перерыва между спусками.",
       "image": "assets/images/news/news-20.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The cafe near the slope now has a winter menu",
+      "shortTextEn": "After skiing, guests can warm up with hot drinks and seasonal dishes.",
+      "fullTextEn": "The cafe on the slope has a winter menu. Hot drinks, hearty meals and quick snacks were prepared for guests for a break between descents."
     },
     {
       "id": 21,
@@ -2552,7 +2831,10 @@
       "fullText": "Сервисная зона получила новое оборудование для подготовки лыж и сноубордов. Это ускорит обработку кантов и восстановление скользящей поверхности перед выходом на склон.",
       "image": "assets/images/news/news-21.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The service area received new ski preparation equipment",
+      "shortTextEn": "The workshop will be able to service guests' skis and snowboards faster.",
+      "fullTextEn": "The service area received new equipment for preparing skis and snowboards. This will speed up the processing of edges and restoration of the sliding surface before entering the slope."
     },
     {
       "id": 22,
@@ -2563,7 +2845,10 @@
       "fullText": "На учебной трассе обновили освещение. Благодаря этому вечерние занятия с инструктором станут комфортнее для начинающих гостей и детских групп.",
       "image": "assets/images/news/news-22.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "The lighting on the training track has been updated",
+      "shortTextEn": "Evening classes will be more comfortable for beginners and children's groups.",
+      "fullTextEn": "The lighting on the training track has been updated. Thanks to this, evening classes with an instructor will become more comfortable for beginner guests and children's groups."
     },
     {
       "id": 23,
@@ -2574,7 +2859,10 @@
       "fullText": "В ЦАО \"Евразия\" прошел день открытых дверей для инструкторов. Команда обсудила стандарты обучения, правила коммуникации с гостями и безопасность на учебных трассах.",
       "image": "assets/images/news/news-23.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "An open day for instructors was held in Eurasia",
+      "shortTextEn": "The team discussed training standards, safety and working with newcomers.",
+      "fullTextEn": "An open day for instructors was held at the Central Administrative District \"Eurasia\". The team discussed training standards, rules of communication with guests and safety on the training courses."
     },
     {
       "id": 24,
@@ -2585,7 +2873,10 @@
       "fullText": "Летние маршруты закрыты до следующего сезона. Часть троп переводится в режим подготовки к зимней эксплуатации, а актуальные зимние маршруты будут опубликованы отдельно.",
       "image": "assets/images/news/news-24.jpg",
       "isActive": true,
-      "showOnHome": false
+      "showOnHome": false,
+      "titleEn": "Summer routes are closed until next season",
+      "shortTextEn": "Pedestrian summer trails are being put into preparation for winter use.",
+      "fullTextEn": "Summer routes are closed until next season. Some trails are being put into preparation for winter use, and current winter routes will be published separately."
     }
   ],
   "promotions": [
@@ -2614,14 +2905,29 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/tour-01.jpg",
+      "image": "assets/images/news/news-01.jpg",
       "isActive": true,
       "showOnHome": true,
       "ctaLabel": "Забронировать тур",
       "canAddToCart": true,
       "bookingLengthDays": 7,
       "priceText": "25 000 руб.",
-      "discountText": ""
+      "discountText": "",
+      "titleEn": "Snowy Weekdays Light",
+      "subtitleEn": "Ski tour",
+      "descriptionEn": "A short tour with accommodation, ski pass, rental and breakfasts for calm weekday skiing.",
+      "periodTextEn": "from Sunday to Wednesday",
+      "periodLinesEn": [
+        "from Sunday to Wednesday"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "ski pass",
+        "rental",
+        "breakfasts"
+      ],
+      "ctaLabelEn": "Book tour",
+      "priceTextEn": "25,000 rub."
     },
     {
       "id": 2,
@@ -2649,11 +2955,26 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/tour-02.jpg",
+      "image": "assets/images/news/news-02.jpg",
       "isActive": true,
       "showOnHome": true,
       "ctaLabel": "Забронировать тур",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Slope Weekend",
+      "subtitleEn": "Weekend tour",
+      "descriptionEn": "A three-day tour for guests who want to arrive for the weekend and ski without extra fuss.",
+      "periodTextEn": "from Friday to Sunday",
+      "periodLinesEn": [
+        "from Friday",
+        "to Sunday"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "ski pass",
+        "rental",
+        "transfer"
+      ],
+      "ctaLabelEn": "Book tour"
     },
     {
       "id": 3,
@@ -2680,14 +3001,29 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/tour-03.jpg",
+      "image": "assets/images/news/news-03.jpg",
       "isActive": true,
       "showOnHome": true,
       "ctaLabel": "Забронировать тур",
       "canAddToCart": true,
       "bookingLengthDays": 5,
       "priceText": "32 000 руб.",
-      "discountText": ""
+      "discountText": "",
+      "titleEn": "Your Mountains Standard",
+      "subtitleEn": "Weekly tour",
+      "descriptionEn": "A five-day tour with accommodation, skiing, rental and meals for a confident holiday on the slope.",
+      "periodTextEn": "from Monday to Friday",
+      "periodLinesEn": [
+        "from Monday to Friday"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "ski pass",
+        "rental",
+        "nutrition"
+      ],
+      "ctaLabelEn": "Book tour",
+      "priceTextEn": "32,000 rub."
     },
     {
       "id": 4,
@@ -2715,11 +3051,26 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/tour-04.jpg",
+      "image": "assets/images/news/news-04.jpg",
       "isActive": true,
-      "showOnHome": false,
+      "showOnHome": true,
       "ctaLabel": "Забронировать тур",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Family Mountains",
+      "subtitleEn": "Family tour",
+      "descriptionEn": "A family tour with accommodation, rental and instructor lessons for children and adults.",
+      "periodTextEn": "from Monday to Friday",
+      "periodLinesEn": [
+        "from Monday",
+        "to Friday"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "ski pass",
+        "instructor",
+        "nutrition"
+      ],
+      "ctaLabelEn": "Book tour"
     },
     {
       "id": 5,
@@ -2753,11 +3104,24 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/promo-01.jpg",
+      "image": "assets/images/news/news-05.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Eurobus Express",
+      "subtitleEn": "Chelyabinsk-Kusa",
+      "descriptionEn": "Transfer from Chelyabinsk to Kusa and back on the selected day.",
+      "periodTextEn": "daily",
+      "periodLinesEn": [
+        "Chelyabinsk-Kusa",
+        "daily"
+      ],
+      "featuresEn": [
+        "way there and back"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,200 rub."
     },
     {
       "id": 6,
@@ -2791,11 +3155,26 @@
       "discountText": "4 часа",
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/promo-02.jpg",
+      "image": "assets/images/news/news-06.jpg",
       "isActive": true,
-      "showOnHome": true,
+      "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Snowy Weekdays",
+      "subtitleEn": "rental + lift",
+      "descriptionEn": "A four-hour package with equipment rental and chairlift access on weekdays.",
+      "periodTextEn": "from Monday to Friday",
+      "periodLinesEn": [
+        "from Monday",
+        "to Friday"
+      ],
+      "featuresEn": [
+        "equipment rental",
+        "chairlift"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,400 rub.",
+      "discountTextEn": "4 hours"
     },
     {
       "id": 7,
@@ -2824,11 +3203,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/promo-03.jpg",
+      "image": "assets/images/news/news-07.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Evening Session",
+      "subtitleEn": "Saturday evening",
+      "descriptionEn": "An evening rental and lift rate for skiing after the daytime rush.",
+      "periodTextEn": "Saturday from 17.00 to 21.00",
+      "periodLinesEn": [
+        "Saturday",
+        "17.00-21.00"
+      ],
+      "featuresEn": [
+        "rental",
+        "lift"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,200 rub."
     },
     {
       "id": 8,
@@ -2856,11 +3249,24 @@
       "discountText": "пятница",
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/promo-04.jpg",
+      "image": "assets/images/news/news-08.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Friday Start",
+      "subtitleEn": "Friday skiing",
+      "descriptionEn": "A one-day Friday skiing package at a special pre-weekend price.",
+      "periodTextEn": "every friday",
+      "periodLinesEn": [
+        "every friday"
+      ],
+      "featuresEn": [
+        "ski pass for the day"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "900 rub.",
+      "discountTextEn": "Friday"
     },
     {
       "id": 9,
@@ -2894,11 +3300,24 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/promo-05.jpg",
+      "image": "assets/images/news/news-09.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Local Resident Rate",
+      "subtitleEn": "for Kusa residents",
+      "descriptionEn": "A special lift price for residents of Kusa and nearby towns.",
+      "periodTextEn": "according to the resident's document",
+      "periodLinesEn": [
+        "according to the document",
+        "resident"
+      ],
+      "featuresEn": [
+        "lift"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "350 rub."
     },
     {
       "id": 10,
@@ -2931,11 +3350,25 @@
       "discountText": "март",
       "validFrom": "2027-03-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/promo-08.jpg",
+      "image": "assets/images/news/news-10.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Soft Snow Season",
+      "subtitleEn": "March skiing",
+      "descriptionEn": "A soft March snow package with lift and rental for one day.",
+      "periodTextEn": "weekdays in March",
+      "periodLinesEn": [
+        "weekdays in March"
+      ],
+      "featuresEn": [
+        "lift",
+        "rental"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,100 rub.",
+      "discountTextEn": "March"
     },
     {
       "id": 11,
@@ -2971,11 +3404,26 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/tours/promo-07.jpg",
+      "image": "assets/images/news/news-11.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "All-Inclusive Lesson",
+      "subtitleEn": "instructor + rental",
+      "descriptionEn": "Instructor lesson, equipment rental and lift in one package.",
+      "periodTextEn": "any day of the season",
+      "periodLinesEn": [
+        "any day",
+        "season"
+      ],
+      "featuresEn": [
+        "instructor",
+        "rental",
+        "lift"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "2,100 rub."
     },
     {
       "id": 12,
@@ -3006,11 +3454,26 @@
       "discountText": "выходной",
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-08.jpg",
+      "image": "assets/images/news/news-12.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Skiing Coupon",
+      "subtitleEn": "weekend package",
+      "descriptionEn": "A weekend package with ski pass and rental for one guest.",
+      "periodTextEn": "Saturday and Sunday",
+      "periodLinesEn": [
+        "Saturday",
+        "and Sunday"
+      ],
+      "featuresEn": [
+        "ski pass",
+        "rental"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,500 rub.",
+      "discountTextEn": "day off"
     },
     {
       "id": 13,
@@ -3038,11 +3501,26 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/trails/trails-hero.jpg",
+      "image": "assets/images/news/news-13.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Забронировать тур",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Freeride Weekend",
+      "subtitleEn": "tour for advanced riders",
+      "descriptionEn": "A weekend tour with an instructor, technique review and skiing on prepared routes.",
+      "periodTextEn": "from Friday to Sunday",
+      "periodLinesEn": [
+        "from Friday",
+        "to Sunday"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "instructor",
+        "ski pass",
+        "rental"
+      ],
+      "ctaLabelEn": "Book tour"
     },
     {
       "id": 14,
@@ -3070,11 +3548,26 @@
       "oldPrice": null,
       "validFrom": "2027-01-12",
       "validTo": "2027-01-16",
-      "image": "assets/images/home/new-year-program.jpg",
+      "image": "assets/images/news/news-14.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Забронировать тур",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Holiday Slope",
+      "subtitleEn": "holiday tour",
+      "descriptionEn": "A holiday tour with accommodation, an evening program and skiing after the New Year break.",
+      "periodTextEn": "from January 12 to January 16",
+      "periodLinesEn": [
+        "January 12",
+        "January 16"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "ski pass",
+        "festive program",
+        "breakfasts"
+      ],
+      "ctaLabelEn": "Book tour"
     },
     {
       "id": 15,
@@ -3102,11 +3595,26 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/hotels/hotel-forest.jpg",
+      "image": "assets/images/news/news-15.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Забронировать тур",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Family Ski Tour",
+      "subtitleEn": "children and parents",
+      "descriptionEn": "A family tour with accommodation, a children's instructor and a relaxed skiing schedule.",
+      "periodTextEn": "from Saturday to Thursday",
+      "periodLinesEn": [
+        "from Saturday",
+        "to Thursday"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "children's instructor",
+        "rental",
+        "nutrition"
+      ],
+      "ctaLabelEn": "Book tour"
     },
     {
       "id": 16,
@@ -3134,11 +3642,26 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/hotels/hotel-mountain.jpg",
+      "image": "assets/images/news/news-16.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Забронировать тур",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Active Holidays",
+      "subtitleEn": "week-long tour",
+      "descriptionEn": "A week-long program with skiing, tubing, walks and accommodation near the slope.",
+      "periodTextEn": "from Sunday to Saturday",
+      "periodLinesEn": [
+        "from Sunday",
+        "to Saturday"
+      ],
+      "featuresEn": [
+        "accommodation",
+        "ski pass",
+        "tubing",
+        "walks"
+      ],
+      "ctaLabelEn": "Book tour"
     },
     {
       "id": 17,
@@ -3168,11 +3691,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/home/news-big-air.jpg",
+      "image": "assets/images/news/news-17.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Family Day on the Slope",
+      "subtitleEn": "package for 3 guests",
+      "descriptionEn": "A one-day family package with ski passes and rental for three guests.",
+      "periodTextEn": "weekends",
+      "periodLinesEn": [
+        "weekend",
+        "for family"
+      ],
+      "featuresEn": [
+        "3 ski passes",
+        "3 rental sets"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "6,200 rub."
     },
     {
       "id": 18,
@@ -3206,11 +3743,26 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/home/news-kusa.jpg",
+      "image": "assets/images/news/news-18.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "School Group",
+      "subtitleEn": "weekday trip",
+      "descriptionEn": "A school group package with instructor, rental and support on the training slope.",
+      "periodTextEn": "weekdays",
+      "periodLinesEn": [
+        "weekdays",
+        "for a group"
+      ],
+      "featuresEn": [
+        "instructor",
+        "rental",
+        "training slope"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "9,800 rub."
     },
     {
       "id": 19,
@@ -3240,11 +3792,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/home/bbq-area.jpg",
+      "image": "assets/images/news/news-19.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "BBQ After Skiing",
+      "subtitleEn": "recreation area",
+      "descriptionEn": "BBQ area booking for a group after skiing.",
+      "periodTextEn": "Friday and Saturday",
+      "periodLinesEn": [
+        "Friday",
+        "and Saturday"
+      ],
+      "featuresEn": [
+        "BBQ area",
+        "table for company"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,700 rub."
     },
     {
       "id": 20,
@@ -3279,11 +3845,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/trails/lift.jpg",
+      "image": "assets/images/news/news-20.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Chairlift",
+      "subtitleEn": "day pass",
+      "descriptionEn": "A day chairlift ticket for guests skiing without rental.",
+      "periodTextEn": "any day",
+      "periodLinesEn": [
+        "any day",
+        "lift"
+      ],
+      "featuresEn": [
+        "chairlift",
+        "day pass"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,800 rub."
     },
     {
       "id": 21,
@@ -3318,11 +3898,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/trails/tubing.jpg",
+      "image": "assets/images/news/news-21.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "All-Day Tubing",
+      "subtitleEn": "family area",
+      "descriptionEn": "An all-day tubing area ticket without hourly extension.",
+      "periodTextEn": "daily",
+      "periodLinesEn": [
+        "tubing",
+        "for the whole day"
+      ],
+      "featuresEn": [
+        "tubing zone",
+        "day ticket"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,900 rub."
     },
     {
       "id": 22,
@@ -3352,11 +3946,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-09.jpg",
+      "image": "assets/images/news/news-22.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Lift and Tea",
+      "subtitleEn": "short break",
+      "descriptionEn": "Day lift access and hot tea in the cafe after skiing.",
+      "periodTextEn": "weekend",
+      "periodLinesEn": [
+        "lift",
+        "and tea"
+      ],
+      "featuresEn": [
+        "lift",
+        "hot tea"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,300 rub."
     },
     {
       "id": 23,
@@ -3386,11 +3994,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-02.jpg",
+      "image": "assets/images/news/news-23.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Tubing for a Group",
+      "subtitleEn": "4 people",
+      "descriptionEn": "A tubing ticket set for a group of four guests.",
+      "periodTextEn": "Saturday and Sunday",
+      "periodLinesEn": [
+        "tubing",
+        "for 4 guests"
+      ],
+      "featuresEn": [
+        "4 tickets",
+        "1 hour riding"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "3,600 rub."
     },
     {
       "id": 24,
@@ -3420,11 +4042,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-03.jpg",
+      "image": "assets/images/news/news-24.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Children's Instructor",
+      "subtitleEn": "first lesson",
+      "descriptionEn": "A first lesson with a children's instructor on the training slope.",
+      "periodTextEn": "weekends",
+      "periodLinesEn": [
+        "first lesson",
+        "for a child"
+      ],
+      "featuresEn": [
+        "instructor",
+        "training slope"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "2,500 rub."
     },
     {
       "id": 25,
@@ -3459,11 +4095,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-04.jpg",
+      "image": "assets/images/hotels/hotel-city.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Ski Service",
+      "subtitleEn": "edge service",
+      "descriptionEn": "Edge sharpening and base waxing before skiing.",
+      "periodTextEn": "daily",
+      "periodLinesEn": [
+        "service",
+        "before skiing"
+      ],
+      "featuresEn": [
+        "sharpening",
+        "paraffin"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "800 rub."
     },
     {
       "id": 26,
@@ -3495,11 +4145,24 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-05.jpg",
+      "image": "assets/images/hotels/hotel-forest.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Early Ski Pass",
+      "subtitleEn": "until 12.00",
+      "descriptionEn": "A morning ski pass for guests who arrive before the main crowd.",
+      "periodTextEn": "weekdays until 12.00",
+      "periodLinesEn": [
+        "weekdays",
+        "until 12.00"
+      ],
+      "featuresEn": [
+        "morning ski pass"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "1,100 rub."
     },
     {
       "id": 27,
@@ -3534,11 +4197,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-06.jpg",
+      "image": "assets/images/hotels/hotel-mountain.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Slope Cafe",
+      "subtitleEn": "lunch after skiing",
+      "descriptionEn": "A set lunch in the cafe for guests spending the day on the slope.",
+      "periodTextEn": "daily",
+      "periodLinesEn": [
+        "dinner",
+        "after skating"
+      ],
+      "featuresEn": [
+        "hot dish",
+        "drink"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "950 rub."
     },
     {
       "id": 28,
@@ -3568,11 +4245,25 @@
       "oldPrice": null,
       "validFrom": "2026-12-01",
       "validTo": "2027-03-31",
-      "image": "assets/images/news/news-07.jpg",
+      "image": "assets/images/trails/tubing.jpg",
       "isActive": true,
       "showOnHome": false,
       "ctaLabel": "Заказать",
-      "canAddToCart": true
+      "canAddToCart": true,
+      "titleEn": "Beginner Group",
+      "subtitleEn": "mini group",
+      "descriptionEn": "A group lesson for beginner skiers and snowboarders.",
+      "periodTextEn": "weekend",
+      "periodLinesEn": [
+        "mini group",
+        "for beginners"
+      ],
+      "featuresEn": [
+        "instructor",
+        "training slope"
+      ],
+      "ctaLabelEn": "Order",
+      "priceTextEn": "2,200 rub."
     }
   ],
   "cart": [
@@ -3583,7 +4274,8 @@
       "itemId": 19,
       "title": "Индивидуальное занятие с инструктором",
       "price": 1800,
-      "quantity": 1
+      "quantity": 1,
+      "titleEn": "Individual lesson with an instructor"
     },
     {
       "id": 4,
@@ -3592,7 +4284,8 @@
       "itemId": 1,
       "title": "Снежные будни",
       "price": 1400,
-      "quantity": 2
+      "quantity": 2,
+      "titleEn": "Snowy Weekdays"
     },
     {
       "id": 5,
@@ -3601,7 +4294,8 @@
       "itemId": 25,
       "title": "Ватрушка",
       "price": 250,
-      "quantity": 3
+      "quantity": 3,
+      "titleEn": "Cheesecake"
     },
     {
       "id": 6,
@@ -3612,7 +4306,27 @@
       "price": 1200,
       "quantity": 1,
       "details": "суббота с 17.00 до 21.00",
-      "image": "assets/images/tours/promo-03.jpg"
+      "image": "assets/images/tours/promo-03.jpg",
+      "titleEn": "Evening Session",
+      "detailsEn": "Saturday from 17.00 to 21.00"
+    },
+    {
+      "userId": 1,
+      "itemType": "hotel",
+      "hotelId": 2,
+      "roomId": 6,
+      "title": "Корпус \"Горный\"",
+      "titleEn": "\"Mountain\" building",
+      "details": "Номер G-9 · 25.06.2026 - 27.06.2026",
+      "detailsEn": "Room G-9 · 06/25/2026 - 06/27/2026",
+      "checkIn": "2026-06-25",
+      "checkOut": "2026-06-27",
+      "guests": 5,
+      "price": 58000,
+      "quantity": 1,
+      "image": "assets/images/hotels/hotel-mountain.jpg",
+      "createdAt": "2026-06-10",
+      "id": 7
     }
   ],
   "orders": [
@@ -3630,7 +4344,10 @@
           "checkOut": "2026-12-19",
           "price": 35000,
           "quantity": 1,
-          "image": "assets/images/tours/tour-04.jpg"
+          "image": "assets/images/tours/tour-04.jpg",
+          "titleEn": "Your mountains",
+          "detailsEn": "14.12.2026 - 19.12.2026",
+          "periodTextEn": "from Monday to Sunday"
         }
       ],
       "totalPrice": 35000,
@@ -3653,7 +4370,10 @@
           "checkOut": null,
           "price": 1400,
           "quantity": 1,
-          "image": "assets/images/tours/promo-02.jpg"
+          "image": "assets/images/tours/promo-02.jpg",
+          "titleEn": "Snowy Weekdays",
+          "detailsEn": "from Monday to Friday",
+          "periodTextEn": "from Monday to Friday"
         },
         {
           "userId": 1,
@@ -3666,7 +4386,10 @@
           "checkOut": null,
           "price": 1200,
           "quantity": 1,
-          "image": "assets/images/tours/promo-01.jpg"
+          "image": "assets/images/tours/promo-01.jpg",
+          "titleEn": "Eurobus Express",
+          "detailsEn": "in 3 hours",
+          "periodTextEn": "in 3 hours"
         },
         {
           "userId": 1,
@@ -3679,7 +4402,10 @@
           "checkOut": null,
           "price": 1200,
           "quantity": 1,
-          "image": "assets/images/tours/promo-03.jpg"
+          "image": "assets/images/tours/promo-03.jpg",
+          "titleEn": "Tariff \"Block\"",
+          "detailsEn": "from 17.00 to 21.00",
+          "periodTextEn": "from 17.00 to 21.00"
         },
         {
           "userId": 1,
@@ -3692,7 +4418,10 @@
           "checkOut": null,
           "price": 75,
           "quantity": 1,
-          "image": "assets/images/tours/promo-05.jpg"
+          "image": "assets/images/tours/promo-05.jpg",
+          "titleEn": "Tariff \"Local\"",
+          "detailsEn": "from 10.00 to 14.00",
+          "periodTextEn": "from 10.00 to 14.00"
         },
         {
           "userId": 1,
@@ -3705,7 +4434,10 @@
           "checkOut": null,
           "price": 1100,
           "quantity": 1,
-          "image": "assets/images/tours/promo-08.jpg"
+          "image": "assets/images/tours/promo-08.jpg",
+          "titleEn": "Tariff \"Velvet Season\"",
+          "detailsEn": "seasonal rate",
+          "periodTextEn": "seasonal rate"
         },
         {
           "userId": 1,
@@ -3718,7 +4450,10 @@
           "checkOut": null,
           "price": 1500,
           "quantity": 1,
-          "image": "assets/images/tours/promo-08.jpg"
+          "image": "assets/images/tours/promo-08.jpg",
+          "titleEn": "Skiing Coupon",
+          "detailsEn": "coupon price",
+          "periodTextEn": "coupon price"
         }
       ],
       "totalPrice": 6475,
@@ -3741,7 +4476,10 @@
           "checkOut": "2027-01-17",
           "price": 39000,
           "quantity": 1,
-          "image": "assets/images/home/new-year-program.jpg"
+          "image": "assets/images/home/new-year-program.jpg",
+          "titleEn": "Holiday Slope",
+          "detailsEn": "12.01.2027 - 16.01.2027",
+          "periodTextEn": "from January 12 to January 16"
         }
       ],
       "bookingIds": [
@@ -3769,7 +4507,9 @@
           "price": 72000,
           "quantity": 1,
           "image": "assets/images/hotels/hotel-city.jpg",
-          "createdAt": "2026-05-24"
+          "createdAt": "2026-05-24",
+          "titleEn": "Building \"City\"",
+          "detailsEn": "Number 24 · 05/24/2026 - 05/27/2026"
         }
       ],
       "bookingIds": [
@@ -3797,7 +4537,9 @@
           "price": 18000,
           "quantity": 1,
           "image": "assets/images/hotels/hotel-city.jpg",
-          "createdAt": "2026-05-24"
+          "createdAt": "2026-05-24",
+          "titleEn": "Building \"City\"",
+          "detailsEn": "Number 18 · 05/29/2026 - 05/30/2026"
         }
       ],
       "bookingIds": [
@@ -3823,7 +4565,10 @@
           "checkOut": "2026-12-09",
           "price": 1400,
           "quantity": 2,
-          "image": "assets/images/tours/promo-02.jpg"
+          "image": "assets/images/tours/promo-02.jpg",
+          "titleEn": "Snowy Weekdays",
+          "detailsEn": "12/08/2026 Monday to Friday",
+          "periodTextEn": "from Monday to Friday"
         },
         {
           "userId": 1,
@@ -3836,7 +4581,10 @@
           "checkOut": "2026-12-28",
           "price": 22000,
           "quantity": 1,
-          "image": "assets/images/trails/trails-hero.jpg"
+          "image": "assets/images/trails/trails-hero.jpg",
+          "titleEn": "Freeride Weekend",
+          "detailsEn": "25.12.2026 - 27.12.2026",
+          "periodTextEn": "from Friday to Sunday"
         }
       ],
       "bookingIds": [
@@ -3865,7 +4613,9 @@
           "price": 261000,
           "quantity": 1,
           "image": "assets/images/hotels/hotel-mountain.jpg",
-          "createdAt": "2026-05-24"
+          "createdAt": "2026-05-24",
+          "titleEn": "\"Mountain\" building",
+          "detailsEn": "Number G-9 · 05/29/2026 - 06/07/2026"
         }
       ],
       "bookingIds": [
@@ -3893,7 +4643,9 @@
           "price": 108000,
           "quantity": 1,
           "image": "assets/images/hotels/hotel-forest.jpg",
-          "createdAt": "2026-05-25"
+          "createdAt": "2026-05-25",
+          "titleEn": "Building \"Lesnoy\"",
+          "detailsEn": "Number House-1 · 05/28/2026 - 05/31/2026"
         }
       ],
       "bookingIds": [
@@ -3921,7 +4673,9 @@
           "price": 18000,
           "quantity": 1,
           "image": "assets/images/hotels/hotel-city.jpg",
-          "createdAt": "2026-05-26"
+          "createdAt": "2026-05-26",
+          "titleEn": "Building \"City\"",
+          "detailsEn": "Number 18 · 05/28/2026 - 05/29/2026"
         },
         {
           "userId": 10,
@@ -3934,7 +4688,10 @@
           "checkOut": "2027-01-24",
           "price": 25000,
           "quantity": 1,
-          "image": "assets/images/tours/tour-01.jpg"
+          "image": "assets/images/tours/tour-01.jpg",
+          "titleEn": "Snowy Weekdays Light",
+          "detailsEn": "17.01.2027 - 23.01.2027",
+          "periodTextEn": "from Sunday to Wednesday"
         }
       ],
       "bookingIds": [
@@ -3961,7 +4718,10 @@
           "checkOut": "2026-12-14",
           "price": 18000,
           "quantity": 1,
-          "image": "assets/images/tours/tour-02.jpg"
+          "image": "assets/images/tours/tour-02.jpg",
+          "titleEn": "Slope Weekend",
+          "detailsEn": "11.12.2026 - 13.12.2026",
+          "periodTextEn": "from Friday to Sunday"
         }
       ],
       "bookingIds": [
@@ -3987,7 +4747,10 @@
           "checkOut": "2027-01-01",
           "price": 1200,
           "quantity": 1,
-          "image": "assets/images/tours/promo-01.jpg"
+          "image": "assets/images/tours/promo-01.jpg",
+          "titleEn": "Eurobus Express",
+          "detailsEn": "12/31/2026 daily",
+          "periodTextEn": "daily"
         }
       ],
       "bookingIds": [
@@ -4013,7 +4776,10 @@
           "checkOut": "2026-12-21",
           "price": 18000,
           "quantity": 1,
-          "image": "assets/images/tours/tour-02.jpg"
+          "image": "assets/images/tours/tour-02.jpg",
+          "titleEn": "Slope Weekend",
+          "detailsEn": "18.12.2026 - 20.12.2026",
+          "periodTextEn": "from Friday to Sunday"
         }
       ],
       "bookingIds": [

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Новости — ЦАО Евразия</title>
+  <title data-i18n="text.82c4355d2998">Новости — ЦАО Евразия</title>
   <link rel="stylesheet" href="../../css/normalize.css">
   <link rel="stylesheet" href="../../css/variables.css">
   <link rel="stylesheet" href="../../css/base.css?v=7">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../css/auth.css?v=13">
   <link rel="stylesheet" href="../../css/admin.css?v=3">
   <link rel="stylesheet" href="news.css?v=1">
+  <script src="../../js/translate.js?v=1" defer></script>
   <script src="../../js/admin-ui.js?v=3" defer></script>
   <script src="../../js/pages/news.js?v=3" defer></script>
   <script src="../../js/pages/auth.js?v=21" defer></script>
@@ -20,75 +21,75 @@
 <body class="theme-light">
   <header class="site-header">
     <div class="container header-container">
-      <a class="logo" href="../../index.html" aria-label="Евразия — на главную">
+      <a class="logo" href="../../index.html" aria-label="Евразия — на главную" data-i18n-aria-label="text.c2a4e19b800c">
         <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
-        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия" data-i18n-alt="text.a69ffe88eb7c">
       </a>
 
-      <nav class="main-nav" aria-label="Основная навигация">
-        <a href="../trails/trails.html">Трассы</a>
-        <a href="../hotels/hotels.html">Проживание</a>
-        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
-        <a href="../cart/cart.html">Корзина</a>
-        <a href="../account/account.html" data-auth-link>Вход</a>
+      <nav class="main-nav" aria-label="Основная навигация" data-i18n-aria-label="text.97d8a7543067">
+        <a href="../trails/trails.html" data-i18n="text.66ea8eb264be">Трассы</a>
+        <a href="../hotels/hotels.html" data-i18n="text.d0efd3ad5604">Проживание</a>
+        <a href="../tariffs/tariffs.html" data-i18n="text.f42c68482b0c">Услуги и тарифы</a>
+        <a href="../cart/cart.html" data-i18n="text.d9e801f1ec38">Корзина</a>
+        <a href="../account/account.html" data-auth-link data-i18n="text.07205a06c301">Вход</a>
       </nav>
 
       <div class="header-side">
-        <div class="header-phones" aria-label="Телефоны">
+        <div class="header-phones" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
           <a class="header-phone" href="tel:+79227288288">+79227288288</a>
           <a class="header-phone" href="tel:+73513790979">+73513790979</a>
         </div>
-        <div class="user-settings" aria-label="Настройки сайта">
+        <div class="user-settings" aria-label="Настройки сайта" data-i18n-aria-label="text.e8df23a5be44">
           <button class="settings-button" type="button">RU | EN</button>
-          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle></button>
-          <button class="settings-button" type="button" aria-label="Версия для слабовидящих">A+</button>
+          <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle data-i18n-aria-label="text.e8902e85703e"></button>
+          <button class="settings-button" type="button" aria-label="Версия для слабовидящих" data-i18n-aria-label="text.4a019f49673b">A+</button>
         </div>
       </div>
 
       <div class="mobile-menu">
         <input class="mobile-menu__toggle" type="checkbox" id="mobile-menu-toggle">
-        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню">
+        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню" data-i18n-aria-label="text.72374bf6be92">
           <span></span>
           <span></span>
           <span></span>
         </label>
         <span class="mobile-menu__overlay" aria-hidden="true"></span>
-        <nav class="mobile-menu__panel" aria-label="Мобильная навигация">
-          <a class="mobile-menu__item" href="../trails/trails.html" aria-label="Трассы">
+        <nav class="mobile-menu__panel" aria-label="Мобильная навигация" data-i18n-aria-label="text.540810aa4386">
+          <a class="mobile-menu__item" href="../trails/trails.html" aria-label="Трассы" data-i18n-aria-label="text.66ea8eb264be">
             <span class="mobile-menu__icon" aria-hidden="true">
               <img src="../../assets/images/common/icons/menu-cable-car.png" alt="">
             </span>
-            <span class="mobile-menu__text">Трассы</span>
+            <span class="mobile-menu__text" data-i18n="text.66ea8eb264be">Трассы</span>
           </a>
-          <a class="mobile-menu__item" href="../hotels/hotels.html" aria-label="Проживание">
+          <a class="mobile-menu__item" href="../hotels/hotels.html" aria-label="Проживание" data-i18n-aria-label="text.d0efd3ad5604">
             <span class="mobile-menu__icon" aria-hidden="true">
               <img src="../../assets/images/common/icons/menu-home.png" alt="">
             </span>
-            <span class="mobile-menu__text">Проживание</span>
+            <span class="mobile-menu__text" data-i18n="text.d0efd3ad5604">Проживание</span>
           </a>
-          <a class="mobile-menu__item" href="../tariffs/tariffs.html" aria-label="Услуги и тарифы">
+          <a class="mobile-menu__item" href="../tariffs/tariffs.html" aria-label="Услуги и тарифы" data-i18n-aria-label="text.f42c68482b0c">
             <span class="mobile-menu__icon" aria-hidden="true">
               <img src="../../assets/images/common/icons/menu-tickets.png" alt="">
             </span>
-            <span class="mobile-menu__text">Услуги и тарифы</span>
+            <span class="mobile-menu__text" data-i18n="text.f42c68482b0c">Услуги и тарифы</span>
           </a>
-          <a class="mobile-menu__item" href="../cart/cart.html" aria-label="Корзина">
+          <a class="mobile-menu__item" href="../cart/cart.html" aria-label="Корзина" data-i18n-aria-label="text.d9e801f1ec38">
             <span class="mobile-menu__icon" aria-hidden="true">
               <img src="../../assets/images/common/icons/menu-cart.png" alt="">
             </span>
-            <span class="mobile-menu__text">Корзина</span>
+            <span class="mobile-menu__text" data-i18n="text.d9e801f1ec38">Корзина</span>
           </a>
-          <a class="mobile-menu__item" href="../account/account.html" aria-label="Вход" data-auth-link>
+          <a class="mobile-menu__item" href="../account/account.html" aria-label="Вход" data-auth-link data-i18n-aria-label="text.07205a06c301">
             <span class="mobile-menu__icon" aria-hidden="true">
               <img src="../../assets/images/common/icons/menu-user.png" alt="">
             </span>
-            <span class="mobile-menu__text">Вход</span>
+            <span class="mobile-menu__text" data-i18n="text.07205a06c301">Вход</span>
           </a>
           <span class="mobile-menu__divider" aria-hidden="true"></span>
           <button class="mobile-menu__control" type="button">RU</button>
           <button class="mobile-menu__control" type="button">EN</button>
           <button class="mobile-menu__control" type="button">A+</button>
-          <button class="mobile-menu__control" type="button" aria-label="Переключить тему" data-theme-toggle></button>
+          <button class="mobile-menu__control" type="button" aria-label="Переключить тему" data-theme-toggle data-i18n-aria-label="text.e8902e85703e"></button>
         </nav>
       </div>
     </div>
@@ -99,7 +100,7 @@
       <div class="container">
         <article class="news-hero__card">
           <div class="news-hero__content">
-            <h1 id="news-title">Новости</h1>
+            <h1 id="news-title" data-i18n="text.43a387c8c183">Новости</h1>
           </div>
         </article>
       </div>
@@ -107,33 +108,33 @@
 
     <section class="news-list-section section" aria-labelledby="news-list-title">
       <div class="container">
-        <h2 id="news-list-title" class="visually-hidden">Список новостей</h2>
+        <h2 id="news-list-title" class="visually-hidden" data-i18n="text.029633e0d18b">Список новостей</h2>
         <div class="news-list" data-news-list>
-          <p class="news-message">Загрузка новостей...</p>
+          <p class="news-message" data-i18n="text.dc8eed2209f6">Загрузка новостей...</p>
         </div>
-        <nav class="news-pagination" aria-label="Пагинация новостей" data-news-pagination hidden>
+        <nav class="news-pagination" aria-label="Пагинация новостей" data-news-pagination hidden data-i18n-aria-label="text.3492d7d15fbc">
           <button class="news-pagination__button" type="button" data-news-prev>
             <img src="../../assets/images/common/icons/arrow-left.svg" alt="">
-            <span>Назад</span>
+            <span data-i18n="text.f6dab074d7bb">Назад</span>
           </button>
           <div class="news-pagination__pages" data-news-pages></div>
           <button class="news-pagination__button" type="button" data-news-next>
-            <span>Далее</span>
+            <span data-i18n="text.9c714cf25e2c">Далее</span>
             <img src="../../assets/images/common/icons/arrow-right.svg" alt="">
           </button>
         </nav>
       </div>
     </section>
 
-    <section class="social-section" aria-label="Социальные сети">
+    <section class="social-section" aria-label="Социальные сети" data-i18n-aria-label="text.c52944e53331">
       <div class="social-links">
-        <a href="https://vk.com" aria-label="ВКонтакте" target="_blank" rel="noopener">
+        <a href="https://vk.com" aria-label="ВКонтакте" target="_blank" rel="noopener" data-i18n-aria-label="text.7e0b815e660e">
           <img src="../../assets/images/common/icons/vk.png" alt="">
         </a>
         <a href="https://www.youtube.com" aria-label="YouTube" target="_blank" rel="noopener">
           <img src="../../assets/images/common/icons/youtube.png" alt="">
         </a>
-        <a href="../contacts/contacts.html" aria-label="Контакты">
+        <a href="../contacts/contacts.html" aria-label="Контакты" data-i18n-aria-label="text.dba0fcb2cbbb">
           <img src="../../assets/images/common/icons/zen.png" alt="">
         </a>
       </div>
@@ -157,31 +158,31 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия — на главную">
+      <a class="logo footer-logo" href="../../index.html" aria-label="Евразия — на главную" data-i18n-aria-label="text.c2a4e19b800c">
         <img class="logo__mark" src="../../assets/images/common/logo-mark.png" alt="">
-        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия">
+        <img class="logo__text" src="../../assets/images/common/logo-text.png" alt="Евразия" data-i18n-alt="text.a69ffe88eb7c">
       </a>
 
       <section class="footer-block" aria-labelledby="footer-hours">
-        <h2 id="footer-hours">Режим работы:</h2>
-        <p>Пн-пт: 10.00-21.00</p>
-        <p>Сб-вс 9.00-21.00</p>
+        <h2 id="footer-hours" data-i18n="text.0ac431277a1a">Режим работы:</h2>
+        <p data-i18n="text.a1b6829178f0">Пн-пт: 10.00-21.00</p>
+        <p data-i18n="text.504e4692529d">Сб-вс 9.00-21.00</p>
       </section>
 
       <section class="footer-block footer-block--wide" aria-labelledby="footer-contacts">
-        <h2 id="footer-contacts">Контакты</h2>
-        <p>Всесезонный центр спорта и отдыха находится в рекреационной зоне на границе с заповедниками «Таганай» и «Зюраткуль» всего в 30 минутах езды от Златоуста, и в 1,5 часах от Челябинска.</p>
+        <h2 id="footer-contacts" data-i18n="text.dba0fcb2cbbb">Контакты</h2>
+        <p data-i18n="text.d85e6ac7c343">Всесезонный центр спорта и отдыха находится в рекреационной зоне на границе с заповедниками «Таганай» и «Зюраткуль» всего в 30 минутах езды от Златоуста, и в 1,5 часах от Челябинска.</p>
       </section>
 
-      <nav class="footer-nav" aria-label="Разделы сайта">
-        <a href="../trails/trails.html">Трассы</a>
-        <a href="../hotels/hotels.html">Проживание</a>
-        <a href="../tariffs/tariffs.html">Услуги и тарифы</a>
-        <a href="../tours/tours.html">Туры и акции</a>
-        <a href="../contacts/contacts.html">Контакты</a>
+      <nav class="footer-nav" aria-label="Разделы сайта" data-i18n-aria-label="text.887087a5d1e7">
+        <a href="../trails/trails.html" data-i18n="text.66ea8eb264be">Трассы</a>
+        <a href="../hotels/hotels.html" data-i18n="text.d0efd3ad5604">Проживание</a>
+        <a href="../tariffs/tariffs.html" data-i18n="text.f42c68482b0c">Услуги и тарифы</a>
+        <a href="../tours/tours.html" data-i18n="text.1455754ccf41">Туры и акции</a>
+        <a href="../contacts/contacts.html" data-i18n="text.dba0fcb2cbbb">Контакты</a>
       </nav>
 
-      <div class="footer-phones" aria-label="Телефоны">
+      <div class="footer-phones" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
         <a href="tel:+79227288288">+79227288288</a>
         <a href="tel:+73513790979">+73513790979</a>
       </div>

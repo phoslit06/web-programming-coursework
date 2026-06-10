@@ -1,20 +1,6 @@
 const TOURS_API_URL = "http://localhost:3000";
 const TOURS_CURRENT_USER_KEY = "eurasiaCurrentUser";
 const TOURS_ASSET_PREFIX = "../../";
-const TOURS_MONTHS = [
-  "январь",
-  "февраль",
-  "март",
-  "апрель",
-  "май",
-  "июнь",
-  "июль",
-  "август",
-  "сентябрь",
-  "октябрь",
-  "ноябрь",
-  "декабрь"
-];
 const TOURS_DAY_NAMES = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 const TOURS_DAY_OPTIONS = [
   { value: "monday", label: "Понедельник", short: "пн" },
@@ -250,7 +236,7 @@ function createPaginationPageButton(text, groupName, pageNumber, page, active = 
   button.className = "tours-pagination__page";
   button.type = "button";
   button.textContent = text;
-  button.setAttribute("aria-label", `Страница ${text}`);
+  button.setAttribute("aria-label", `${window.getCurrentLanguage?.() === "en" ? "Page" : "Страница"} ${text}`);
   button.classList.toggle("is-active", active);
 
   if (active) {
@@ -323,16 +309,18 @@ function createTourCard(page, template, item) {
   card.classList.add(item.type === "tour" ? "tour-card--tour" : "tour-card--promotion");
   card.dataset.itemId = String(item.id);
   image.src = resolveToursAssetPath(item.image);
-  image.alt = item.title;
-  title.textContent = item.title;
-  subtitle.textContent = item.subtitle || getItemTypeTitle(item);
+  const itemTitle = getTourField(item, "title");
+  image.alt = itemTitle;
+  title.textContent = itemTitle;
+  subtitle.textContent = getTourField(item, "subtitle") || getItemTypeTitle(item);
 
   renderPeriod(period, item);
-  renderFeatures(features, item.features);
+  renderFeatures(features, getTourField(item, "features"));
   renderDuration(duration, item);
   renderPrice(price, item);
 
-  button.textContent = item.ctaLabel || (item.type === "tour" ? "Забронировать тур" : "Заказать");
+  button.textContent = getTourField(item, "ctaLabel")
+    || translateTourText(item.type === "tour" ? "Забронировать тур" : "Заказать");
   button.disabled = item.canAddToCart === false;
 
   if (item.canAddToCart === false) {
@@ -462,13 +450,18 @@ async function getTourEditorData(type, item = {}) {
     title: item.id ? "Редактировать предложение" : "Новое предложение",
     submitText: item.id ? "Сохранить" : "Добавить",
     fields: [
-      { name: "title", label: "Название", value: item.title || "", required: true },
-      { name: "subtitle", label: "Подзаголовок", value: item.subtitle || getItemTypeTitle({ type }), required: true },
-      { name: "description", label: "Описание", type: "textarea", value: item.description || "", required: true },
-      { name: "periodText", label: "Период или условие", value: item.periodText || "", required: true },
+      { name: "title", label: `${translateTourText("Название")} (RU)`, value: item.title || "", required: true },
+      { name: "titleEn", label: `${translateTourText("Название")} (EN)`, value: item.titleEn || "", required: true },
+      { name: "subtitle", label: `${translateTourText("Подзаголовок")} (RU)`, value: item.subtitle || getItemTypeTitle({ type }), required: true },
+      { name: "subtitleEn", label: `${translateTourText("Подзаголовок")} (EN)`, value: item.subtitleEn || (isTour ? "Ski tour" : "Special offer"), required: true },
+      { name: "description", label: `${translateTourText("Описание")} (RU)`, type: "textarea", value: item.description || "", required: true },
+      { name: "descriptionEn", label: `${translateTourText("Описание")} (EN)`, type: "textarea", value: item.descriptionEn || "", required: true },
+      { name: "periodText", label: `${translateTourText("Период или условие")} (RU)`, value: item.periodText || "", required: true },
+      { name: "periodTextEn", label: `${translateTourText("Период или условие")} (EN)`, value: item.periodTextEn || "", required: true },
       { name: "image", label: "Выберите изображение", type: "file", accept: "image/*", value: item.image || "assets/images/tours/tour-01.jpg", required: true },
       { name: "price", label: "Цена", type: "number", min: 0, step: 1, value: item.price || 1000, required: true },
-      { name: "featuresText", label: "Состав через запятую", type: "textarea", value: Array.isArray(item.features) ? item.features.join(", ") : "" },
+      { name: "featuresText", label: `${translateTourText("Состав через запятую")} (RU)`, type: "textarea", value: Array.isArray(item.features) ? item.features.join(", ") : "", required: true },
+      { name: "featuresTextEn", label: `${translateTourText("Состав через запятую")} (EN)`, type: "textarea", value: Array.isArray(item.featuresEn) ? item.featuresEn.join(", ") : "", required: true },
       { name: "validFrom", label: "Действует с", type: "date", value: item.validFrom || "2026-12-01", required: true },
       { name: "validTo", label: "Действует до", type: "date", value: item.validTo || "2027-03-31", required: true },
       { name: "availableDays", label: "Дни бронирования", type: "checkboxes", options: TOURS_DAY_OPTIONS, value: getEditorAvailableDays(type, item), required: true },
@@ -483,21 +476,33 @@ async function getTourEditorData(type, item = {}) {
 
   const availableDays = normalizeEditorDays(data.availableDays);
   const periodLines = getEditorPeriodLines(data.periodText, data.validFrom, data.validTo, availableDays);
+  const periodLinesEn = getEditorPeriodLines(data.periodTextEn, data.validFrom, data.validTo, availableDays);
 
   return {
     title: data.title.trim(),
+    titleEn: data.titleEn.trim(),
     type: isTour ? "tour" : "promotion",
     subtitle: data.subtitle.trim(),
+    subtitleEn: data.subtitleEn.trim(),
     description: data.description.trim(),
+    descriptionEn: data.descriptionEn.trim(),
     periodType: getPeriodTypeByDays(availableDays),
     periodText: data.periodText.trim(),
+    periodTextEn: data.periodTextEn.trim(),
     periodLines,
+    periodLinesEn,
     features: String(data.featuresText || "").split(",").map((line) => line.trim()).filter(Boolean),
+    featuresEn: String(data.featuresTextEn || "").split(",").map((line) => line.trim()).filter(Boolean),
     durationDays: isTour ? Number(data.durationDays) : null,
     durationNights: isTour ? Number(data.durationNights) : null,
     bookingLengthDays: isTour ? Number(data.durationDays) : 1,
     price: Number(data.price),
     priceText: `${Number(data.price).toLocaleString("ru-RU")} руб.`,
+    priceTextEn: new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "RUB",
+      maximumFractionDigits: 0
+    }).format(Number(data.price)),
     discountText: item.discountText || "",
     validFrom: data.validFrom || item.validFrom || "2026-12-01",
     validTo: data.validTo || item.validTo || "2027-03-31",
@@ -507,6 +512,7 @@ async function getTourEditorData(type, item = {}) {
     isActive: item.isActive !== false,
     showOnHome: item.showOnHome === true,
     ctaLabel: isTour ? "Забронировать тур" : "Заказать",
+    ctaLabelEn: isTour ? "Book tour" : "Order",
     canAddToCart: true
   };
 }
@@ -604,7 +610,9 @@ function getEditorDaysLine(days) {
 function renderPeriod(container, item) {
   container.replaceChildren();
 
-  const lines = Array.isArray(item.periodLines) && item.periodLines.length ? item.periodLines : [item.periodText].filter(Boolean);
+  const localizedLines = getTourField(item, "periodLines");
+  const periodText = getTourField(item, "periodText");
+  const lines = Array.isArray(localizedLines) && localizedLines.length ? localizedLines : [periodText].filter(Boolean);
 
   lines.forEach((line) => {
     const span = document.createElement("span");
@@ -671,13 +679,16 @@ function createDurationItem(value, label) {
 function renderPrice(container, item) {
   container.replaceChildren();
 
-  if (item.type === "tour" || !item.priceText || item.priceText === item.periodText) {
+  const priceText = getTourField(item, "priceText");
+  const periodText = getTourField(item, "periodText");
+
+  if (item.type === "tour" || !priceText || priceText === periodText) {
     container.hidden = true;
     return;
   }
 
   const main = document.createElement("strong");
-  main.textContent = item.priceText;
+  main.textContent = priceText;
   container.append(main);
 
   if (shouldShowPriceNote(item)) {
@@ -747,11 +758,11 @@ function openBookingModal(page, item, user, message) {
     selectedDate: null
   };
 
-  page.bookingTitle.textContent = item.title;
-  page.bookingText.textContent = `${item.periodText}. Выберите ${item.type === "tour" ? "дату начала тура" : "дату акции"}.`;
-  page.bookingHint.textContent = item.type === "tour"
+  page.bookingTitle.textContent = getTourField(item, "title");
+  page.bookingText.textContent = `${getTourField(item, "periodText")}. ${translateTourText(item.type === "tour" ? "Выберите дату начала тура" : "Выберите дату акции")}.`;
+  page.bookingHint.textContent = translateTourText(item.type === "tour"
     ? "Серые даты недоступны по условиям тура."
-    : "Серые даты недоступны по условиям акции.";
+    : "Серые даты недоступны по условиям акции.");
   page.bookingSelected.textContent = "";
   page.bookingSubmit.disabled = true;
   page.bookingModal.hidden = false;
@@ -793,7 +804,10 @@ function renderBookingCalendar(page) {
   }
 
   page.bookingCalendar.replaceChildren();
-  page.bookingMonth.textContent = `${TOURS_MONTHS[month.getMonth()]} ${month.getFullYear()}`;
+  page.bookingMonth.textContent = new Intl.DateTimeFormat(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU", {
+    month: "long",
+    year: "numeric"
+  }).format(month);
 
   const monthStart = new Date(month.getFullYear(), month.getMonth(), 1);
   const calendarStart = addDays(monthStart, -getMondayIndex(monthStart));
@@ -827,7 +841,9 @@ function renderBookingCalendar(page) {
 function selectBookingDate(page, date) {
   bookingState.selectedDate = stripTime(date);
   const finish = getItemFinishDate(bookingState.item, bookingState.selectedDate);
-  page.bookingSelected.textContent = `Выбрано: ${getBookingDetails(bookingState.item, bookingState.selectedDate, finish)}`;
+  page.bookingSelected.textContent = translateTourText(
+    `Выбрано: ${getBookingDetails(bookingState.item, bookingState.selectedDate, finish)}`
+  );
   page.bookingSubmit.disabled = false;
   renderBookingCalendar(page);
 }
@@ -845,7 +861,7 @@ async function submitTourBooking(page) {
   const details = getBookingDetails(item, start, finish);
 
   page.bookingSubmit.disabled = true;
-  page.bookingSubmit.textContent = "Добавляем...";
+  page.bookingSubmit.textContent = translateTourText("Добавляем...");
 
   try {
     await addTourItemToCart(item, user, {
@@ -861,9 +877,9 @@ async function submitTourBooking(page) {
     closeBookingModal(page);
   } catch (error) {
     console.error("Не удалось добавить предложение в корзину:", error);
-    page.bookingSelected.textContent = "Не удалось добавить предложение. Проверьте JSON Server.";
+    page.bookingSelected.textContent = translateTourText("Не удалось добавить предложение. Проверьте JSON Server.");
   } finally {
-    page.bookingSubmit.textContent = "Добавить в корзину";
+    page.bookingSubmit.textContent = translateTourText("Добавить в корзину");
     page.bookingSubmit.disabled = !bookingState.selectedDate;
   }
 }
@@ -999,7 +1015,7 @@ function isBookingRangeBusy(start, finish) {
 
 async function addTourItemToCart(item, user, booking = {}) {
   const itemType = item.type === "tour" ? "tour" : "promotion";
-  const details = booking.details || item.periodText || item.subtitle || "";
+  const details = booking.details || getTourField(item, "periodText") || getTourField(item, "subtitle") || "";
   const existing = await fetchToursJson(`${TOURS_API_URL}/cart?userId=${user.id}&itemType=${itemType}&itemId=${item.id}`);
   const sameItem = existing.find((current) => String(current.details || "") === details);
 
@@ -1026,8 +1042,11 @@ async function addTourItemToCart(item, user, booking = {}) {
       itemType,
       itemId: item.id,
       title: item.title,
+      titleEn: item.titleEn || item.title,
       details,
+      detailsEn: getBookingDetails(item, parseInputDate(booking.checkIn), parseInputDate(booking.checkOut), "en-US"),
       periodText: item.periodText || "",
+      periodTextEn: item.periodTextEn || item.periodText || "",
       checkIn: booking.checkIn || null,
       checkOut: booking.checkOut || null,
       price: Number(item.price || 0),
@@ -1117,24 +1136,35 @@ function formatInputDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-function formatDisplayDate(date) {
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = date.getFullYear();
-
-  return `${day}.${month}.${year}`;
+function formatDisplayDate(date, locale) {
+  return new Intl.DateTimeFormat(locale || (window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU"), {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  }).format(date);
 }
 
 function getItemFinishDate(item, start) {
   return addDays(start, Number(item.bookingLengthDays || item.durationDays || 1));
 }
 
-function getBookingDetails(item, start, finish) {
+function getBookingDetails(item, start, finish, locale) {
   if (item.type !== "tour") {
-    return `${formatDisplayDate(start)} · ${item.periodText || item.subtitle || "акция"}`;
+    const text = locale === "en-US"
+      ? item.periodTextEn || item.subtitleEn || "special offer"
+      : getTourField(item, "periodText") || getTourField(item, "subtitle") || "акция";
+    return `${formatDisplayDate(start, locale)} · ${text}`;
   }
 
-  return `${formatDisplayDate(start)} - ${formatDisplayDate(addDays(finish, -1))}`;
+  return `${formatDisplayDate(start, locale)} - ${formatDisplayDate(addDays(finish, -1), locale)}`;
+}
+
+function getTourField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
+}
+
+function translateTourText(text) {
+  return window.translateUiText ? window.translateUiText(text) : text;
 }
 
 function getDayName(date) {

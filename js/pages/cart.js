@@ -37,7 +37,7 @@ async function initCartPage() {
     console.error(error);
     layout.hidden = true;
     state.hidden = false;
-    state.textContent = "Не удалось загрузить корзину. Проверьте JSON Server.";
+    state.textContent = translateCartText("Не удалось загрузить корзину. Проверьте JSON Server.");
   }
 }
 
@@ -45,8 +45,8 @@ function renderCartLoginState(state) {
   state.hidden = false;
   state.replaceChildren();
   state.append(
-    createCartText("Чтобы посмотреть корзину, нужно войти."),
-    createCartButton("Войти", "button button--primary", { openLogin: "" })
+    createCartText(translateCartText("Чтобы посмотреть корзину, нужно войти.")),
+    createCartButton(translateCartText("Войти"), "button button--primary", { openLogin: "" })
   );
 }
 
@@ -66,7 +66,7 @@ function renderCart(items, user) {
     sessionStorage.removeItem(CART_MESSAGE_KEY);
     layout.hidden = true;
     state.hidden = false;
-    state.textContent = savedMessage || "Корзина пока пустая.";
+    state.textContent = translateCartText(savedMessage || "Корзина пока пустая.");
     return;
   }
 
@@ -86,12 +86,13 @@ function createCartCard(item) {
   const image = document.createElement("img");
   image.className = "cart-card__image";
   image.src = resolveCartAssetPath(item.image || CART_IMAGE);
-  image.alt = item.title;
+  const itemTitle = getCartField(item, "title");
+  image.alt = itemTitle;
 
   const content = document.createElement("div");
   content.className = "cart-card__content";
   content.append(
-    createCartElement("h2", item.title, "cart-card__title"),
+    createCartElement("h2", itemTitle, "cart-card__title"),
     createCartDetails(item),
     createCartElement("strong", formatCartPrice(getCartItemTotal(item)), "cart-card__price")
   );
@@ -99,7 +100,7 @@ function createCartCard(item) {
   const deleteButton = document.createElement("button");
   deleteButton.className = "cart-card__delete";
   deleteButton.type = "button";
-  deleteButton.setAttribute("aria-label", `Удалить ${item.title}`);
+  deleteButton.setAttribute("aria-label", `${translateCartText("Удалить")} ${itemTitle}`);
   deleteButton.innerHTML = `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M3 6h18" />
@@ -120,8 +121,8 @@ function createCartDetails(item) {
   details.className = "cart-card__details";
   const values = [
     translateCartType(item.itemType),
-    item.details,
-    `Количество: ${Number(item.quantity || 1)}`,
+    getCartField(item, "details"),
+    translateCartText(`Количество: ${Number(item.quantity || 1)}`),
     formatCartPrice(Number(item.price || 0))
   ].filter(Boolean);
 
@@ -134,7 +135,7 @@ function updateCartSummary(items) {
   const quantity = items.reduce((sum, item) => sum + Number(item.quantity || 1), 0);
   const total = items.reduce((sum, item) => sum + getCartItemTotal(item), 0);
 
-  document.querySelector("[data-summary-count]").textContent = `Товары, ${quantity}шт`;
+  document.querySelector("[data-summary-count]").textContent = translateCartText(`Товары, ${quantity}шт`);
   document.querySelector("[data-summary-subtotal]").textContent = formatCartPrice(total);
   document.querySelector("[data-summary-total]").textContent = formatCartPrice(total);
 }
@@ -145,7 +146,7 @@ async function removeCartItem(id) {
     await initCartPage();
   } catch (error) {
     console.error(error);
-    showOrderMessage("Не удалось удалить товар.", true);
+    showOrderMessage(translateCartText("Не удалось удалить товар."), true);
   }
 }
 
@@ -225,7 +226,7 @@ async function createOrder(paymentStatus, givenItems, givenUser) {
   paymentButtons.forEach((button) => {
     button.disabled = true;
   });
-  showOrderMessage("Оформляем бронирование...");
+  showOrderMessage(translateCartText("Оформляем бронирование..."));
 
   try {
     const bookings = await Promise.all(items.map((item) => createBookingFromCartItem(item, user, paymentStatus)));
@@ -247,8 +248,11 @@ async function createOrder(paymentStatus, givenItems, givenUser) {
 
     await Promise.all(items.map((item) => fetchCartJson(`${CART_API_URL}/cart/${item.id}`, { method: "DELETE" })));
     closePaymentModal();
-    const paymentText = paymentStatus === "paid" ? "Оплачено" : "Ожидает оплаты";
-    sessionStorage.setItem(CART_MESSAGE_KEY, `Бронирование оформлено. Статус оплаты: ${paymentText}.`);
+    const paymentText = translateCartText(paymentStatus === "paid" ? "Оплачено" : "Ожидает оплаты");
+    sessionStorage.setItem(
+      CART_MESSAGE_KEY,
+      translateCartText(`Бронирование оформлено. Статус оплаты: ${paymentText}.`)
+    );
     await initCartPage();
   } catch (error) {
     console.error(error);
@@ -256,7 +260,7 @@ async function createOrder(paymentStatus, givenItems, givenUser) {
     paymentButtons.forEach((button) => {
       button.disabled = false;
     });
-    showOrderMessage("Не удалось оформить бронирование. Проверьте JSON Server.", true);
+    showOrderMessage(translateCartText("Не удалось оформить бронирование. Проверьте JSON Server."), true);
   } finally {
     checkoutInProgress = false;
   }
@@ -268,7 +272,9 @@ async function createBookingFromCartItem(item, user, paymentStatus) {
     userId: user.id,
     itemType: item.itemType || "cart",
     title: item.title,
+    titleEn: item.titleEn || item.title,
     details: getBookingDetailsText(item),
+    detailsEn: item.detailsEn || getBookingDetailsText(item),
     image: normalizeBookingImage(item.image),
     checkIn: dates.checkIn,
     checkOut: dates.checkOut,
@@ -343,7 +349,7 @@ function normalizeBookingImage(path) {
 
 function getBookingDetailsText(item) {
   if (item.itemType === "hotel") {
-    return item.details || "Проживание";
+    return getCartField(item, "details") || translateCartText("Проживание");
   }
 
   return translateCartType(item.itemType);
@@ -391,11 +397,21 @@ function translateCartType(type) {
     hotel: "Проживание"
   };
 
-  return types[type] || "Позиция";
+  return translateCartText(types[type] || "Позиция");
 }
 
 function formatCartPrice(value) {
-  return `${Number(value || 0).toLocaleString("ru-RU")} ₽`;
+  return window.formatLocalizedCurrency
+    ? window.formatLocalizedCurrency(value)
+    : `${Number(value || 0).toLocaleString("ru-RU")} ₽`;
+}
+
+function getCartField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
+}
+
+function translateCartText(text) {
+  return window.getTranslationBySource ? window.getTranslationBySource(text) : text;
 }
 
 function resolveCartAssetPath(path) {
@@ -412,7 +428,7 @@ function resolveCartAssetPath(path) {
 
 function createCartElement(tagName, text, className = "") {
   const element = document.createElement(tagName);
-  element.textContent = text;
+  element.textContent = translateCartText(text);
 
   if (className) {
     element.className = className;

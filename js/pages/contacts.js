@@ -239,7 +239,7 @@ function renderContactsReviewsPagination(page, totalPages) {
     button.className = "contacts-reviews-pagination__page";
     button.type = "button";
     button.textContent = String(item);
-    button.setAttribute("aria-label", `Страница ${item}`);
+    button.setAttribute("aria-label", `${window.getCurrentLanguage?.() === "en" ? "Page" : "Страница"} ${item}`);
 
     if (item === contactsReviewsPage) {
       button.classList.add("is-active");
@@ -356,7 +356,7 @@ function formatContactsDate(value) {
     return "";
   }
 
-  return new Intl.DateTimeFormat("ru-RU", {
+  return new Intl.DateTimeFormat(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU", {
     day: "2-digit",
     month: "long",
     year: "numeric"

@@ -6,6 +6,14 @@ const DAY_SECTIONS = {
   holiday: "Праздничный день",
 };
 
+const PRICE_TIME_LABELS = {
+  "1hour": { ru: "1 час", en: "1 hour" },
+  "2hours": { ru: "2 часа", en: "2 hours" },
+  "3hours": { ru: "3 часа", en: "3 hours" },
+  "4hours": { ru: "4 часа", en: "4 hours" },
+  day: { ru: "день", en: "per day" },
+};
+
 const PRICE_COLUMNS = [
   { key: "1hour", label: "Стоимость проката, рублей 1 час" },
   { key: "2hours", label: "Стоимость проката, рублей 2 часа" },
@@ -114,8 +122,9 @@ function isBrokenText(value) {
 
 function getDisplayText(tariff) {
   const fallback = TARIFF_DISPLAY[tariff.id] || {};
-  const title = isBrokenText(tariff.title) ? fallback.title : tariff.title;
-  const subtitle = fallback.subtitle || "";
+  const savedTitle = getTariffField(tariff, "title");
+  const title = isBrokenText(savedTitle) ? translateTariffText(fallback.title) : savedTitle;
+  const subtitle = translateTariffText(fallback.subtitle || "");
 
   return {
     title: title || fallback.title || "",
@@ -143,7 +152,9 @@ function getVisibleTariffs() {
     const inCategory =
       filterGroups.length === 0 ||
       filterGroups.some((group) => FILTER_GROUPS[group]?.includes(tariff.id));
-    const inSearch = !query || normalizeText(`${display.title} ${display.subtitle} ${tariff.description} ${tariff.categoryTitle}`).includes(query);
+    const inSearch = !query || normalizeText(
+      `${display.title} ${display.subtitle} ${getTariffField(tariff, "description")} ${getTariffField(tariff, "categoryTitle")}`
+    ).includes(query);
     return tariff.isAvailable && inCategory && inSearch;
   });
 
@@ -157,7 +168,7 @@ function getVisibleTariffs() {
     }
 
     if (sortType === "title") {
-      return first.title.localeCompare(second.title, "ru");
+      return getTariffField(first, "title").localeCompare(getTariffField(second, "title"), window.getCurrentLocale?.() || "ru");
     }
 
     return first.id - second.id;
@@ -179,7 +190,20 @@ function formatPrice(value) {
     return "•";
   }
 
-  return Number(value).toLocaleString("ru-RU");
+  return new Intl.NumberFormat(window.getCurrentLocale ? window.getCurrentLocale() : "ru-RU").format(Number(value));
+}
+
+function translateText(source, values = {}) {
+  if (window.getTranslationBySource) {
+    return window.getTranslationBySource(source, values);
+  }
+
+  return source;
+}
+
+function getPriceTimeLabel(key) {
+  const language = window.getCurrentLanguage?.() === "en" ? "en" : "ru";
+  return PRICE_TIME_LABELS[key]?.[language] || key;
 }
 
 function createStack(items, className = "") {
@@ -205,9 +229,9 @@ function createTableHeader() {
     th.scope = "col";
 
     if (typeof column === "string") {
-      th.textContent = column;
+      th.textContent = translateText(column);
     } else {
-      th.innerHTML = `<span class="tariff-table__head-prefix">Стоимость проката, рублей</span><span class="tariff-table__head-time">${column.label.replace("Стоимость проката, рублей ", "")}</span>`;
+      th.innerHTML = `<span class="tariff-table__head-prefix">${translateText("Стоимость проката, рублей")}</span><span class="tariff-table__head-time">${getPriceTimeLabel(column.key)}</span>`;
     }
 
     if (column === "" && !isTariffsAdmin()) {
@@ -272,7 +296,8 @@ function createTariffRow(tariff, dayKey) {
   actionButton.className = "tariff-table__action";
   actionButton.type = "button";
   actionButton.textContent = "⋮";
-  actionButton.setAttribute("aria-label", `Выбрать тариф: ${getDisplayText(tariff).title}`);
+  const chooseLabel = window.getCurrentLanguage?.() === "en" ? "Select tariff" : "Выбрать тариф";
+  actionButton.setAttribute("aria-label", `${chooseLabel}: ${getDisplayText(tariff).title}`);
   actionButton.dataset.tariffId = String(tariff.id);
   if (isTariffsAdmin()) {
     actionButton.textContent = "⋮";
@@ -305,7 +330,8 @@ function renderTariffTable(container, dayKey, tariffs) {
   const tbody = document.createElement("tbody");
 
   table.className = "tariff-table";
-  caption.textContent = `${DAY_SECTIONS[dayKey]}: ${dayTariffs.length} позиций`;
+  const itemsLabel = window.getCurrentLanguage?.() === "en" ? "items" : "позиций";
+  caption.textContent = `${translateText(DAY_SECTIONS[dayKey])}: ${dayTariffs.length} ${itemsLabel}`;
   table.append(caption, createTableHeader());
 
   dayTariffs.forEach((tariff) => {
@@ -362,7 +388,7 @@ function renderScheduleTable() {
       dayIcon.classList.add("schedule-table__day-icon--green");
     }
 
-    dayText.textContent = item.day;
+    dayText.textContent = getTariffField(item, "day");
     dayWrapper.append(dayIcon, dayText);
     dayCell.append(dayWrapper);
     row.append(dayCell);
@@ -383,7 +409,10 @@ function renderScheduleTable() {
     actionButton.className = "tariff-table__action";
     actionButton.type = "button";
     actionButton.textContent = "⋮";
-    actionButton.setAttribute("aria-label", `Открыть действия для графика: ${item.day}`);
+    const scheduleActionLabel = window.getCurrentLanguage?.() === "en"
+      ? "Open schedule actions"
+      : "Открыть действия для графика";
+    actionButton.setAttribute("aria-label", `${scheduleActionLabel}: ${getTariffField(item, "day")}`);
     actionCell.append(actionButton);
     row.append(actionCell);
     tbody.append(row);
@@ -417,16 +446,16 @@ function renderTubingTable(tariffs) {
   const tbody = document.createElement("tbody");
 
   table.className = "tariff-table tariff-table--tubing";
-  caption.textContent = "Тарифы на прокат ватрушек";
+  caption.textContent = translateText("Тарифы на прокат ватрушек");
 
   ["Наименование", "Дни", ...TUBING_PRICE_COLUMNS].forEach((column) => {
     const th = document.createElement("th");
     th.scope = "col";
 
     if (typeof column === "string") {
-      th.textContent = column;
+      th.textContent = translateText(column);
     } else {
-      th.innerHTML = `<span class="tariff-table__head-prefix">Стоимость проката, рублей</span><span class="tariff-table__head-time">${column.label.replace("Стоимость проката, рублей ", "")}</span>`;
+      th.innerHTML = `<span class="tariff-table__head-prefix">${translateText("Стоимость проката, рублей")}</span><span class="tariff-table__head-time">${getPriceTimeLabel(column.key)}</span>`;
     }
 
     headerRow.append(th);
@@ -443,7 +472,7 @@ function renderTubingTable(tariffs) {
   ];
 
   row.append(createNameCell(tariff));
-  row.append(createCellWithStack(days.map((day) => day.label), "tariff-table__muted"));
+  row.append(createCellWithStack(days.map((day) => translateText(day.label)), "tariff-table__muted"));
 
   TUBING_PRICE_COLUMNS.forEach((column) => {
     row.append(createCellWithStack(days.map((day) => formatPrice(tariff.prices?.[day.key]?.all?.[column.key]))));
@@ -663,8 +692,10 @@ async function addTariffItem() {
     title: "Новая услуга",
     submitText: "Добавить",
     fields: [
-      { name: "title", label: "Название услуги", value: "Новая услуга проката", required: true },
-      { name: "description", label: "Описание", type: "textarea", value: "" },
+      { name: "title", label: `${translateTariffText("Название услуги")} (RU)`, value: "Новая услуга проката", required: true },
+      { name: "titleEn", label: `${translateTariffText("Название услуги")} (EN)`, value: "New rental service", required: true },
+      { name: "description", label: `${translateTariffText("Описание")} (RU)`, type: "textarea", value: "", required: true },
+      { name: "descriptionEn", label: `${translateTariffText("Описание")} (EN)`, type: "textarea", value: "", required: true },
       { name: "price", label: "Базовая цена", type: "number", min: 0, step: 1, value: 500, required: true }
     ]
   });
@@ -684,9 +715,12 @@ async function addTariffItem() {
       },
       body: JSON.stringify({
         title: data.title.trim(),
+        titleEn: data.titleEn.trim(),
         category: "rental",
         categoryTitle: "Прокат",
+        categoryTitleEn: "Rental",
         description: data.description || "",
+        descriptionEn: data.descriptionEn || "",
         minPrice: price,
         isAvailable: true,
         prices
@@ -780,6 +814,14 @@ function resetFilters() {
   });
 
   renderAll();
+}
+
+function getTariffField(item, field) {
+  return window.getLocalizedField ? window.getLocalizedField(item, field) : item?.[field] || "";
+}
+
+function translateTariffText(text) {
+  return window.translateUiText ? window.translateUiText(text) : text;
 }
 
 function bindControls() {
