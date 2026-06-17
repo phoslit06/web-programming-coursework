@@ -79,7 +79,7 @@ body[data-page="contacts"] .container {
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.48);
 }
 
-.contacts-hero__content h1 {
+.contacts-hero__content h2 {
   margin: 0;
   color: #ffffff;
   font-size: clamp(2rem, 1.45rem + 2vw, 2.5rem);
@@ -695,7 +695,7 @@ body.accessibility-mode .contacts-reviews__catalog {
     padding: 28px 28px 30px;
   }
 
-  .contacts-hero__content h1 {
+  .contacts-hero__content h2 {
     font-size: 2rem;
     line-height: 1.12;
   }
@@ -805,7 +805,7 @@ body.accessibility-mode .contacts-reviews__catalog {
     padding: 22px 19px 24px;
   }
 
-  .contacts-hero__content h1 {
+  .contacts-hero__content h2 {
     font-size: 1.55rem;
     line-height: 1.1;
   }
@@ -999,7 +999,7 @@ body.accessibility-mode .contacts-reviews__catalog {
     padding: 18px 16px 20px;
   }
 
-  .contacts-hero__content h1 {
+  .contacts-hero__content h2 {
     font-size: 1.23rem;
     line-height: 1.08;
   }
@@ -1077,7 +1077,7 @@ body.accessibility-mode .contacts-hero__content {
   text-shadow: none;
 }
 
-body.accessibility-mode .contacts-hero__content h1,
+body.accessibility-mode .contacts-hero__content h2,
 body.accessibility-mode .contacts-hero__content p {
   max-width: none;
   color: var(--color-text);

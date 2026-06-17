@@ -225,6 +225,81 @@ body.accessibility-mode.a11y-images-off .logo::after {
   --theme-toggle-bg: var(--color-surface);
 }
 
+.mobile-menu__control[data-theme-toggle] {
+  --theme-toggle-bg: var(--color-surface);
+  position: relative;
+  display: inline-grid;
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  min-height: 34px;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  padding: 0;
+  color: var(--color-primary);
+  font-size: 0;
+  line-height: 1;
+}
+
+.mobile-menu__control[data-theme-toggle]::before,
+.mobile-menu__control[data-theme-toggle]::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+}
+
+.mobile-menu__control[data-theme-toggle]:hover {
+  border-color: currentColor;
+  color: var(--color-primary-hover);
+}
+
+.mobile-menu__control[data-theme-toggle]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.mobile-menu__control[data-theme-toggle]:not([data-theme-icon])::before,
+.mobile-menu__control[data-theme-toggle][data-theme-icon="moon"]::before {
+  width: 19px;
+  height: 19px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.mobile-menu__control[data-theme-toggle]:not([data-theme-icon])::after,
+.mobile-menu__control[data-theme-toggle][data-theme-icon="moon"]::after {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--theme-toggle-bg);
+  transform: translate(5px, -3px);
+}
+
+.mobile-menu__control[data-theme-toggle][data-theme-icon="sun"]::before {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.mobile-menu__control[data-theme-toggle][data-theme-icon="sun"]::after {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow:
+    0 -13px 0 currentColor,
+    0 13px 0 currentColor,
+    13px 0 0 currentColor,
+    -13px 0 0 currentColor,
+    9px 9px 0 currentColor,
+    -9px 9px 0 currentColor,
+    9px -9px 0 currentColor,
+    -9px -9px 0 currentColor;
+}
+
 body.accessibility-mode .site-header {
   border-bottom: 2px solid var(--color-border);
 }

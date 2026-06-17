@@ -32,6 +32,7 @@ const popularPasswords = new Set([
 document.addEventListener("DOMContentLoaded", () => {
   createPagePreloader();
   initSiteSettings();
+  initMobileMenuBehavior();
   createAuthModals();
   initAuthNavigation();
   initPasswordToggles();
@@ -98,6 +99,52 @@ function initSiteSettings() {
     });
   });
 
+}
+
+function initMobileMenuBehavior() {
+  const menu = document.querySelector(".mobile-menu");
+  const toggle = document.querySelector(".mobile-menu__toggle");
+  const button = document.querySelector(".mobile-menu__button");
+  const panel = document.querySelector(".mobile-menu__panel");
+
+  if (!menu || !toggle || !button || !panel) {
+    return;
+  }
+
+  const closeMenu = () => {
+    toggle.checked = false;
+    document.documentElement.classList.remove("mobile-menu-open");
+    document.body.classList.remove("mobile-menu-open");
+  };
+
+  const syncMenu = () => {
+    document.documentElement.classList.toggle("mobile-menu-open", toggle.checked);
+    document.body.classList.toggle("mobile-menu-open", toggle.checked);
+  };
+
+  toggle.addEventListener("change", syncMenu);
+
+  document.addEventListener("click", (event) => {
+    if (!toggle.checked) {
+      return;
+    }
+
+    if (event.target.closest(".mobile-menu__button, .mobile-menu__panel, .mobile-menu__toggle")) {
+      return;
+    }
+
+    closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && toggle.checked) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", closeMenu);
+  window.addEventListener("pagehide", closeMenu);
+  syncMenu();
 }
 
 function createPagePreloader() {

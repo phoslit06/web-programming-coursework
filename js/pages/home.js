@@ -399,7 +399,7 @@ function createSlide(page, item, index) {
   image.alt = titleText;
 
   if (index === 0) {
-    const heading = document.createElement("h1");
+    const heading = document.createElement("h2");
     heading.id = "hero-title";
     heading.textContent = titleText;
     title.replaceWith(heading);
@@ -499,7 +499,7 @@ function createFallbackSlide() {
   slide.className = "hero-card home-slider__slide is-active";
   slide.innerHTML = `
     <div class="hero-card__content">
-      <h1 id="hero-title" data-i18n="text.948c007e46d5">Данные временно недоступны</h1>
+      <h2 id="hero-title" data-i18n="text.948c007e46d5">Данные временно недоступны</h2>
       <p data-i18n="text.8f5a6a0c823c">Запустите JSON Server командой npm run server, чтобы загрузить актуальные акции и новости.</p>
     </div>
   `;

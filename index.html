@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="css/admin.css?v=3">
   <script src="js/translate.js?v=1" defer></script>
   <script src="js/pages/home.js?v=3" defer></script>
-  <script src="js/pages/auth.js?v=21" defer></script>
+  <script src="js/pages/auth.js?v=22" defer></script>
 </head>
 <body class="theme-light">
   <header class="site-header">
@@ -33,11 +33,11 @@
       </nav>
 
       <div class="header-side">
-        <div class="header-phones" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
+        <div class="header-phones" role="group" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
           <a class="header-phone" href="tel:+79227288288">+79227288288</a>
           <a class="header-phone" href="tel:+73513790979">+73513790979</a>
         </div>
-        <div class="user-settings" aria-label="Настройки сайта" data-i18n-aria-label="text.e8df23a5be44">
+        <div class="user-settings" role="group" aria-label="Настройки сайта" data-i18n-aria-label="text.e8df23a5be44">
           <button class="settings-button" type="button">RU | EN</button>
           <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle data-i18n-aria-label="text.e8902e85703e"></button>
           <button class="settings-button" type="button" aria-label="Версия для слабовидящих" data-i18n-aria-label="text.4a019f49673b">A+</button>
@@ -46,7 +46,8 @@
 
       <div class="mobile-menu">
         <input class="mobile-menu__toggle" type="checkbox" id="mobile-menu-toggle">
-        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню" data-i18n-aria-label="text.72374bf6be92">
+        <label class="mobile-menu__button" for="mobile-menu-toggle">
+          <b class="visually-hidden" data-i18n="text.72374bf6be92">Открыть меню</b>
           <span></span>
           <span></span>
           <span></span>
@@ -94,19 +95,21 @@
   </header>
 
   <main>
-    <section class="hero section" aria-labelledby="hero-title">
+    <h1 class="visually-hidden" data-i18n="text.8abbad07d62f">Центр активного отдыха "Евразия"</h1>
+    <section class="hero section" aria-labelledby="hero-section-title">
+      <h2 id="hero-section-title" class="visually-hidden" data-i18n="text.af959f845b3a">Акции, спецпредложения и новости</h2>
       <div class="container">
-        <div class="home-slider" data-home-slider aria-label="Акции, спецпредложения и новости" data-i18n-aria-label="text.af959f845b3a">
+        <div class="home-slider" data-home-slider role="region" aria-label="Акции, спецпредложения и новости" data-i18n-aria-label="text.af959f845b3a">
           <div class="home-slider__viewport" data-slider-viewport>
             <article class="hero-card home-slider__slide is-active">
               <div class="hero-card__content">
-                <h1 id="hero-title" data-i18n="text.948c007e46d5">Данные временно недоступны</h1>
+                <h2 id="hero-title" data-i18n="text.948c007e46d5">Данные временно недоступны</h2>
                 <p data-i18n="text.8f5a6a0c823c">Запустите JSON Server командой npm run server, чтобы загрузить актуальные акции и новости.</p>
               </div>
             </article>
           </div>
 
-          <div class="slider-controls" data-slider-controls aria-label="Управление слайдером" hidden data-i18n-aria-label="text.5495352d2420">
+          <div class="slider-controls" data-slider-controls role="group" aria-label="Управление слайдером" hidden data-i18n-aria-label="text.5495352d2420">
             <div class="slider-control-pair">
               <button class="slider-button" type="button" data-slider-prev aria-label="Предыдущий слайд" data-i18n-aria-label="text.610429924240">
                 <img src="assets/images/common/icons/arrow-left.svg" alt="">
@@ -117,7 +120,7 @@
             </div>
           </div>
 
-          <div class="slider-dots" data-slider-dots aria-label="Слайды акций и новостей" data-i18n-aria-label="text.82c41f714b18"></div>
+          <div class="slider-dots" data-slider-dots role="group" aria-label="Слайды акций и новостей" data-i18n-aria-label="text.82c41f714b18"></div>
         </div>
       </div>
     </section>
@@ -126,6 +129,7 @@
       <div class="container">
         <h2 id="about-title" class="section-title" data-i18n="text.8abbad07d62f">Центр активного отдыха "Евразия"</h2>
         <article class="info-banner">
+          <h3 class="visually-hidden" data-i18n="text.8abbad07d62f">Центр активного отдыха "Евразия"</h3>
           <img src="assets/images/home/intro-lift.jpg" alt="Горнолыжный склон и подъемник в Евразии" data-i18n-alt="text.9eced745273d">
           <div class="info-banner__text">
             <p data-i18n="text.50f778dc4ad1">Мы рады приветствовать любителей активного отдыха в нашем экологическом парке — самом динамично развивающемся горнолыжном центре Южного Урала!</p>
@@ -236,7 +240,7 @@
         <a href="pages/contacts/contacts.html" data-i18n="text.dba0fcb2cbbb">Контакты</a>
       </nav>
 
-      <div class="footer-phones" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
+      <div class="footer-phones" role="group" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
         <a href="tel:+79227288288">+79227288288</a>
         <a href="tel:+73513790979">+73513790979</a>
       </div>

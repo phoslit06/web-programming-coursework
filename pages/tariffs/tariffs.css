@@ -74,7 +74,7 @@
   visibility: visible;
 }
 
-.tariffs-hero__content h1 {
+.tariffs-hero__content h2 {
   display: block;
   max-width: 930px;
   margin: 0;
@@ -91,7 +91,7 @@
     padding: 0 clamp(28px, 3.8vw, 42px) 38px;
   }
 
-  .tariffs-hero__content h1 {
+  .tariffs-hero__content h2 {
     max-width: min(820px, 100%);
     font-size: clamp(2rem, 3.8vw, 2.7rem);
     line-height: 1.14;
@@ -531,7 +531,7 @@ body.accessibility-mode .schedule-table {
     padding: 0 30px 30px;
   }
 
-  .tariffs-hero__content h1 {
+  .tariffs-hero__content h2 {
     max-width: 680px;
     font-size: 2rem;
   }
@@ -691,7 +691,7 @@ body.accessibility-mode .schedule-table {
     padding: 0 18px 22px;
   }
 
-  .tariffs-hero__content h1 {
+  .tariffs-hero__content h2 {
     max-width: 430px;
     font-size: 1.45rem;
     line-height: 1.08;
@@ -929,7 +929,7 @@ body.accessibility-mode .schedule-table {
     padding: 0 16px 20px;
   }
 
-  .tariffs-hero__content h1 {
+  .tariffs-hero__content h2 {
     font-size: 1.3rem;
     line-height: 1.08;
   }
@@ -1001,7 +1001,7 @@ body.accessibility-mode .tariffs-hero__content {
   color: var(--color-text);
 }
 
-body.accessibility-mode .tariffs-hero__content h1 {
+body.accessibility-mode .tariffs-hero__content h2 {
   max-width: none;
   color: var(--color-text);
   font-size: clamp(1.4rem, 1rem + 1.5vw, 2rem);

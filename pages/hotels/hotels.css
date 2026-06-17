@@ -53,7 +53,7 @@
   color: #ffffff;
 }
 
-.hotels-hero__content h1 {
+.hotels-hero__content h2 {
   margin: 0 0 12px;
   color: #ffffff;
   font-size: clamp(2rem, 1.42rem + 1.95vw, 2.6rem);
@@ -587,7 +587,7 @@ body.theme-dark .hotel-booking__day:disabled {
     padding: 0 18px 24px;
   }
 
-  .hotels-hero__content h1 {
+  .hotels-hero__content h2 {
     max-width: 230px;
     margin-bottom: 10px;
     font-size: clamp(1.2rem, 0.95rem + 1.8vw, 1.45rem);
@@ -759,7 +759,7 @@ body.accessibility-mode .hotels-hero__content {
   color: var(--color-text);
 }
 
-body.accessibility-mode .hotels-hero__content h1,
+body.accessibility-mode .hotels-hero__content h2,
 body.accessibility-mode .hotels-hero__content p {
   max-width: none;
   color: var(--color-text);

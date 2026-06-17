@@ -696,6 +696,25 @@
       "createdAt": "2026-06-01",
       "itemId": 2,
       "id": 25
+    },
+    {
+      "userId": 1,
+      "itemType": "hotel",
+      "title": "Корпус \"Город\"",
+      "titleEn": "Building \"City\"",
+      "details": "Номер 18 · 17.06.2026 - 18.06.2026",
+      "detailsEn": "Room 18 · 06/17/2026 - 06/18/2026",
+      "image": "assets/images/hotels/hotel-city.jpg",
+      "checkIn": "2026-06-17",
+      "checkOut": "2026-06-18",
+      "guests": 2,
+      "totalPrice": 18000,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "createdAt": "2026-06-16",
+      "hotelId": 1,
+      "roomId": 2,
+      "id": 26
     }
   ],
   "tariffs": [
@@ -4309,24 +4328,6 @@
       "image": "assets/images/tours/promo-03.jpg",
       "titleEn": "Evening Session",
       "detailsEn": "Saturday from 17.00 to 21.00"
-    },
-    {
-      "userId": 1,
-      "itemType": "hotel",
-      "hotelId": 2,
-      "roomId": 6,
-      "title": "Корпус \"Горный\"",
-      "titleEn": "\"Mountain\" building",
-      "details": "Номер G-9 · 25.06.2026 - 27.06.2026",
-      "detailsEn": "Room G-9 · 06/25/2026 - 06/27/2026",
-      "checkIn": "2026-06-25",
-      "checkOut": "2026-06-27",
-      "guests": 5,
-      "price": 58000,
-      "quantity": 1,
-      "image": "assets/images/hotels/hotel-mountain.jpg",
-      "createdAt": "2026-06-10",
-      "id": 7
     }
   ],
   "orders": [
@@ -4790,6 +4791,36 @@
       "paymentStatus": "paid",
       "createdAt": "2026-06-01",
       "id": 12
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "userId": 1,
+          "itemType": "hotel",
+          "hotelId": 1,
+          "roomId": 2,
+          "title": "Корпус \"Город\"",
+          "titleEn": "Building \"City\"",
+          "details": "Номер 18 · 17.06.2026 - 18.06.2026",
+          "detailsEn": "Room 18 · 06/17/2026 - 06/18/2026",
+          "checkIn": "2026-06-17",
+          "checkOut": "2026-06-18",
+          "guests": 2,
+          "price": 18000,
+          "quantity": 1,
+          "image": "assets/images/hotels/hotel-city.jpg",
+          "createdAt": "2026-06-16"
+        }
+      ],
+      "bookingIds": [
+        26
+      ],
+      "totalPrice": 18000,
+      "status": "created",
+      "paymentStatus": "paid",
+      "createdAt": "2026-06-16",
+      "id": 13
     }
   ],
   "reviews": [

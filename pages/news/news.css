@@ -45,7 +45,7 @@
   color: #ffffff;
 }
 
-.news-hero__content h1 {
+.news-hero__content h2 {
   color: #ffffff;
   font-size: clamp(2rem, 1.42rem + 1.95vw, 2.5rem);
   font-weight: 900;
@@ -278,7 +278,7 @@
     padding: 0 18px 24px;
   }
 
-  .news-hero__content h1 {
+  .news-hero__content h2 {
     font-size: 1.55rem;
   }
 
@@ -397,7 +397,7 @@ body.accessibility-mode .news-hero__content {
   text-shadow: none;
 }
 
-body.accessibility-mode .news-hero__content h1 {
+body.accessibility-mode .news-hero__content h2 {
   color: var(--color-text);
   line-height: 1.25;
   text-shadow: none;

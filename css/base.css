@@ -26,6 +26,16 @@ body {
   line-height: var(--line-height-base);
 }
 
+html.mobile-menu-open,
+body.mobile-menu-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body.mobile-menu-open {
+  touch-action: none;
+}
+
 body.accessibility-mode main p,
 body.accessibility-mode main li,
 body.accessibility-mode main td,

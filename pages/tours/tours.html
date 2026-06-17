@@ -16,7 +16,7 @@
   <script src="../../js/translate.js?v=1" defer></script>
   <script src="../../js/admin-ui.js?v=3" defer></script>
   <script src="../../js/pages/tours.js?v=8" defer></script>
-  <script src="../../js/pages/auth.js?v=21" defer></script>
+  <script src="../../js/pages/auth.js?v=22" defer></script>
 </head>
 <body class="theme-light" data-page="tours">
   <header class="site-header">
@@ -35,11 +35,11 @@
       </nav>
 
       <div class="header-side">
-        <div class="header-phones" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
+        <div class="header-phones" role="group" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
           <a class="header-phone" href="tel:+79227288288">+79227288288</a>
           <a class="header-phone" href="tel:+73513790979">+73513790979</a>
         </div>
-        <div class="user-settings" aria-label="Настройки сайта" data-i18n-aria-label="text.e8df23a5be44">
+        <div class="user-settings" role="group" aria-label="Настройки сайта" data-i18n-aria-label="text.e8df23a5be44">
           <button class="settings-button" type="button" data-lang-toggle>RU | EN</button>
           <button class="settings-button settings-button--icon" type="button" aria-label="Переключить тему" data-theme-toggle data-i18n-aria-label="text.e8902e85703e"></button>
           <button class="settings-button" type="button" aria-label="Версия для слабовидящих" data-accessibility-toggle data-i18n-aria-label="text.4a019f49673b">A+</button>
@@ -48,7 +48,8 @@
 
       <div class="mobile-menu">
         <input class="mobile-menu__toggle" type="checkbox" id="mobile-menu-toggle">
-        <label class="mobile-menu__button" for="mobile-menu-toggle" aria-label="Открыть меню" data-i18n-aria-label="text.72374bf6be92">
+        <label class="mobile-menu__button" for="mobile-menu-toggle">
+          <b class="visually-hidden" data-i18n="text.72374bf6be92">Открыть меню</b>
           <span></span>
           <span></span>
           <span></span>
@@ -96,21 +97,21 @@
   </header>
 
   <main class="tours-page">
-    <section class="tours-hero section" aria-labelledby="tours-hero-title">
+    <div class="tours-hero section" role="region" aria-labelledby="tours-hero-title">
       <div class="container">
         <article class="tours-hero__card">
           <img src="../../assets/images/tours/hero.jpg" alt="Сноубордист на зимнем склоне" data-i18n-alt="text.3d9ccf3702c0">
           <div class="tours-hero__content">
             <p data-i18n="text.c7bd261fcb35">30 декабря в ЦАО "Евразия" состоится тестовое открытие 2 склона.</p>
-            <h1 id="tours-hero-title" data-i18n="text.b3584c4ab82b">Горнолыжные туры и акции</h1>
+            <h2 id="tours-hero-title" data-i18n="text.b3584c4ab82b">Горнолыжные туры и акции</h2>
           </div>
         </article>
       </div>
-    </section>
+    </div>
 
     <section class="tours-section tours-section--tours" aria-labelledby="ski-tours-title">
       <div class="container">
-        <h2 class="section-title tours-section__title" id="ski-tours-title" data-i18n="text.cca1dc6a05f5">Горнолыжные туры</h2>
+        <h1 class="section-title tours-section__title" id="ski-tours-title" data-i18n="text.cca1dc6a05f5">Горнолыжные туры</h1>
         <div class="tours-grid" data-tours-list>
           <p class="tours-message" data-i18n="text.1bb082e92c47">Загрузка туров...</p>
         </div>
@@ -219,7 +220,7 @@
         <a href="../contacts/contacts.html" data-i18n="text.dba0fcb2cbbb">Контакты</a>
       </nav>
 
-      <div class="footer-phones" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
+      <div class="footer-phones" role="group" aria-label="Телефоны" data-i18n-aria-label="text.f6fc5eaeb4c4">
         <a href="tel:+79227288288">+79227288288</a>
         <a href="tel:+73513790979">+73513790979</a>
       </div>
